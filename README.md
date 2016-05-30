@@ -1,3 +1,13 @@
-Research Statement for job search (research scientist position)
+# PhD dissertation
+Peggy's PhD dissertation, summer 2016
+UC Berkeley Computer Science
 
-derived from qual proposal (December 2015)
+Structure:
+* Introduction
+* Background
+* MixT
+* DemoWiz
+* DemoCut
+* Kinectograph
+* DemoDraw
+* Conclusion
