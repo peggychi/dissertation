@@ -1,0 +1,35 @@
+%!TEX root = ../thesis.tex
+
+\chapter{
+  Illustrations of Human Movements
+}
+% Authoring Illustrations of Human Movements
+% by Iterative Physical Demonstration
+
+\newcommand{\systemname}{DemoDraw}
+\newcommand{\phaseI}{Demonstration Interface}
+\newcommand{\phaseII}{Refinement Interface}
+
+Illustrations of human movements are used to communicate ideas and convey instructions in many domains, but creating them is time-consuming and requires skill.
+We introduce a multimodal approach for people to generate these illustrations by physically demonstrating the movements.
+Our \systemname{} system segments speech and 3D joint motion captured by a Kinect RGB-D sensor into a sequence of motion segments, each characterized by a key pose and salient joint trajectories.
+Based on this sequence, a series of illustrations is automatically generated using a stylistically rendered 3D avatar annotated with arrows to convey movements.
+During demonstration, users can also navigate existing illustrations using speech and amend or re-perform motions if needed. Once a suitable sequence of steps has been created, our system provides a \phaseII{} for finer control of visualization parameters.
+In a three-part evaluation, we validate the effectiveness of the generated illustrations and the usability of both the \phaseI{} and the \phaseII{}.
+Our results show that our participants could create 4-7 step-by-step illustrations from demonstrations in 22 minutes on average.
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{\demodraw/fig/teaser/teaser}
+  \caption{\systemname{}: (a) multi-modal ``\phaseI{}'' to capture motion, verify results, and re-perform portions if needed; (b) conventional \phaseII{} for refinement and exploring other visualization styles; (c-d) examples of illustration styles.}
+  \label{fig:demodraw_teaser}
+\end{figure*}
+
+\input{\demodraw/introduction}
+\input{\demodraw/related_work}
+\input{\demodraw/formative_study}
+\input{\demodraw/overview}
+\input{\demodraw/pipeline}
+\input{\demodraw/evaluation}
+\input{\demodraw/discussion}
+\input{\demodraw/conclusion}

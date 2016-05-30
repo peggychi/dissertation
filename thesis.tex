@@ -1,0 +1,154 @@
+\documentclass{ucbthesis}
+
+\usepackage[backend=biber,
+style=ieee,
+sorting=ynt]{biblatex}
+\usepackage{balance}  % to better equalize the last page
+\usepackage{graphics} % for EPS, load graphicx instead
+\usepackage{mathptmx}
+\usepackage[pdftex]{hyperref}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage{textcomp}
+\usepackage{microtype} % Improved Tracking and Kerning
+\usepackage{ccicons}  % Cite your images correctly!
+\usepackage{todonotes}
+\usepackage{lmodern}
+\usepackage{etoolbox} %for toggle
+\usepackage{soul} %for \hl{highlighting}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel} %for bibliography
+\usepackage{etaremune}
+\usepackage{xspace} % to fix spacing around macros
+\usepackage{appendix}
+
+\inputencoding{utf8}
+
+\newtoggle{comments}
+\toggletrue{comments}
+%\togglefalse{comments}
+
+\newtoggle{colorchanges}
+\toggletrue{colorchanges}
+%\togglefalse{colorchanges}
+
+\hyphenation{mar-gin-al-ia}
+\hyphenation{bra-va-do}
+
+% ---------------------------------------------------------------
+
+\newcommand\tabhead[1]{\small\textbf{#1}}
+\newcommand\pagetitle[1]{{\centering\large\textbf{#1}\\\vspace{20mm}}}
+
+\newcommand{\subsubTitleBold}[1]{{\textbf{#1.}}}
+\newcommand{\ea}{{\xspace}et~al.\xspace}
+\newcommand{\iquote}[1]{\emph{``#1''}}
+\newcommand{\fixme}[1]{{\color{Red}{#1}}}
+\newcommand{\tofix}[1]{{\color{JungleGreen}{(#1)}}}
+
+% paths
+\newcommand{\mixt}{chap3_mixt}
+\newcommand{\demowiz}{chap4_demowiz}
+\newcommand{\democut}{chap5_democut}
+\newcommand{\kinectograph}{chap6_kinectograph}
+\newcommand{\demodraw}{chap7_demodraw}
+\newcommand{\conclusion}{chap8_conclusion}
+
+% comment macros
+\definecolor{Orange}{rgb}{1,0.5,0}
+\definecolor{Red}{rgb}{1,0,0}
+\definecolor{Green}{rgb}{0,.35,0}
+\definecolor{Blue}{rgb}{0,0,1}
+\definecolor{Black}{rgb}{0,0,0}
+
+\iftoggle{comments} {
+  \newcommand{\bjoern}[1]{{\color{Red}\em{BH: #1}\normalfont}}
+  \newcommand{\peggy}[1]{{\color{Orange}\em{P: #1}\normalfont}}
+}{
+  \newcommand{\bjoern}[1]{}
+  \newcommand{\peggy}[1]{}
+}
+
+\iftoggle{colorchanges} {
+  \newcommand{\changes}[1]{{\color{Blue}#1\normalfont}}
+}{
+  \newcommand{\changes}[1]{{#1}}
+}
+
+\newcommand{\dan}[1]{}
+\newcommand{\mira}[1]{}
+\newcommand{\wil}[1]{}
+
+% ---------------------------------------------------------------
+
+\addbibresource{ref/allbib.bib}
+\addbibresource{ref/mixt.bib}
+\addbibresource{ref/democut.bib}
+\addbibresource{ref/demowiz.bib}
+\addbibresource{ref/kinectograph.bib}
+\addbibresource{ref/demodraw.bib}
+\addbibresource{ref/peggychi.bib}
+\addbibresource{ref/thesis.bib}
+
+% ---------------------------------------------------------------
+
+\begin{document}
+
+\title{Designing Video-Based Interactive Instructions}
+\author{Pei-Yu (Peggy) Chi}
+
+\degreesemester{(Draft -- latest update: \today)\\Summer}
+\degreeyear{2016}
+\degree{Doctor of Philosophy}
+\chair{Professor Bj\"orn Hartmann}
+\othermembers{Professor Eric Paulous \\
+  Associate Professor Kyle Steinfeld}
+\numberofmembers{3}
+
+\field{Computer Science}
+
+\campus{Berkeley}
+
+\maketitle
+\approvalpage
+\copyrightpage
+
+\input{abstract}
+
+\begin{frontmatter}
+
+\input{acknowledgements/dedication}
+
+\tableofcontents
+\clearpage
+\listoffigures
+\clearpage
+\listoftables
+
+\input{acknowledgements/acknowledgements}
+\end{frontmatter}
+
+\pagestyle{headings}
+
+\include{chap1_intro/intro}
+\include{chap2_background/background}
+\include{\mixt/mixt}
+\include{\demowiz/demowiz}
+\include{\democut/democut}
+\include{\kinectograph/kinectograph}
+\include{\demodraw/demodraw}
+\include{\conclusion/conclusion}
+
+\clearpage
+\printbibliography
+
+\clearpage
+\input{appendix/appendix}
+
+\clearpage
+\input{vita}
+
+\end{document}

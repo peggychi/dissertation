@@ -1,0 +1,59 @@
+%!TEX root = ../thesis.tex
+% This paragraph covered a lot of ground, but I was a bit lost since each sentence tried to cover too many different approaches. Is there an implied structure? E.g. first software-static, then software-video, then physical tasks? Id’ have expected some more basic references early on that for example show that people don’t read software documentation and instead look for task-centered learning materials. There’s also a difference between related work that investigates what good instruction formats are, and systems work that introduces new tools to create such formats.
+
+% add some Tiffany Tseng's work
+% http://web.mit.edu/ttseng/www/academics/index.html
+
+\chapter {Background}
+% This section presents the state-of-the-art of technologies that support tutorial authors and learners.
+The research community has been investigating the motivations of both authors and viewers of how-to videos and written tutorials. While one primary motivation is to share expertise, published videos also serve as a way to broadcast skill and as an online portfolio~\cite{Torrey:2007he,Kuznetsov:2010:REA:1868914.1868950}. Authors may derive revenue through advertising or referrals~\cite{Lafreniere:2012tl}. Viewers, on the other hand, typically seek technical explanations, but are also searching for inspiration~\cite{Torrey:2009fc} and looking for validation of existing skills~\cite{Lafreniere:2012tl}.
+%
+These studies suggest that tutorials have a larger variety of purposes and uses than merely communicating technical content. Recently, guidelines of improving tutorial authorship have been proposed \cite{Wakkary:2015:TAH:2702123.2702550}. Key findings include identifying tools and components and structuring a task into steps with a clear sequence. In our work, we strive to make authoring of instructions more accessible to amateurs while maintaining opportunities for adding individual style through control over editing effects.
+
+% -------------------------------------------
+
+\section{Help and Instruction Formats}
+There has been a considerable amount of research devoted to tutorial designs that help viewers operate an interactive system. Efforts include visualizing events or embedding instant assistance in software applications and providing real-time feedback on physical tasks.
+
+\subsection{Software Visualization}
+In the software application domain, visualizing input and output events has shown to be effective in enhancing instructions. Events can range from low (e.g., mouse actions and movements or keyboard strokes) to high level (e.g., UI component changes). Examples include rendering markers and arrows on screenshot images of a software demo process \cite{Nakamura:2008:ASV:1449715.1449721, Grabler:2009jj}, automatic indexing of instructional software videos \cite{Banovic:2012kd}, and providing visual feedback based on UI operations in real-time \cite{Dixon:2010fb,Dixon:2011:CHP:1978942.1979086}. Work has also aimed to visualize application-centric processes, such as 3D mesh construction \cite{Denning:2011fy} or image manipulation tasks \cite{Grabler:2009jj} as a step-by-step list.
+
+\subsection{In-Application Support}
+
+Another approach is to provide in-application assistance, often in real-time, in a specific context. Methods include embedding video snippets in application tooltips \cite{Grossman:2010wr}, providing step-by-step wizards \cite{Bergman05docwizards:a,Kelleher:2005:STD:1054972.1055047,Fernquist:2011:SRE:2047196.2047245}, automatically navigating video tutorials based on user operations \cite{Pongnumkul:2011ju}, and showing a history of before and after thumbnails and video clips \cite{Grossman:2010jz}. In-app supports can also be dynamically updated within a community based on user contribution \cite{Lafreniere:2013ff,Matejka:2009:CCR:1622176.1622214}.
+
+\subsection{Instructions for Physical Tasks}
+
+Beyond software applications to the real world where activity and object recognition is difficult, researchers have investigated tools for supporting physical tasks. Workflows can be automatically generated for furniture \cite{agrawala2003designing} or block assembly tasks \cite{Gupta:2012ku}; the latter was shown to be trackable for real-time guidance.
+%
+Information can also be overlaid on top of the work area using augmented reality, usually through a head-mounted display. Such systems can provide visual highlights for machine maintenance \cite{Henderson:2011ff}, or interactive remote tutoring for repair tasks~\cite{Gurevich:2012ko}. Another method is to overlay guidance on an augmented mirror for tasks such as dance movements \cite{Anderson:2013:YEM:2501988.2502045}.
+
+These projects show how effective instructional representations can assist learners in learning or executing tasks. Our goal is to further study new formats that incorporate advantages of several formats of multimedia, including images, text, and videos, and in turn enhancing the learning experience for a variety of tasks.
+
+% -------------------------------------------
+
+\section{Activity Tracking}
+To provide real-time assistance, it is important to recognize the user activities during a task performance. Several domains have been widely studied, including software operations, scene recognition, and object tracking in a physical world.
+%
+Researchers have shown that workflows and content of desktop applications can be captured automatically using computer vision \cite{Yeh:2009dh,Chang:2011vd} and application logs \cite{Grossman:2010jz,Grabler:2009jj,Pongnumkul:2011ju}.
+%
+However, tracking user behavior in the physical world, rather than in software, remains a challenge. Computer vision techniques can track specific targets, including hands \cite{Ranjan:2008}, user movements \cite{Wilson:2012fb}, fast-moving objects (e.g., a Ping-Pong ball) \cite{Okumura:2011tr}, or regions in pre-defined spaces \cite{Ranjan:2007}.
+
+These methods usually require an expert defining heuristics of space regions or movement classifications ahead of time for the tracking program.
+%
+On the contrary, we propose a new approach that does not have these issues, gives users flexibility in a home environment, and provides interactive control. If activity recognition is not possible, we include users in the loop to annotate high-level information in order to create high-quality results.
+%
+Emerging work has provided insights toward this vision using consumer devices such as a Kinect sensor \cite{Anderson:2013:YEM:2501988.2502045,Gupta:2012ku} to provide dynamic instructions, which shares a similar goal with ours.
+
+% -------------------------------------------
+
+\section{Video Capture, Annotation and Editing}
+% \subsubTitleI{Capture} Several research and commercial systems guide users at capture time to yield higher-quality videos. Such systems often employ templates to help users capture sequences of distinct shots (e.g., Snapguide\footnote{http://snapguide.com/}) or suggest framing of the subject or camera view as in NudgeCam~\cite{Carter:2010}. Computer vision algorithms, like face tracking, can be used to offer real-time feedback during such directed actions~\cite{Davis:2003cu,Heer:2004ba,Carter:2010}. Instead of relying on templates, shot suggestions can also be bootstrapped through user dialogs~\cite{Adams:2005}.
+
+% \subsubTitleI{Annotation} Researchers have investigated how to provide interactions that enable efficient, fluid annotation of video data, from the early EVA system~\cite{Mackay:1989} to more recent interfaces like VideoTater that leverage pen input~\cite{Diakopoulos:2006vt}. We do not claim a contribution in the interaction techniques of our annotation interface and take inspiration from such prior work.
+
+% \subsubTitleI{Editing} Frame-based editing of video is very time-intensive, as it forces users to operate at a very low level of detail. Editors can leverage metadata, such as transcripts~\cite{Berthouzoz:2012,Pavel:2014:VDB:2642918.2647400} and shot boundaries~\cite{Casares:2002dx}, to give users higher-level editing operations at the shot level rather than the frame level.
+%In specific video domains like interview videos, transcripts can help users place cuts and transitions~\cite{Berthouzoz:2012}.
+Computer vision techniques can automate certain effects, such as creating cinemagraphs~\cite{Bai:2012, Joshi:2012}, automatically-edited lecture videos~\cite{Heck:2007}, zoomable tapestries~\cite{Barnes:2010} and synopses~\cite{Pritch:2009vl}, or stabilizing shaky amateur videos~\cite{Liu:2011}. When analyzing video is a matter of subjective taste, identifying salient frames can also be outsourced to crowd workers~\cite{Bernstein:2011uj}.
+
+In contrast to these systems, we do not require the author to manipulate the camera or system during capture. Many leisure activities, such as home repair or cooking, require use of both hands or involve getting one's hands dirty, so camera manipulation is not possible. We use vision techniques for automatic recording and editing. It differs from previous approaches in its focus on particular application domains -- software and physical demonstrations. By focusing on specific domains, we can make assumptions about the structure of the input and output video, such as the fact that there is a linear set of steps or movements, and offer user interfaces and algorithms that make it easier to create high quality instructions.

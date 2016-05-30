@@ -1,0 +1,31 @@
+%!TEX root = ../thesis.tex
+\section{Conclusion}
+
+This paper introduced MixT, a system that automatically generates step-by-step mixed media tutorials from user demonstrations. We motivated the design of MixT through a formative study that suggested that step videos help users understand complex direct manipulation operations. MixT’s architecture uses a command log, an input device log, and screencapture video to generate tutorials. It applies video compositing techniques to focus on salient information, and highlights interactions through mouse trails. Our informal evaluation suggests that automatically generated MixT tutorials were as effective in helping users complete tasks as tutorials that were created manually.
+
+% \section{Limitation and Future Work}
+
+The current MixT implementation has some important limitations that should be addressed in future work. One missing yet interesting component is the audio content, such as a tutorial author's narration in the video demonstrations. Spoken explanations of the demonstrated actions can help viewers understand the rationale behind a sequence of steps. However, narration and interactions may not always occur in synchrony and it is an open problem to segment combined audio and video tracks appropriately into steps. MixT also does not provide opportunities for the tutorial creator to edit a demonstration. To maximize the benefits of mixed media tutorials, we are interested in exploring ways to provide an editing interface for tutorial authors to easily examine and modify automatic results, and to add annotations that can provide rationale in a lightweight way before sharing their demonstrations.
+
+\begin{enumerate}
+\item \label{bkm:Ref195895513}Bergman, L., Castelli, V., Lau, T., and Oblinger, D. DocWizards: a System for Authoring Follow-me Documentation Wizards. In Proc. UIST '05, ACM Press (2005).
+\item Brunelli, R. Template Matching Techniques in Computer Vision: Theory and Practice. Wiley (2009)
+\item \label{bkm:Ref195952943}Denning, J. D., Kerr, W. B., and Pellacini, F. MeshFlow: Interactive Visualization of Mesh Construction Sequences. In Proc. SIGGRAPH '11, ACM Press (2011).
+\item \label{bkm:Ref202759509}Dixon, M. and Fogarty, J. Prefab: Implementing Advanced Behaviors Using Pixel-Based Reverse Engineering of Interface Structure. \ In Proc. CHI '10, ACM Press (2010).
+\item \label{bkm:Ref184382380}Ekstrand, M., Li, W., Grossman, T., Matejka, J., and Fitzmaurice, G. Searching for Software Learning Resources using Application Context. In Proc. UIST '11, ACM Press (2011).
+\item \label{bkm:Ref184382416}Fernquist, J., Grossman, T., and Fitzmaurice, G. Sketch-Sketch Revolution: An Engaging Tutorial System for Guided Sketching and Application Learning. In Proc. UIST '11, ACM Press (2011).
+\item \label{bkm:Ref195903406}Furnas, G. W. Generalized Fisheye Views. In Proc. CHI '86, ACM Press (1986).
+\item \label{bkm:Ref184382310}Grabler, F., Agrawala, M., Li, W., Dontcheva, M., and Igarashi, T. Generating Photo Manipulation Tutorials by Demonstration. In Proc. SIGGRAPH '09, ACM Press (2009).
+\item \label{bkm:Ref184382395}Grossman, T., and Fitzmaurice, G. ToolClips: an Investigation of Contextual Video Assistance for Functionality Understanding. In Proc. CHI '10, ACM Press (2010).
+\item \label{bkm:Ref201634303}Grossman, T., Matejka, J., and Fitzmaurice, G. Chronicle: Capture, Exploration, and Playback of Document Workflow Histories. In Proc. UIST '10, ACM Press (2010).
+\item \label{bkm:Ref195895340}Harrison, S. A Comparison of Still, Animated, or Nonillustrated On-line Help with Written or Spoken Instructions in a Graphical User Interface. In Proc. CHI '95, ACM Press (1995).
+\item \label{bkm:Ref184382347}Kelleher, C., and Pausch, R. Stencils-based Tutorials. In Proc. CHI '05, ACM Press (2005).
+\item \label{bkm:Ref202761498}Kong, N., Grossman, T., Hartmann, B., Fitzmaurice, G. and Agrawala, M. Delta: A Tool for Representing and Comparing Workflows. In Proc. CHI '12, ACM Press (2012).
+\item \label{bkm:Ref202759227}Matejka, J., Li, W., Grossman, T., \& Fitzmaurice, G. CommunityCommands: Command Recommendations for Software Applications. In Proc. UIST '09, ACM Press (2009).
+\item \label{bkm:Ref184382369}Matejka, J., Grossman, T., and Fitzmaurice, G. IP-QAT: In-Product Questions, Answers \& Tips. In Proc. UIST '11, ACM Press (2011).
+\item \label{bkm:Ref184382268}Palmiter, S. and Elkerton, J. Animated Demonstrations vs Written Instructions for Learning Procedural Tasks: a Preliminary Investigation. In International Journal of Man-Machine Studies (1991), 34, pp. 687-701.\label{bkm:Ref195909769}
+\item \label{bkm:Ref184382254}Palmiter, S. and Elkerton, J. Animated Demonstrations for Learning Procedural Computer-Based Tasks. Human-Computer Interaction. 8, 3 (1993), pp. 193–216.
+\item \label{bkm:Ref186908980}Pongnumkul, S., Dontcheva, M., Li, W., Wang, J., Bourdev, L., Avidan, S., and Cohen, M. F. Pause-and-Play: Automatically Linking Screencast Video Tutorials with Applications. In Proc. UIST '11, ACM Press (2011).
+\item \label{bkm:Ref184382359}Ramesh, V., Hsu, C., Agrawala, M., and Hartmann, B. ShowMeHow: Translating User Interface Instructions Between Similar Applications. In Proc. UIST '11, ACM Press (2011), 1–8.
+\item \label{bkm:Ref202759500}Yeh, T., Chang, T.-H., and Miller, R.C. Sikuli: Using GUI Screenshots for Search and Automation. In Proc. UIST '09, ACM Press (2009), 183–192.
+\end{enumerate}

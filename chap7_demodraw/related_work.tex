@@ -1,0 +1,114 @@
+%!TEX root = ../thesis.tex
+\section{Related Work}
+% There is extensive research on generating illustrations and tutorials in many domains, including technical diagrams~\cite{li2008automated,mitra2010illustrating}, assembly instructions~\cite{agrawala2003designing}, and learning content for software applications~\cite{grabler2009generating,chi2012mixt}.
+Our work is related to research in demonstration-based authoring and motion visualization techniques.
+
+\subsection{Demonstration-Based Authoring}
+
+%\dan{``a-priori'' demonstrations: re-purposing essentially found content to generate optimized content. User doesn't refine or adjust their original demonstration as part of authoring }
+User demonstrations have been harnessed to generate explanatory, educational or entertainment media in domains including software tutorials~\cite{Bergman:2005:DocWizards,grabler2009generating}, animation~\cite{Barnes:2008:VideoPuppetry,held20123d}, 3D modeling~\cite{Zhang:2013:BodyAvatar}, or physical therapy~\cite{Yeager:EECS-2013-91}.
+%
+Systems can support different levels of integration between demonstration and authoring.
+%
+Some focus on post-processing previously captured demonstrations, leaving no option to re-perform or refine demonstrations while authoring.
+%
+Work that falls into this category includes: generating step-by-step software tutorials from video or screen recordings with DocWizards~\cite{Bergman:2005:DocWizards}, Grabler \ea's system~\cite{grabler2009generating}, and MixT~\cite{chi2012mixt}, and automatically editing and annotating existing video tutorials with DemoCut~\cite{chi2013democut}.
+This ``first demonstrate, then author'' workflow is similar to graphics research transforming existing artifacts into illustrations. For example, using technical diagrams to generate exploded views or mechanical motion illustrations with systems by Li \ea~\cite{li2008automated} and Mitra \ea~\cite{mitra2010illustrating}, using short videos to generate storyboards~\cite{goldman2006schematic}, creating assembly instructions by tracking 3D movements of blocks in DuploTrack~\cite{Gupta2012DuploTrack} and closely related to our work, using existing datasets of pre-recorded motion capture sequences to generate human motion visualizations with systems by Assa \ea~\cite{assa2005action,assa2008motion}, Choi \ea~\cite{choi2012retrieval}, and Bouvier-Zappa \ea~\cite{bouvier2007motion}.
+%\wil{Scott Carter's system?}\dan{I don't know what paper this is referring to.}\peggy{authoring tool using Glass~\cite{carter2015authoring} - I can see where to insert when I give a pass on this section}
+%
+%\dan{might be missing this ref: goldman2007interactive}
+%\wil{Maybe cite Sodhi here as well? I don't know that work.}
+%\dan{Note DocWizards~\cite{Bergman:2005:DocWizards} supports re-recording the entire screen recording to update the final illustration, but it seems to be all or nothing and conceptually is not part of authoring, but about keeping the tutorials up to date when the documented software changes.}
+
+Other systems integrate demonstration and authoring into one interactive workflow. This way iterative demonstrations (with additions, re-takes, and refinements) are a first-class interaction method for authoring.
+This general strategy was used by GENESYS~\cite{Baecker:1969:GENESYS}, one of the earliest interactive computer animation systems. Authoring animation by demonstration remains a common approach, often using physical props as in Video Pupperty~\cite{Barnes:2008:VideoPuppetry}, 3D Puppetry~\cite{held20123d}, and MotionMontage~\cite{Gupta:2014:MotionMontage}.
+% Gupta \ea's MotionMontage~\cite{Gupta:2014:MotionMontage} enables people to author 3D animations by compositing multple demonstrations of desired movements performed with tangible props.
+\bjoern{my main question about these systems is - how do I switch between demonstration and ``meta'' commands about whether to record or not, what to replace, etc? Could someone add some text? The prior conclusion about directness of mapping didn't help me  much so I commented it out.}
+\dan{I'm not sure it's just about switching between demo and commands, what I was trying to get across with  ``directness'' is  interactive demonstration for animation is much easier because the demonstrated movements and corresponding authored movements of the virtual character are almost the same. With motion illustrations the demo to author link is less direct (continuous movements are mapped to a single 2D abstraction) so it's harder to get the demo right. For us, iteration is even more necessary.  }
+%Since the mapping from prop movements to virtual character movements is often direct, these systems have a high level of interactivity where the boundary between demonstration and authoring disappears. \bjoern{this is a really vague sentence and I'm not sure what it's trying to accomplish. I commented it out}
+%\dan{not sure that's 100\% true with those 3 systems}
+
+While the primary goal of performance-based animation systems is to accurately track and re-target prop motions to virtual characters, \systemname{} focuses on the mapping from recorded body movement demonstrations to static illustrations conveying those motions.
+Some previous systems have also mapped body movement to static media:
+BodyAvatar~\cite{Zhang:2013:BodyAvatar} treats the body as a proxy and reference frame for ``first-person'' body gestures to shape a 3D avatar model;
+a Manga comic maker~\cite{lumb_manga_2013} maps the body pose directly into a comic panel.
+%and Tweetris~\cite{Freeman:2013:Tweetris} where body shape is used to directly select puzzle shapes by shape similarity.
+Systems that provide interactive guidance for teaching body motions could be considered the inverse of \systemname{}. Examples include YouMove~\cite{anderson2013youmove} that teaches moves like dance and yoga, and Physio@Home~\cite{Tang:2014:Physio@Home} that guides therapeutic exercises.
+%
+%\dan{As an aside, physiotherapy is a great use case for DemoDraw: a therapist could quickly demonstrate a set of tailored exercises for a patient and automatically create illustrations for the patient to take home.}
+%
+%\dan{I didn't use some good sentences from earlier drafts that in source comments below.}
+
+% Demonstrations often involve mistakes and multiple repeated takes of the motion,
+
+% \systemname{} supports familiar video editing interactions to help authors select the best portions of the demonstrations for creating an illustration.
+
+% \systemname{} allows the author to demonstrate the target motion as part of the authoring workflow.
+
+% \systemname{} has a similar high-level goal, but unlike these systems, the source data is performed with the sole purpose of generating illustrations.
+
+\subsection{Motion Visualization}
+
+Several of the systems above focus on developing automated algorithms to visualize various types of dynamic behavior, such as mechanical motion~\cite{li2008automated,mitra2010illustrating}, motion in film~\cite{goldman2006schematic}, and human movements~\cite{assa2005action,bouvier2007motion,choi2012retrieval}.
+%
+Much of this work is inspired by formalizing techniques and principles for hand-crafted illustrations~\cite{agrawala2011principles}. Similarly, we explore such principles for body movement diagrams in the following section.
+% Much of this work is inspired by existing hand-crafted illustrations\wil{Refs from DanG's work, Macaulay}, instructional texts on depicting motion (\wil{Ref Scott McCloud and others}), and cognitive psychology findings that suggest how humans construct mental models of moving objects (\wil{Ref Hegarty, Tversky}).
+
+The illustrations produced by our system are similar to those described by Bouvier-Zappa et al.~\cite{bouvier2007motion}, but our goals are different.
+%
+Their goal is to automatically visualize large collections of pre-recorded motion capture sequences.
+We support many of the same visualization techniques in our system, including motion arrows, overlaid ghosted views, and sequences of poses, but
+our goal is to provide an interactive system that helps authors create illustrations for particular motions they wish to share with others.
+Since such demonstrations often involve mistakes and multiple repeated takes of the motion, \systemname{} supports interactions to help authors review and retake portions of their demonstrations for creating an illustration.
+Moreover, the interactive nature of \systemname{} enables finer-grained controls for adjusting visualization parameters and compensating for idiosyncratic characteristics of automated algorithms.
+% For example, to generate a motion arrow in our system, users can explicitly specify both a target and root joint, which define the arrow trajectory and reference frame, respectively. In contrast, the system of Bouvier-Zappa et al. automatically determines how to generate motion arrows based on the user-specified level-of-detail.
+%While more automation may reduce the amount of authoring effort in some cases, \systemname{} enables authors to express wider range of visualizations that emphasize different aspects of target motions. Our results show several example illustrations that would likely be very difficult to generate in a more automated manner. \wil{Make sure we actually have such results and that we point them out in the results!}
+\bjoern{I comented out the ``we can generate things others can't'' argument, because not sure that this is the key argument to make, especially because we *lack* some nice nuance such as visualizing velocity that BZ has. I think the better argument is that creating examples that communicate well is just a fundamentally different task from visualizing an existing movement. Stage actors will exaggerate motions and emotions so they are more legible for the audience. The key is that we enable authors to switch their perspective between demonstrator and audience quickly so they can evaluate whether they should re-perform a motion differently. It's not just that they made a mistake, but they can evaluate whether a given motion ``reads'' right or whether they should adjst how they perform it.}
+
+\dan{this could be useful: Kistler and André's CHI Play poster (or is it a WIP?)~\cite{Kistler:2015:GameBodyGestureViz} evaluates three approaches for visualizing available whole-body Kinect gestures in a game: full colour video, shape (a silhouette), and skeleton. Finds colour is best. Worth looking at refs, gives example of game called Traveller that conveys whole-body gestures. }
+
+
+
+\wil{All original references are commented out in the tex file.}
+
+\if 0
+Assa 2005: Action Synopsis: Pose Selection and Illustration~\cite{assa2005action}\\
+Assa 2008 Motion Overview of human actions~\cite{assa2008motion}\\
+Choi 2012 Retrieval and Visualization with Stick Figures [Choi et al. PG'13/12]~\cite{choi2012retrieval}\\
+Ceylan et al. - Designing and Fabricating Mechanical Automata from Mocap Sequences~\cite{ceylan2013designing}\\
+Free Viewpoint Video - Caranza et al. TOG'03~\cite{carranza2003free}\\
+Video-based Reconstruction of Animatable Human Characters- Stroll et al. SIGGRAPH ASIA'10\\
+Theobalt et al. SIGGRAPH'04\\
+Dan Goldman Schematic Storyboarding~\cite{Goldman2006Schematic}\\
+Theobalt pitching baseball~\cite{theobalt2004pitching}\\
+Bernard - Motion Explorer - search in large motion database - has a mostion cluster visualization ~\cite{bernard2013motionexplorer}
+
+\dan{Bouvier-Zappa et al. Motion Cues for Illustration of Skeletal Motion Capture Data (NPAR'07)~\cite{bouvier2007motion} is about exact same kind of illustration style }
+\bjoern{I just looked at this paper - it's a key reference we definitely have to discuss!}
+\wil{I'm still working on this section. See the comments in the Latex for my notes.}
+
+\subsection{Automatically-Generated Illustrations in Other Domains}
+\bjoern{One key distinction here is if the focus is one the motion of the person, or the manipulation to objects. We focus on the former; the papers focus on the latter.}
+\begin{itemize}
+\item Agrawala: Designing Step-by-step assembly instructions~\cite{agrawala2003designing}
+\item Li: Automated Exploded view diagrams~\cite{li2008automated}
+\item Mitra: Illustrating how mechanical assemblies work ~\cite{mitra2010illustrating}
+\end{itemize}
+
+\fi
+
+%\subsection{3D Model Manipulation and Navigation}
+%\bjoern{I generally don't quite understand how most of the papers in this section relate to our contribution so I'm inclined to cut the whole section}
+%\begin{itemize}
+%\item Kholgade 2014: 3D Object Manipulation in a Single Photograph using Stock 3D Models~\cite{Kholgade20143d}
+%\item Igarashi Apparent layer 2010~\cite{igarashi2010apparent}
+%\end{itemize}
+%
+%Huang et al. CGA '07 \bjoern{don't know what this is}
+%
+%Jacobson et al. TOG'14 \bjoern{Is this the Tangible device for Character articulation paper?~\cite{jacobson2014tangible}}
+%
+%Dan Goldman's video navigation via direct manipulation
+%
+%\item Gooch: NPR for Authomatic Technical Illustration\cite{gooch1998non}\bjoern{this is a rendering te
+

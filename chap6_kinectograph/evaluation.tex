@@ -1,0 +1,45 @@
+%!TEX root = ../thesis.tex
+\section{Evaluation}
+We conducted an experiment to evaluate how well users could create self-directed tutorials with Kinectograph. We measured whether users could film an entire demonstration video using Kinectograph with minimal aid.
+%
+We recruited seven participants (3 male and 4 females, ages 20-33) from a university to record multi-step tutorials in a lab environment. Four had filmed a video before but only one had filmed a video without the assistance of others. Each participant was compensated with a \$10 giftcard. Each session lasted about 30 minutes long.
+% Note that this experiment was run using a previous prototype of the Kinectograph base, which did not utilize the motors provided by the Kubi.
+%\pc{describe the settings and put the figure here}
+%14-16 feet by 12-14 feet area
+
+\subsection{Procedure and Tasks}
+\subsubTitleBold{Introduction (5 minutes).} Participants first went through an online documentation to learn the Kinectograph features. %with a demo video
+
+\subsubTitleBold{Training (10 minutes).} Experimenters guided participants through a series of interactions highlighting each of our core features. Participants were asked to operate each feature through our Tablet UI with the support of experimenters.
+
+\subsubTitleBold{Testing (5 minutes).} We asked participants to film a basketball tutorial using Kinectograph. They were asked to introduce actions including passing, catching, and tossing a basketball. Participants acted as both an actor and a director, i.e., they fully controlled the camera and performed the demonstrations without any assistance. A series of nine subtasks were designed for participants to exercise the following features: manual mode (pan/tilt), tracking mode (to track single and multiple body joints), and zooming. In particular, one of the subtasks involved two users in the view. Experimenter walked in the view for passing the ball when participant invited. To help participants understand these activities, we provided a storyboard with high level instructions for filming (e.g., ``zoom into your face'', ``pan to the basketball'', or ``track your head and walk around'') without explicitly listing which Kinectograph feature to use. During the recording, we captured Kinectograph's rendered video view.
+
+\subsubTitleBold{Questionnaire and Debrief (10 minutes).} Finally, we asked participants to watch the recorded video in full and answer a questionnaire, regarding the ease of use of our interface and open-ended questions. We monitored the number of attempts it took to complete each filming task of the tutorials.
+
+\subsection{Results}
+% \subsubsection{Successes}
+All of the 7 participants successfully created a self-directed tutorial using our system. No users failed to complete any of the 9 subtasks. Each participant reattempted at most 2 subtasks, mostly to reselect a zoom area. The average video length was 3.5 minutes. Overall, participants rated the ease of use of the system as $\mu=4.1$ on the 5-point Likert scale.
+
+All participants were able to manually pan and tilt the camera by swiping as intended. Participants stated that this was easy to control with the UI ($\mu=3.6$ , $\sigma = 1.0$). They also successfully enabled the tracking mode and had Kinectograph track their head and hands. Participants stated it was easy to enable tracking ($\mu=4, \sigma=1.3$ ) and rated their satisfaction with the system performance as $\mu=4, \sigma=0.8$.  Participants stated that \iquote{It was easy to select a body part of choice} (P6), and that \iquote{ (...Kinectograph) could center the screen very well, and accurately tracked the person} (P7). Four users specifically mentioned that zooming was one of the features that worked well. Participants were satisfied with their video recording ($\mu=4.1$, $\sigma=0.7$).
+
+%{\bf Reset} All participants were able to complete the reset task in one try. unimportant
+
+% \subsubsection{Shortcomings}
+We also learned some important shortcomings from the study. Notably, the pan-tilt motors that our previous Kinectograph prototype uses is under-dimensioned, which leads to oscillation (camera shake) when Kinectograph performs large amplitude pan movements. This is less noticeable at further distances, but becomes especially problematic when the users zooms in on small regions. Learning this effect, we have removed this issue with our current use of Kubi's servos, which provide smooth motor control.
+
+Latency in video streaming to the tablet device hampered usability. As P4 stated: \iquote{The lag made it difficult for me to move the kinectograph smoothly [during manual control]}.
+%
+% Tracking multiple actors remained somewhat difficult (a confederate joined for a ball passing task). P1 stated \iquote{Shortcomings were only really with multiple people in the demo, and the limitations of the viewing angle of the Kinect itself.}
+%
+Participants also suggested alternative control modes other than a tablet while engaged in bi-manual tasks: \iquote{Certain demos require the use of multiple hands, meaning that I can't carry the iPad during the demo if i wanted to change the point of focus on my body. It would be nice if there were gestures i could do to switch the point(s) of focus without having to use the iPad.} We found this concept interesting and plan to explore in future work.
+
+% \begin{figure}[t]
+% \centering
+% \includegraphics[width=1.0\columnwidth]{userStudy}
+% \caption{We presented participants in the second procedure with a storyboard of actions they should perform.}
+% \label{fig:storyboard}
+% \end{figure}
+% In aggregate, our evaluation suggests that Kinectograph system is capable of being used to create tutorial videos but also points the way for future work. Future work comprises improvements to live video streaming, better support of multiple users (i.e. using voice commands or gesture cues to control), and using kinectic info and zoom as meta data for playback. \dc{add more?}
+
+
+% and more Tablet UI features, such as picture in picture view and more boxes on the UI to provide further feedback to the user.

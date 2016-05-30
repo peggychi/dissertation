@@ -1,0 +1,25 @@
+%!TEX root = ../thesis.tex
+\chapter{Mixed Media Tutorials}
+% \chapter{MixT: Automatic Generation of Step-by-Step Mixed Media Tutorials}
+
+Users of complex software applications often learn concepts and skills through step-by-step tutorials. Today, these tutorials are published in two dominant forms: static tutorials composed of images and text that are easy to scan, but cannot effectively describe dynamic interactions; and video tutorials that show all manipulations in detail, but are hard to navigate. We hypothesize that a mixed tutorial with static instructions and per-step videos can combine the benefits of both formats. We describe a comparative study of static, video, and mixed image manipulation tutorials with 12 participants and distill design guidelines for mixed tutorials. We present MixT, a system that automatically generates step-by-step mixed media tutorials from user demonstrations. MixT segments screencapture video into steps using logs of application commands and input events, applies video compositing techniques to focus on salient information, and highlights interactions through mouse trails. Informal evaluation suggests that automatically generated mixed media tutorials were as effective in helping users complete tasks as tutorials that were created manually.
+
+MixT generates tutorials that contain static and video information from task demonstrations. Videos are automatically edited and offer different views to highlight the most relevant screen areas for a step. Visualizing mouse movement helps user understand a complex action.
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{\mixt/fig/teaser/teaser}
+  \caption{MixT generates tutorials that contain static and video information from task demonstrations. Videos are automatically edited and offer different views to highlight the most relevant screen areas for a step. Visualizing mouse movement helps user understand a complex action.}
+  \label{fig:mixt_teaser}
+\end{figure*}
+
+\input{\mixt/intro}
+\input{\mixt/related_work}
+\input{\mixt/formative_study}
+\input{\mixt/formative_results}
+\input{\mixt/design_guidelines}
+\input{\mixt/mixt_overview}
+\input{\mixt/pipeline}
+\input{\mixt/results}
+\input{\mixt/evaluation}
+\input{\mixt/conclusion}
