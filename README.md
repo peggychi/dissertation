@@ -1,8 +1,7 @@
-# PhD dissertation
-Peggy's PhD dissertation, summer 2016
+# PhD Dissertation
+Peggy's PhD dissertation, summer 2016<br />
 UC Berkeley Computer Science
 
-Structure:
 * Introduction
 * Background
 * MixT

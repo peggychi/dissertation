@@ -46,10 +46,10 @@ sorting=ynt]{biblatex}
 \newcommand{\subsubTitleBold}[1]{{\textbf{#1.}}}
 \newcommand{\ea}{{\xspace}et~al.\xspace}
 \newcommand{\iquote}[1]{\emph{``#1''}}
-\newcommand{\fixme}[1]{{\color{Red}{#1}}}
-\newcommand{\tofix}[1]{{\color{JungleGreen}{(#1)}}}
+\newcommand{\tofix}[1]{{\color{Red}{(Todo: #1)}}}
 
 % paths
+\newcommand{\intro}{chap1_intro}
 \newcommand{\mixt}{chap3_mixt}
 \newcommand{\demowiz}{chap4_demowiz}
 \newcommand{\democut}{chap5_democut}
@@ -100,7 +100,9 @@ sorting=ynt]{biblatex}
 \title{Designing Video-Based Interactive Instructions}
 \author{Pei-Yu (Peggy) Chi}
 
-\degreesemester{(Draft -- latest update: \today)\\Summer}
+\degreesemester{
+  {\color{Orange}(Draft -- latest update: \today)}\\
+  Summer}
 \degreeyear{2016}
 \degree{Doctor of Philosophy}
 \chair{Professor Bj\"orn Hartmann}
@@ -133,7 +135,7 @@ sorting=ynt]{biblatex}
 
 \pagestyle{headings}
 
-\include{chap1_intro/intro}
+\include{\intro/intro}
 \include{chap2_background/background}
 \include{\mixt/mixt}
 \include{\demowiz/demowiz}
@@ -146,7 +148,7 @@ sorting=ynt]{biblatex}
 \printbibliography
 
 \clearpage
-\input{appendix/appendix}
+% \input{appendix/appendix}
 
 \clearpage
 \input{vita}
