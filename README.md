@@ -2,7 +2,7 @@
 Peggy's PhD dissertation, summer 2016<br />
 UC Berkeley Computer Science
 
-* Introduction
+* Introduction: 6/3 done text ('TODO': figures)
 * Background
 * MixT
 * DemoWiz

@@ -108,7 +108,7 @@ To enable authors to focus on their demonstration during the recording phase, I 
 
 The successful experiences supporting software and DIY tutorials motivated me to apply my demonstration-based approach to a domain that is entirely driven by motions. For sign language, dance, and gesture-based games, instructors aim to present physical activities in a concise way for learners to follow. Using illustrations with visual highlights, human motions can be delivered in time and space as a diagram. However, current practices require authors to manually sketch or trace subjects from photographs, which is time-consuming and difficult to make changes once created.
 
-I design \emph{DemoDraw}, a system that generates concise illustrations from user demonstration (see Figure~\ref{fig:demodraw_intro}). With DemoDraw, a user records one or more motions by physically demonstrating in front of a Kinect sensor. DemoDraw captures the RGB-D information and logs the location and orientation data of user's whole body in a 3D space. It then maps the data to a 3D humanoid avatar and applies Non-Photorealistic Rendering (NPR) effect to create line illustrations. DemoDraw renders motion arrows and overlays the annotations on top of the model.
+I design \emph{DemoDraw}, a system that generates concise illustrations from user demonstration (see Figure~\ref{fig:demodraw_intro}). With DemoDraw, a user records one or more motions by physically demonstrating in front of a Kinect sensor. DemoDraw captures the RGB-D information and logs the location and orientation data of user's whole body in a 3D space. It then maps the data to a 3D humanoid avatar and applies Non-Photorealistic Rendering (NPR) effect to create line illustrations. Based on user's speech labels and motion analysis, DemoDraw renders motion arrows and overlays the annotations on top of the model to generate step-by-step illustrative diagrams.
 
 \begin{figure}[t]
   \centering
@@ -143,29 +143,29 @@ I present the rationale and technical challenges of these interactive system des
 
 \section{Overview}
 
-The rest of my thesis is structured as follows: \todo{editing}
+The rest of my thesis is structured as follows:
 %
 In Chapter 2, I survey the literature on instruction consumption and creation. I review studies on why people rely on tutorials in general, how the formats of instructions matter, and the current practices of authoring instructions in several domains.
 
 I presented two systems that support consuming tutorials for software applications.
 % MixT
-In Chapter 3, I present my study on how a new tutorial format supports learners in following step-by-step instructions with mixed media, including static text, images, and video clips. I introduce my creation tool called MixT, that automatically generates such new tutorial format from an author demonstration in a software application.
-%
+In Chapter 3, I present my study on how a new tutorial format supports learners in following step-by-step instructions with mixed media, including static text, images, and video clips. I introduce my creation tool called MixT, which automatically generates such new tutorial format from an author demonstration in a software application.
+
 % DemoWiz
-Chapter 4 introduces my authoring tool called DemoWiz, which assists consumers in capturing the timing of input events in a screencast demo video.
+Chapter 4 introduces DemoWiz, a system that assists viewers in capturing the timing of input events in a screencast demo video. DemoWiz supports recording, editing, and viewing stages in a production process with an authoring and playback UI.
 
 Then, I introduced three systems designed for real-world tasks that involve physical demonstrations.
 % DemoCut
-In Chapter 5,
+In Chapter 5, I demonstrate a semi-automatic tool for DIY video editing. My system, called DemoCut, provides two authoring interfaces, annotation and editing, that enable users to mark a demo video and review and modify the automatically edited results. The design is based on an fundamental understanding of DIY activities.
 
 % Kinectograph
-In Chapter 6,
+In Chapter 6, I focus on a recording device design that automatically follows a demonstrator for filming instructional videos. The Kinectograph system tracks a user's position and body parts and provides an authoring interface for real-time control.
 
 % DemoDraw
-Finally, in Chapter 7
+Finally, in Chapter 7, I present a multimodal approach for users to generate motion illustrations by physically demonstrating the movements. My system, DemoDraw, segments speech and 3D joint motion captured by a Kinect RGB-D sensor into a sequence of motion segments. A series of illustrations is automatically generated using a stylistically rendered 3D avatar annotated with arrows to convey movements. Users can navigate existing illustrations using speech and amend or re-perform motions if needed. They can also edit detailed visualization parameters via an editing interface.
 
 % Conclusion
-Throughout this thesis, I ... Chapter 8 concludes my approaches for tutorials in both software and physical instructions and suggests new directions for future research on interactive tutorials.
+Throughout this thesis, I discuss how my video-based approaches increase the quality of amateur-produced video instructions. Chapter 8 concludes my work on tutorial creation and consumption in both software and physical instructions. New directions for future research on interactive tutorials are proposed.
 
 % ---------------------------------------------------------------
 
@@ -173,6 +173,6 @@ Throughout this thesis, I ... Chapter 8 concludes my approaches for tutorials in
 
 This dissertation is based on papers published in previous ACM conference proceedings: the MixT system was published at UIST 2012 \cite{Chi:2012fq}; DemoWiz at CHI 2014 \cite{Chi:2014td}, DemoCut at UIST 2013 \cite{Chi:2013hx}, and Kinectograph at CHI 2013 \cite{Cheng:2013bu}. DemoDraw \tofix{under submission: will update in middle June}.
 
-While I am primary author on all publications and led all the described projects, \tofix{thank the co-authors}.
+While I am primary author on all publications and led the described projects, this research could not have been completed without my advisor Bj\"orn Hartmann and my collaborators that I have been fortunately to work with. Specifically, Dr. Mira Dontcheva and Dr. Wilmot Li provided valuable guidance on several projects (MixT, DemoCut, and DemoDraw); Dr. Steven M. Drucker and Dr. Bongshin Lee guided the DemoWiz project with their expertise on visualization; Dr. Daniel Vogel contributed to interaction and study design of DemoDraw. A group of students provided implementation and user study contributions, including Sally Ahn and Amanda Ren in MixT, Joyce Liu and Jason Linder in DemoCut, and Derrick Cheng in Kinectograph.
 
 % We are all natural performers. Humans are proficient at demonstrating how to perform a task in action. However, articulating knowledge into a written or structured form can be extremely difficult. From dancing, repairing a machine, to operating software applications, it remains a challenge how everyday activities can be efficiently captured for a remote learner to understand.
