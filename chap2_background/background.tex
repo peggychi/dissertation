@@ -6,12 +6,29 @@
 
 \chapter{Background}
 
-\subsection{Introduction}
+\section{Introduction}
 
-% This section presents the state-of-the-art of technologies that support tutorial authors and learners.
+
+In this chapter, I discuss
+
+I survey the state-of-the-art of technologies that support tutorial authors and learners.
+
+% -------------------------------------------
+
+\section{Instructions: Terminology}
+
+How-To, instructions, tutorials
+Software documentation
+
+% -------------------------------------------
+
+\section{Why Creating and Consuming Instructions?}
+
 The research community has been investigating the motivations of both authors and viewers of how-to videos and written tutorials. While one primary motivation is to share expertise, published videos also serve as a way to broadcast skill and as an online portfolio~\cite{Torrey:2007he,Kuznetsov:2010:REA:1868914.1868950}. Authors may derive revenue through advertising or referrals~\cite{Lafreniere:2012tl}. Viewers, on the other hand, typically seek technical explanations, but are also searching for inspiration~\cite{Torrey:2009fc} and looking for validation of existing skills~\cite{Lafreniere:2012tl}.
 %
 These studies suggest that tutorials have a larger variety of purposes and uses than merely communicating technical content. Recently, guidelines of improving tutorial authorship have been proposed \cite{Wakkary:2015:TAH:2702123.2702550}. Key findings include identifying tools and components and structuring a task into steps with a clear sequence. In our work, we strive to make authoring of instructions more accessible to amateurs while maintaining opportunities for adding individual style through control over editing effects.
+
+% people don’t read software documentation and instead look for task-centered learning materials
 
 % -------------------------------------------
 
@@ -19,11 +36,12 @@ These studies suggest that tutorials have a larger variety of purposes and uses 
 There has been a considerable amount of research devoted to tutorial designs that help viewers operate an interactive system. Efforts include visualizing events or embedding instant assistance in software applications and providing real-time feedback on physical tasks.
 
 \subsection{Software Visualization}
+
 In the software application domain, visualizing input and output events has shown to be effective in enhancing instructions. Events can range from low (e.g., mouse actions and movements or keyboard strokes) to high level (e.g., UI component changes). Examples include rendering markers and arrows on screenshot images of a software demo process \cite{Nakamura:2008:ASV:1449715.1449721, Grabler:2009jj}, automatic indexing of instructional software videos \cite{Banovic:2012kd}, and providing visual feedback based on UI operations in real-time \cite{Dixon:2010fb,Dixon:2011:CHP:1978942.1979086}. Work has also aimed to visualize application-centric processes, such as 3D mesh construction \cite{Denning:2011fy} or image manipulation tasks \cite{Grabler:2009jj} as a step-by-step list.
 
 \subsection{In-Application Support}
 
-Another approach is to provide in-application assistance, often in real-time, in a specific context. Methods include embedding video snippets in application tooltips \cite{Grossman:2010wr}, providing step-by-step wizards \cite{Bergman05docwizards:a,Kelleher:2005:STD:1054972.1055047,Fernquist:2011:SRE:2047196.2047245}, automatically navigating video tutorials based on user operations \cite{Pongnumkul:2011ju}, and showing a history of before and after thumbnails and video clips \cite{Grossman:2010jz}. In-app supports can also be dynamically updated within a community based on user contribution \cite{Lafreniere:2013ff,Matejka:2009:CCR:1622176.1622214}.
+Another approach is to provide in-application assistance, often in real-time, in a specific context. Methods include embedding video snippets in application tooltips \cite{Grossman:2010wr}, providing step-by-step wizards \cite{Bergman:2005:DocWizards,Kelleher:2005:STD:1054972.1055047,Fernquist:2011:SRE:2047196.2047245}, automatically navigating video tutorials based on user operations \cite{Pongnumkul:2011ju}, and showing a history of before and after thumbnails and video clips \cite{Grossman:2010jz}. In-app supports can also be dynamically updated within a community based on user contribution \cite{Lafreniere:2013ff,Matejka:2009:CCR:1622176.1622214}.
 
 \subsection{Instructions for Physical Tasks}
 
@@ -35,7 +53,8 @@ These projects show how effective instructional representations can assist learn
 
 % -------------------------------------------
 
-\section{Activity Tracking}
+\section{Activity Tracking for Creating Instructions}
+
 To provide real-time assistance, it is important to recognize the user activities during a task performance. Several domains have been widely studied, including software operations, scene recognition, and object tracking in a physical world.
 %
 Researchers have shown that workflows and content of desktop applications can be captured automatically using computer vision \cite{Yeh:2009dh,Chang:2011vd} and application logs \cite{Grossman:2010jz,Grabler:2009jj,Pongnumkul:2011ju}.
