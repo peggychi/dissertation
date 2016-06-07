@@ -1,8 +1,10 @@
 \documentclass{ucbthesis}
 
 \usepackage[backend=biber,
-style=ieee,
+style=numeric,
 sorting=nyt,
+maxcitenames=4, mincitenames=4,
+maxbibnames=99, minbibnames=99,
 firstinits=false]{biblatex}
 \usepackage{balance}  % to better equalize the last page
 \usepackage{graphics} % for EPS, load graphicx instead
@@ -43,9 +45,11 @@ firstinits=false]{biblatex}
 
 \newcommand\tabhead[1]{\small\textbf{#1}}
 \newcommand\pagetitle[1]{{\centering\large\textbf{#1}\\\vspace{20mm}}}
+\newcommand{\parTitleBold}[1]{{\textbf{#1.}}}
+\newcommand{\subsubTitleBold}[1]{{\textbf{#1.}}} % To replace
 
-\newcommand{\subsubTitleBold}[1]{{\textbf{#1.}}}
 \newcommand{\ea}{{\xspace}et~al.\xspace}
+\newcommand{\keyword}[1]{\emph{#1}}
 \newcommand{\iquote}[1]{\emph{``#1''}}
 \newcommand{\tofix}[1]{{\color{Red}{(Todo: #1)}}}
 
@@ -85,7 +89,7 @@ firstinits=false]{biblatex}
 
 % ---------------------------------------------------------------
 
-\addbibresource{ref/allbib.bib}
+\addbibresource{ref/background.bib}
 \addbibresource{ref/mixt.bib}
 \addbibresource{ref/democut.bib}
 \addbibresource{ref/demowiz.bib}
@@ -107,7 +111,7 @@ firstinits=false]{biblatex}
 \degreeyear{2016}
 \degree{Doctor of Philosophy}
 \chair{Professor Bj\"orn Hartmann}
-\othermembers{Professor Eric Paulous \\
+\othermembers{Professor Eric Paulos \\
   Associate Professor Kyle Steinfeld}
 \numberofmembers{3}
 

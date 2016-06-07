@@ -1,28 +1,49 @@
 %!TEX root = ../thesis.tex
 % This paragraph covered a lot of ground, but I was a bit lost since each sentence tried to cover too many different approaches. Is there an implied structure? E.g. first software-static, then software-video, then physical tasks? Id’ have expected some more basic references early on that for example show that people don’t read software documentation and instead look for task-centered learning materials. There’s also a difference between related work that investigates what good instruction formats are, and systems work that introduces new tools to create such formats.
 
-% add some Tiffany Tseng's work
-% http://web.mit.edu/ttseng/www/academics/index.html
-
 \chapter{Background}
 
-\section{Introduction}
-
-
-In this chapter, I discuss
-
-I survey the state-of-the-art of technologies that support tutorial authors and learners.
+This dissertation proposes computational methods to create interactive tutorials for software applications and physical tasks. To ground our work in existing practices and principles, in this chapter, I define the terminology commonly used by tutorial researchers and online community (Section \ref{background_terms}).
+%
+I survey research studies and literature about the motivations of people creating, sharing, and consuming tutorials (Section \ref{background_why}).
+%
+Finally, I explore the state-of-the-art of technologies that support tutorial authors and learners, including novel interactive format (Section \ref{background_format}) and activity tracking approaches (Section \ref{background_recognition}).
 
 % -------------------------------------------
 
 \section{Instructions: Terminology}
+\label{background_terms}
 
-How-To, instructions, tutorials
-Software documentation
+\keyword{How-To}, instructions, tutorials, know-how, help, (user) guides, recipes -- often task-centric
+
+for Software, Do-It-Yourself (DIY) projects, other activities like sports or dancing
+
+different from software documentation or manuals
+
+structured content to a step-by-step guide
+instructional videos, video demonstration
+
+\parTitleBold{Creating tutorials}
+by author, creator, maker
+1) Performance, demonstration, making process or progress, walkthrough
+2) mutlimedia material: video footage, audio recordings to narration, scripts, sketches, other domain-specific content (e.g., code, board layouts, 3D models, etc.), other resources (e.g., books or URLs to other material)
+3) Editing, to make it in a readable or viewable form
+4) sharing with others (e.g., blogs, content sharing sites, forums, private networks)
+
+\parTitleBold{Consuming tutorials}
+by viewer, learner, follower
+or learning, following -- explain the format in \ref{background_format}
+
+lecturer and online tutoring: involve more feedback collection and response to learners, beyond the scope of this paper
+
+Amateur, expert, professional, novice, hobbyist
+
+interactive tutorials: can be interactively reviewed via software
 
 % -------------------------------------------
 
-\section{Why Creating and Consuming Instructions?}
+\section{Why Instructions?}
+\label{background_why}
 
 The research community has been investigating the motivations of both authors and viewers of how-to videos and written tutorials. While one primary motivation is to share expertise, published videos also serve as a way to broadcast skill and as an online portfolio~\cite{Torrey:2007he,Kuznetsov:2010:REA:1868914.1868950}. Authors may derive revenue through advertising or referrals~\cite{Lafreniere:2012tl}. Viewers, on the other hand, typically seek technical explanations, but are also searching for inspiration~\cite{Torrey:2009fc} and looking for validation of existing skills~\cite{Lafreniere:2012tl}.
 %
@@ -32,7 +53,9 @@ These studies suggest that tutorials have a larger variety of purposes and uses 
 
 % -------------------------------------------
 
-\section{Help and Instruction Formats}
+\section{Interactive Help and Instruction Formats}
+\label{background_format}
+
 There has been a considerable amount of research devoted to tutorial designs that help viewers operate an interactive system. Efforts include visualizing events or embedding instant assistance in software applications and providing real-time feedback on physical tasks.
 
 \subsection{Software Visualization}
@@ -43,17 +66,33 @@ In the software application domain, visualizing input and output events has show
 
 Another approach is to provide in-application assistance, often in real-time, in a specific context. Methods include embedding video snippets in application tooltips \cite{Grossman:2010wr}, providing step-by-step wizards \cite{Bergman:2005:DocWizards,Kelleher:2005:STD:1054972.1055047,Fernquist:2011:SRE:2047196.2047245}, automatically navigating video tutorials based on user operations \cite{Pongnumkul:2011ju}, and showing a history of before and after thumbnails and video clips \cite{Grossman:2010jz}. In-app supports can also be dynamically updated within a community based on user contribution \cite{Lafreniere:2013ff,Matejka:2009:CCR:1622176.1622214}.
 
+mobile: EverTutor \cite{Wang:2014:EAC:2556288.2557407}
+
+A Gamified Multiplayer Software Tutorial System \cite{Li:2014:CGM:2556288.2556954}
+
+\subsection{Interactive Tutorial Documents}
+
+Online tutorials
+TaggedComments \cite{Bunt:2014:TPI:2556288.2557118}
+Steptorials \cite{Lieberman:2014:SML:2557500.2557543} -- high-functionality (hi-fun) application
+
 \subsection{Instructions for Physical Tasks}
 
 Beyond software applications to the real world where activity and object recognition is difficult, researchers have investigated tools for supporting physical tasks. Workflows can be automatically generated for furniture \cite{agrawala2003designing} or block assembly tasks \cite{Gupta:2012ku}; the latter was shown to be trackable for real-time guidance.
 %
 Information can also be overlaid on top of the work area using augmented reality, usually through a head-mounted display. Such systems can provide visual highlights for machine maintenance \cite{Henderson:2011ff}, or interactive remote tutoring for repair tasks~\cite{Gurevich:2012ko}. Another method is to overlay guidance on an augmented mirror for tasks such as dance movements \cite{Anderson:2013:YEM:2501988.2502045}.
 
+table for physical tasks \cite{Knibbe:2015:SMI:2817721.2817741}
+
 These projects show how effective instructional representations can assist learners in learning or executing tasks. Our goal is to further study new formats that incorporate advantages of several formats of multimedia, including images, text, and videos, and in turn enhancing the learning experience for a variety of tasks.
+
+% add some Tiffany Tseng's work
+% http://web.mit.edu/ttseng/www/academics/index.html
 
 % -------------------------------------------
 
-\section{Activity Tracking for Creating Instructions}
+\section{Activity Tracking for Creating and Following Instructions}
+\label{background_recognition}
 
 To provide real-time assistance, it is important to recognize the user activities during a task performance. Several domains have been widely studied, including software operations, scene recognition, and object tracking in a physical world.
 %
@@ -69,7 +108,7 @@ Emerging work has provided insights toward this vision using consumer devices su
 
 % -------------------------------------------
 
-\section{Video Capture, Annotation and Editing}
+% \section{Video Capture, Annotation and Editing}
 % \subsubTitleI{Capture} Several research and commercial systems guide users at capture time to yield higher-quality videos. Such systems often employ templates to help users capture sequences of distinct shots (e.g., Snapguide\footnote{http://snapguide.com/}) or suggest framing of the subject or camera view as in NudgeCam~\cite{Carter:2010}. Computer vision algorithms, like face tracking, can be used to offer real-time feedback during such directed actions~\cite{Davis:2003cu,Heer:2004ba,Carter:2010}. Instead of relying on templates, shot suggestions can also be bootstrapped through user dialogs~\cite{Adams:2005}.
 
 % \subsubTitleI{Annotation} Researchers have investigated how to provide interactions that enable efficient, fluid annotation of video data, from the early EVA system~\cite{Mackay:1989} to more recent interfaces like VideoTater that leverage pen input~\cite{Diakopoulos:2006vt}. We do not claim a contribution in the interaction techniques of our annotation interface and take inspiration from such prior work.
