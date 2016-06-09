@@ -14,23 +14,43 @@ Finally, I explore the state-of-the-art of technologies that support tutorial au
 \section{Instructions: Terminology}
 \label{background_terms}
 
-\keyword{How-To}, instructions, tutorials, know-how, help, (user) guides, recipes -- often task-centric
+A \keyword{tutorial} or a \keyword{how-to}, commonly called \keyword{instructions}, describes how to accomplish a specific \keyword{task} in various domains, including:
+\begin{itemize}
+  \itemsep -2pt
+  \item Software application that, such as manipulating an image to create a specific blurring effect or creating a pie chart using a spreadsheet application,
+  \item Do-It-Yourself (DIY) projects, such as wrapping a gift box or assembling a piece of furniture,
+  \item Everyday activities, such as cooking or operating a vacuum machine, and
+  \item Sports, such as making a dance move or swing a golf club.
+\end{itemize}
 
-for Software, Do-It-Yourself (DIY) projects, other activities like sports or dancing
+Figure~\ref{fig:background_tutorials} shows example activities of the above domains.
+\\
 
-different from software documentation or manuals
+A task-centric tutorial often involves domain-specific \keyword{know-how}, knowledge that is required to perform a task.
+%
+Often, the content can be structured into a list of steps, which is usually in a linear order, presented as a \keyword{step-by-step} document.
+%
+Some domains have derived specific instructional formats, such as cooking recipes that contain not only actions but also food ingredients and their amounts.
+%
+Note that instructions are different from a (software) \keyword{documentation}, \keyword{manual}, or \keyword{user guide} that is a technical document contained non-task-centric details about a particular hardware or software system.
 
-structured content to a step-by-step guide
-instructional videos, video demonstration
+Instructions can be shown in different formats. Popular representations include a diagram, a static tutorial with text and images, or an instructional video. Section \ref{background_format} will introduce tutorial formats in details.
 
-\parTitleBold{Creating tutorials}
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{\background/fig/tutorials}
+  \caption{Example activities in tutorial domains: a) image manipulations using a software application, b) a DIY gift-wrapping project, c) cooking as an everyday activity, and d) dancing in sports. \tofix{update the fig}}
+  \label{fig:background_tutorials}
+\end{figure*}
+
+\subsection{Creating instructions}
 by author, creator, maker
 1) Performance, demonstration, making process or progress, walkthrough
 2) mutlimedia material: video footage, audio recordings to narration, scripts, sketches, other domain-specific content (e.g., code, board layouts, 3D models, etc.), other resources (e.g., books or URLs to other material)
 3) Editing, to make it in a readable or viewable form
 4) sharing with others (e.g., blogs, content sharing sites, forums, private networks)
 
-\parTitleBold{Consuming tutorials}
+\subsection{Consuming instructions}
 by viewer, learner, follower
 or learning, following -- explain the format in \ref{background_format}
 
@@ -49,6 +69,8 @@ The research community has been investigating the motivations of both authors an
 %
 These studies suggest that tutorials have a larger variety of purposes and uses than merely communicating technical content. Recently, guidelines of improving tutorial authorship have been proposed \cite{Wakkary:2015:TAH:2702123.2702550}. Key findings include identifying tools and components and structuring a task into steps with a clear sequence. In our work, we strive to make authoring of instructions more accessible to amateurs while maintaining opportunities for adding individual style through control over editing effects.
 
+Instructables: \cite{Tseng:2014:PVP:2598510.2598540}
+
 % people don’t read software documentation and instead look for task-centered learning materials
 
 % -------------------------------------------
@@ -61,6 +83,8 @@ There has been a considerable amount of research devoted to tutorial designs tha
 \subsection{Software Visualization}
 
 In the software application domain, visualizing input and output events has shown to be effective in enhancing instructions. Events can range from low (e.g., mouse actions and movements or keyboard strokes) to high level (e.g., UI component changes). Examples include rendering markers and arrows on screenshot images of a software demo process \cite{Nakamura:2008:ASV:1449715.1449721, Grabler:2009jj}, automatic indexing of instructional software videos \cite{Banovic:2012kd}, and providing visual feedback based on UI operations in real-time \cite{Dixon:2010fb,Dixon:2011:CHP:1978942.1979086}. Work has also aimed to visualize application-centric processes, such as 3D mesh construction \cite{Denning:2011fy} or image manipulation tasks \cite{Grabler:2009jj} as a step-by-step list.
+
+ambient help \cite{Matejka:2011:AH:1978942.1979349}
 
 \subsection{In-Application Support}
 
@@ -84,6 +108,9 @@ Information can also be overlaid on top of the work area using augmented reality
 
 table for physical tasks \cite{Knibbe:2015:SMI:2817721.2817741}
 
+spin: photo turntable \cite{Tseng:2015:SPT:2771839.2771869}
+documentation \cite{Tseng:2016:makeology}
+
 These projects show how effective instructional representations can assist learners in learning or executing tasks. Our goal is to further study new formats that incorporate advantages of several formats of multimedia, including images, text, and videos, and in turn enhancing the learning experience for a variety of tasks.
 
 % add some Tiffany Tseng's work
@@ -93,6 +120,9 @@ These projects show how effective instructional representations can assist learn
 
 \section{Activity Tracking for Creating and Following Instructions}
 \label{background_recognition}
+
+* define ``automatic''
+% Note: MixT tutorials are automatically rendered from manual demonstration, not automatically generated.
 
 To provide real-time assistance, it is important to recognize the user activities during a task performance. Several domains have been widely studied, including software operations, scene recognition, and object tracking in a physical world.
 %
