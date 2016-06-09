@@ -5,7 +5,7 @@
 
 This dissertation proposes computational methods to create interactive tutorials for software applications and physical tasks. To ground our work in existing practices and principles, in this chapter, I define the terminology commonly used by tutorial researchers and online community (Section \ref{background_terms}).
 %
-I survey research studies and literature about the motivations of people creating, sharing, and consuming tutorials (Section \ref{background_why}).
+I survey research studies and literature about the motivations of people creating, sharing, and consuming tutorials (Section \ref{background_why}) and a common creation process (Section \ref{background_creation}).
 %
 Finally, I explore the state-of-the-art of technologies that support tutorial authors and learners, including novel interactive format (Section \ref{background_format}) and activity tracking approaches (Section \ref{background_recognition}).
 
@@ -14,10 +14,11 @@ Finally, I explore the state-of-the-art of technologies that support tutorial au
 \section{Instructions: Terminology}
 \label{background_terms}
 
-A \keyword{tutorial} or a \keyword{how-to}, commonly called \keyword{instructions}, describes how to accomplish a specific \keyword{task} in various domains, including:
+A \keyword{tutorial}, or a \keyword{how-to}, is a representation that transfers domain-specific \keyword{know-how} by describing a set of \keyword{instructions} on how to accomplish a specific \keyword{task}. Instructions have been widely created for various domains, including:
+
 \begin{itemize}
   \itemsep -2pt
-  \item Software application that, such as manipulating an image to create a specific blurring effect or creating a pie chart using a spreadsheet application,
+  \item Software applications, such as manipulating an image to create a specific blurring effect or creating a pie chart using a spreadsheet application,
   \item Do-It-Yourself (DIY) projects, such as wrapping a gift box or assembling a piece of furniture,
   \item Everyday activities, such as cooking or operating a vacuum machine, and
   \item Sports, such as making a dance move or swing a golf club.
@@ -26,15 +27,15 @@ A \keyword{tutorial} or a \keyword{how-to}, commonly called \keyword{instruction
 Figure~\ref{fig:background_tutorials} shows example activities of the above domains.
 \\
 
-A task-centric tutorial often involves domain-specific \keyword{know-how}, knowledge that is required to perform a task.
+% A task-centric tutorial often involves domain-specific \keyword{know-how}, knowledge that is required to perform a task.
 %
-Often, the content can be structured into a list of steps, which is usually in a linear order, presented as a \keyword{step-by-step} document.
+Often, the instructional content can be structured into a list of steps, which is usually in a linear order, presented as a \keyword{step-by-step} document.
 %
-Some domains have derived specific instructional formats, such as cooking recipes that contain not only actions but also food ingredients and their amounts.
+In some domains, instructions have been derived into specific formats. For example, cooking recipes contain not only actions but also food ingredients and required amounts.
 %
-Note that instructions are different from a (software) \keyword{documentation}, \keyword{manual}, or \keyword{user guide} that is a technical document contained non-task-centric details about a particular hardware or software system.
+Note that instructions are different from a (software) \keyword{documentation}, \keyword{manual}, or \keyword{user guide} that is a technical document contained non-task-centric details about a particular hardware or software system. To accomplish a task, one may need to identify relevant information from several parts of a manual, instead of following a step-by-step guidance.
 
-Instructions can be shown in different formats. Popular representations include a diagram, a static tutorial with text and images, or an instructional video. Section \ref{background_format} will introduce tutorial formats in details.
+Instructions can be shown in different forms. Popular representations include a diagram, written documents that contain text and images, or an instructional video (e.g., screen recording of a software application or a camera recording of a DIY task). Section \ref{background_format} will introduce tutorial formats in details.
 
 \begin{figure*}[t]
   \centering
@@ -43,14 +44,14 @@ Instructions can be shown in different formats. Popular representations include 
   \label{fig:background_tutorials}
 \end{figure*}
 
-\subsection{Creating instructions}
-by author, creator, maker
-1) Performance, demonstration, making process or progress, walkthrough
-2) mutlimedia material: video footage, audio recordings to narration, scripts, sketches, other domain-specific content (e.g., code, board layouts, 3D models, etc.), other resources (e.g., books or URLs to other material)
-3) Editing, to make it in a readable or viewable form
-4) sharing with others (e.g., blogs, content sharing sites, forums, private networks)
+\subsection{Creating Instructions}
+Conventionally, instructions are created by one or more \keyword{authors} who document the process of completing a task and refine the material to a final deliverable.
+%
+Throughout this dissertation, we call a task completion process as a \keyword{demonstration} or a \keyword{performance}. It can be referred to a \keyword{walkthrough} when using a software application.
+%
+As the process often involves innovations and creations, authors can also be referred to \keyword{creators} or \keyword{maker}. They are often the \keyword{professionals} or \keyword{experts} in the instructional domains of their work. In tutorial production, however, often they may be \keyword{amateurs} or \keyword{novices} who are not familiar with the tools to refine the documented material.
 
-\subsection{Consuming instructions}
+\subsection{Consuming Instructions}
 by viewer, learner, follower
 or learning, following -- explain the format in \ref{background_format}
 
@@ -72,6 +73,41 @@ These studies suggest that tutorials have a larger variety of purposes and uses 
 Instructables: \cite{Tseng:2014:PVP:2598510.2598540}
 
 % people don’t read software documentation and instead look for task-centered learning materials
+
+% -------------------------------------------
+
+\section{Instruction Creation Process}
+\label{background_creation}
+
+\tofix{studies here}
+
+Figure~\ref{fig:background_creation} shows a common workflow of tutorial creation:
+
+\begin{itemize}
+  \item \parTitleBold{Planning}:
+    Authors make a
+  \item \parTitleBold{Capturing}:
+    Mutlimedia material is often used to document a process:
+    \begin{itemize}
+      \itemsep -2pt
+      \item Static photographs capture specific moments in a procedure.
+      \item Video footages record a computer screencast or a scene of a demonstration.
+      \item Audio recordings preserve the sound of activities or author narration.
+      \item Other domain-specific content (e.g., code, board layouts, 3D models, and sketches) or resources (e.g., books or URLs to other material) often enrich the instructions.
+    \end{itemize}
+  \item \parTitleBold{Editing}:
+    Once  to make it in a readable or viewable form
+  \item \parTitleBold{Reviewing}:
+  \item \parTitleBold{Releasing/Sharing}:
+    Finally, authors may release the refined content and share the deliverable with others. Common media or platforms include: personal blogs, content sharing sites (e.g., YouTube, Instructables), forums, emails, or private networks.
+\end{itemize}
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{\background/fig/creation_process}
+  \caption{A common workflow of tutorial creation. \tofix{update the fig}}
+  \label{fig:background_creation}
+\end{figure*}
 
 % -------------------------------------------
 
