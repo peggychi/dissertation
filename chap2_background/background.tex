@@ -24,18 +24,24 @@ A \keyword{tutorial}, or a \keyword{how-to}, is a representation that transfers 
   \item Sports, such as making a dance move or swing a golf club.
 \end{itemize}
 
-Figure~\ref{fig:background_tutorials} shows example activities of the above domains.
+Figure~\ref{fig:background_tutorials} shows example activities of the above domains from online video tutorials.
 \\
 
 % A task-centric tutorial often involves domain-specific \keyword{know-how}, knowledge that is required to perform a task.
 %
-Often, the instructional content can be structured into a list of steps, which is usually in a linear order, presented as a \keyword{step-by-step} document.
+Instructional content is commonly structured into a list of steps, which is usually in a linear, \keyword{step-by-step} order.
 %
 In some domains, instructions have been derived into specific formats. For example, cooking recipes contain not only actions but also food ingredients and required amounts.
-%
-Note that instructions are different from a (software) \keyword{documentation}, \keyword{manual}, or \keyword{user guide} that is a technical document contained non-task-centric details about a particular hardware or software system. To accomplish a task, one may need to identify relevant information from several parts of a manual, instead of following a step-by-step guidance.
+% The term \keyword{recipe} has been used for activities other than cooking.
 
-Instructions can be shown in different forms. Popular representations include a diagram, written documents that contain text and images, or an instructional video (e.g., screen recording of a software application or a camera recording of a DIY task). Section \ref{background_format} will introduce tutorial formats in details.
+Note that instructions are different from a (software) \keyword{documentation}, \keyword{manual}, or \keyword{user guide}, which is a technical document contained non-task-centric details about a particular hardware or software system. A manual does not provide step-by-step guidance to follow. To accomplish a task, one needs to identify relevant information from the documentation and reason the workflow.
+
+Instructions can be shown in different forms. There are two main forms of visual tutorials (see Figure~\ref{fig:background_format}):
+\begin{itemize}
+  \itemsep -2pt
+  \item \keyword{Static tutorials}, which use text and figures to describe the set of operations required to accomplish a task. Such format is presented as a written document with a step-by-step list, while each step includes text description and/or an image or abstract \keyword{illustration} to describe the subtask. It can possible be combined into a \keyword{diagram} that shows the flow in a pictorial form. Static tutorials are suitable for printing and are easy to scan because they show all instructions.
+  \item \keyword{Video tutorials}, which are edited or raw videos of the tutorial author performing the the task. Examples include screen recordings of a software application or a camera recording of a DIY task.
+\end{itemize}
 
 \begin{figure*}[t]
   \centering
@@ -44,22 +50,31 @@ Instructions can be shown in different forms. Popular representations include a 
   \label{fig:background_tutorials}
 \end{figure*}
 
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{\background/fig/tutorials}
+  \caption{Tutorial formats. \tofix{update the fig}}
+  \label{fig:background_format}
+\end{figure*}
+
 \subsection{Creating Instructions}
-Conventionally, instructions are created by one or more \keyword{authors} who document the process of completing a task and refine the material to a final deliverable.
+Instructions are created by one or more \keyword{authors} who document the process of completing a task and refine the material to a final deliverable.
 %
-Throughout this dissertation, we call a task completion process as a \keyword{demonstration} or a \keyword{performance}. It can be referred to a \keyword{walkthrough} when using a software application.
+Since the process often involves innovations and creations, authors can also be referred as \keyword{creators}, \keyword{makers}, or \keyword{hobbyists}.
 %
-As the process often involves innovations and creations, authors can also be referred to \keyword{creators} or \keyword{maker}. They are often the \keyword{professionals} or \keyword{experts} in the instructional domains of their work. In tutorial production, however, often they may be \keyword{amateurs} or \keyword{novices} who are not familiar with the tools to refine the documented material.
+Instructional authors are often the \keyword{professionals} or \keyword{experts} in the domains of their work. However, in tutorial production, they might be \keyword{amateurs} or \keyword{novices} who are not familiar with software tools to refine the documented material.
+
+Throughout this dissertation, we call the process of author completing a task as a \keyword{demonstration} or a \keyword{performance}. Authors can therefore be as \keyword{demonstrators} or \keyword{presenters}.
+%
+In software, the demonstration process can be referred as a system \keyword{walkthrough}. Section \ref{background_creation} will discuss the creation process of instructions.
 
 \subsection{Consuming Instructions}
-by viewer, learner, follower
-or learning, following -- explain the format in \ref{background_format}
+We define people who review instructional content as \keyword{viewers} or \keyword{learners}. Viewers may also be \keyword{followers} if they choose to follow the instructions to achieve the same or similar tasks.
+%
+Studies have shown that learners with different learning needs and habits have various preference on the tutorial formats. In Chapter 3, I'll examine these differences and propose a new instructional format.
 
-lecturer and online tutoring: involve more feedback collection and response to learners, beyond the scope of this paper
+% lecturer and online tutoring: involve more feedback collection and response to learners, beyond the scope of this paper
 
-Amateur, expert, professional, novice, hobbyist
-
-interactive tutorials: can be interactively reviewed via software
 
 % -------------------------------------------
 
@@ -113,6 +128,8 @@ Figure~\ref{fig:background_creation} shows a common workflow of tutorial creatio
 
 \section{Interactive Help and Instruction Formats}
 \label{background_format}
+
+interactive tutorials: can be interactively reviewed via software
 
 There has been a considerable amount of research devoted to tutorial designs that help viewers operate an interactive system. Efforts include visualizing events or embedding instant assistance in software applications and providing real-time feedback on physical tasks.
 
