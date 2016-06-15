@@ -1,5 +1,6 @@
 %!TEX root = ../thesis.tex
 \chapter{Introduction}
+\label{chapter_introduction}
 
 When attempting to accomplish unfamiliar, complicated tasks, people often search for online tutorials to follow instructions. From using software applications, performing physical tasks such as cooking and assembling a machine, to free-form activities like sports and dance performance, each domain involves specific ``how-to'' knowledge with a certain degree of complexity \cite{ryle1945knowhow}.
 %
@@ -145,24 +146,26 @@ I present the rationale and technical challenges of these interactive system des
 
 The rest of my thesis is structured as follows:
 %
-In Chapter 2, I survey the literature on instruction consumption and creation. I review studies on why people rely on tutorials in general, how the formats of instructions matter, and the current practices of authoring instructions in several domains.
+In Chapter \ref{chapter_background}, I define terminology used in instruction creation and consumption process based on literature. I review studies on why people rely on tutorials in general, how the formats of instructions matter, and the current practices of authoring instructions.
+%
+In Chapter \ref{chapter_related_work}, I review the literature on research and technologies used in supporting activities of authoring and consuming instructions.
 
 I presented two systems that support consuming tutorials for software applications.
 % MixT
-In Chapter 3, I present my study on how a new tutorial format supports learners in following step-by-step instructions with mixed media, including static text, images, and video clips. I introduce my creation tool called MixT, which automatically generates such new tutorial format from an author demonstration in a software application.
+In Chapter \ref{chapter_mixt}, I present my study on how a new tutorial format supports learners in following step-by-step instructions with mixed media, including static text, images, and video clips. I introduce my creation tool called MixT, which automatically generates such new tutorial format from an author demonstration in a software application.
 
 % DemoWiz
-Chapter 4 introduces DemoWiz, a system that assists viewers in capturing the timing of input events in a screencast demo video. DemoWiz supports recording, editing, and viewing stages in a production process with an authoring and playback UI.
+Chapter \ref{chapter_demowiz} introduces DemoWiz, a system that assists viewers in capturing the timing of input events in a screencast demo video. DemoWiz supports recording, editing, and viewing stages in a production process with an authoring and playback UI.
 
 Then, I introduced three systems designed for real-world tasks that involve physical demonstrations.
 % DemoCut
-In Chapter 5, I demonstrate a semi-automatic tool for DIY video editing. My system, called DemoCut, provides two authoring interfaces, annotation and editing, that enable users to mark a demo video and review and modify the automatically edited results. The design is based on an fundamental understanding of DIY activities.
+In Chapter \ref{chapter_democut}, I demonstrate a semi-automatic tool for DIY video editing. My system, called DemoCut, provides two authoring interfaces, annotation and editing, that enable users to mark a demo video and review and modify the automatically edited results. The design is based on an fundamental understanding of DIY activities.
 
 % Kinectograph
-In Chapter 6, I focus on a recording device design that automatically follows a demonstrator for filming instructional videos. The Kinectograph system tracks a user's position and body parts and provides an authoring interface for real-time control.
+In Chapter \ref{chapter_kinectograph}, I focus on a recording device design that automatically follows a demonstrator for filming instructional videos. The Kinectograph system tracks a user's position and body parts and provides an authoring interface for real-time control.
 
 % DemoDraw
-Finally, in Chapter 7, I present a multimodal approach for users to generate motion illustrations by physically demonstrating the movements. My system, DemoDraw, segments speech and 3D joint motion captured by a Kinect RGB-D sensor into a sequence of motion segments. A series of illustrations is automatically generated using a stylistically rendered 3D avatar annotated with arrows to convey movements. Users can navigate existing illustrations using speech and amend or re-perform motions if needed. They can also edit detailed visualization parameters via an editing interface.
+Finally, in Chapter \ref{chapter_demodraw}, I present a multimodal approach for users to generate motion illustrations by physically demonstrating the movements. My system, DemoDraw, segments speech and 3D joint motion captured by a Kinect RGB-D sensor into a sequence of motion segments. A series of illustrations is automatically generated using a stylistically rendered 3D avatar annotated with arrows to convey movements. Users can navigate existing illustrations using speech and amend or re-perform motions if needed. They can also edit detailed visualization parameters via an editing interface.
 
 % Conclusion
 Throughout this thesis, I discuss how my video-based approaches increase the quality of amateur-produced video instructions. Chapter 8 concludes my work on tutorial creation and consumption in both software and physical instructions. New directions for future research on interactive tutorials are proposed.
