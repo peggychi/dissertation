@@ -13,12 +13,12 @@ I survey research studies and literature about the motivations of people creatin
 \section{Instructions: Terminology}
 \label{background_terms}
 
-A \keyword{tutorial}, or a \keyword{how-to}, is a representation that transfers domain-specific \keyword{know-how} by describing a set of \keyword{instructions} on how to accomplish a specific \keyword{task}. Instructions have been widely created for various domains, including:
+A \keyword{tutorial}, or a \keyword{how-to}, is a representation that transfers domain-specific \keyword{know-how} by describing a set of \keyword{instructions} on how to accomplish a specific task. Instructions have been widely created for various domains, including:
 
 \begin{itemize}
   \itemsep -2pt
-  \item Software applications, such as manipulating an image to create a specific blurring effect or creating a pie chart using a spreadsheet application,
-  \item Do-It-Yourself (DIY) projects, such as wrapping a gift box or assembling a piece of furniture,
+  \item Software applications, such as creating a motion blur effect of an image or creating a pie chart from a spreadsheet using specific software,
+  \item Do-It-Yourself (DIY) projects, such as wrapping a gift box, assembling a piece of furniture, or building electronics with Arduino,
   \item Everyday activities, such as cooking or operating a vacuum machine, and
   \item Sports, such as making a dance move or swing a golf club.
 \end{itemize}
@@ -59,18 +59,27 @@ Note that instructions are different from a (software) \keyword{documentation}, 
 
 % -------------------
 
-Instructions can be shown in different forms. There are two main forms of visual tutorials (see Figure~\ref{fig:background_format}):
+Instructions can be shown in different forms. There are two main forms of visual tutorials (see Figure~\ref{fig:background_formats}):
 \begin{itemize}
   \itemsep -2pt
-  \item \keyword{Static tutorials}, which use text and figures to describe the set of operations required to accomplish a task. Such format is presented as a written document with a step-by-step list, while each step includes text description and/or an image or abstract \keyword{illustration} to describe the subtask. It can possible be combined into a \keyword{diagram} that shows the flow in a pictorial form. Static tutorials are suitable for printing and are easy to scan because they show all instructions.
-  \item \keyword{Video tutorials}, which are edited or raw videos of the tutorial author performing the the task. Examples include screen recordings of a software application or a camera recording of a DIY task.
+  \item \keyword{Static tutorials}, which use text and figures to describe the set of operations required to accomplish a task. Such format is presented as a written document with a step-by-step list, while each step includes text description and/or an image or abstract illustration to describe the subtask. It can possible be combined into a \keyword{diagram} that shows the step procedure. Static tutorials are suitable for printing and are easy to scan because they show all instructions.
+  \item \keyword{Video tutorials}, which are edited or raw videos of the tutorial author performing the task. Examples include screen recordings of a software application or a camera recording of a DIY task. Videos are effective to present the work in action, especially when the activities are hard to be described in text.
 \end{itemize}
 
 \begin{figure*}[t]
   \centering
-  \includegraphics[width=\textwidth]{\background/fig/tutorials}
-  \caption{Tutorial formats. \tofix{update the fig}}
-  \label{fig:background_format}
+  \begin{minipage}{\textwidth}
+  \includegraphics[width=\textwidth]{\background/fig/formats/formats}
+  \caption[formats]{Major tutorial formats:
+  %
+  a) Step-by-step static tutorials show a list of steps, each with text and figure(s) that describe a subtask
+  \footnote{Combine photos on the go \url{https://helpx.adobe.com/mobile-apps/how-to/combine-photos-photoshop-mix.html}}, and
+  %
+  b) video tutorials show an author performing the task, which can be reviewed via a video player
+  \footnote{Change the color of an object \url{https://helpx.adobe.com/photoshop/how-to/change-color-object-photoshop.html}}.
+  }
+  \label{fig:background_formats}
+  \end{minipage}
 \end{figure*}
 
 % -------------------
@@ -78,7 +87,7 @@ Instructions can be shown in different forms. There are two main forms of visual
 \subsection{Creating Instructions}
 Instructions are created by one or more \keyword{authors} who document the process of completing a task and refine the material to a final deliverable.
 %
-Since the process often involves innovations and creations, authors can also be referred as \keyword{creators}, \keyword{makers}, or \keyword{hobbyists}.
+Since the process often involves innovations and creations of the tasks of interests, authors can also be referred as \keyword{creators}, \keyword{makers}, or \keyword{hobbyists}.
 %
 Instructional authors are often the \keyword{professionals} or \keyword{experts} in the domains of their work. However, in tutorial production, they might be \keyword{amateurs} or \keyword{novices} who are not familiar with software tools to refine the documented material.
 
@@ -89,7 +98,7 @@ In software, the demonstration process can be referred as a system \keyword{walk
 % -------------------
 
 \subsection{Consuming Instructions}
-We define people who review instructional content as \keyword{viewers} or \keyword{learners}. Viewers may also be \keyword{followers} if they choose to follow the instructions to achieve the same or similar tasks.
+We define people who review instructional content as \keyword{viewers} or \keyword{learners}. Viewers may also be \keyword{followers} if they choose to follow the instructions in action to achieve the same or similar tasks.
 %
 Studies have shown that learners with different learning needs and habits have various preference on the tutorial formats. In Chapter \ref{chapter_mixt}, I'll examine these differences and propose a new instructional format.
 
@@ -100,13 +109,19 @@ Studies have shown that learners with different learning needs and habits have v
 \section{Why Instructions?}
 \label{background_why}
 
-The research community has been investigating the motivations of both authors and viewers of how-to videos and written tutorials. While one primary motivation is to share expertise, published videos also serve as a way to broadcast skill and as an online portfolio~\cite{Torrey:2007he,Kuznetsov:2010:REA:1868914.1868950}. Authors may derive revenue through advertising or referrals~\cite{Lafreniere:2012tl}. Viewers, on the other hand, typically seek technical explanations, but are also searching for inspiration~\cite{Torrey:2009fc} and looking for validation of existing skills~\cite{Lafreniere:2012tl}.
+The research community has been investigating the motivations behind tutorial authors creating how-to videos and written instructions, especially in the maker community.
 %
-These studies suggest that tutorials have a larger variety of purposes and uses than merely communicating technical content. Recently, guidelines of improving tutorial authorship have been proposed \cite{Wakkary:2015:TAH:2702123.2702550}. Key findings include identifying tools and components and structuring a task into steps with a clear sequence. In our work, we strive to make authoring of instructions more accessible to amateurs while maintaining opportunities for adding individual style through control over editing effects.
-
+While one primary motivation is to share expertise, published videos also serve as a way to broadcast skill and as an online portfolio~\cite{Torrey:2007he,Kuznetsov:2010:REA:1868914.1868950}.
+%
+Authors may derive revenue through advertising or referrals~\cite{Lafreniere:2012tl}.
 Instructables: \cite{Tseng:2014:PVP:2598510.2598540}
 
+Viewers, on the other hand, typically seek technical explanations, but are also searching for inspiration~\cite{Torrey:2009fc} and looking for validation of existing skills~\cite{Lafreniere:2012tl}.
 % people don’t read software documentation and instead look for task-centered learning materials
+
+These studies suggest that tutorials have a larger variety of purposes and uses than merely communicating technical content. Recently, guidelines of improving tutorial authorship have been proposed \cite{Wakkary:2015:TAH:2702123.2702550}. Key findings include identifying tools and components and structuring a task into steps with a clear sequence.
+%
+In my dissertation, I strive to make authoring of instructions more accessible to amateurs while maintaining opportunities for adding individual style through control over editing effects.
 
 % -------------------------------------------
 
