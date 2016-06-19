@@ -7,13 +7,26 @@
 This dissertation proposes computational methods to create interactive tutorials for software applications and physical tasks. To ground our work in existing practices and principles, in this chapter, I define the terminology commonly used by tutorial researchers and online community (Section \ref{background_terms}).
 %
 I survey research studies and literature about the motivations of people creating, sharing, and consuming tutorials (Section \ref{background_why}) and a common creation process (Section \ref{background_creation}).
+%
+These insights are obtained from the following resources:
+\begin{itemize}
+  \itemsep -2pt
+  \item Formative studies from my research projects \cite{Chi:2012:MAG:2380116.2380130,Chi:2014:DRS:2556288.2557254,Chi:2013:DGC:2501988.2502052}.
+  \item Guidelines for creating instructions \cite{InstructableHowTo,wikiHowHowTo}.
+  \item An online survey of 2600 individuals across DIY communities \cite{Kuznetsov:2010:REA:1868914.1868950}.
+  \item Interviews of tutorial authorship and learning \cite{Torrey:2007he,Torrey:2009fc,Wakkary:2015:TAH:2702123.2702550}.
+\end{itemize}
 
 % -------------------------------------------
 
 \section{Instructions: Terminology}
 \label{background_terms}
 
-A \keyword{tutorial}, or a \keyword{how-to}, is a representation that transfers domain-specific \keyword{know-how} by describing a set of \keyword{instructions} on how to accomplish a specific task. Instructions have been widely created for various domains, including:
+A \keyword{tutorial}, or a \keyword{how-to}, is a representation that transfers domain-specific \keyword{know-how} by describing a set of \keyword{instructions} on how to accomplish a specific task.
+%
+The title of a tutorial describes the goal of the task, such as ``How to retouch photos with Photoshop'' or ``Create holiday photo cards.''
+%
+Instructions have been widely created for various domains, including:
 
 \begin{itemize}
   \itemsep -2pt
@@ -23,12 +36,14 @@ A \keyword{tutorial}, or a \keyword{how-to}, is a representation that transfers 
   \item Sports, such as making a dance move or swing a golf club.
 \end{itemize}
 
-Figure~\ref{fig:background_activities} shows example activities of the above domains from online video tutorials.
+Figure~\ref{fig:background_activities} shows example activities of these domains from online tutorials.
 \\
 
 % A task-centric tutorial often involves domain-specific \keyword{know-how}, knowledge that is required to perform a task.
 %
 Instructional content is commonly structured as a list of \keyword{steps} or \keyword{subtasks} in a linear, \keyword{step-by-step} order.
+%
+It is important to include essential information required to complete a task, including materials, tools, preparation, expected outcome, and tips.
 %
 In some domains, instructions have been derived into specific formats. For example, cooking recipes contain not only actions but also food ingredients and required amounts.
 % The term \keyword{recipe} has been used for activities other than cooking.
@@ -66,11 +81,11 @@ Instructions can be shown in different forms. There are two main forms of visual
   \item \keyword{Video tutorials}, which are edited or raw videos of the tutorial author performing the task. Examples include screen recordings of a software application or a camera recording of a DIY task. Videos are effective to present the work in action, especially when the activities are hard to be described in text.
 \end{itemize}
 
-\begin{figure*}[t]
+\begin{figure*}[th!]
   \centering
   \begin{minipage}{\textwidth}
   \includegraphics[width=\textwidth]{\background/fig/formats/formats}
-  \caption[formats]{Major tutorial formats:
+  \caption[formats]{Major tutorial forms:
   %
   a) Step-by-step static tutorials show a list of steps, each with text and figure(s) that describe a subtask
   \footnote{Combine photos on the go \url{https://helpx.adobe.com/mobile-apps/how-to/combine-photos-photoshop-mix.html}}, and
@@ -109,8 +124,12 @@ Studies have shown that learners with different learning needs and habits have v
 \section{Why Instructions?}
 \label{background_why}
 
-The research community has been investigating the motivations behind tutorial authors creating how-to videos and written instructions, especially in the maker community.
+The research community has been investigating the motivations behind tutorial authors creating how-to videos and written instructions.
 %
+In early 90s, researchers studied users who formed online communities to collaboratively customize CAD systems \cite{Gantt:1992:GGP:142750.142767}. ``Local experts'' were found to play the key role within user groups. They provided supports to CAD system users of various levels of expertise by sharing customized environments and programmatic extensions. These experienced users were not professional programmers, but they were motivated by the frustrations of following manuals with existing software.
+
+web tutorials \cite{BenLafreniere:2013ux}
+
 While one primary motivation is to share expertise, published videos also serve as a way to broadcast skill and as an online portfolio~\cite{Torrey:2007he,Kuznetsov:2010:REA:1868914.1868950}.
 %
 Authors may derive revenue through advertising or referrals~\cite{Lafreniere:2012tl}.
@@ -132,24 +151,26 @@ Creating instructions can involve several stages, especially for activities that
 %
 Figure~\ref{fig:background_creation} shows a common workflow of tutorial creation:
 
+\subsection{Planning}
+Authors make a
+
+\subsection{Capturing}
+Mutlimedia material is often used to document a process:
 \begin{itemize}
-  \item \parTitleBold{Planning}:
-    Authors make a
-  \item \parTitleBold{Capturing}:
-    Mutlimedia material is often used to document a process:
-    \begin{itemize}
-      \itemsep -2pt
-      \item Static photographs capture specific moments in a procedure.
-      \item Video footages record a computer screencast or a scene of a demonstration.
-      \item Audio recordings preserve the sound of activities or author narration.
-      \item Other domain-specific content (e.g., code, board layouts, 3D models, and sketches) or resources (e.g., books or URLs to other material) often enrich the instructions.
-    \end{itemize}
-  \item \parTitleBold{Editing}:
-    Once ... to make it in a readable or viewable form
-  \item \parTitleBold{Reviewing}:
-  \item \parTitleBold{Releasing/Sharing}:
-    Finally, authors may release the refined content and share the deliverable with others. Common media or platforms include: personal blogs, content sharing sites (e.g., YouTube, Instructables), forums, emails, or private networks.
+  \itemsep -2pt
+  \item Static photographs capture specific moments in a procedure.
+  \item Video footages record a computer screencast or a scene of a demonstration.
+  \item Audio recordings preserve the sound of activities or author narration.
+  \item Other domain-specific content (e.g., code, board layouts, 3D models, and sketches) or resources (e.g., books or URLs to other material) often enrich the instructions.
 \end{itemize}
+
+\subsection{Editing}
+Once ... to make it in a readable or viewable form
+
+\subsection{Reviewing}
+
+\subsection{Releasing/Sharing}
+Finally, authors may release the refined content and share the deliverable with others. Common media or platforms include: personal blogs, content sharing sites (e.g., YouTube, Instructables), forums, emails, or private networks.
 
 Some tutorial creators, especially professionals, may work as a team with multiple role players in a production process, while some work individually. The time required to create a tutorial may vary from a few minutes to weeks.
 % , depending on the stages involved and the content.
