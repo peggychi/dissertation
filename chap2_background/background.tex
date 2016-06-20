@@ -22,7 +22,10 @@ These insights are obtained from the following resources:
 \section{Instructions: Terminology}
 \label{background_terms}
 
-A \keyword{tutorial}, or a \keyword{how-to}, is a representation that transfers domain-specific \keyword{know-how} by describing a set of \keyword{instructions} on how to accomplish a specific task.
+A \keyword{tutorial}, or a \keyword{how-to}, is a representation that transfers domain-specific \keyword{know-how} by describing a set of \keyword{instructions} on how to accomplish a specific task. Torrey \ea{} defined \cite{Torrey:2007he}:
+\begin{quote}
+\iquote{A How-To refers to online content that describes how something is done.}
+\end{quote}
 %
 The title of a tutorial describes the goal of the task, such as ``How to retouch photos with Photoshop'' or ``Create holiday photo cards.''
 %
@@ -57,16 +60,16 @@ Note that instructions are different from a (software) \keyword{documentation}, 
   \caption[activities]{Example activities in tutorial domains:
   %
   a) image manipulations using a software application
-  \footnote{Photoshop Playbook: Selective Focus \url{https://youtu.be/Wh3ahxqDnyw}},
+  \footnote{Photoshop Playbook: Selective Focus, \url{https://youtu.be/Wh3ahxqDnyw}},
   %
   b) wrapping a gift, a DIY task
-  \footnote{One Kings Lane: How to Wrap the Perfect Gift \url{https://youtu.be/Me3ykrZobJE}},
+  \footnote{One Kings Lane: How to Wrap the Perfect Gift, \url{https://youtu.be/Me3ykrZobJE}},
   %
   c) cooking, an everyday activity
-  \footnote{Slow-cooked black treacle ham \url{http://www.bbc.co.uk/food/recipes/slow-cooked_black_21152}}, and
+  \footnote{Slow-cooked black treacle ham, \url{http://www.bbc.co.uk/food/recipes/slow-cooked_black_21152}}, and
   %
   d) ballet dancing in sports
-  \footnote{Ballet 101: How to Do the Fouette in Ballet Dancing \url{https://youtu.be/DzqQNlaahjs}}.
+  \footnote{Ballet 101: How to Do the Fouette in Ballet Dancing, \url{https://youtu.be/DzqQNlaahjs}}.
   }
   \label{fig:background_activities}
   \end{minipage}
@@ -88,10 +91,10 @@ Instructions can be shown in different forms. There are two main forms of visual
   \caption[formats]{Major tutorial forms:
   %
   a) Step-by-step static tutorials show a list of steps, each with text and figure(s) that describe a subtask
-  \footnote{Combine photos on the go \url{https://helpx.adobe.com/mobile-apps/how-to/combine-photos-photoshop-mix.html}}, and
+  \footnote{Combine photos on the go, \url{https://helpx.adobe.com/mobile-apps/how-to/combine-photos-photoshop-mix.html}}, and
   %
   b) video tutorials show an author performing the task, which can be reviewed via a video player
-  \footnote{Change the color of an object \url{https://helpx.adobe.com/photoshop/how-to/change-color-object-photoshop.html}}.
+  \footnote{Change the color of an object, \url{https://helpx.adobe.com/photoshop/how-to/change-color-object-photoshop.html}}.
   }
   \label{fig:background_formats}
   \end{minipage}
@@ -128,28 +131,40 @@ The research community has been investigating the motivations behind tutorial au
 %
 In early 90s, researchers studied users who formed online communities to collaboratively customize CAD systems \cite{Gantt:1992:GGP:142750.142767}. ``Local experts'' were found to play the key role within user groups. They provided supports to CAD system users of various levels of expertise by sharing customized environments and programmatic extensions. These experienced users were not professional programmers, but they were motivated by the frustrations of following manuals with existing software.
 
-web tutorials \cite{BenLafreniere:2013ux}
-
-While one primary motivation is to share expertise, published videos also serve as a way to broadcast skill and as an online portfolio~\cite{Torrey:2007he,Kuznetsov:2010:REA:1868914.1868950}.
+The rise of maker movement from the 2000s introduced massive DIY project sharing via online services. Until mid-2016, Instructable has over 220,000 articles~\cite{InstructablesProjects}, and wikiHow provides 192,542 articles~\cite{wikiHowStatistics}.
 %
-Authors may derive revenue through advertising or referrals~\cite{Lafreniere:2012tl}.
-Instructables: \cite{Tseng:2014:PVP:2598510.2598540}
+Studies showed that one primary motivation of sharing DIY work is to demonstrate expertise ~\cite{Torrey:2007he,Kuznetsov:2010:REA:1868914.1868950}. Specifically, of the online survey that Kuznetsov and Paulos conducted in 2010 ~\cite{Kuznetsov:2010:REA:1868914.1868950}, 97\% of their 2608 respondents shared and contributed to projects to ``Express myself/be creative.'' Published tutorials serve as a way to broadcast skill and as an online portfolio.
+%
+Authors may derive revenue through advertising or referrals~\cite{Lafreniere:2012tl}, which was similar to how local, non-professional experts gained formal supports in CAD communities that Gantt \ea{} found \cite{Gantt:1992:GGP:142750.142767}.
 
 Viewers, on the other hand, typically seek technical explanations, but are also searching for inspiration~\cite{Torrey:2009fc} and looking for validation of existing skills~\cite{Lafreniere:2012tl}.
-% people don’t read software documentation and instead look for task-centered learning materials
-
-These studies suggest that tutorials have a larger variety of purposes and uses than merely communicating technical content. Recently, guidelines of improving tutorial authorship have been proposed \cite{Wakkary:2015:TAH:2702123.2702550}. Key findings include identifying tools and components and structuring a task into steps with a clear sequence.
 %
-In my dissertation, I strive to make authoring of instructions more accessible to amateurs while maintaining opportunities for adding individual style through control over editing effects.
+It was shown that people prefer web-based tutorials over manual as they provide ``an immediate, specific goal to accomplish'' and can help learners ``shadow and experience an expert's work practices'' \cite{BenLafreniere:2013ux}.
+
+While these studies present motivations on broadcasting and consuming instructions, creating ready-to-publish content can be time-consuming ~\cite{Kuznetsov:2010:REA:1868914.1868950}. Next, I discuss current practices of a tutorial production process.
+
+% Make channel: 1,229,404 subscribers • 253,518,445 views
+% Joined Mar 22, 2006
+% https://www.youtube.com/user/makemagazine
+% June 19, 2016
+% \cite{MakerMediaKit}
 
 % -------------------------------------------
 
 \section{Instruction Production Process}
 \label{background_creation}
 
+Recently, guidelines of improving tutorial authorship have been proposed \cite{Wakkary:2015:TAH:2702123.2702550}. Key findings include identifying tools and components and structuring a task into steps with a clear sequence.
+
+\begin{quote}
+\iquote{The practice of writing and sharing DIY tutorials is at the heart of the distributed production and creativity of DIY. Tutorials not only provide tutorship of particular projects, they also develop the skills and competences of those involved in DIY and, in doing so, expand the culture and practices of DIY. It is fair to say that the vitality of DIY practices relies on the effectiveness and quality of tutorials.} -- Wakkary \ea{}\cite{Wakkary:2015:TAH:2702123.2702550}
+\end{quote}
+
 Creating instructions can involve several stages, especially for activities that require more steps and time \tofix{studies here}.
 %
 Figure~\ref{fig:background_creation} shows a common workflow of tutorial creation:
+
+Instructables: \cite{Tseng:2014:PVP:2598510.2598540}
 
 \subsection{Planning}
 Authors make a
@@ -181,3 +196,9 @@ Some tutorial creators, especially professionals, may work as a team with multip
   \caption{A common workflow of tutorial creation. \tofix{update the fig}}
   \label{fig:background_creation}
 \end{figure*}
+
+These studies and observations suggest that tutorials have a larger variety of purposes and uses than merely communicating technical content.
+%
+In my dissertation, I strive to make authoring of instructions more accessible to amateurs while maintaining opportunities for adding individual style through control over editing effects.
+%
+Next, I survey prior work on computational methods of supporting authoring and following instructions.
