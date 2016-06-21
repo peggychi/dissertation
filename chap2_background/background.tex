@@ -10,11 +10,12 @@ I survey research studies and literature about the motivations of people creatin
 %
 These insights are obtained from the following resources:
 \begin{itemize}
-  \itemsep -2pt
+  %\itemsep -2pt
   \item Formative studies from my research projects \cite{Chi:2012:MAG:2380116.2380130,Chi:2014:DRS:2556288.2557254,Chi:2013:DGC:2501988.2502052}.
   \item Guidelines for creating instructions \cite{InstructableHowTo,wikiHowHowTo}.
   \item An online survey of 2600 individuals across DIY communities \cite{Kuznetsov:2010:REA:1868914.1868950}.
-  \item Interviews of tutorial authorship and learning \cite{Torrey:2007he,Torrey:2009fc,Wakkary:2015:TAH:2702123.2702550}.
+  \item Interviews of tutorial authorship and learning \cite{Torrey:2007he,Torrey:2009fc,Wakkary:2015:TAH:2702123.2702550,Tseng:2014:PVP:2598510.2598540}.
+  \item An analysis of 600 comments to web-based tutorials~\cite{BenLafreniere:2013ux}.
 \end{itemize}
 
 % -------------------------------------------
@@ -22,17 +23,17 @@ These insights are obtained from the following resources:
 \section{Instructions: Terminology}
 \label{background_terms}
 
-A \keyword{tutorial}, or a \keyword{how-to}, is a representation that transfers domain-specific \keyword{know-how} by describing a set of \keyword{instructions} on how to accomplish a specific task. Torrey \ea{} defined \cite{Torrey:2007he}:
+A \keyword{tutorial}, or a \keyword{how-to}, is a representation that transfers domain-specific \keyword{know-how} by describing a set of \keyword{instructions} on how to accomplish a specific task. Torrey \ea{} \cite{Torrey:2007he} defined:
 \begin{quote}
 \iquote{A How-To refers to online content that describes how something is done.}
 \end{quote}
 %
-The title of a tutorial describes the goal of the task, such as ``How to retouch photos with Photoshop'' or ``Create holiday photo cards.''
+The title of a tutorial describes the goal of the task, such as \iquote{How to retouch photos with Photoshop} or \iquote{Create holiday photo cards.}
 %
 Instructions have been widely created for various domains, including:
 
 \begin{itemize}
-  \itemsep -2pt
+  %\itemsep -2pt
   \item Software applications, such as creating a motion blur effect of an image or creating a pie chart from a spreadsheet using specific software,
   \item Do-It-Yourself (DIY) projects, such as wrapping a gift box, assembling a piece of furniture, or building electronics with Arduino,
   \item Everyday activities, such as cooking or operating a vacuum machine, and
@@ -79,7 +80,7 @@ Note that instructions are different from a (software) \keyword{documentation}, 
 
 Instructions can be shown in different forms. There are two main forms of visual tutorials (see Figure~\ref{fig:background_formats}):
 \begin{itemize}
-  \itemsep -2pt
+  %\itemsep -2pt
   \item \keyword{Static tutorials}, which use text and figures to describe the set of operations required to accomplish a task. Such format is presented as a written document with a step-by-step list, while each step includes text description and/or an image or abstract illustration to describe the subtask. It can possible be combined into a \keyword{diagram} that shows the step procedure. Static tutorials are suitable for printing and are easy to scan because they show all instructions.
   \item \keyword{Video tutorials}, which are edited or raw videos of the tutorial author performing the task. Examples include screen recordings of a software application or a camera recording of a DIY task. Videos are effective to present the work in action, especially when the activities are hard to be described in text.
 \end{itemize}
@@ -88,13 +89,12 @@ Instructions can be shown in different forms. There are two main forms of visual
   \centering
   \begin{minipage}{\textwidth}
   \includegraphics[width=\textwidth]{\background/fig/formats/formats}
-  \caption[formats]{Major tutorial forms:
-  %
-  a) Step-by-step static tutorials show a list of steps, each with text and figure(s) that describe a subtask
-  \footnote{Combine photos on the go, \url{https://helpx.adobe.com/mobile-apps/how-to/combine-photos-photoshop-mix.html}}, and
-  %
-  b) video tutorials show an author performing the task, which can be reviewed via a video player
-  \footnote{Change the color of an object, \url{https://helpx.adobe.com/photoshop/how-to/change-color-object-photoshop.html}}.
+  \caption[formats]{
+    Major tutorial forms from online resources \footnote{Combine photos on the go, \url{https://helpx.adobe.com/mobile-apps/how-to/combine-photos-photoshop-mix.html}} \footnote{Change the color of an object, \url{https://helpx.adobe.com/photoshop/how-to/change-color-object-photoshop.html}}:
+    %
+    a) Step-by-step static tutorials show a list of steps, each with text and figure(s) that describe a subtask, such as \iquote{Start combining photos} or \iquote{Refine your composite}, and
+    %
+    b) video tutorials show an author performing the task, which can be reviewed and controlled via a video player.
   }
   \label{fig:background_formats}
   \end{minipage}
@@ -111,7 +111,7 @@ Instructional authors are often the \keyword{professionals} or \keyword{experts}
 
 Throughout this dissertation, we call the process of author completing a task as a \keyword{demonstration} or a \keyword{performance}. Authors can therefore be as \keyword{demonstrators} or \keyword{presenters}.
 %
-In software, the demonstration process can be referred as a system \keyword{walkthrough}. Section \ref{background_creation} will discuss the \keyword{production} process of instructions.
+In software, the demonstration process can be referred as a system \keyword{walkthrough}. Section \ref{background_creation} will discuss the production process of instructions.
 
 % -------------------
 
@@ -129,19 +129,19 @@ Studies have shown that learners with different learning needs and habits have v
 
 The research community has been investigating the motivations behind tutorial authors creating how-to videos and written instructions.
 %
-In early 90s, researchers studied users who formed online communities to collaboratively customize CAD systems \cite{Gantt:1992:GGP:142750.142767}. ``Local experts'' were found to play the key role within user groups. They provided supports to CAD system users of various levels of expertise by sharing customized environments and programmatic extensions. These experienced users were not professional programmers, but they were motivated by the frustrations of following manuals with existing software.
+In early 90s, researchers studied users who formed online communities to collaboratively customize CAD systems \cite{Gantt:1992:GGP:142750.142767}. \iquote{Local experts} were found to play the key role within user groups. They provided supports to CAD system users of various levels of expertise by sharing customized environments and programmatic extensions. These experienced users were not professional programmers, but they were motivated by the frustrations of following manuals with existing software. They shared the materials in order to enhance manuals and help others acquire necessary skills.
 
 The rise of maker movement from the 2000s introduced massive DIY project sharing via online services. Until mid-2016, Instructable has over 220,000 articles~\cite{InstructablesProjects}, and wikiHow provides 192,542 articles~\cite{wikiHowStatistics}.
 %
-Studies showed that one primary motivation of sharing DIY work is to demonstrate expertise ~\cite{Torrey:2007he,Kuznetsov:2010:REA:1868914.1868950}. Specifically, of the online survey that Kuznetsov and Paulos conducted in 2010 ~\cite{Kuznetsov:2010:REA:1868914.1868950}, 97\% of their 2608 respondents shared and contributed to projects to ``Express myself/be creative.'' Published tutorials serve as a way to broadcast skill and as an online portfolio.
+Studies showed that one primary motivation of sharing DIY work is to demonstrate expertise ~\cite{Torrey:2007he,Kuznetsov:2010:REA:1868914.1868950}. Specifically, of the online survey that Kuznetsov and Paulos~\cite{Kuznetsov:2010:REA:1868914.1868950} conducted in 2010, 97\% of their 2608 respondents shared and contributed to projects to \iquote{Express myself/be creative.} Published tutorials serve as a way to broadcast skill and as an online portfolio.
 %
-Authors may derive revenue through advertising or referrals~\cite{Lafreniere:2012tl}, which was similar to how local, non-professional experts gained formal supports in CAD communities that Gantt \ea{} found \cite{Gantt:1992:GGP:142750.142767}.
+Authors may derive revenue through advertising or referrals~\cite{Lafreniere:2012tl}, which was similar to how local, non-professional experts gained formal supports in CAD communities that Gantt \ea{}~\cite{Gantt:1992:GGP:142750.142767} found.
 
 Viewers, on the other hand, typically seek technical explanations, but are also searching for inspiration~\cite{Torrey:2009fc} and looking for validation of existing skills~\cite{Lafreniere:2012tl}.
 %
-It was shown that people prefer web-based tutorials over manual as they provide ``an immediate, specific goal to accomplish'' and can help learners ``shadow and experience an expert's work practices'' \cite{BenLafreniere:2013ux}.
+It was shown that people prefer web-based tutorials over manual as they provide \iquote{an immediate, specific goal to accomplish} and can help learners \iquote{shadow and experience an expert's work practices}~\cite{BenLafreniere:2013ux}.
 
-While these studies present motivations on broadcasting and consuming instructions, creating ready-to-publish content can be time-consuming ~\cite{Kuznetsov:2010:REA:1868914.1868950}. Next, I discuss current practices of a tutorial production process.
+While these studies present motivations beyond broadcasting and consuming instructions, research also found that creating ready-to-publish content can be time-consuming ~\cite{Kuznetsov:2010:REA:1868914.1868950}. Next, I discuss current practices of a tutorial production process.
 
 % Make channel: 1,229,404 subscribers • 253,518,445 views
 % Joined Mar 22, 2006
@@ -154,48 +154,65 @@ While these studies present motivations on broadcasting and consuming instructio
 \section{Instruction Production Process}
 \label{background_creation}
 
-Recently, guidelines of improving tutorial authorship have been proposed \cite{Wakkary:2015:TAH:2702123.2702550}. Key findings include identifying tools and components and structuring a task into steps with a clear sequence.
-
 \begin{quote}
-\iquote{The practice of writing and sharing DIY tutorials is at the heart of the distributed production and creativity of DIY. Tutorials not only provide tutorship of particular projects, they also develop the skills and competences of those involved in DIY and, in doing so, expand the culture and practices of DIY. It is fair to say that the vitality of DIY practices relies on the effectiveness and quality of tutorials.} -- Wakkary \ea{}\cite{Wakkary:2015:TAH:2702123.2702550}
+\iquote{The practice of writing and sharing DIY tutorials is at the heart of the distributed production and creativity of DIY. Tutorials not only provide tutorship of particular projects, they also develop the skills and competences of those involved in DIY and, in doing so, expand the culture and practices of DIY. It is fair to say that the vitality of DIY practices relies on the effectiveness and quality of tutorials.} -- Wakkary \ea{}~\cite{Wakkary:2015:TAH:2702123.2702550}
 \end{quote}
 
-Creating instructions can involve several stages, especially for activities that require more steps and time \tofix{studies here}.
+In their paper discussing tutorial authorship, Wakkary \ea{}~\cite{Wakkary:2015:TAH:2702123.2702550} pointed out the values of producing DIY tutorials, which I believe can be applied to instructions of other domains. However, the time required to create a tutorial is the primary concern for authors~\cite{Kuznetsov:2010:REA:1868914.1868950}, especially for activities that involve more steps, tools, and material. To produce a tutorial, an author may go through several stages:
+% Key findings include identifying tools and components and structuring a task into steps with a clear sequence.
+
+Torrey \ea{}~\cite{Torrey:2007he} proposed a project lifecycle of three phases: 1) the ``project'', which is a goal or a challenge to achieve, 2) the ``story'' by documenting the making via words and text, and 3) the ``contribution'', which is to broadcast the How-To.
 %
-Figure~\ref{fig:background_creation} shows a common workflow of tutorial creation:
+Tseng and Resnick~\cite{Tseng:2014:PVP:2598510.2598540} found that ``documenting'' and ``designing'' a DIY project are often separate processes.
+%
+Our interviews with instructional authors on YouTube suggested that a production process can be similar to a filming production~\cite{Chi:2013:DGC:2501988.2502052}.
+%
+Figure~\ref{fig:background_creation} shows a typical tutorial creation workflow that we identified, which includes four main stages: \iquote{planning} a procedure of achieving the goal of a task or a project, \iquote{capturing} the process of completing the project, \iquote{editing} the captured material into a form that can be followed, and finally \iquote{sharing} the instructions to the communities. Below I describe the characteristics of each stage in detail.
 
-Instructables: \cite{Tseng:2014:PVP:2598510.2598540}
-
-\subsection{Planning}
-Authors make a
-
-\subsection{Capturing}
-Mutlimedia material is often used to document a process:
-\begin{itemize}
-  \itemsep -2pt
-  \item Static photographs capture specific moments in a procedure.
-  \item Video footages record a computer screencast or a scene of a demonstration.
-  \item Audio recordings preserve the sound of activities or author narration.
-  \item Other domain-specific content (e.g., code, board layouts, 3D models, and sketches) or resources (e.g., books or URLs to other material) often enrich the instructions.
-\end{itemize}
-
-\subsection{Editing}
-Once ... to make it in a readable or viewable form
-
-\subsection{Reviewing}
-
-\subsection{Releasing/Sharing}
-Finally, authors may release the refined content and share the deliverable with others. Common media or platforms include: personal blogs, content sharing sites (e.g., YouTube, Instructables), forums, emails, or private networks.
-
-Some tutorial creators, especially professionals, may work as a team with multiple role players in a production process, while some work individually. The time required to create a tutorial may vary from a few minutes to weeks.
-% , depending on the stages involved and the content.
-
-\begin{figure*}[t]
+\begin{figure*}[t!]
   \centering
   \includegraphics[width=\textwidth]{\background/fig/creation_process}
   \caption{A common workflow of tutorial creation. \tofix{update the fig}}
   \label{fig:background_creation}
 \end{figure*}
+
+% ------------------------
+
+\subsection{Planning}
+Planning or preparation helps authors gather ideas, inspirations, and necessary details prior to building a tutorial project~\cite{Torrey:2007he}. At this stage, authors decide the project scope and expected outcome, confirm the material and tools required, and design subtasks or steps to be executed. Some authors choose to explicitly write detailed scripts to explain their activities during the capturing stage~\cite{Chi:2013:DGC:2501988.2502052}. Figure~\ref{fig:background_scripts} presents examples of instructional video scripts.
+
+\begin{figure*}[th!]
+  \centering
+  \includegraphics[width=\textwidth]{\background/fig/scripts/scripts}
+  \caption{Example scripts for instructional videos about a) food safety~\protect\cite{WisconsinFoodSafetyScript} and b) cooking ~\protect\cite{SouthernIllinoisScript}. Each includes video shot(s) and narration, some with additional notes on the actions and high-level purposes (e.g., ``opening'', ``conclusion'').}
+  \label{fig:background_scripts}
+\end{figure*}
+
+\subsection{Capturing}
+Documenting or capturing is the core of creating instructions in order to guide viewers through a specific task.
+%
+Mutlimedia material has been found to be effective to document procedural knowledge~\cite{Wakkary:2015:TAH:2702123.2702550}, including:
+
+\begin{itemize}
+  % %\itemsep -2pt
+  \item Static photographs that capture specific moments in a procedure.
+  \item Video footages that record a computer screencast or a scene of a demonstration.
+  \item Audio recordings that preserve the sound of activities or author narration.
+  \item Other domain-specific content (e.g., code, board layouts, 3D models, and sketches) or resources (e.g., books or URLs to other material), which often serve as supplementary material.
+\end{itemize}
+
+However, . One main challenge that authors might confront is
+
+\subsection{Editing}
+Once ... to make it in a readable or viewable form
+
+tools: images - crop, resize~\cite{Tseng:2014:PVP:2598510.2598540}; videos: editing tools; apps for capturing and editing
+
+\subsection{Sharing}
+Finally, authors may release the refined content and share the deliverable with others. Common media or platforms include: personal blogs, content sharing sites (e.g., YouTube, Instructables), forums, emails, or personal networks.
+
+Some tutorial creators, especially professionals, may work as a team with multiple role players in a production process, while some work individually. The time required to create a tutorial may vary from a few minutes to weeks.
+% , depending on the stages involved and the content.
 
 These studies and observations suggest that tutorials have a larger variety of purposes and uses than merely communicating technical content.
 %
