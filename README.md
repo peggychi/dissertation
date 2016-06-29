@@ -4,7 +4,7 @@ UC Berkeley Computer Science
 
 * Introduction: 6/3 done text (`TODO`: figures)
 * Background: 6/20 done text and figures
-* Related Work
+* Related Work: 6/?? done text and figures
 * MixT
 * DemoWiz
 * DemoCut
@@ -16,7 +16,7 @@ Timeline:
 - First complete draft...
 - Meeting with Eric: 6/21 Tue
 - Initial feedback by 7/18 Mon (tentative)
-- Dissertation talk: 7/21 Thu (tentative)
+- Dissertation talk: 7/21 Thu 1pm
 - Target filing date: 8/5 Fri
 - Absolute deadline: 8/12 Fri
 
