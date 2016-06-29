@@ -6,17 +6,16 @@
 
 This dissertation proposes computational methods to create interactive tutorials for software applications and physical tasks. To ground our work in existing practices and principles, in this chapter, I define the terminology commonly used by tutorial researchers and online community (Section \ref{background_terms}).
 %
-I survey research studies and literature about the motivations of people creating, sharing, and consuming tutorials (Section \ref{background_why}) and a common creation process (Section \ref{background_creation}).
+I survey research studies and literature about the motivations of people creating, sharing, and consuming tutorials (Section \ref{background_why}). Finally, I discuss the common techniques and current practices of creating instructions (Section \ref{background_techniques} and \ref{background_creation}).
 %
 These insights are obtained from the following resources:
 \begin{itemize}
-  %\itemsep -2pt
-  \item Formative studies from my research projects~\cite{Chi:2012:MAG:2380116.2380130,Chi:2014:DRS:2556288.2557254,Chi:2013:DGC:2501988.2502052}.
+  \item Formative studies from my research projects~\cite{Chi:2012:MAG:2380116.2380130,Chi:2014:DRS:2556288.2557254,Chi:2013:DGC:2501988.2502052,Chi:2016:DemoDraw}.
   \item Guidelines for creating instructions~\cite{InstructableHowTo,wikiHowHowTo}.
   \item An online survey of 2600 individuals across DIY communities~\cite{Kuznetsov:2010:REA:1868914.1868950}.
   \item Interviews of tutorial authorship and learning~\cite{Torrey:2007he,Torrey:2009fc,Wakkary:2015:TAH:2702123.2702550,Tseng:2014:PVP:2598510.2598540}.
   \item An analysis of 600 comments to web-based tutorials~\cite{BenLafreniere:2013ux}.
-  \item Books of technical illustrations and expressing user experiences~\cite{mijksenaar1999open,greenberg2012sketching,Buxton:2007:SUE:1526229}.
+  \item Books of illustrating technical instructions and user experiences~\cite{mijksenaar1999open,greenberg2012sketching,Buxton:2007:SUE:1526229}.
 \end{itemize}
 
 % -------------------------------------------
@@ -34,7 +33,6 @@ The title of a tutorial describes the goal of the task, such as \iquote{How to r
 Instructions have been widely created for various domains, including:
 
 \begin{itemize}
-  %\itemsep -2pt
   \item Software applications, such as creating a motion blur effect of an image or creating a pie chart from a spreadsheet using specific software,
   \item Do-It-Yourself (DIY) projects, such as wrapping a gift box, assembling a piece of furniture, or building electronics with Arduino,
   \item Everyday activities, such as cooking or operating a vacuum machine, and
@@ -81,7 +79,6 @@ Note that instructions are different from a (software) \keyword{documentation}, 
 
 Instructions can be shown in different forms. There are two main forms of visual tutorials (see Figure~\ref{fig:background_formats}):
 \begin{itemize}
-  %\itemsep -2pt
   \item \keyword{Static tutorials}, which use text and figures to describe the set of operations required to accomplish a task. Such format is presented as a written document with a step-by-step list, while each step includes text description and/or an image or abstract illustration to describe the subtask. It can possible be combined into a \keyword{diagram} that shows the step procedure. Static tutorials are suitable for printing and are easy to scan because they show all instructions.
   \item \keyword{Video tutorials}, which are edited or raw videos of the tutorial author performing the task. Examples include screen recordings of a software application or a camera recording of a DIY task. Videos are effective to present the work in action, especially when the activities are hard to be described in text.
 \end{itemize}
@@ -142,7 +139,7 @@ Viewers, on the other hand, typically seek technical explanations, but are also 
 %
 It was shown that people prefer web-based tutorials over manual as they provide \iquote{an immediate, specific goal to accomplish} and can help learners \iquote{shadow and experience an expert's work practices}~\cite{BenLafreniere:2013ux}.
 
-While these studies present motivations beyond broadcasting and consuming instructions, research also found that creating ready-to-publish content can be time-consuming ~\cite{Kuznetsov:2010:REA:1868914.1868950}. Next, I discuss current practices of a tutorial production process.
+While these studies present motivations beyond broadcasting and consuming instructions, research also found that creating ready-to-publish content can be time-consuming ~\cite{Kuznetsov:2010:REA:1868914.1868950}. Next, I discuss current techniques and practices of tutorial production.
 
 % Make channel: 1,229,404 subscribers • 253,518,445 views
 % Joined Mar 22, 2006
@@ -155,13 +152,13 @@ While these studies present motivations beyond broadcasting and consuming instru
 \section{Techniques of Effective Instructions}
 \label{background_techniques}
 
-[To add: discuss existing practices]
+Following instructions can be an intense process for a learner, especially for unfamiliar, complicated tasks. To create effective tutorials that are easy to comprehend, a set of techniques has been developed and is widely used~\cite{mijksenaar1999open,greenberg2012sketching,Buxton:2007:SUE:1526229}.
 
-\subsection{Annotated Diagrams}
+\subsection{Visual Annotations}
 
-~\cite{mijksenaar1999open}
 Arrows
 movements, speed,
+overview and detail
 
 Pictorial
 call-outs, highlights (color, rectangle, circle, bubbles)
@@ -175,7 +172,7 @@ descriptive
 Sequences
 numbers, layout, arrows
 
-\subsection{Instructional Videos}
+\subsection{Video Editing Techniques}
 
 DemoCut: cuts, zoom, transitions, subtitles, auditory effects
 
@@ -184,7 +181,7 @@ above techniques from annotated diagrams are often seen: arrows, call-outs, text
 \begin{figure*}[t!]
   \centering
   \includegraphics[width=0.7\textwidth]{\background/fig/illustration/illustration}
-  \caption{\tofix{discuss techniques here}}
+  \caption{\tofix{present and discuss techniques here}}
   \label{fig:background_techniques}
 \end{figure*}
 
