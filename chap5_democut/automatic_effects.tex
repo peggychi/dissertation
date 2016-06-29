@@ -11,10 +11,9 @@ this section describes these steps in detail.
 
 \begin{figure}[t]
   \centering
-\includegraphics[width=1\columnwidth]{\democut/fig/pipeline}
+\includegraphics[width=0.8\columnwidth]{\democut/fig/pipeline}
   \caption{Given user markers, DemoCut analyzes both video and audio to segment the demonstration video and apply editing effects.}
   \label{fig:pipeline}
-    \vspace{-0.1in}
 \end{figure}
 
 \subsection{Video Segmentation}
@@ -43,7 +42,6 @@ seconds and ignores overlaps between segments. Segment overlaps are
 resolved during boundary adjustment after incorporating the audio
 analysis.
 
-\vspace{-0.03in}
 \subsection{Adjusting Segments with Audio Analysis}
 
 Adjacent segments can have different effects that change how video and audio are processed. To prevent such changes from interfering with a video's narration, DemoCut adjusts segment boundaries to align with audio activity boundaries.
@@ -80,7 +78,7 @@ the $i$th audio sample in the window. We set window sizes as 0.1 second with $n 
 
 \begin{figure}[t]
   \centering
-\includegraphics[width=1.0\columnwidth]{\democut/fig/video-similarity}
+\includegraphics[width=0.6\columnwidth]{\democut/fig/video-similarity}
   \caption{DemoCut looks for similar video frames before and
 after a marked frame $T^m$ to find candidate start ($T^s$) and end ($T^e$) frames
 for the corresponding segment.}
@@ -132,12 +130,10 @@ of our results.
 
 \begin{figure}[t]
   \centering
-\includegraphics[width=1.0\columnwidth]{\democut/fig/audio}
+\includegraphics[width=0.8\columnwidth]{\democut/fig/audio}
   \caption{We use RMS energy of the audio to find silent and non-silent regions. We determine the threshold for silence by analyzing the histogram of the RMS energy.}
   \label{fig:audio}
-  \vspace{-0.15in}
 \end{figure}
-
 
 \begin{table*}
   \centering
@@ -147,12 +143,12 @@ of our results.
     \hline
     \multicolumn{1}{|p{0.3\columnwidth}|}{\centering\tabhead{Task}} &
     \multicolumn{1}{|p{0.1\columnwidth}|}{\centering\tabhead{Category}} &
-    \multicolumn{1}{|p{0.1\columnwidth}|}{\centering\tabhead{Raw footage length}} &
-    \multicolumn{1}{|p{0.13\columnwidth}|}{\centering\tabhead{DemoCut video length}} &
-    \multicolumn{1}{|p{0.12\columnwidth}|}{\centering\tabhead{\# of markers}} &
-    \multicolumn{1}{|p{0.1\columnwidth}|}{\centering\tabhead{\# of segments}} &
-    \multicolumn{1}{|p{0.12\columnwidth}|}{\centering\tabhead{Incorrect Effects}} &
-    \multicolumn{1}{|p{0.15\columnwidth}|}{\centering\tabhead{\# of non-silent sections}} &
+    \multicolumn{1}{|p{0.05\columnwidth}|}{\centering\tabhead{Raw footage length}} &
+    \multicolumn{1}{|p{0.05\columnwidth}|}{\centering\tabhead{DemoCut video length}} &
+    \multicolumn{1}{|p{0.05\columnwidth}|}{\centering\tabhead{\# of markers}} &
+    \multicolumn{1}{|p{0.05\columnwidth}|}{\centering\tabhead{\# of segments}} &
+    \multicolumn{1}{|p{0.08\columnwidth}|}{\centering\tabhead{Incorrect Effects}} &
+    \multicolumn{1}{|p{0.05\columnwidth}|}{\centering\tabhead{\# of non-silent sections}} &
     \multicolumn{1}{|p{0.1\columnwidth}|}{\centering\tabhead{Audio misses}} &
     \multicolumn{1}{|p{0.1\columnwidth}|}{\centering\tabhead{Audio cut-off}} &
     \multicolumn{1}{|p{0.1\columnwidth}|}{\centering\tabhead{Audio false-positives}} \\ \hline
@@ -167,7 +163,6 @@ of our results.
   \end{tabular}
   \caption{A list of how-to videos we recorded to assess the robustness of the DemoCut system.}
   \label{tab:system_results}
-  \vspace{-0.15in}
 \end{table*}
 
 \subsubsection{Adjusting segment boundaries}
@@ -220,9 +215,7 @@ comparison.
 %
 DemoCut chooses effects as follows:
 
-
 \begin{enumerate}
-\setlength{\itemsep}{0pt}
   \item If the segment includes a \emph{cutout} marker, apply {\em ``Skip''}.
   \item If the segment includes a \emph{closeup} marker, apply {\em ``Zoom''} to the entire segment.
   \item If the segment includes any non-silent audio sections, apply {\em ``Fast Motion''}.

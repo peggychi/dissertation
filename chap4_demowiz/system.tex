@@ -8,7 +8,7 @@ DemoWiz first captures a screencast video and input events during a software dem
 
 \begin{figure*}[t]
   \centering
-  \includegraphics[width=\textwidth]{\demowiz/fig/demowiz_workflow}
+  \includegraphics[width=0.7\textwidth]{\demowiz/fig/demowiz_workflow}
   \caption{DemoWiz workflow: Presenters captures a software demonstration, edit the recording while rehearsing with our playback UI, and present the edited video to the audience using a presenter view.}
   \label{fig:demowiz_workflow}
 \end{figure*}
@@ -34,7 +34,7 @@ At any given time during the video playback, DemoWiz shows the current event and
 
 \begin{figure*}[t]
   \centering
-  \includegraphics[width=\textwidth]{\demowiz/fig/event_types/types}
+  \includegraphics[width=0.7\textwidth]{\demowiz/fig/event_types/types}
   \caption{DemoWiz visualizes input events in a graphical way. From the left to right we show a mouse click, double-click, a drag, a mouse scroll, and keystroke events. These glyphs are overlaid on the video recordings.}
   \label{fig:demowiz_glyphs}
 \end{figure*}
@@ -55,7 +55,7 @@ Since the distance between two consecutive event segments vary, we created three
 
 \begin{figure*}[t]
   \centering
-  \includegraphics[width=\textwidth]{\demowiz/fig/arrows/arrows}
+  \includegraphics[width=0.6\textwidth]{\demowiz/fig/arrows/arrows}
   \caption{Three types of motion arrows in DemoWiz that guide presenters to the next event of different distances at a (A) far, (B) nearly the same, and (C) near location.}
   \label{fig:demowiz_arrows}
 \end{figure*}
@@ -67,8 +67,8 @@ DemoWiz provides a sense of timing for an upcoming action so that presenters can
 
 \begin{figure*}[t]
   \centering
-  \includegraphics[width=\textwidth]{\demowiz/fig/progressbar/progressbar}
-  \includegraphics[width=\textwidth]{\demowiz/fig/countdown/countdown}
+  \includegraphics[width=0.6\textwidth]{\demowiz/fig/progressbar/progressbar}
+  \includegraphics[width=0.6\textwidth]{\demowiz/fig/countdown/countdown}
   \caption{A progress in time guides the presenter from the current event (left) gradually to the upcoming action (right) using relative timing with a progress bar (top) and absolute timing (bottom).}
   \label{fig:demowiz_timing}
 \end{figure*}
@@ -80,7 +80,7 @@ Figure~\ref{fig:demowiz_examples} presents examples of DemoWiz visualizations wi
 
 \begin{figure*}[t]
   \centering
-  \includegraphics[width=\textwidth]{\demowiz/fig/examples/examples}
+  \includegraphics[width=0.7\textwidth]{\demowiz/fig/examples/examples}
   \caption{Examples of DemoWiz visualizations with four different systems and input event sequences.}
   \label{fig:demowiz_examples}
 \end{figure*}
@@ -110,6 +110,6 @@ During recording, DemoWiz captures the screen within a specified region and logs
 
 Once presenters finish their demonstrations, DemoWiz analyzes the low-level event stream and transforms it into high-level event metadata. For mouse events, we pair each mouse down and up into mouse \textit{clicks}, \textit{double-clicks}, or \textit{drags}. We group any consecutive mouse wheel events within a time threshold of 2 seconds to one \textit{scroll} event and any key-press events within the same threshold to one \textit{keystroke} event(e.g., combine keys d-o-w-n-t-o-w-n to \"downtown\"). For each high-level event, we log the \textit{start} and \textit{end time} (timestamps of the first and the last low-level event).
 
-Based on the start and end times of these high-level events, DemoWiz segments the screencast video recording into \textit{event segments}. Any gap between two consecutive input events is marked as an \textit{inactive segment}, which may include mouse hovering, UI transitions of the demo system, or static frames with no visual changes. DemoWiz adjusts the boundaries of these event segments to avoid any short visual effect that cannot be observed. DemoWiz examines segments in a linear order to ensure each segment lasts at least \textit{t}\textit{\textsubscript{min}} seconds long,which is set as one second based on our early testing. For an event segment \textit{S}\textit{\textsubscript{i}} of time (\textit{t}\textit{\textsubscript{start}},\textit{ t}\textit{\textsubscript{end}}) that\textit{t}\textit{\textsubscript{end }}\textit{$-$t}\textit{\textsubscript{start}} {\textless}\textit{t}\textit{\textsubscript{min}}, DemoWiz expands 0.5 second forward and backward if\textit{S}\textit{\textsubscript{i-1}} and \textit{S}\textit{\textsubscript{i+1}} are inactive. If the adjusted\textit{S’}\textit{\textsubscript{i-1}} and \textit{S’}\textit{\textsubscript{i+1}}\textit{ }are shorter than\textit{t}\textit{\textsubscript{min}}, DemoWiz merges it to the shorter neighbor segment. Currently, DemoWiz does not analyze these inactive segments, but techniques including computer vision and video analysis \cite{Banovic:2012kd,chi2012mixt} can be applied for finer segmentation.
+Based on the start and end times of these high-level events, DemoWiz segments the screencast video recording into \textit{event segments}. Any gap between two consecutive input events is marked as an \textit{inactive segment}, which may include mouse hovering, UI transitions of the demo system, or static frames with no visual changes. DemoWiz adjusts the boundaries of these event segments to avoid any short visual effect that cannot be observed. DemoWiz examines segments in a linear order to ensure each segment lasts at least \textit{t}\textit{\textsubscript{min}} seconds long,which is set as one second based on our early testing. For an event segment \textit{S}\textit{\textsubscript{i}} of time (\textit{t}\textit{\textsubscript{start}},\textit{ t}\textit{\textsubscript{end}}) that\textit{t}\textit{\textsubscript{end }}\textit{$-$t}\textit{\textsubscript{start}} {\textless}\textit{t}\textit{\textsubscript{min}}, DemoWiz expands 0.5 second forward and backward if\textit{S}\textit{\textsubscript{i-1}} and \textit{S}\textit{\textsubscript{i+1}} are inactive. If the adjusted\textit{S’}\textit{\textsubscript{i-1}} and \textit{S’}\textit{\textsubscript{i+1}}\textit{ }are shorter than\textit{t}\textit{\textsubscript{min}}, DemoWiz merges it to the shorter neighbor segment. Currently, DemoWiz does not analyze these inactive segments, but techniques including computer vision and video analysis \cite{Banovic:2012kd,Chi:2012:MAG:2380116.2380130} can be applied for finer segmentation.
 
 The capturing program is implemented in C\#. Two APIs were used: 1) the Windows Event Log API for mouse and keyboard hooks and 2) the Expression Encoder 4 API for screen recording running on Microsoft Windows 7. The recorded metadata(stored in a JSON object) and screencast video (in MP4) are read by the Presenter UI, which is implemented using standard Web technologies, including HTML5, CSS3, JavaScript, and jQuery. In particular, the visualization is rendered on the canvas element on top of the video object on the fly based on the video playback time. The audience view is generated by the main browser window of presenter view for video control.
