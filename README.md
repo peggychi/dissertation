@@ -2,9 +2,9 @@
 Peggy's PhD dissertation, summer 2016<br />
 UC Berkeley Computer Science
 
-* Introduction: 6/3 done text (`TODO`: figures)
+* Introduction: 6/3 done text (`TODO`: figures, add broader view)
 * Background: 6/20 done text and figures
-* Related Work: 6/?? done text and figures
+* Related Work: 7/?? done text and figures
 * MixT
 * DemoWiz
 * DemoCut
@@ -22,7 +22,8 @@ Timeline:
 
 Paperwork:
 * Permissions:
-1) Mira+Wil
-2) Steve Drucker+Bongshin
-3) Derrick?
-* The evaluation form
+1) Mira, Wil, Dan;
+2) Steve Drucker, Bongshin;
+3) Derrick
+* The evaluation form (done)
+* Dissertation talk form (done)
