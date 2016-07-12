@@ -80,7 +80,11 @@ Note that instructions are different from a (software) \keyword{documentation}, 
 Instructions can be shown in different forms. There are two main forms of visual tutorials (see Figure~\ref{fig:background_formats}):
 \begin{itemize}
   \item \keyword{Static tutorials}, which use text and figures to describe the set of operations required to accomplish a task. Such format is presented as a written document with a step-by-step list, while each step includes text description and/or an image or abstract illustration to describe the subtask. It can possible be combined into a \keyword{diagram} that shows the step procedure. Static tutorials are suitable for printing and are easy to scan because they show all instructions.
-  \item \keyword{Video tutorials}, which are edited or raw videos of the tutorial author performing the task. Examples include screen recordings of a software application or a camera recording of a DIY task. Videos are effective to present the work in action, especially when the activities are hard to be described in text.
+  \item \keyword{Video tutorials}, which are edited or raw videos of the tutorial author performing the task. Examples include screen recordings of a software application or a camera recording of a DIY task.
+  %
+  Video tutorials are composed of one or more ``shots,'' which is \iquote{the basic unit of an editor's film language, consisting of footage captured over a continuous duration of time without interruption}~\cite{Goldman:2007:FVA:1354647}, to provide the animation or capturing of movements in time.
+  %
+  They are effective to present the work in action, especially when the activities are hard to be described in text.
 \end{itemize}
 
 \begin{figure*}[th!]
@@ -154,42 +158,25 @@ While these studies present motivations beyond broadcasting and consuming instru
 
 Following instructions can be an intense process for a learner, especially when performing unfamiliar, complicated tasks. Therefore, tutorial authors have to carefully provide concise, effective instructions that can be interpreted by a follower efficiently. A set of techniques has been developed and widely used in technical and everyday instructions.
 
+% -------------------
+
 \subsection{Visual Annotations}
+% \label{background_techniques_visual}
 
-Static, step-by-step instructions are composed of one or more figures, which can be either illustrations, images, or software screenshots. To help learners identify the key information, visual annotations are commonly applied to figures, often with text descriptions.
+To help learners quickly identify key information, visual annotations are commonly used. Table~\ref{background_annotation_techniques} shows a list of annotation techniques in practices that I summarized from book material for static tutorials~\cite{mijksenaar1999open,greenberg2012sketching,Buxton:2007:SUE:1526229,tufte1990envisioning}, but some of these techniques are often applied in video tutorials (see Figure~\ref{fig:background_video_techniques}).
 %
-Table~\ref{background_techniques} shows a list of annotation techniques in practices that I summarized from book material~\cite{mijksenaar1999open,greenberg2012sketching,Buxton:2007:SUE:1526229,tufte1990envisioning}. The visual elements are used to indicate the movements of actions or objects (via arrows or paths), identify important parts (via highlights), present the details and overview (via call-outs), and provide additional messages such as a warning (via icons or text).
+These visual elements are effective to indicate the movements of actions or objects (via arrows or paths), identify important parts (via highlights), present the details and overview (via call-outs), and provide additional messages such as a warning (via icons or text).
 
-Ordering of a series of actions can be expressed using numbers, sometimes with arrows, in a clear layout.
-%
-Specifically, Tufte~\cite{tufte1990envisioning} pointed out the importance of ... \todo{the fig from p63 here}
-
-More advanced techniques such as overlaying visual components or composing an exploded view can be useful to show the depth of spatial relations between detailed components.
-
-% Automated Generation of Interactive 3D Exploded View Diagrams
-
-\begin{table}[h!]
+\begin{table*}[!htbp]
   \centering
-  \includegraphics[width=0.8\columnwidth]{\background/fig/techniques/techniques}
-  \caption{A list of annotation techniques that are often used to provide instructions.}
-  \label{background_techniques}
-\end{table}
+  \includegraphics[width=0.78\columnwidth]{\background/fig/techniques/techniques}
+  \caption{A list of annotation techniques that are often used to provide instructions. Examples are selected from a stroller manual~\cite{MountainBuggyInstructions}.}
+  \label{background_annotation_techniques}
+\end{table*}
 
-\subsection{Video Editing Techniques}
+% \clearpage
 
-Video tutorials are composed of one or more ``shots,'' which is \iquote{the basic unit of an editor's film language, consisting of footage captured over a continuous duration of time without interruption}~\cite{Goldman:2007:FVA:1354647}, to provide the animation or capturing of movements in time.
-
-To provide concise visual tutorials, \textbf{annotation} techniques of static instructions are commonly used, including applying arrows, paths, highlights, call-outs, and text~\cite{Chi:2013:DGC:2501988.2502052}. Vignette or dark edges are rare but could be used for highlighting a video subview (see Figure~\ref{fig:background_video_techniques}a).
-%
-In addition to adding annotations to a shot, a \textbf{close-up} is useful to zoom in a shot to demonstration a detailed view.
-%
-\textbf{Subtitles}
-%
-auditory effects
-
-% https://youtu.be/Wv7sdHEdaR0?t=1m41s
-
-\begin{figure*}[h!]
+\begin{table*}[h!]
   \centering
   \begin{minipage}{\textwidth}
   \includegraphics[width=\textwidth]{\background/fig/video_techniques/video_techniques}
@@ -200,29 +187,95 @@ auditory effects
   }
   \label{fig:background_video_techniques}
   \end{minipage}
+\end{table*}
+
+% -------------------
+
+\subsection{Diagrams}
+
+Static, step-by-step instructions are composed of one or more figures, which can be either illustrations, images, or software screenshots.
+%
+Tufte~\cite{tufte1990envisioning} described the importance of layering information: \iquote{Among the most powerful devices for reducing noise and enriching the content of displays is the technique of layering and separation, visually stratifying various aspects of the data.} Color, for example, is effective to separate content. Figure~\ref{fig:background_ibmlayering} shows an exploded diagram from the IBM Series III Copier/Duplicator manual--Here, the labels (including numbers and lines pointed to individual parts) are effectively shown by the color in red, which separates from the machine components in black.
+
+% More advanced techniques such as overlaying visual components or composing an exploded view can be useful to show the depth of spatial relations between detailed components.
+
+\begin{figure*}[th!]
+  \centering
+  \includegraphics[width=\textwidth]{\background/fig/layering/IBMSeriesIIICopier}
+  \caption{Color can differentiate between annotation (numbered labels are shown in red) and annotated information (over 300 parts are placed in this diagram)~\cite{tufte1990envisioning}.
+  }
+  \label{fig:background_ibmlayering}
 \end{figure*}
 
-Time can be manipulated by jumping between shots, applying transitions, or being fast-forward or slowdown. Subtitles or text annotation to provide an indication of time
+Ordering of a series of actions can be expressed using numbers or spatial sequences, sometimes with arrows, in a clear layout.
+%
+Information should be visually concise and distinguishable. Take Figure~\ref{fig:background_marshalling} for example. Tufte pointed out the top design does not effectively separates the channels (the actor--in silhouette, the prop--the light with lamp-whiskers, the action--the directional arrows, the text, and the grid boxes of individual diagrams). The visuals are ``too loud and too similar.''
+%
+The revised design, shown at the bottom of the figure, separates the elements from the actor: the glowing light is colored in yellow and whiskers are removed (not to confused with trembling motion); motion arrows are highlighted in red; the weight of the grid border is lighted to avoid confusion with motion arrows; silhouette is shown in gray to bring more emphasis on other information; text is shown with a lighter font.
+
+\begin{figure*}[th!]
+  \centering
+  \includegraphics[width=\textwidth]{\background/fig/layering/Tufte_layeringp63}
+  \caption{Color can differentiate between annotation (numbered labels are shown in red) and annotated information (over 300 parts are placed in this diagram)~\cite{tufte1990envisioning}.
+  }
+  \label{fig:background_marshalling}
+\end{figure*}
+
+% Automated Generation of Interactive 3D Exploded View Diagrams
+
+% -------------------
+
+\subsection{Video Editing Techniques}
+
+Concise video tutorials commonly include annotation techniques, including applying arrows, paths, highlights, call-outs, and text~\cite{Chi:2013:DGC:2501988.2502052} (see Figure~\ref{fig:background_video_techniques}a). Vignette or dark edges are rare but could be used to highlight a video subview (see Figure~\ref{fig:background_video_techniques}a).
+
+% -----------
+
+In addition to adding annotations to a shot, several conventional video editing techniques are often seen. A \textbf{close-up} is useful to zoom in a shot to demonstration a detailed view.
+%
+\textbf{Subtitles} are used to describe the content in text.
+%
+\textbf{Auditory effects} can guide learners .
+%
+When providing instructions, \emph{time} is an important factor to guide learners through .
+But to provide concise information, time is often manipulated by jumping between shots, applying transitions, or being fast-forward or slowdown. Subtitles or text annotation to provide an indication of time
 %
 Therefore, needs editing expertise and time
 
+% https://youtu.be/Wv7sdHEdaR0?t=1m41s
+
+% -----------
+
 \textbf{Index}
 
+\vspace{12pt}
 \fbox{
-\begin{minipage}{40em}
+  \centering
+\begin{minipage}{25em}
   In this demonstration we show you how to assemble, adjust and fold the Urban Jungle Mountain Buggy stroller. See http://mountainbuggy.com/urban-jungle
 
-  * Assemble (0:04)\\
-  * Bumper bar (0:36)\\
-  * Sunhood (0:44)\\
-  * Handle (0:46)\\
-  * Safety harness (0:49)\\
-  * Seat adjust (1:05)\\
-  * Brake (1:17)\\
-  * Wrist strap (1:29)\\
-  * Front wheel (1:39)\\
-  * Fold (1:52)\\
-  * Carrycot (2:14)\\
+  * Assemble (0:04)
+
+  * Bumper bar (0:36)
+
+  * Sunhood (0:44)
+
+  * Handle (0:46)
+
+  * Safety harness (0:49)
+
+  * Seat adjust (1:05)
+
+  * Brake (1:17)
+
+  * Wrist strap (1:29)
+
+  * Front wheel (1:39)
+
+  * Fold (1:52)
+
+  * Carrycot (2:14)
+
   * Car seat / baby capsule (2:47)
 \end{minipage}
 }
