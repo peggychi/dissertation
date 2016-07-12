@@ -28,7 +28,7 @@ Beyond logging events from recording a user demonstration, researchers have show
 
 \begin{figure*}[t!]
   \centering
-  \includegraphics[width=0.3\textwidth]{\background/fig/software_viz/Nakamura_and_Igarashi}
+  \includegraphics[width=0.6\textwidth]{\background/fig/software_viz/Nakamura_and_Igarashi}
   \includegraphics[width=\textwidth]{\background/fig/software_viz/Grabler}
   \caption{Example screenshots that visualize mouse operations are automatically rendered, including (top) mouse move, drag, click, and wheel (a-d) by Nakamura and Igarashi~\cite{Nakamura:2008:ASV:1449715.1449721} and (bottom) application-specific operations (a-b), parameters (c-f), and manipulations (g-h) by Grabler \ea{}~\cite{Grabler:2009jj}.}
   \label{fig:related_events}
@@ -48,9 +48,9 @@ To compare operation effects and workflows, other effective visualization approa
 
 \subsection{In-Application Support}
 
-The above systems introduce innovative ways of providing informative screenshots or representations for learners to review workflows, but the reviewing activity does not take place while operating a software application.
+The above systems introduce innovative ways of providing informative screenshots or representations for learners to review workflows. However, reviewing these materials is often separated from operating a software application. Learners might have to switch between context in interacting an application and reading instructions, which could introduce a gap of evaluation (\iquote{Am I doing this right as the instructions explain?}) and a gap of execution (\iquote{How do I perform the action that the instructions describe?}).
 %
-Another supportive approach is to provide ``in-application'' assistance, often in real-time, in a specific context.
+One supportive approach is to provide ``in-application'' assistance, often in real-time, in a specific context.
 
 Studies have shown that visualizing input events in real-time during operations can provide better learnability of applications \cite{Dixon:2010fb}.
 %
@@ -67,13 +67,13 @@ Dixon \ea{} proposed techniques to provide pixel-based enhancements in real-time
 
 Real-time visual effects help users focus on the region of interest in a GUI application, but to support learners comprehend the application functionalities, there has been a considerable amount of research devoted to offering interactive helps.
 %
-ToolClips is a technique of embedding video snippets in application tooltips~\cite{Grossman:2010wr}. Such augmentation was shown to be 7 times effective than using conventional tooltips for unfamiliar tasks. Step-by-step wizards \cite{Bergman:2005:DocWizards,Kelleher:2005:STD:1054972.1055047,Fernquist:2011:SRE:2047196.2047245}.
+ToolClips is a technique of embedding video snippets in application tooltips~\cite{Grossman:2010wr}. Such augmentation was shown to be seven times more effective than using conventional tooltips for unfamiliar tasks.
 %
-By tracking user's current operations, tutorials can be automatically replayed to provide the corresponding instructions \cite{Pongnumkul:2011ju} or be shown as ambient help \cite{Matejka:2011:AH:1978942.1979349}.
+Interactive, step-by-step instructions have been proposed in several forms. DocWizards captures a procedure or workflow and generates scripts for a replay~\cite{Bergman:2005:DocWizards}. To help user identify the correct UI components, tutorials can be shown via translucent colored ``stencils,'' which visually direct user's attention directly in an application~\cite{Kelleher:2005:STD:1054972.1055047}.
 %
-In-app supports can also be dynamically updated within a community based on user contribution \cite{Lafreniere:2013ff,Matejka:2009:CCR:1622176.1622214}.
-
-A Gamified Multiplayer Software Tutorial System \cite{Li:2014:CGM:2556288.2556954}
+By tracking user's current operations, tutorials can be embedded in an application to provide instant feedback such as a check-mark or a percentage match~\cite{Fernquist:2011:SRE:2047196.2047245}, automatically replayed to provide the corresponding video instructions~\cite{Pongnumkul:2011ju}, or be shown as ambient help~\cite{Matejka:2011:AH:1978942.1979349}.
+%
+Such in-app guidance can be enhanced with game elements~\cite{Li:2014:CGM:2556288.2556954, Dontcheva:2014:CCL:2556288.2557217} and can also be dynamically updated within a community based on user contribution \cite{Lafreniere:2013ff,Matejka:2009:CCR:1622176.1622214}.
 
 % -------------------
 
@@ -87,11 +87,6 @@ Steptorials \cite{Lieberman:2014:SML:2557500.2557543} -- high-functionality (hi-
 % Note: MixT tutorials are automatically rendered from manual demonstration, not automatically generated.
 
 % To provide real-time assistance, it is important to recognize the user activities during a task performance. Several domains have been widely studied, including software operations, scene recognition, and object tracking in a physical world.
-
-% -------------------
-
-\subsection{Visualizing and Navigating Video Content}
-Videos can be navigated at the content level beyond log events, such as visualizing subject movements in a storyboard design \cite{goldman2006schematic} and enabling direct manipulation of a target in 2D \cite{Dragicevic:2008:VBD:1357054.1357096,Goldman:2008:VOA:1449715.1449719,Karrer:2008:DDM:1357054.1357097} or 3D \cite{Nguyen:2013:DMV:2470654.2466150}. These techniques help viewers understand content flow and playback videos, and have been applied to screencast videos \cite{Denoue:2013:RDM:2451176.2451190}. It is also possible to automate video control based on user actions for scenarios such as operating software applications \cite{Pongnumkul:2011ju} and block assembling tasks \cite{Gupta:2012ku}. Such novel forms of video navigation inspired us to explore new visual designs for revealing the video content that support live presentations.
 
 % -------------------------------------------
 
@@ -141,9 +136,7 @@ Researchers have investigated how to provide interactions that enable efficient,
 Frame-based editing of video is very time-intensive, as it forces users to operate at a very low level of detail. Editors can leverage metadata, such as transcripts~\cite{Berthouzoz:2012,Pavel:2014:VDB:2642918.2647400} and shot boundaries~\cite{Casares:2002dx}, to give users higher-level editing operations at the shot level rather than the frame level.
 In specific video domains like interview videos, transcripts can help users place cuts and transitions~\cite{Berthouzoz:2012}.
 
-\subsection{Playback}
-Navigation
-
-% -------------------------------------------
+\subsection{Navigating}
+Videos can be navigated at the content level beyond log events, such as visualizing subject movements in a storyboard design \cite{goldman2006schematic} and enabling direct manipulation of a target in 2D \cite{Dragicevic:2008:VBD:1357054.1357096,Goldman:2008:VOA:1449715.1449719,Karrer:2008:DDM:1357054.1357097} or 3D \cite{Nguyen:2013:DMV:2470654.2466150}. These techniques help viewers understand content flow and playback videos, and have been applied to screencast videos \cite{Denoue:2013:RDM:2451176.2451190}. It is also possible to automate video control based on user actions for scenarios such as operating software applications \cite{Pongnumkul:2011ju} and block assembling tasks \cite{Gupta:2012ku}. Such novel forms of video navigation inspired us to explore new visual designs for revealing the video content that support live presentations.
 
 % In contrast to these systems, we do not require the author to manipulate the camera or system during capture. Many leisure activities, such as home repair or cooking, require use of both hands or involve getting one's hands dirty, so camera manipulation is not possible. We use vision techniques for automatic recording and editing. It differs from previous approaches in its focus on particular application domains -- software and physical demonstrations. By focusing on specific domains, we can make assumptions about the structure of the input and output video, such as the fact that there is a linear set of steps or movements, and offer user interfaces and algorithms that make it easier to create high quality instructions.
