@@ -3,8 +3,8 @@ Peggy's PhD dissertation, summer 2016<br />
 UC Berkeley Computer Science
 
 * Introduction: 6/3 done text (`TODO`: figures, add broader view)
-* Background: 6/20 done text and figures
-* Related Work: 7/?? done text and figures
+* Background: 6/20 done text and figures; 7/12 completed techniques
+* Related Work: 7/12 done text and figures
 * MixT
 * DemoWiz
 * DemoCut
@@ -13,17 +13,15 @@ UC Berkeley Computer Science
 * Discussion+Conclusion
 
 Timeline:
-- First complete draft...
 - Meeting with Eric: 6/21 Tue
-- Initial feedback by 7/18 Mon (tentative)
 - Dissertation talk: 7/21 Thu 1pm
-- Target filing date: 8/5 Fri
 - Absolute deadline: 8/12 Fri
 
 Paperwork:
 * Permissions:
-1) Mira, Wil, Dan;
-2) Steve Drucker, Bongshin;
-3) Derrick
+(-) Mira, Wil, Dan;
+(O) Steve Drucker, Bongshin;
+(O) Derrick
 * The evaluation form (done)
 * Dissertation talk form (done)
+* Informal permissions for figures via emails

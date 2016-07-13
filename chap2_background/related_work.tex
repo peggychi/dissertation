@@ -48,9 +48,9 @@ To compare operation effects and workflows, other effective visualization approa
 
 \subsection{In-Application Support}
 
-The above systems introduce innovative ways of providing informative screenshots or representations for learners to review workflows. However, reviewing these materials is often separated from operating a software application. Learners might have to switch between context in interacting an application and reading instructions, which could introduce a gap of evaluation (\iquote{Am I doing this right as the instructions explain?}) and a gap of execution (\iquote{How do I perform the action that the instructions describe?}).
+The above systems introduce innovative ways of providing informative screenshots or representations for learners to review workflows. However, reviewing these materials is often separated from operating a software application. Learners might have to switch between context of interacting an application and reading instructions, which could introduce a gap of evaluation (\iquote{Am I doing this right as the instructions explain?}) and a gap of execution (\iquote{How do I perform the action that the instructions describe?}).
 %
-One supportive approach is to provide ``in-application'' assistance, often in real-time, in a specific context.
+Researchers have proposed another approach to provide ``in-application'' assistance, often in real-time, in a specific application context.
 
 Studies have shown that visualizing input events in real-time during operations can provide better learnability of applications \cite{Dixon:2010fb}.
 %
@@ -67,21 +67,19 @@ Dixon \ea{} proposed techniques to provide pixel-based enhancements in real-time
 
 Real-time visual effects help users focus on the region of interest in a GUI application, but to support learners comprehend the application functionalities, there has been a considerable amount of research devoted to offering interactive helps.
 %
-ToolClips is a technique of embedding video snippets in application tooltips~\cite{Grossman:2010wr}. Such augmentation was shown to be seven times more effective than using conventional tooltips for unfamiliar tasks.
+Video snippets can be embedded in application tooltips~\cite{Grossman:2010wr}, which were shown to be seven times more effective than conventional tooltips for completing unfamiliar tasks.
 %
-Interactive, step-by-step instructions have been proposed in several forms. DocWizards captures a procedure or workflow and generates scripts for a replay~\cite{Bergman:2005:DocWizards}. To help user identify the correct UI components, tutorials can be shown via translucent colored ``stencils,'' which visually direct user's attention directly in an application~\cite{Kelleher:2005:STD:1054972.1055047}.
+Interactive, step-by-step instructions can be integrated in several forms:
+%
+To help user identify the correct UI components, tutorials can be shown via translucent colored ``stencils,'' which visually direct user's attention directly in an application~\cite{Kelleher:2005:STD:1054972.1055047}.
 %
 By tracking user's current operations, tutorials can be embedded in an application to provide instant feedback such as a check-mark or a percentage match~\cite{Fernquist:2011:SRE:2047196.2047245}, automatically replayed to provide the corresponding video instructions~\cite{Pongnumkul:2011ju}, or be shown as ambient help~\cite{Matejka:2011:AH:1978942.1979349}.
 %
-Such in-app guidance can be enhanced with game elements~\cite{Li:2014:CGM:2556288.2556954, Dontcheva:2014:CCL:2556288.2557217} and can also be dynamically updated within a community based on user contribution \cite{Lafreniere:2013ff,Matejka:2009:CCR:1622176.1622214}.
+Instructions can be captured from demonstration as ``scripts'' for step-by-step navigation~\cite{Bergman:2005:DocWizards}. Having more user controls~\cite{Lieberman:2014:SML:2557500.2557543} or being enhanced with game elements~\cite{Li:2014:CGM:2556288.2556954, Dontcheva:2014:CCL:2556288.2557217} can further engage users in learning.
 
-% -------------------
+Last but not least, as tutorials are built for a broader community with a set of authors and learners, content can be dynamically updated within a community based on user contribution \cite{Lafreniere:2013ff,Matejka:2009:CCR:1622176.1622214, Bunt:2014:TPI:2556288.2557118}.
 
-\subsection{Interactive Tutorial Documents}
-
-Online tutorials
-TaggedComments \cite{Bunt:2014:TPI:2556288.2557118}
-Steptorials \cite{Lieberman:2014:SML:2557500.2557543} -- high-functionality (hi-fun) application
+% These projects show how effective instructional representations can assist learners in learning or executing tasks. Our goal is to further study new formats that incorporate advantages of several formats of multimedia, including images, text, and videos, and in turn enhancing the learning experience for a variety of tasks.
 
 % * define ``automatic''
 % Note: MixT tutorials are automatically rendered from manual demonstration, not automatically generated.
@@ -93,48 +91,52 @@ Steptorials \cite{Lieberman:2014:SML:2557500.2557543} -- high-functionality (hi-
 \section{Instructions for Physical Activities}
 \label{related_physical}
 
-Beyond software applications to the real world where activity and object recognition is difficult, researchers have investigated tools for supporting physical tasks. Workflows can be automatically generated for furniture \cite{agrawala2003designing} or block assembly tasks \cite{Gupta:2012ku}; the latter was shown to be trackable for real-time guidance.
+The above approach of tracking user behavior to automate tutorial authoring opens the door to interactive tutorials that can respond to user progress. However, tracking user behavior in the physical world, rather than in software, remains a challenge.
 
-Information can also be overlaid on top of the work area using augmented reality, usually through a head-mounted display. Such systems can provide visual highlights for machine maintenance \cite{Henderson:2011ff}, or interactive remote tutoring for repair tasks~\cite{Gurevich:2012ko}. Another method is to overlay guidance on an augmented mirror for tasks such as dance movements \cite{Anderson:2013:YEM:2501988.2502045}.
+\subsection{Generating Instructions for Real-World Tasks}
+Researchers have investigated tools for generating instructions for physical tasks. Workflows can be automatically generated for furniture \cite{agrawala2003designing} or block assembly tasks \cite{Gupta:2012ku}.
+%
+If video content is difficult to be extracted, crowdsourcing algorithms have been introduced to structure step-by-step videos by online workers~\cite{Kim:2014:CSI:2611222.2556986}.
+%
+% New devices to support authors capturing multi-media materials, such as a turntable~\cite{Tseng:2015:SPT:2771839.2771869}
+% documentation \cite{Tseng:2016:makeology}
 
-table for physical tasks \cite{Knibbe:2015:SMI:2817721.2817741}
-
-These projects show how effective instructional representations can assist learners in learning or executing tasks. Our goal is to further study new formats that incorporate advantages of several formats of multimedia, including images, text, and videos, and in turn enhancing the learning experience for a variety of tasks.
-
-% -------------------
-
-\subsection{Tools for Creating How-Tos}
-
-assembly tasks, illustrations, ...
-
-spin: photo turntable \cite{Tseng:2015:SPT:2771839.2771869}
-documentation \cite{Tseng:2016:makeology}
-
-If video content that is difficult to be extracted, videos crowdsourcing algorithms \cite{Kim:2014:CSI:2611222.2556986}.
-
-tracking user behavior in the physical world, rather than in software, remains a challenge. Computer vision techniques can track specific targets, including hands \cite{Ranjan:2008}, user movements \cite{Wilson:2012fb}, fast-moving objects (e.g., a Ping-Pong ball) \cite{Okumura:2011tr}, or regions in pre-defined spaces \cite{Ranjan:2007}.
-
+\subsection{Interactive Guidance}
+To provide responsive instructions, a computer system needs to understand user operations in real-time. Ideally, activities should be automatically tracked without human labeling.
+%
+Computer vision techniques can track specific physical targets, including hands \cite{Ranjan:2008}, user movements \cite{Wilson:2012fb}, fast-moving objects (e.g., a Ping-Pong ball) \cite{Okumura:2011tr}, or regions in pre-defined spaces \cite{Ranjan:2007}.
+%
 These methods usually require an expert defining heuristics of space regions or movement classifications ahead of time for the tracking program.
 %
-On the contrary, we propose a new approach that does not have these issues, gives users flexibility in a home environment, and provides interactive control. If activity recognition is not possible, we include users in the loop to annotate high-level information in order to create high-quality results.
-%
-Emerging work has provided insights toward this vision using consumer devices such as a Kinect sensor \cite{Anderson:2013:YEM:2501988.2502045,Gupta:2012ku} to provide dynamic instructions, which shares a similar goal with ours.
+Thanks to the advance of technology, camera sensors such as Kinect have become widely available to track activities for block assembly~\cite{Gupta:2012ku} and dance~\cite{Anderson:2013:YEM:2501988.2502045}.
 
-Computer vision techniques can automate certain effects, such as creating cinemagraphs~\cite{Bai:2012, Joshi:2012}, automatically-edited lecture videos~\cite{Heck:2007}, zoomable tapestries~\cite{Barnes:2010} and synopses~\cite{Pritch:2009vl}, or stabilizing shaky amateur videos~\cite{Liu:2011}. When analyzing video is a matter of subjective taste, identifying salient frames can also be outsourced to crowd workers~\cite{Bernstein:2011uj}.
+Real-time guidance is often shown via an external display, placed next to the working area~\cite{Gupta:2012ku}. To better blend the information into activities, Knibbe~\ea{} design a display-embedded table as a physical workspace that monitors, records, and assists users~\cite{Knibbe:2015:SMI:2817721.2817741}.
+%
+Alternatively, information can be overlaid on top of the work area using augmented reality, usually through a head-mounted display. Such systems can provide visual highlights for machine maintenance~\cite{Henderson:2011ff}, or interactive remote tutoring for repair tasks~\cite{Gurevich:2012ko}.
+%
+Another method is to overlay guidance on an augmented mirror for tasks such as dance movements~\cite{Anderson:2013:YEM:2501988.2502045}.
+
+% Lovell and Buechley use electrical sensing with conductive thread for a sewing tutorial~\cite{Lovell:2010tl}.
+
+% I aim to propose a new approach that gives users flexibility in a home environment, and provides interactive control. If activity recognition is not possible, my approach includes users in the loop to annotate high-level information in order to create high-quality results.
 
 % -------------------------------------------
 
 \section{Working with Videos}
 
+\tofix{intro here}
+
 \subsection{Capture}
 Several research and commercial systems guide users at capture time to yield higher-quality videos. Such systems often employ templates to help users capture sequences of distinct shots (e.g., Snapguide\footnote{\url{http://snapguide.com/}}) or suggest framing of the subject or camera view as in NudgeCam~\cite{Carter:2010}. Computer vision algorithms, like face tracking, can be used to offer real-time feedback during such directed actions~\cite{Davis:2003cu,Heer:2004ba,Carter:2010}. Instead of relying on templates, shot suggestions can also be bootstrapped through user dialogs~\cite{Adams:2005}.
 
 \subsection{Annotation}
-Researchers have investigated how to provide interactions that enable efficient, fluid annotation of video data, from the early EVA system~\cite{Mackay:1989} to more recent interfaces like VideoTater that leverage pen input~\cite{Diakopoulos:2006vt}. We do not claim a contribution in the interaction techniques of our annotation interface and take inspiration from such prior work.
+Researchers have investigated how to provide interactions that enable efficient, fluid annotation of video data, from the early EVA system~\cite{Mackay:1989} to more recent interfaces like VideoTater that leverage pen input~\cite{Diakopoulos:2006vt}.
 
 \subsection{Editing}
 Frame-based editing of video is very time-intensive, as it forces users to operate at a very low level of detail. Editors can leverage metadata, such as transcripts~\cite{Berthouzoz:2012,Pavel:2014:VDB:2642918.2647400} and shot boundaries~\cite{Casares:2002dx}, to give users higher-level editing operations at the shot level rather than the frame level.
 In specific video domains like interview videos, transcripts can help users place cuts and transitions~\cite{Berthouzoz:2012}.
+%
+Computer vision techniques can automate certain effects, such as creating cinemagraphs~\cite{Bai:2012, Joshi:2012}, automatically-edited lecture videos~\cite{Heck:2007}, zoomable tapestries~\cite{Barnes:2010} and synopses~\cite{Pritch:2009vl}, or stabilizing shaky amateur videos~\cite{Liu:2011}. When analyzing video is a matter of subjective taste, identifying salient frames can also be outsourced to crowd workers~\cite{Bernstein:2011uj}.
 
 \subsection{Navigating}
 Videos can be navigated at the content level beyond log events, such as visualizing subject movements in a storyboard design \cite{goldman2006schematic} and enabling direct manipulation of a target in 2D \cite{Dragicevic:2008:VBD:1357054.1357096,Goldman:2008:VOA:1449715.1449719,Karrer:2008:DDM:1357054.1357097} or 3D \cite{Nguyen:2013:DMV:2470654.2466150}. These techniques help viewers understand content flow and playback videos, and have been applied to screencast videos \cite{Denoue:2013:RDM:2451176.2451190}. It is also possible to automate video control based on user actions for scenarios such as operating software applications \cite{Pongnumkul:2011ju} and block assembling tasks \cite{Gupta:2012ku}. Such novel forms of video navigation inspired us to explore new visual designs for revealing the video content that support live presentations.

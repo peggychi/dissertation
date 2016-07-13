@@ -73,11 +73,11 @@ firstinits=false]{biblatex}
 \definecolor{Black}{rgb}{0,0,0}
 
 \iftoggle{comments} {
-  \newcommand{\bjoern}[1]{{\color{Red}\em{BH: #1}\normalfont}}
-  \newcommand{\peggy}[1]{{\color{Orange}\em{P: #1}\normalfont}}
+  \newcommand{\bjoernh}[1]{{\color{Red}\em{BH: #1}\normalfont}}
+  \newcommand{\peggyc}[1]{{\color{Orange}\em{P: #1}\normalfont}}
 }{
-  \newcommand{\bjoern}[1]{}
-  \newcommand{\peggy}[1]{}
+  \newcommand{\bjoernh}[1]{}
+  \newcommand{\peggyc}[1]{}
 }
 
 \iftoggle{colorchanges} {
@@ -86,6 +86,8 @@ firstinits=false]{biblatex}
   \newcommand{\changes}[1]{{#1}}
 }
 
+\newcommand{\bjoern}[1]{}
+\newcommand{\peggy}[1]{}
 \newcommand{\dan}[1]{}
 \newcommand{\mira}[1]{}
 \newcommand{\wil}[1]{}
@@ -98,6 +100,7 @@ firstinits=false]{biblatex}
 \addbibresource{\democut/democut.bib}
 \addbibresource{\kinectograph/kinectograph.bib}
 \addbibresource{\demodraw/demodraw.bib}
+\addbibresource{\conclusion/conclusion.bib}
 \addbibresource{ref/peggychi.bib}
 \addbibresource{ref/thesis.bib}
 
@@ -146,12 +149,12 @@ firstinits=false]{biblatex}
 \include{\intro/intro}
 \include{\background/background}
 \include{\background/related_work}
-% \include{\mixt/mixt}
-% \include{\demowiz/demowiz}
-% \include{\democut/democut}
-% \include{\kinectograph/kinectograph}
-% \include{\demodraw/demodraw}
-% \include{\conclusion/conclusion}
+\include{\mixt/mixt}
+\include{\demowiz/demowiz}
+\include{\democut/democut}
+\include{\kinectograph/kinectograph}
+\include{\demodraw/demodraw}
+\include{\conclusion/conclusion}
 
 \clearpage
 \printbibliography
