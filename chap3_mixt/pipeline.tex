@@ -1,5 +1,6 @@
 %!TEX root = ../thesis.tex
 \subsection{Automatic Generation Pipeline}
+\label{mixt_pipeline}
 
 To generate mixed media tutorials, tools can either help authors create new tutorials (e.g., \cite{Grabler:2009jj}), or they can reformat existing video tutorials into step-by-step videos (e.g., \cite{Pongnumkul:2011ju}). Our system adopts the former approach and extends Grabler \ea's system for generating static tutorials from demonstration to include videos \cite{Grabler:2009jj}. Producing mixed media tutorials requires three steps (Figure~\ref{fig:mixt_pipeline}). First, MixT captures an application command log, screencast video and an input device event log and synchronizes them. Second, MixT generates appropriate media files and descriptions: it transforms the log into text instructions, segments the video into steps, and identifies active UI regions, which inform the different video playback modes. Finally, MixT composes the text, images, and video into one document and adds mouse interactions as visualizations on top of the videos. For each step in the tutorial, MixT produces the three video formats and one representative step image.
 
