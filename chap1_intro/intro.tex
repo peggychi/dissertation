@@ -2,20 +2,42 @@
 \chapter{Introduction}
 \label{chapter_introduction}
 
-When attempting to accomplish unfamiliar, complicated tasks, people often search for online tutorials to follow instructions. From using software applications, performing physical tasks such as cooking and assembling a machine, to free-form activities like sports and dance performance, each domain involves specific ``how-to'' knowledge with a certain degree of complexity \cite{ryle1945knowhow}.
+When attempting to accomplish unfamiliar, complicated tasks, people often look for tutorials to follow instructions. From performing everyday tasks such as cooking and assembling a machine, using software applications, to free-form activities like sports and dance performance, each domain involves specific ``how-to'' knowledge with a certain degree of complexity~\cite{ryle1945knowhow}.
+%
+Instructions, which describe how a specific task or goal can be accomplished, are a tool for users to follow~\cite{Smith03iimanufacturer}. Studies have shown that visual instructions are cognitively favorable by people as they are easier to comprehend and remember~\cite{Harrison:1995uh,Heiser:2004:IVC:989863.989917}. In history, it can be traced back to the Middle Age when pictorial instructions were created to explain dancing or weapon operations~\cite{mijksenaar1999open}. It was found that the first use of letters in technical drawing for text referral was by Italian polymath Leonardo da Vinci. In 1737, French engineer de B{\'e}lidor~\cite{de1737architecture}'s diagrams were the first to apply arrows to indicate direction of movements.
+%
+From 1760 when Industrial Revolution introduced mass production, instructions have been seen widely for various products and uses.
+
+As we have entered the Computer Age, instructions can now be created via software tools rather than hand drawing; they can include multimedia such as images and videos in several forms; they can be accessed by the Internet in addition to hard copies. This advancement has enabled more people to document and share their domain knowledge\cite{Lafreniere:2012tl}. As of today, Instructable has over 220,000 articles~\cite{InstructablesProjects}, wikiHow provides over 192,000 articles~\cite{wikiHowStatistics}, Food.com serves over 500,000 user-generated recipes with 125,000 photos~\cite{FoodComAbout}, and YouTube hosts over 285 million How-To videos\footnote{YouTube, \url{https://www.youtube.com/}, accessed June 2016}.
+%
+The variety of topics and content provides users options to follow the material based on different learning needs and styles.
 %
 However, producing high-quality instructions that are easy to follow requires authoring expertise and a significant time investment in editing practices from multimedia materials \cite{Muller:2009tw}. On the other hand, navigating a well-produced tutorial using existing tools remains inefficient for following step-by-step instructions.
 
-In this dissertation, I present video-based computational approaches that enhance tutorial creation and consumption from author demonstrations. I encode the current practices from professional authors into automatic algorithms and interactive techniques.
+The goal of this dissertation is to investigate interactive instructional design and develop computational tools that support the authoring process.
 %
-My goal is to dramatically increase the quality of amateur-produced video instructions, which in turn improves learning for viewers who interactively navigate the content. I will introduce a set of interactive systems that cover both software applications (e.g., image manipulation tasks or browser navigation) and physical activities (e.g., Do-It-Yourself projects or dance movements) for recording, editing, and replaying instructional content.
+To contribute to computational methods of authoring user-generated instructions, two research questions that this work focus on are:\\
+\vspace{12pt}
+\begin{itemize}
+  \item How can authoring tools support domain experts in expressing their knowledge into effective instructions?
+  \item How can multimedia enhance instructions to bring novel authoring and learning experiences?
+\end{itemize}
+
+This dissertation presents video-based computational approaches that enhance tutorial creation and consumption from author demonstrations.
+I encode the current practices from professional authors into automatic algorithms and interactive techniques.
+My goal is to dramatically increase the quality of amateur-produced video instructions, which in turn improves learning for viewers who interactively navigate the content.
+%
+I will introduce five interactive systems that I develop to address these challenges. These tools cover both software applications (e.g., image manipulation tasks or browser navigation) and physical activities (e.g., Do-It-Yourself projects or dance movements) for recording, editing, and replaying instructional content.
 
 % ---------------------------------------------------------------
 
 \section{Challenges of Creating and Consuming Instructions}
 
-Instructions, which contain the know-how and can be presented in different formats, enable novices to learn the domain knowledge and execute in action. The availability of content sharing sites such as YouTube\footnote{YouTube, \url{https://www.youtube.com/}, accessed June 2016} and Instructables\footnote{Instructables, \url{http://www.instructables.com/}, accessed June 2016} has enabled experts and hobbyists to create tutorials for a wide spectrum of topics \cite{Lafreniere:2012tl}. Among all the online support, videos are commonly used to present instructions. We suspect that users prefer videos over other formats for the following reasons:
-
+% Instructions, which contain the know-how and can be presented in different formats, enable novices to learn the domain knowledge and execute in action. The availability of content sharing sites such as YouTube\footnote{YouTube, \url{https://www.youtube.com/}, accessed June 2016} and Instructables\footnote{Instructables, \url{http://www.instructables.com/}, accessed June 2016} has enabled experts and hobbyists to create tutorials for a wide spectrum of topics \cite{Lafreniere:2012tl}.
+Visual instructions are the dominant form of instructional design.
+%
+Among all the online support, videos are commonly used to present instructions. We suspect that users prefer videos over other forms for the following reasons:
+%
 First, consumer devices and software have become affordable for people to quickly record activities and later share via online platforms at minimum cost.
 %
 % ** describe the difficulties of making knowledge "explicit", esp. for actions and motions
@@ -48,8 +70,8 @@ In my within-subject experiment, MixT successfully reduced numbers of errors and
 
 \begin{figure*}[t]
   \centering
-  \includegraphics[width=\textwidth]{\intro/fig/mixt}
-  \caption{MixT generates tutorials that contain static and video information from task demonstrations. Videos are automatically edited and offer different views to highlight the most relevant screen areas for a step. Visualizing mouse movement helps user understand a complex action.}
+  \includegraphics[width=0.8\textwidth]{\intro/fig/mixt_intro}
+  \caption{MixT generates step-by-step tutorials (left) that contain static and video information from task demonstrations. Videos are automatically edited and offer different views (right) to highlight the most relevant screen areas for a step. Visualizing mouse movement helps user understand a complex action.}
   \label{fig:mixt_intro}
 \end{figure*}
 
@@ -61,7 +83,7 @@ My study showed that fewer anticipation errors and delays were made with DemoWiz
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=0.6\columnwidth]{\intro/fig/DemoWiz}
+\includegraphics[width=0.7\columnwidth]{\intro/fig/DemoWiz}
 \caption{DemoWiz visualizes input events in a screencast video to help viewers anticipate the upcoming event for narrating a software demonstration in a live presentation.}
 \label{fig:demowiz_intro}
 \end{figure*}
@@ -89,7 +111,7 @@ Video tutorials created by DemoCut in five DIY domains were concise in terms of 
 \begin{figure*}[t]
   \centering
   \includegraphics[width=\textwidth]{\intro/fig/DemoCut}
-  \caption{DemoCut asks users to mark key moments in a recorded video of demonstration using a set of marker types (Left). Based on these markers, the system uses audio and video analysis to automatically organize the video into meaningful segments and apply appropriate video editing effects. A playback UI provides lightweight editing for authors to review and modify automatic results (Right).}
+  \caption{DemoCut asks users to mark key moments in a recorded video of demonstration using a set of marker types. Based on marker information, the system uses audio and video analysis to automatically organize the video into meaningful segments and apply appropriate video editing effects. A playback UI provides lightweight editing for authors to review and modify automatic results.}
   \label{fig:democut_intro}
 \end{figure*}
 
@@ -100,8 +122,8 @@ To enable authors to focus on their demonstration during the recording phase, I 
 
 \begin{figure}[!t]
   \centering
-  \includegraphics[width=\columnwidth]{\intro/fig/KinectographUI}
-  \caption{(a) Kinectograph is composed of a Kinect camera to track user movement and a motorized dock to pan and tilt the camera so that the user (or their hand) remains centered in the recorded video. (b) Here the device follows the users' hand while he is illustrating. (c) A mobile control UI enables presenters to preview and control in real-time. \tofix{Keep the label style consistent}}
+  \includegraphics[width=0.65\columnwidth]{\intro/fig/Kinectograph}
+  \caption{Composed of a Kinect camera to track user movement and a motorized dock to pan and tilt the camera, Kinectograph allows the user (or their hand) remains centered in the recorded video in real-time.}
 \label{fig:kinectograph_intro}
 \end{figure}
 
@@ -114,7 +136,7 @@ I design \emph{DemoDraw}, a system that generates concise illustrations from use
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{\intro/fig/DemoDraw}
-  \caption{DemoDraw: (a) multi-modal ``Demonstration Interface'' to capture motion, verify results, and re-perform portions if needed; (b) conventional Refinement Interface for refinement and exploring other visualization styles; (c-d) examples of illustration styles. \tofix{Keep the label style consistent}}
+  \caption{DemoDraw's multi-modal ``Demonstration Interface'' enables users  to capture motion, verify results, and re-perform portions if needed to generate motion illustrations.}
   \label{fig:demodraw_intro}
 \end{figure}
 
@@ -128,8 +150,8 @@ I present the rationale and technical challenges of these interactive system des
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.8\columnwidth]{\intro/fig/space}
-  \caption{A design space of the creation and consumption process for tutorials. It involves three phases of recording, editing, and playback in either software domain or a physical world. This dissertation proposes a series of systems that focus on various aspects in this design space. \tofix{Update this figure}}
+  \includegraphics[width=0.9\columnwidth]{\intro/fig/space}
+  \caption{A design space of the creation and consumption process for tutorials. It involves three phases of recording, editing, and playback in either software domain or a physical world. This dissertation proposes a series of systems that focus on various aspects in this design space.}
   \label{fig:space}
 \end{figure}
 
@@ -176,6 +198,6 @@ Throughout this thesis, I discuss how my video-based approaches increase the qua
 
 This dissertation is based on papers published in previous ACM conference proceedings: the MixT system was published at UIST 2012 \cite{Chi:2012:MAG:2380116.2380130}, DemoWiz at CHI 2014 \cite{Chi:2014:DRS:2556288.2557254}, DemoCut at UIST 2013 \cite{Chi:2013:DGC:2501988.2502052}, and Kinectograph at CHI 2013 \cite{Cheng:2013:BCC:2468356.2468568}; DemoDraw will be published at UIST 2016 \cite{Chi:2016:DemoDraw}.
 
-While I am primary author on all publications and led the described projects, this research could not have been completed without my advisor Bj\"orn Hartmann and my collaborators that I have been fortunately to work with. Specifically, Dr. Mira Dontcheva and Dr. Wilmot Li provided valuable guidance on several projects (MixT, DemoCut, and DemoDraw); Dr. Steven M. Drucker and Dr. Bongshin Lee guided the DemoWiz project with their expertise on visualization; Dr. Daniel Vogel contributed to interaction and study design of DemoDraw. A group of MS and undergrad students and designers provided implementation and user study contributions, including Sally Ahn and Amanda Ren in MixT, Joyce Liu and Jason Linder in DemoCut, and Derrick Cheng in Kinectograph.
+While I am primary author on all publications and led the described projects, this research could not have been completed without my advisor Bj\"orn Hartmann and my collaborators that I have been fortunately to work with. Specifically, Dr. Mira Dontcheva and Dr. Wilmot Li provided valuable guidance on several projects (MixT, DemoCut, and DemoDraw); Dr. Steven M. Drucker and Dr. Bongshin Lee guided the DemoWiz project with their expertise on visualization; Professor Daniel Vogel greatly contributed to the interaction and study design of DemoDraw. A group of MS and undergrad students and designers provided implementation and user study contributions, including Sally Ahn and Amanda Ren in MixT, Joyce Liu and Jason Linder in DemoCut, and Derrick Cheng in Kinectograph.
 
 % We are all natural performers. Humans are proficient at demonstrating how to perform a task in action. However, articulating knowledge into a written or structured form can be extremely difficult. From dancing, repairing a machine, to operating software applications, it remains a challenge how everyday activities can be efficiently captured for a remote learner to understand.
