@@ -4,19 +4,37 @@
 
 When attempting to accomplish unfamiliar, complicated tasks, people often look for tutorials to follow instructions. From performing everyday tasks such as cooking and assembling a machine, using software applications, to free-form activities like sports and dance performance, each domain involves specific ``how-to'' knowledge with a certain degree of complexity~\cite{ryle1945knowhow}.
 %
-Instructions, which describe how a specific task or goal can be accomplished, are a tool for users to follow~\cite{Smith03iimanufacturer}. Studies have shown that visual instructions are cognitively favorable by people as they are easier to comprehend and remember~\cite{Harrison:1995uh,Heiser:2004:IVC:989863.989917}. In history, it can be traced back to the Middle Age when pictorial instructions were created to explain dancing or weapon operations~\cite{mijksenaar1999open}. It was found that the first use of letters in technical drawing for text referral was by Italian polymath Leonardo da Vinci. In 1737, French engineer de B{\'e}lidor~\cite{de1737architecture}'s diagrams were the first to apply arrows to indicate direction of movements.
+Instructions, which describe how a specific task or goal can be accomplished, are a tool for users to follow~\cite{Smith03iimanufacturer}. Studies have shown that visual instructions are cognitively favorable by people as they are easier to comprehend and remember~\cite{Harrison:1995uh,Heiser:2004:IVC:989863.989917}. In history, it can be traced back to the Middle Age when pictorial instructions were created to explain dancing or weapon operations~\cite{mijksenaar1999open}. It was found that the first use of letters in technical drawing for text referral was by Italian polymath Leonardo da Vinci. In 1737, French engineer de B{\'e}lidor~\cite{de1737architecture}'s diagrams were the first to apply arrows to indicate direction of movements (see Figure~\ref{fig:intro_arrows}).
 %
-From 1760 when Industrial Revolution introduced mass production, instructions have been seen widely for various products and uses.
+From 1760, when the Industrial Revolution introduced mass production, instructions have been seen widely for various products and uses.
 
-As we have entered the Computer Age, instructions can now be created via software tools rather than hand drawing; they can include multimedia such as images and videos in several forms; they can be accessed by the Internet in addition to hard copies. This advancement has enabled more people to document and share their domain knowledge\cite{Lafreniere:2012tl}. As of today, Instructable has over 220,000 articles~\cite{InstructablesProjects}, wikiHow provides over 192,000 articles~\cite{wikiHowStatistics}, Food.com serves over 500,000 user-generated recipes with 125,000 photos~\cite{FoodComAbout}, and YouTube hosts over 285 million How-To videos\footnote{YouTube, \url{https://www.youtube.com/}, accessed June 2016}.
+\begin{figure*}[h!]
+  \centering
+  \begin{minipage}{\textwidth}
+  \includegraphics[width=\textwidth]{\intro/fig/arrows/arrows}
+  \caption[Uses of motions arrows in visual instructions.]{Uses of motions arrows in visual instructions:
+  %
+  a) Year 1737: The first use of a motion arrow in an illustration to explain the impact of water flow of a water wheel~\cite{de1737architecture},
+  % http://www.buw-output-archiv.uni-wuppertal.de/ausgabe1/steinle/index-en.html
+  %
+  b) Year 2002: Similarly, arrows are used to explain the water flow and rotation of an undershot water wheel (Original artwork by Daniel M. Short, licensed under CC BY-SA 2.5),
+  % https://en.wikipedia.org/wiki/File:Undershot_water_wheel_schematic.svg
+  %
+  c) Year 2014: An animation shows motion arrows to visualize the blood flow (Video by Bioscience Credentials, ``Blood Flow in the Human Body'', licensed under CC BY 3.0).
+  }
+  \label{fig:intro_arrows}
+  \end{minipage}
+\end{figure*}
+
+As we have entered the Computer Age, instructions can now be created via software tools rather than hand drawing; they can include multimedia such as images and videos in several forms; they can be accessed through the Internet, as well as in hard copy. This advancement has enabled more people to document and share their domain knowledge\cite{Lafreniere:2012tl}. As of today, popular tutorial sharing sites like Instructable has over 220,000 articles~\cite{InstructablesProjects}, wikiHow provides over 192,000 articles~\cite{wikiHowStatistics}, Food.com serves over 500,000 user-generated recipes with 125,000 photos~\cite{FoodComAbout}, and YouTube hosts over 285 million How-To videos\footnote{YouTube, \url{https://www.youtube.com/}, accessed June 2016}.
 %
 The variety of topics and content provides users options to follow the material based on different learning needs and styles.
 %
-However, producing high-quality instructions that are easy to follow requires authoring expertise and a significant time investment in editing practices from multimedia materials \cite{Muller:2009tw}. On the other hand, navigating a well-produced tutorial using existing tools remains inefficient for following step-by-step instructions.
+However, producing high-quality instructions that are easy to follow requires authoring expertise and a significant time investment in editing multimedia materials \cite{Muller:2009tw}. On the other hand, navigating a well-produced tutorial using existing tools remains inefficient for following step-by-step instructions.
 
 The goal of this dissertation is to investigate interactive instructional design and develop computational tools that support the authoring process.
 %
-To contribute to computational methods of authoring user-generated instructions, two research questions that this work focus on are:\\
+To contribute to computational methods of authoring user-generated instructions, two research questions that this work focuses on are:\\
 \vspace{12pt}
 \begin{itemize}
   \item How can authoring tools support domain experts in expressing their knowledge into effective instructions?
@@ -45,7 +63,9 @@ Second, videos can be an efficient medium to document activities. Transferring k
 %
 This leads to another motivation that videos also provide an effective channel to convey ideas with adequate amounts of details. Learners can visually observe the exact actions in a video as if an expert were coaching in person.
 
-However, while videos are easy to produce, they can include a lot of unnecessary footage. Inevitable content such as pauses, mistakes, and long repetitive actions makes it difficult for learners to focus on the most important steps and actions. A lot of authoring effort commonly goes into extracting footage, applying visual effects, and adding subtitles and annotations. On the other hand, given a well-edited video, navigating using a conventional video player remains inefficient. Learners with various needs could have a hard time skimming to an interesting moment or perceiving high-level overviews. Therefore, some prefer to follow static step-by-step tutorials, which are easy to scan forward and backward as instructions are listed in text and images. Similarly, it is time- and labor-intensive to produce this type of instructions, and can be limited in presenting complicated tasks.
+However, while videos are easy to produce, they can include a lot of unnecessary footage. Inevitable content such as pauses, mistakes, and long repetitive actions makes it difficult for learners to focus on the most important steps and actions. A lot of authoring effort commonly goes into extracting footage, applying visual effects, and adding subtitles and annotations.
+%
+In addition, even with a well-edited video, navigating using a conventional video player remains inefficient. Learners with various needs could have a hard time skimming to an interesting moment or perceiving high-level overviews. Therefore, some prefer to follow static step-by-step tutorials, which are easy to scan forward and backward as instructions are listed in text and images. Similarly, it is time- and labor-intensive to produce this type of instructions, and can be limited in presenting complicated tasks.
 
 % The goal of this dissertation to develop video-based recording, editing, and playback tools are optimized for creating and consuming instructional demonstrations. I combine the advantage of ubiquitous video recording with the benefits of video and structured tutorial formats. I aim to dramatically increase the quality of amateur-produced video instructions, which in turn improves learning for viewers who interactively navigate the content.
 
@@ -61,7 +81,7 @@ MixT presents step-by-step static instructions and includes in-place video clips
 %
 With MixT, learners can quickly scan forward and backward on a web page to obtain an overview of a task. Embedded videos help them understand continuous, complex manipulation, such as brushing on a canvas and adjusting control points.
 %
-MixT's playback UI allows users to interactively control over \emph{when} to see images or videos, and \emph{how} to render videos.
+MixT's playback UI allows users to interactively control \emph{when} to see images or videos, and \emph{how} to render videos.
 %
 Video editing techniques are applied to emphasize instructions, including cropping salient screen regions and highlighting interaction.
 %
@@ -90,9 +110,9 @@ My study showed that fewer anticipation errors and delays were made with DemoWiz
 
 \subsection{Tutorial Generation from Software Demonstration}
 
-While new tutorial formats are shown to be useful, manually creating instructions can be extremely time- and effort-consuming. In response, I design computational methods to automate the creation process from an author demonstration. MixT and DemoWiz capture screencast video and input device events from a walk-through of a software application. MixT also traces application commands for analysis. Computer vision and visualization techniques are integrated to segment a video into steps, extract salient information, and add visual highlights.
+While new tutorial formats are shown to be useful, manually creating instructions can be extremely time- and effort-consuming. In response, I design computational methods to automate the creation process from an author demonstration. MixT and DemoWiz capture screencast video and input device events from a demonstration of a task in a software application. MixT also traces application commands for analysis. Computer vision and visualization techniques are integrated to segment a video into steps, extract salient information, and add visual highlights.
 %
-In addition, DemoWiz supports the editing phase where authors can adjust the timing of events in a video. Playback speed of recorded actions can be adjusted or skipped via a lightweight editing UI. My studies showed that our algorithms for step segmentation, event detection, and visualization were effective (\textless8\% error rate in MixT and 0\% in DemoWiz).
+In addition, DemoWiz supports an editing phase where authors can adjust the timing of events in a video. Playback speed of recorded actions can be adjusted or skipped via a lightweight editing UI. My studies showed that our algorithms for step segmentation, event detection, and visualization were effective (\textless8\% error rate in MixT and 0\% in DemoWiz).
 
 \subsection{Interactive Tutorial Authoring from Physical Demonstration}
 
@@ -118,7 +138,7 @@ Video tutorials created by DemoCut in five DIY domains were concise in terms of 
 % ----- Kinectograph ----- %
 Through the process of designing DemoCut for automatic DIY video editing, I observed that for tasks that require larger space and more movements, instructors often have to adjust the position and viewing angle of a camcorder. More advanced authors would set up multiple cameras and later select the best shot from video streams.
 %
-To enable authors to focus on their demonstration during the recording phase, I design \emph{Kinectograph}, a filming device that automatically tracks and follows specific body parts, e.g., hands, of an instructor in a video (see Figure~\ref{fig:kinectograph_intro}). It utilizes a Kinect depth sensor to track skeletal data and adjusts the camera angle via a 2D pan-tilt gimbal mount. Authors can freely move around in space to demonstrate a task and monitor real-time video preview through a tablet application.
+To enable authors to focus on their demonstration during the recording phase, I design \emph{Kinectograph}, a video recording device that automatically tracks and follows specific body parts, e.g., hands, of an instructor in a video (see Figure~\ref{fig:kinectograph_intro}). It utilizes a Kinect depth sensor to track skeletal data and adjusts the camera angle via a 2D pan-tilt gimbal mount. Authors can freely move around in space to demonstrate a task and monitor real-time video preview through a tablet application.
 
 \begin{figure}[!t]
   \centering
@@ -172,7 +192,7 @@ In Chapter \ref{chapter_background}, I define terminology used in instruction cr
 %
 In Chapter \ref{chapter_related_work}, I review the literature on research and technologies used in supporting activities of authoring and consuming instructions.
 
-I presented two systems that support consuming tutorials for software applications.
+I presented two systems that support tutorials for software applications.
 % MixT
 In Chapter \ref{chapter_mixt}, I present my study on how a new tutorial format supports learners in following step-by-step instructions with mixed media, including static text, images, and video clips. I introduce my creation tool called MixT, which automatically generates such new tutorial format from an author demonstration in a software application.
 

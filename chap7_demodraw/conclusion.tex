@@ -1,3 +1,4 @@
+%!TEX root = ../thesis.tex
 \section {Conclusion}
 We introduced \systemname{}, a multimodal system for generating motion illustrations by physically demonstrating the movements.
 \systemname{} translates speech and 3D joint motion captured by a Kinect RGB-D sensor into a segmented sequence of key poses and salient joint movements.
@@ -28,7 +29,7 @@ Retargeting motion from a human performer to an avatar can also introduce artifa
 %
 Our current implementation is for single user, but we argue that it is possible to include multiple performers by loading and controlling additional avatar models, which would be especially useful in dancing.
 
-\subsubTitleBold{Interpretability of Motions} \systemname{} can visualize the trajectories of multiple joints in a single image, but does not yet take the different timing of sub-motions into account. This can make illustrations of complex motions hard to interpret. Future work could provide per-joint timelines and automatically number sub-motions by their start times. In addition, the dynamics of motion are not adequately represented in output images. To address this, we have begun to experiment with mixed-media output formats. Inspired by MixT~\cite{chi2012mixt}, we can render static illustrations that can replay a motion segment as an animation when clicked.
+\subsubTitleBold{Interpretability of Motions} \systemname{} can visualize the trajectories of multiple joints in a single image, but does not yet take the different timing of sub-motions into account. This can make illustrations of complex motions hard to interpret. Future work could provide per-joint timelines and automatically number sub-motions by their start times. In addition, the dynamics of motion are not adequately represented in output images. To address this, we have begun to experiment with mixed-media output formats. Inspired by MixT~\cite{Chi:2012:MAG:2380116.2380130}, we can render static illustrations that can replay a motion segment as an animation when clicked.
 % \bjoern{is this mentioned anywhere before? if so, remove from this section?}
 
 
