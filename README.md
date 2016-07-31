@@ -18,10 +18,13 @@ Timeline:
 - Absolute deadline: 8/12 Fri
 
 Paperwork:
-* Permissions:
-(-) Mira, Wil, Dan;
-(O) Steve Drucker, Bongshin;
-(O) Derrick
-* The evaluation form (done)
-* Dissertation talk form (done)
+* Signature page
+* Permissions
+* Evaluation form
+* Dissertation talk form
 * Informal permissions for figures via emails
+
+TODO:
+* Discuss expertise (Chap 2)
+* fix comments: chap 1, 2, 3, 9
+* five system chapters
