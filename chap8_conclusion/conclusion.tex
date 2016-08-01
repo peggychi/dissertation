@@ -25,10 +25,6 @@ This dissertation has demonstrated video-based computational approaches that sup
     \end{itemize}
 \end{itemize}
 
-% How to design tutorial systems appropriately for different situations
-% * level of expertise of instructor, learner
-% * what are you trying to make easier?
-
 \section{Future Directions} %Remaining Challenges and
 
 Our tools provided evidence how computer technologies could assist amateur authors in creating instructional content, which in turns enhance the learning experiences. Based on these design experiences, we propose directions of future research in computational instruction design.
@@ -41,17 +37,44 @@ The DemoCut system analyzes one single, static video shot. The example videos we
 Finally, the Kinectograph recording device supports two demonstrators in a scene, and the tablet interface can be possibly controlled by both users at the same time.
 
 \subsubTitleBold{Tool Support for a Team}
-We acknowledge the need of expanding our designs to support multiple users. From the authoring perspective, a demonstration can include several demonstrators~\tofix{citation here}. For examples, cooking and assembly tasks (e.g., for furniture or larger machines) are commonly collaboratively achieved by two or more people. Demonstrators may have different roles, such as one as the main instructor, wile the other(s) serve as supporters or a learner. For another example, dancers may have different moves in a choreography.
+We acknowledge the need of expanding our designs to support a group of authors. In specific domains, a demonstration often includes several demonstrators~\tofix{citation here}. For examples, cooking and furniture assembly tasks are commonly performed collaboratively by two or more people. Demonstrators may have different roles, such as one as the main instructor, wile the other(s) serve as supporters or a learner. For another example, dancers may have different moves in a choreography.
 %
-Researchers have proposed methods of detecting activities of multiple people in a video~\tofix{citation here} and video editing~\tofix{Amy's UIST'16 work here}, but authoring instructions collaboratively is still an open topic. In addition, professional filmmaking is commonly by teamwork, where a group of people forms a production team and contributes in different stages, including planning, shooting, and editing~\tofix{citation here}. We see research opportunities in supporting large projects or complicated activities that involve long time (e.g., a few days to weeks) and collaborators (e.g., a director records a demonstrator's making process.)
+Researchers have proposed methods of detecting activities of multiple people in a video~\tofix{citation here} and video editing~\cite{PatelUIST16}, but authoring instructions collaboratively is still an open topic.
+%
+In addition, professional filmmaking is commonly by teamwork, where a group of people forms a production team and contributes in different stages, including planning, shooting, and editing~\tofix{citation here}. We see research opportunities in supporting large projects or complicated activities that involve long time (e.g., a few days to weeks) and multiple collaborators with the same or different roles (e.g., a director controls a recording device to document a demonstrator's making process).
+% Questions here:
+What information should be captured to support live or offline authoring? How should we incorporate authors' roles and intentions into a tool support? What interaction modality would be suitable to a multi-user, multi-task scenario?
 
 \subsubTitleBold{Tool Support for Human-Robot Collaboration}
-feedback for physical authoring~\cite{Agrawal:2015:PPS:2807442.2807505,Zoran:2013:FFD:2470654.2481361}, HRI construction~\cite{Vasey:2016:HHR:2897839.2927404}
+Robots have become advanced and accessible to end users for personal tasks, such as cooking~\cite{Cha:2015:RHQ:2696454.2696465} and fabricating large-scale structures~\cite{Vasey:2016:HHR:2897839.2927404}. Rather than performing a complete task individually, these robots or intelligent tools are designed to collaborate with a human user. Researchers have found that a user, who interacts with an unfamiliar robot, may confront with several challenges:
+%
+First, it can be difficult to understand how to operate a supportive tool or a robot during a task. Real-time guidance might be needed, especially for physical tasks. Research work has shown haptic or visual feedback to be effective for physical constructions~\cite{Agrawal:2015:PPS:2807442.2807505,Zoran:2013:FFD:2470654.2481361,Schoop:2016:DSS:2851581.2892429}.
+%
+Second, as tasks could involve creativity and dynamics that a human and a robot work collaboratively together, it could be challenging to foresee what a robot's next move is. Conversation~\cite{ChaoSimonSays11}, eye gaze~\cite{Andrist:2014:CGA:2559636.2559666}, and motion~\cite{Dragan:2015:ERM:2696454.2696473,Szafir:2014:CIA:2559636.2559672} enable better communications to convey robots' intent while performing a task.
+%
+These topics open questions to instructional design:
+% Questions here:
+How should instructions be presented, at what timing and in what form, when a user is working with another agent? How can a robot express it's intent while a human user is paying attention to a task?
+%
+We see our DemoWiz design could be one visualization method to present a robot's upcoming motion path. In fact, a recent Augmented Reality application has demonstrated this idea of visualizing a robot's trail~\cite{HoloLensRobot}, which helps users avoid collision in a space.
 
 \subsubTitleBold{Tool Support for Alternatives}
-sharing - iterative, branching
+The instructions presented in this dissertation are designed to be navigated linearly in a step-by-step order. An intriguing idea is to enable \emph{non-linear} instructions that can be interactively reviewed by a learner. Interactive narrative, or commonly known as ``Choose Your Own Adventure'', is an interactive form of dynamically following a storyline through reader's actions~\cite{RiedlInteractivenarrative}. By carefully designing a fictional world with multiple branches, readers might experience different stories, including characters, plots, and endings, based on their inputs.
+%
+It has been shown that such type of navigation could be useful for video editing~\cite{Shen:2009:WNE:1518701.1518825}, composing personal stories~\cite{Chi:2011:IAC:1943403.1943438}, and following educational videos~\cite{Kim:2014:DIT:2642918.2647389}.
+%
+As instructions involve domain knowledge and experiences, we observe that online authors have created similar forms via external links to guide viewers to other instructions. This serves several purposes, including to complete a tutorial (e.g., to pick up basic skills), to demonstrate different approaches, results, or effects, and to rise viewers' interests.
+%
+In addition, learners could also contribute to the instructional content via comments or edits, making a production process iterative.
+% Questions here:
+To support interactive navigation experiences, how would an authoring tool enable alternatives of performing a task? How would learners efficiently preview options and make a choice between approaches?
+%
+One useful approach is to visualize different workflows for comparison~\cite{Kong:2012:DTR:2207676.2208549} or incorporate learners' comments~\cite{Bunt:2014:TPI:2556288.2557118}, but supporting both authoring and collaborative editing for alternatives is yet an open question.
 
 \subsection{Understanding of Expertise}
+% How to design tutorial systems appropriately for different situations
+% * level of expertise of instructor, learner
+% * what are you trying to make easier?
 
 \subsection{Learning from Instructions}
 
@@ -60,36 +83,27 @@ formal language
 - now template, a set of techniques
 machine learning
 
-\subsection{New Sensing Techniques}
-Tango, Structure Sensor, Leap Motion
-
-hand tracking~\cite{taylor-siggraph2016}
-Fusion4D~\cite{dou-siggraph2016}
-
 \subsection{Emerging Instructional Space}
-
-Augmented and virtual reality systems are becoming available to end users via affordable forms. However, designing AR and VR experiences extremely requires expertise and efforts. As devices offer personalized effects supported by sensing and input techniques, we need new authoring tools that focus on delivering story-centric experiences. Tools should also enable both professionals and amateurs to create and iterate designs efficiently in an immersive 3D world. ...research what future AR and VR creation tools would look like with new authoring processes.
-
-~\cite{MicrosoftHoloLensSkype,Gurevich:2012ko}
-
-by demonstration~\cite{MotionBuilderAR}
+Augmented and virtual reality systems are becoming available to end users via affordable forms. Commercial devices on the market have provided high-quality displays and inputs for VR (e.g., Oculus Rift\footnote{\url{https://www.oculus.com/}} and HTC Vive\footnote{\url{https://www.htcvive.com/}}) and AR (e.g., Microsoft HoloLens\footnote{\url{https://www.microsoft.com/microsoft-hololens/}}). 360-degree videos or spherical videos that record a complete view of a space can be captured using one omnidirectional camera or a circular array of cameras (e.g., Jump camera rig~\cite{GoogleJump}).
+%
+In addition, sensing technologies have been greatly improved to live track human actions~\cite{dou-siggraph2016}, hands~\cite{taylor-siggraph2016}, and locations (e.g., Project Tango~\cite{GoogleTango}) in a 3D space.
+%
+These enables novel applications for providing real-time instructions between people~\cite{Gurevich:2012ko,MicrosoftHoloLensSkype} and live editing and testing beyond desktop~\cite{MotionBuilderAR}.
+%
+However, designing AR and VR experiences extremely requires expertise and efforts in computer graphics and 3D modeling. New authoring tools that focus on delivering immersive, in-person experiences are needed.
+% Questions here:
+How can a tool capture a real-world demonstration and effectively transform to another remote learner? What input modality would be suitable for authoring in a physical world? How can a creation tool enable more interactive and iterative design beyond a conventional production pipeline?
+%
+These future directions in authoring AR and VR content are becoming more important with increasing numbers of amateur developers and authors in recent and the following years.
 
 \begin{figure*}[ht!]
   \centering
-  \includegraphics[width=0.4\textwidth]{\conclusion/fig/ar/hololens_fix1}
-  \includegraphics[width=0.4\textwidth]{\conclusion/fig/ar/hololens_fix2}
-% \begin{tabular}{cc}
-%   \includegraphics[width=0.4\textwidth]{\conclusion/fig/ar/hololens_fix1} &
-%   \includegraphics[width=0.4\textwidth]{\conclusion/fig/ar/hololens_fix2} \\
-% \multicolumn{2}{c}{\includegraphics[width=0.82\textwidth]{\conclusion/fig/ar/hololens_skype} }
-% \end{tabular}
+  \includegraphics[width=0.45\textwidth]{\conclusion/fig/ar_authoring/motionbuilding1}
+  \includegraphics[width=0.45\textwidth]{\conclusion/fig/ar_authoring/motionbuilding2}
 \caption{
-  Recent Augmented Reality (AR) applications have demonstrated ways of providing real-time physical instructions from a remote instructor~\cite{MicrosoftHoloLensSkype,Gurevich:2012ko} or enhancing desktop editing, such as reviewing character animation shown in this figure~\cite{MotionBuilderAR}, licensed under CC BY 2.0.
+  A recent Augmented Reality (AR) application enables reviewing character animation beyond a desktop in a room-size environment~\cite{MotionBuilderAR}, licensed under CC BY 2.0.
 }
 \end{figure*}
-
-VR: capture physical instructions and share with others
-authoring tools for immersive experiences
 
 \section{Summary}
 In this dissertation, we present video-based approaches designed for amateur users to produce and consume effective instructions from demonstrations. Using video and audio analysis techniques, our tools support recording, editing, and playback in a tutorial production process. We demonstrate results of a set of five computer-generated tutorials we designed for several instructional domains, including software applications and physical activities. Our results increase the quality of instructions created by tutorial authors and support learners navigating and following the tutorials.
