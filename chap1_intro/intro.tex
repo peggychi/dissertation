@@ -39,7 +39,7 @@ On the other hand, navigating a well-produced tutorial using existing tools rema
 The goal of this dissertation is to investigate interactive instructional design and develop computational tools that support the authoring process.
 %
 To contribute to computational methods of authoring user-generated instructions, two research questions that this work focuses on are:\\
-\vspace{12pt}
+% \vspace{12pt}
 \begin{itemize}
   \item How can authoring tools support domain experts in efficiently creating effective, high-quality instructions based on video-recorded demonstrations?
 
@@ -57,15 +57,14 @@ I will introduce five interactive systems that I develop to address these challe
 
 \section{Challenges of Creating and Consuming Instructions}
 
-% Instructions, which contain the know-how and can be presented in different formats, enable novices to learn the domain knowledge and execute in action. The availability of content sharing sites such as YouTube\footnote{YouTube, \url{https://www.youtube.com/}, accessed June 2016} and Instructables\footnote{Instructables, \url{http://www.instructables.com/}, accessed June 2016} has enabled experts and hobbyists to create tutorials for a wide spectrum of topics \cite{Lafreniere:2012tl}.
-Visual instructions are the dominant form of instructional design.
+Visual instructions are the dominant form of instructional design~\cite{mijksenaar1999open}. Cognitive load theory of multimedia learning suggests that learners process information using distinct channels, one for visual and the other for verbal format~\cite{sweller1998cognitive,sweller1988cognitive,paas2003cognitive}. It was found that learners performed better when received a pictorial summary of a scientific system than those who received the full text alone or the full text with the summary~\cite{mayer1996less}.
+
+Among all the multimedia support, videos are a common form to present instructions. We suspect that the great popularity of videos is due to the following reasons:
 %
-Among all the online support, videos are commonly used to present instructions. We suspect that users prefer videos over other forms for the following reasons:
-%
-First, consumer devices and software have become affordable for people to quickly record activities and later share via online platforms at minimum cost.
+First, consumer devices and software have become affordable for authors to quickly record activities and later share via online platforms at minimum cost.
 %
 % ** describe the difficulties of making knowledge "explicit", esp. for actions and motions
-Second, videos can be an efficient medium to document activities. Transferring know-how concisely and effectively to the audience is challenging. It especially requires efforts when a task involves \emph{tacit knowledge}, which is a kind of knowledge that is difficult to articulate in a written or verbal form \cite{polanyi1958personal, Klemmer:2006:BMF:1142405.1142429}. Examples of tacit knowledge include dancing, riding a bike, or driving nails with a hammer. Dancers can perform movements fluently with music. If they are asked to focus on the composite pieces, such as the arm and foot actions or rhythm, they might get confused and fail to express the entire movement. Very often, recording a video eases the difficulties of describing the entire activities in an explicit form.
+Second, videos can be an efficient medium to document activities. Transferring know-how concisely and effectively to the audience is challenging. It especially requires efforts when a task involves \emph{tacit knowledge}, which is a kind of knowledge that is difficult to articulate in a written or verbal form~\cite{polanyi1958personal, Klemmer:2006:BMF:1142405.1142429}. Examples of tacit knowledge include dancing, riding a bike, or driving nails with a hammer. Dancers can perform movements fluently with music. If they are asked to focus on the composite pieces, such as the arm and foot actions or rhythm, they might get confused and fail to express the entire movement~\cite{polanyi1958personal}. Very often, recording a video eases the difficulties of describing the entire activities in an explicit form.
 %
 This leads to another motivation that videos also provide an effective channel to convey ideas with adequate amounts of details. Learners can visually observe the exact actions in a video as if an expert were coaching in person.
 

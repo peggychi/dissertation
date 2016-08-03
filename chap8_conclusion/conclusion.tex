@@ -63,7 +63,7 @@ The instructions presented in this dissertation are designed to be navigated lin
 %
 It has been shown that such type of navigation could be useful for video editing~\cite{Shen:2009:WNE:1518701.1518825}, composing personal stories~\cite{Chi:2011:IAC:1943403.1943438}, and following educational videos~\cite{Kim:2014:DIT:2642918.2647389}.
 %
-As instructions involve domain knowledge and experiences, we observe that online authors have created similar forms via external links to guide viewers to other instructions. This serves several purposes, including to complete a tutorial (e.g., to pick up basic skills), to demonstrate different approaches, results, or effects, and to rise viewers' interests.
+As instructions involve domain knowledge and experiences, authors have created similar forms via external links to guide viewers to other instructions~\cite{Wakkary:2015:TAH:2702123.2702550} (see Figure~\ref{fig:discussion_nonlinear}). This serves several purposes, including to complete a tutorial (e.g., to pick up basic skills), to demonstrate different approaches, results, or effects, and to rise viewers' interests.
 %
 In addition, learners could also contribute to the instructional content via comments or edits, making a production process iterative.
 % Questions here:
@@ -71,7 +71,26 @@ To support interactive navigation experiences, how would an authoring tool enabl
 %
 One useful approach is to visualize different workflows for comparison~\cite{Kong:2012:DTR:2207676.2208549} or incorporate learners' comments~\cite{Bunt:2014:TPI:2556288.2557118}, but supporting both authoring and collaborative editing for alternatives is yet an open question.
 
-\subsection{Understanding of Expertise}
+\begin{figure*}[h!]
+  \centering
+  \includegraphics[width=0.6\textwidth]{\conclusion/fig/non_linear/main}
+  \includegraphics[width=0.6\textwidth]{\conclusion/fig/non_linear/branch}
+  \caption{
+    Online instructions often include external links (top) to other material (bottom), which enhances or expands a step-by-step tutorial. Example by Jeff Suovanen~\cite{iPhoneRepairExample}, licensed under CC BY 2.0.
+  }
+  \label{fig:discussion_nonlinear}
+\end{figure*}
+
+\subsection{Supporting Different Levels of Expertise}
+Authoring instructions involves expertise from three perspectives: making, teaching, and editing.
+%
+The first element, \emph{making}, considers how authors master an instructional topic to perform a task. In this dissertation, we target at authors who are the domain experts that well know the tasks. It could be interesting to also supports amateurs or novices that are less familiar a task workflow but want to capture their creating process, such as mimicking experts' patterns~\cite{Kim:2015:MSN:2702123.2702507}.
+%
+The second element, \emph{teaching}, considers how authors illustrate a task to help learners follow. Our work attempts to suggest tutorial presentation formats to help authors focus on performing their demonstrations. As instructors have preferred styles of teaching, future authoring tools can include customization (e.g., video templates with specific opening and effects, or illustration styles with favorite visual parameter settings) and material reuse (e.g., including the successful parts of other instructions). Learners can also possibly define their preferences, such as automatically slowing down or replaying a video for unfamiliar parts~\tofix{citation here}.
+%
+The third element, \emph{editing}, considers how authors compose the instructional material into a final form, such as a video or a static tutorial. Our tools focus on automating this aspect for authors who are not professional in editing. We see the values that the results of our work can be used for advanced editing, such as exporting to conventional video or graphics editing tools.
+%
+By carefully considering different levels of expertise, we believe that creation tools can be flexibly support a wider range of authoring and learning needs.
 % How to design tutorial systems appropriately for different situations
 % * level of expertise of instructor, learner
 % * what are you trying to make easier?
@@ -84,7 +103,7 @@ Augmented and virtual reality systems are becoming available to end users via af
 %
 In addition, sensing technologies have been greatly improved to live track human actions~\cite{dou-siggraph2016}, hands~\cite{taylor-siggraph2016}, and locations (e.g., Project Tango~\cite{GoogleTango}) in a 3D space.
 %
-These enables novel applications for providing real-time instructions between people~\cite{Gurevich:2012ko,MicrosoftHoloLensSkype} and live editing and testing beyond desktop~\cite{MotionBuilderAR}.
+These enables novel applications for providing real-time instructions between people~\cite{Gurevich:2012ko,MicrosoftHoloLensSkype} and live editing and testing beyond desktop~\cite{MotionBuilderAR} (see Figure~\ref{fig:discussion_ar}).
 %
 However, designing AR and VR experiences extremely requires expertise and efforts in computer graphics and 3D modeling. New authoring tools that focus on delivering immersive, in-person experiences are needed.
 % Questions here:
@@ -96,9 +115,10 @@ These future directions in authoring AR and VR content are becoming more importa
   \centering
   \includegraphics[width=0.45\textwidth]{\conclusion/fig/ar_authoring/motionbuilding1}
   \includegraphics[width=0.45\textwidth]{\conclusion/fig/ar_authoring/motionbuilding2}
-\caption{
-  A recent Augmented Reality (AR) application enables reviewing character animation beyond a desktop in a room-size environment~\cite{MotionBuilderAR}, licensed under CC BY 2.0.
-}
+  \caption{
+    A recent Augmented Reality (AR) application enables reviewing character animation beyond a desktop in a room-size environment~\cite{MotionBuilderAR}, licensed under CC BY 2.0.
+  }
+  \label{fig:discussion_ar}
 \end{figure*}
 
 \section{Summary}
