@@ -4,13 +4,13 @@
 \chapter{Background}
 \label{chapter_background}
 
-This dissertation proposes computational methods to create interactive tutorials for software applications and physical tasks. To ground our work in existing practices and principles, in this chapter, I define the terminology commonly used by tutorial researchers and online community (Section \ref{background_terms}).
+This dissertation proposes computational methods to create interactive tutorials for software applications and physical tasks. To ground our work in existing practices and principles, in this chapter, I define the terminology commonly used by tutorial researchers and online communities (Section \ref{background_terms}).
 %
 I survey research studies and literature about the motivations of people creating, sharing, and consuming tutorials (Section \ref{background_why}). Finally, I discuss the common techniques and current practices of creating instructions (Section \ref{background_techniques} and \ref{background_creation}).
 %
 These insights are obtained from the following resources:
 \begin{itemize}
-  \item Studies on tutorial authorship and learning~\cite{Torrey:2007he,Torrey:2009fc,Wakkary:2015:TAH:2702123.2702550,Black:1986:KMI:29933.275623,Tseng:2014:PVP:2598510.2598540}.
+  \item Studies of tutorial authorship and learning~\cite{Torrey:2007he,Torrey:2009fc,Wakkary:2015:TAH:2702123.2702550,Black:1986:KMI:29933.275623,Tseng:2014:PVP:2598510.2598540}.
   \item Guidelines for creating instructions~\cite{InstructableHowTo,wikiHowHowTo}.
   \item An online survey of 2600 individuals across DIY communities~\cite{Kuznetsov:2010:REA:1868914.1868950}.
   \item An analysis of 600 comments to web-based tutorials~\cite{BenLafreniere:2013ux}.
@@ -23,20 +23,20 @@ These insights are obtained from the following resources:
 \section{Instructions: Terminology}
 \label{background_terms}
 
-A \keyword{tutorial}, or a \keyword{how-to}, is a representation that transfers domain-specific \keyword{know-how} by describing a set of \keyword{instructions} on how to accomplish a specific task. Torrey \ea{} \cite{Torrey:2007he} defined:
+A \keyword{tutorial}, or a \keyword{how-to}, is a representation that transfers domain-specific \keyword{know-how} by describing a set of \keyword{instructions} on how to accomplish a specific task. Torrey \ea{}~\cite{Torrey:2007he} defined:
 \begin{quote}
 \iquote{A How-To refers to online content that describes how something is done.}
 \end{quote}
 %
-The title of a tutorial describes the goal of the task, such as \iquote{How to retouch photos with Photoshop} or \iquote{Create holiday photo cards.}
+% The title of a tutorial often describes the goal of the task, such as \iquote{How to retouch photos with Photoshop} or \iquote{Create holiday photo cards.}
 %
 Instructions have been widely created for various domains, including:
 
 \begin{itemize}
   \item Software applications, such as creating a motion blur effect of an image or creating a pie chart from a spreadsheet using specific software,
   \item Do-It-Yourself (DIY) projects, such as wrapping a gift box, assembling a piece of furniture, or building electronics with Arduino,
-  \item Everyday activities, such as cooking or operating a vacuum machine, and
-  \item Sports, such as making a dance move or swing a golf club.
+  \item Everyday activities, such as cooking or operating a vacuum cleaner, and
+  \item Sports, such as performing a dance move or correctly executing a golf club swing.
 \end{itemize}
 
 Figure~\ref{fig:background_activities} shows example activities of these domains from online tutorials.
@@ -68,18 +68,18 @@ Figure~\ref{fig:background_activities} shows example activities of these domains
 %
 Instructional content is commonly structured as a list of \keyword{steps} or \keyword{subtasks} in a linear, \keyword{step-by-step} order.
 %
-It is important to include essential information required to complete a task, including materials, tools, preparation, expected outcome, and tips.
+It is important to include essential information required to complete a task, including materials, tools, preparation, expected outcome, and tips~\cite{Torrey:2007he}.
 %
-In some domains, instructions have been derived into specific formats. For example, cooking recipes contain not only actions but also food ingredients and required amounts.
+In some domains, instructions have developed into canonical domain-specific formats. For example, cooking recipes contain not only actions but also food ingredients and required amounts.
 % The term \keyword{recipe} has been used for activities other than cooking.
 
-Note that instructions are different from a (software) \keyword{documentation}, \keyword{manual}, or \keyword{user guide}, which is a technical document contained non-task-centric details about a particular hardware or software system. A manual does not provide step-by-step guidance to follow. To accomplish a task, one needs to identify relevant information from the documentation and reason the workflow.
+Note that instructions are different from a (software) \keyword{documentation}, \keyword{manuals}, or \keyword{user guides}, which are technical documents contain non-task-centric details about a particular hardware or software system. A manual does not provide step-by-step guidance to follow. To accomplish a task, one needs to identify relevant information from the documentation and reason the workflow.
 
 % -------------------
 
 Instructions can be shown in different forms. There are two main forms of visual tutorials (see Figure~\ref{fig:background_formats}):
 \begin{itemize}
-  \item \keyword{Static tutorials}, which use text and figures to describe the set of operations required to accomplish a task. Such format is presented as a written document with a step-by-step list, while each step includes text description and/or an image or abstract illustration to describe the subtask. It can possible be combined into a \keyword{diagram} that shows the step procedure. Static tutorials are suitable for printing and are easy to scan because they show all instructions.
+  \item \keyword{Static tutorials}, which use text and figures to describe the set of operations required to accomplish a task. Such format is presented as a written document with a step-by-step list, while each step includes text description and/or an image or abstract illustration to describe the subtask. In some domains such as block or furniture assembly, a \keyword{diagram} or a pictorial summary shows the step procedure. Static tutorials are suitable for printing and are easy to scan because they show all instructions.
   \item \keyword{Video tutorials}, which are edited or raw videos of the tutorial author performing the task. Examples include screen recordings of a software application or a camera recording of a DIY task.
   %
   Video tutorials are composed of one or more ``shots,'' which is \iquote{the basic unit of an editor's film language, consisting of footage captured over a continuous duration of time without interruption}~\cite{Goldman:2007:FVA:1354647}, to provide the animation or capturing of movements in time.
@@ -169,12 +169,12 @@ length~\cite{Black:1986:KMI:29933.275623}
 
 To help learners quickly identify key information, visual annotations are commonly used. Table~\ref{background_annotation_techniques} shows a list of annotation techniques in practices that I summarized from book material for static tutorials~\cite{mijksenaar1999open,greenberg2012sketching,Buxton:2007:SUE:1526229,tufte1990envisioning}, but some of these techniques are often applied in video tutorials (see Table~\ref{background_video_annotation_techniques}).
 %
-These visual elements are effective to indicate the movements of actions or objects (via arrows or paths), identify important parts (via highlights), present the details and overview (via call-outs), and provide additional messages such as a warning (via icons or text).
+These visual elements are effective to indicate the movement of action or objects (via arrows or paths), identify important parts (via highlights), present the details and overview (via call-outs), and provide additional messages such as a warning (via icons or text).
 
 \begin{table*}[!htbp]
   \centering
   \includegraphics[width=0.78\columnwidth]{\background/fig/techniques/techniques}
-  \caption{A list of annotation techniques that are often used to provide instructions. Examples are selected from stroller instructions~\cite{MountainBuggyInstructions}.}
+  \caption{A list of annotation techniques that are often used to provide instructions. Examples are selected from stroller instructions~\cite{MountainBuggyInstructions}. Reproduced with permission.}
   \label{background_annotation_techniques}
 \end{table*}
 % https://support.mountainbuggy.com/hc/en-us/articles/203682124-List-of-product-instructions
@@ -211,9 +211,11 @@ These visual elements are effective to indicate the movements of actions or obje
 
 \subsection{Static Diagrams}
 
-Static, step-by-step instructions are composed of one or more figures, which can be either illustrations, images, or software screenshots.
+Static, step-by-step instructions are composed of one or more figures, which can be either illustrations, images, or software screenshots. Information should be visually concise and distinguishable.
 %
 Tufte~\cite{tufte1990envisioning} described the importance of layering information: \iquote{Among the most powerful devices for reducing noise and enriching the content of displays is the technique of layering and separation, visually stratifying various aspects of the data.} Color, for example, is effective to separate content. Figure~\ref{fig:background_HubbleExploded} shows an exploded diagram of the Hubble Space Telescope--Here, the labels or text annotations are in black, with blue lines pointed to individual parts, that separate from the machine components presented in green.
+%
+A series of actions can be expressed using numbers or spatial sequences, sometimes with arrows, in a clear layout.
 
 % More advanced techniques such as overlaying visual components or composing an exploded view can be useful to show the depth of spatial relations between detailed components.
 
@@ -225,11 +227,8 @@ Tufte~\cite{tufte1990envisioning} described the importance of layering informati
   \label{fig:background_HubbleExploded}
 \end{figure*}
 
-A series of actions can be expressed using numbers or spatial sequences, sometimes with arrows, in a clear layout.
-%
-Information should be visually concise and distinguishable. Tufte pointed out that the top design does not effectively separate the information, including an actor (in silhouette), a prop (the light with lamp-whiskers), actions (the directional arrows), the text descriptions, and the grid boxes of individual diagrams. The visuals are ``too loud and too similar'' as all the elements are in black and the weights are equally heavy among boxes, arrows, and text.
-%
-The revised design, shown at the bottom of the figure, separates elements from the actor: the glowing light is colored in yellow and whiskers are removed (not to confused with trembling motion); motion arrows are highlighted in red; the weight of the grid border is lighted to avoid confusion with motion arrows; silhouette is shown in gray to bring more emphasis on other information; text is shown with a lighter font.
+% Tufte pointed out that the top design does not effectively separate the information, including an actor (in silhouette), a prop (the light with lamp-whiskers), actions (the directional arrows), the text descriptions, and the grid boxes of individual diagrams. The visuals are ``too loud and too similar'' as all the elements are in black and the weights are equally heavy among boxes, arrows, and text.
+% The revised design, shown at the bottom of the figure, separates elements from the actor: the glowing light is colored in yellow and whiskers are removed (not to confused with trembling motion); motion arrows are highlighted in red; the weight of the grid border is lighted to avoid confusion with motion arrows; silhouette is shown in gray to bring more emphasis on other information; text is shown with a lighter font.
 
 % \begin{figure*}[th!]
 %   \centering
