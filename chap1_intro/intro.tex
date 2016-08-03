@@ -28,7 +28,7 @@ From 1760, when the Industrial Revolution introduced mass production, instructio
 
 Since late 1990s, the advance in computer technologies, including the general purpose computers and the Internet, have introduced more versatile instructional design. Instructions can now be created via software tools rather than hand drawing; they can include multimedia such as images and videos in several forms; they can be accessed through the Internet, as well as in hard copy.
 %
-This advancement also enables consumers or end-users to document and share their domain knowledge~\cite{Lafreniere:2012tl}. As of today, popular tutorial sharing sites like Instructable has over 220,000 articles~\cite{InstructablesProjects}, wikiHow provides over 192,000 articles~\cite{wikiHowStatistics}, Food.com serves over 500,000 user-generated recipes with 125,000 photos~\cite{FoodComAbout}, and YouTube hosts over 285 million How-To videos\footnote{YouTube, \url{https://www.youtube.com/}, accessed June 2016}.
+This advancement also enables consumers or end-users to document and share their domain knowledge~\cite{Lafreniere:2012tl}. As of today, popular tutorial sharing sites like Instructables has over 220,000 articles~\cite{InstructablesProjects}, wikiHow provides over 192,000 articles~\cite{wikiHowStatistics}, Food.com serves over 500,000 user-generated recipes with 125,000 photos~\cite{FoodComAbout}, and YouTube hosts over 285 million How-To videos\footnote{YouTube, \url{https://www.youtube.com/}, accessed June 2016}.
 %
 The variety of topics, content, and presentation styles provides learners more options to understand specific know-how.
 %
@@ -38,7 +38,7 @@ On the other hand, navigating a well-produced tutorial using existing tools rema
 
 The goal of this dissertation is to investigate interactive instructional design and develop computational tools that support the authoring process.
 %
-To contribute to computational methods of authoring user-generated instructions, two research questions that this work focuses on are:\\
+To contribute to computational methods of authoring user-generated instructions, two research questions that this work focuses on are:
 % \vspace{12pt}
 \begin{itemize}
   \item How can authoring tools support domain experts in efficiently creating effective, high-quality instructions based on video-recorded demonstrations?
@@ -66,11 +66,11 @@ First, consumer devices and software have become affordable for authors to quick
 % ** describe the difficulties of making knowledge "explicit", esp. for actions and motions
 Second, videos can be an efficient medium to document activities. Transferring know-how concisely and effectively to the audience is challenging. It especially requires efforts when a task involves \emph{tacit knowledge}, which is a kind of knowledge that is difficult to articulate in a written or verbal form~\cite{polanyi1958personal, Klemmer:2006:BMF:1142405.1142429}. Examples of tacit knowledge include dancing, riding a bike, or driving nails with a hammer. Dancers can perform movements fluently with music. If they are asked to focus on the composite pieces, such as the arm and foot actions or rhythm, they might get confused and fail to express the entire movement~\cite{polanyi1958personal}. Very often, recording a video eases the difficulties of describing the entire activities in an explicit form.
 %
-This leads to another motivation that videos also provide an effective channel to convey ideas with adequate amounts of details. Learners can visually observe the exact actions in a video as if an expert were coaching in person.
+This leads to another motivation that videos also provide an effective channel to convey ideas with adequate amounts of details. Learners can visually observe the exact actions in a video as if an expert were coaching in person~\cite{Kuznetsov:2010:REA:1868914.1868950}.
 
 However, while videos are easy to produce, they can include a lot of unnecessary footage. Inevitable content such as pauses, mistakes, and long repetitive actions makes it difficult for learners to focus on the most important steps and actions. A lot of authoring effort commonly goes into extracting footage, applying visual effects, and adding subtitles and annotations.
 %
-In addition, even with a well-edited video, navigating using a conventional video player remains inefficient. Learners with various needs could have a hard time skimming to an interesting moment or perceiving high-level overviews. Therefore, some prefer to follow static step-by-step tutorials, which are easy to scan forward and backward as instructions are listed in text and images. Similarly, it is time- and labor-intensive to produce this type of instructions, and can be limited in presenting complicated tasks.
+In addition, even with a well-edited video, navigating using a conventional video player remains inefficient. Learners with various needs could have a hard time skimming to an interesting moment or perceiving high-level overviews. Alternatively, a pictorial summary or static step-by-step tutorials presented with text and images can effectively guide knowledgeable learners through familiar tasks.
 
 % The goal of this dissertation to develop video-based recording, editing, and playback tools are optimized for creating and consuming instructional demonstrations. I combine the advantage of ubiquitous video recording with the benefits of video and structured tutorial formats. I aim to dramatically increase the quality of amateur-produced video instructions, which in turn improves learning for viewers who interactively navigate the content.
 
@@ -78,9 +78,9 @@ In addition, even with a well-edited video, navigating using a conventional vide
 
 \subsection{New Tutorial Formats}
 
-Both static and video tutorials have strengths, but my study showed that neither format is well suited for followers with various learning needs.
+Both static and video tutorials have strengths, but neither format alone is well suited for all learning needs that learners may have.
 %
-To combine the benefits of videos and static tutorial formats, I design a new instructional presentation called \emph{MixT} (mixed-media tutorials) that improves learners' success in following instructions (see Figure~\ref{fig:mixt_intro}).
+To combine the benefits, I design a new instructional presentation called \emph{MixT} (mixed-media tutorials) that improves learners' success in following instructions (see Figure~\ref{fig:mixt_intro}).
 %
 MixT presents step-by-step static instructions and includes in-place video clips for each operation.
 %
@@ -102,7 +102,10 @@ In my within-subject experiment, MixT successfully reduced numbers of errors and
 
 % ----- DemoWiz ----- %
 
-MixT offers a novel way of navigating instructional content with a combination of static step-by-step and embedded video presentations. An additional effort is to help viewers expect \emph{when} and \emph{what} action is coming next while a video is playing. I design \emph{DemoWiz}, a system that augments a screencast video with visualizations (Figure~\ref{fig:demowiz_intro}). By logging the input events of a software demonstration, DemoWiz overlays glyphs to guide viewers to the next action along with the time remaining before the action occurs. This enables followers to anticipate the video content rather than react to it.
+% why do they care? I think DemoWiz is for presenters so you may have to set that context first. Or do you want to make a more general argument? In either case, you’ll have to argue why previewing “when” and “what” is helpful.
+MixT offers a novel way of navigating instructional content with a combination of static step-by-step and embedded video presentations. If an author wants to record narration over a video recording, it can be challenging to capture the suitable timing after a demonstration without expecting \emph{when} and \emph{what} action is taking while a video is playing.
+%
+I design \emph{DemoWiz}, a system that augments a screencast video with visualizations (Figure~\ref{fig:demowiz_intro}). By logging the input events of a software demonstration, DemoWiz overlays glyphs to guide viewers to the next action along with the time remaining before the action occurs. This enables followers to anticipate the video content rather than react to it.
 %
 My study showed that fewer anticipation errors and delays were made with DemoWiz.
 
@@ -136,7 +139,7 @@ Video tutorials created by DemoCut in five DIY domains were concise in terms of 
 \begin{figure*}[t]
   \centering
   \includegraphics[width=\textwidth]{\intro/fig/DemoCut}
-  \caption{DemoCut asks authors to mark key moments in a recorded video of demonstration using a set of marker types. Based on marker information, the system uses audio and video analysis to automatically organize the video into meaningful segments and apply appropriate video editing effects. A playback UI provides lightweight editing for authors to review and modify automatic results.}
+  \caption{DemoCut asks authors to mark key moments in a recorded video of demonstration using a set of marker types. Based on marker information, the system uses audio and video analysis to automatically organize the video into meaningful segments and apply appropriate video editing effects, which can be modified via a playback UI.}
   \label{fig:democut_intro}
 \end{figure*}
 
