@@ -25,8 +25,10 @@ Paperwork:
 * Informal permissions for figures via emails
 
 TODO:
-* fix comments: chap 1, 2, 3, 9
+* fix comments: chap 3
 * five system chapters (DemoCut: add list of videos)
+* check citations and captions
+* acknowledgment
 
 Important changes:
 * Add references from psychology and education: why minimal instructions, why pictorial instructions
