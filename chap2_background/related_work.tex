@@ -3,26 +3,24 @@
 \chapter{Related Work}
 \label{chapter_related_work}
 
-While existing practices require tutorial authors creating instructions manually, HCI and Computer Graphics communities have introduced novel computer technologies for authoring tutorials, including automatic generation methods and interactive editing tools.
+While existing practices require tutorial authors to create instructions manually, HCI and Computer Graphics communities have introduced novel technologies for authoring tutorials, including automatic generation methods and interactive editing tools.
 %
-In this chapter, I survey the state-of-the-art techniques of generating instructions for both software applications (Section \ref{related_software}) and physical tasks (Section \ref{related_physical}).
+In this chapter, I survey state-of-the-art techniques for generating instructions for both software applications (Section \ref{related_software}) and physical tasks (Section \ref{related_physical}).
 %
-Furthermore, existing instructions are mainly offered in the forms of conventional media, such as static tutorials (print-outs or web) or videos. With software systems, \keyword{interactive tutorials} have been introduced for learners to interactively review instructional content. I will discuss various forms of such kind of instructions by prior research, which leads to a discussion on the remained gaps in tool support for creating and navigating instructional content.
+Furthermore, existing instructions are mainly offered in the forms of conventional media, such as static tutorials (print-outs or web) or videos. With software systems, \keyword{interactive tutorials} have been introduced for learners to interactively review instructional content. I will discuss various forms of such kind of instructions by prior research, which leads to a discussion on the remaining gaps in tool support for creating and navigating instructional content.
 
 % -------------------------------------------
 
 \section{Instructions for Software Applications}
 \label{related_software}
 
-software learnability~\cite{Grossman:2009:SSL:1518701.1518803}
-
 \subsection{Workflow Capturing and Tutorials}
 
-Revealing operation history has shown to be effective in presenting software instructions. Operational events can range from low level, device-specific activities (e.g., mouse actions, cursor movements, or keyboard strokes) to higher level, application-dependent information (e.g., menu selections or UI component changes).
+Revealing operation history has shown to be effective in presenting software instructions. Operational events can range from low-level, application agnostic input device events (e.g., mouse actions, cursor movements, or keyboard strokes) to higher level, application-dependent information (e.g., menu selections or UI component changes).
 %
-Researchers have investigated automatic approaches that capture and render these types of events. Nakamura and Igarashi~\cite{Nakamura:2008:ASV:1449715.1449721} proposed a capturing and rendering system independent to GUI applications. Their system logs mouse events of a software demonstration process, including mouse moving, dragging, and clicking. Operations are rendered as markers and arrows on screenshot images to present the linear event history (see Figure~\ref{fig:related_events} top).
+Researchers have investigated automatic approaches that capture and visualize these types of events. Nakamura and Igarashi~\cite{Nakamura:2008:ASV:1449715.1449721} proposed a capturing and rendering system independent to GUI applications. Their system logs mouse events of a software demonstration process, including mouse moving, dragging, and clicking. Operations are rendered as markers and arrows on screenshot images to present the linear event history (see Figure~\ref{fig:related_events} top).
 %
-Grabler \ea{}'s approach~\cite{Grabler:2009jj} further analyzes the application context, including facial features and outdoor scenes, and annotates software screenshots with arrows, bounding boxes, and call-outs (see Figure~\ref{fig:related_events} bottom). In addition to annotated images, their system generates textual description from templates, such as \iquote{Select the \textbf{path tool} from the \textbf{toolbar} to \textbf{create and edit paths}.} The generated text and rendered images of operations are outputted as a step-by-step tutorial, which is currently available as a Photoshop plug-in\footnote{Adobe labs. Tutorial Builder. \url{http://labs.adobe.com/technologies/tutorialbuilder/}}.
+Grabler \ea{}'s approach~\cite{Grabler:2009jj} further analyzes the application context, including facial features and outdoor scenes, and annotates software screenshots with arrows, bounding boxes, and call-outs (see Figure~\ref{fig:related_events} bottom). In addition to annotated images, their system generates textual description from templates, such as \iquote{Select the \textbf{path tool} from the \textbf{toolbar} to \textbf{create and edit paths}.} The generated text and rendered images of operations are presented as a step-by-step tutorial, which is currently available as a Photoshop plug-in\footnote{Adobe labs. Tutorial Builder. \url{http://labs.adobe.com/technologies/tutorialbuilder/}}.
 
 Demonstration-based approaches for generating instructions have been also applied to applications that involve more complicated manipulations or gestures, including 3D mesh construction~\cite{Denning:2011fy} and mobile apps~\cite{Wang:2014:EAC:2556288.2557407}.
 %
