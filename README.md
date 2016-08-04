@@ -25,6 +25,5 @@ Paperwork:
 * Informal permissions for figures via emails
 
 TODO:
-* Discuss expertise (Chap 2)
 * fix comments: chap 1, 2, 3, 9
-* five system chapters
+* five system chapters (DemoCut: add list of videos)
