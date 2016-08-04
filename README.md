@@ -27,3 +27,6 @@ Paperwork:
 TODO:
 * fix comments: chap 1, 2, 3, 9
 * five system chapters (DemoCut: add list of videos)
+
+Important changes:
+* Add references from psychology and education: why minimal instructions, why pictorial instructions
