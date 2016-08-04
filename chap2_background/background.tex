@@ -58,7 +58,7 @@ Figure~\ref{fig:background_activities} shows example activities of these domains
   \footnote{``How to Cook a Turkey in a Convection Oven'' by Six Sisters' Stuff, \url{https://youtu.be/QNkwKj1Vsuc}, licensed under CC BY 2.0}, and
   %
   d) golf lessons in sports
-  \footnote{``Pat's Golf Tips Top of Swing Position'' by BlueRockGolfAcademy, \url{https://youtu.be/H06o7fMQSi4, licensed under CC BY 2.0}}.
+  \footnote{``Pat's Golf Tips Top of Swing Position'' by Blue Rock Golf Academy, \url{https://youtu.be/H06o7fMQSi4, licensed under CC BY 2.0}}.
   }
   \label{fig:background_activities}
   \end{minipage}
@@ -167,10 +167,6 @@ length~\cite{Black:1986:KMI:29933.275623}
 \subsection{Visual Annotations}
 % \label{background_techniques_visual}
 
-To help learners quickly identify key information, visual annotations are commonly used. Table~\ref{background_annotation_techniques} shows a list of annotation techniques in practices that I summarized from book material for static tutorials~\cite{mijksenaar1999open,greenberg2012sketching,Buxton:2007:SUE:1526229,tufte1990envisioning}, but some of these techniques are often applied in video tutorials (see Table~\ref{background_video_annotation_techniques}).
-%
-These visual elements are effective to indicate the movement of action or objects (via arrows or paths), identify important parts (via highlights), present the details and overview (via call-outs), and provide additional messages such as a warning (via icons or text).
-
 \begin{table*}[!htbp]
   \centering
   \includegraphics[width=0.78\columnwidth]{\background/fig/techniques/techniques}
@@ -179,16 +175,23 @@ These visual elements are effective to indicate the movement of action or object
 \end{table*}
 % https://support.mountainbuggy.com/hc/en-us/articles/203682124-List-of-product-instructions
 
-\begin{table*}[!htbp]
+To help learners quickly identify key information, visual annotations are commonly used. Table~\ref{background_annotation_techniques} shows a list of annotation techniques in practices that I summarized from book material for static tutorials~\cite{mijksenaar1999open,greenberg2012sketching,Buxton:2007:SUE:1526229,tufte1990envisioning}, but some of these techniques are often applied in video tutorials (see Table~\ref{background_video_annotation_techniques}).
+%
+These visual elements are effective to indicate the movement of action or objects (via arrows or paths), identify important parts (via highlights), present the details and overview (via call-outs), and provide additional messages such as a warning (via icons or text).
+
+To present annotations, Tufte~\cite{tufte1990envisioning} described the importance of layering information: \iquote{Among the most powerful devices for reducing noise and enriching the content of displays is the technique of layering and separation, visually stratifying various aspects of the data.}
+%
+Color, for example, is effective to separate content. Shown in Table~\ref{background_annotation_techniques}, motion arrows are presented in red, paths are in a darker gray color, and the key components are highlighted in orange or white. The design goal is to help learners efficiently capture important actions and tips.
+%
+Figure~\ref{fig:background_HubbleExploded} shows another example of using colors to separate abstract information. In this exploded diagram of the Hubble Space Telescope, the labels or text annotations are in black, with blue lines pointed to individual parts, that differentiate from the machine components presented in green.
+
+\begin{figure*}[th!]
   \centering
-  \includegraphics[width=\textwidth]{\background/fig/video_techniques/video_techniques_annotation}
-  \begin{minipage}{\textwidth}
-  \caption[Example annotation techniques used in a video tutorial.]{
-    Example annotation techniques used in a video tutorial\footnote{``How to use Loola 3 stroller'' by Maxi-Cosi, \url{https://youtu.be/p6MzLXeWBJw}, licensed under CC BY 2.0}.
+  \includegraphics[width=0.8\textwidth]{\background/fig/layering/HubbleExploded}
+  \caption{Color can differentiate between annotation (labels in black) and annotated information (parts in green in this diagram). Image by AndrewBuck (Own work), licensed under CC BY-SA 3.0.
   }
-  \label{background_video_annotation_techniques}
-  \end{minipage}
-\end{table*}
+  \label{fig:background_HubbleExploded}
+\end{figure*}
 
 % https://www.ifixit.com/Guide/LG+G+Watch+R+Motherboard+Replacement/50124#undefined
 
@@ -211,21 +214,12 @@ These visual elements are effective to indicate the movement of action or object
 
 \subsection{Static Diagrams}
 
-Static, step-by-step instructions are composed of one or more figures, which can be either illustrations, images, or software screenshots. Information should be visually concise and distinguishable.
+Static, step-by-step instructions are composed of one or more figures, which can be either illustrations, images, or software screenshots. One form is to list steps in a document with a sequence of numbered steps (see Figure~\ref{fig:background_formats}a). Images are carefully chosen...
 %
-Tufte~\cite{tufte1990envisioning} described the importance of layering information: \iquote{Among the most powerful devices for reducing noise and enriching the content of displays is the technique of layering and separation, visually stratifying various aspects of the data.} Color, for example, is effective to separate content. Figure~\ref{fig:background_HubbleExploded} shows an exploded diagram of the Hubble Space Telescope--Here, the labels or text annotations are in black, with blue lines pointed to individual parts, that separate from the machine components presented in green.
-%
-A series of actions can be expressed using numbers or spatial sequences, sometimes with arrows, in a clear layout.
+A series of actions can also be presented in one combined diagram with a clear layout. \tofix{add more info}
 
+% Information should be visually concise and distinguishable.
 % More advanced techniques such as overlaying visual components or composing an exploded view can be useful to show the depth of spatial relations between detailed components.
-
-\begin{figure*}[th!]
-  \centering
-  \includegraphics[width=0.8\textwidth]{\background/fig/layering/HubbleExploded}
-  \caption{Color can differentiate between annotation (labels in black) and annotated information (parts in green in this diagram). Image by AndrewBuck (Own work), licensed under CC BY-SA 3.0.
-  }
-  \label{fig:background_HubbleExploded}
-\end{figure*}
 
 % Tufte pointed out that the top design does not effectively separate the information, including an actor (in silhouette), a prop (the light with lamp-whiskers), actions (the directional arrows), the text descriptions, and the grid boxes of individual diagrams. The visuals are ``too loud and too similar'' as all the elements are in black and the weights are equally heavy among boxes, arrows, and text.
 % The revised design, shown at the bottom of the figure, separates elements from the actor: the glowing light is colored in yellow and whiskers are removed (not to confused with trembling motion); motion arrows are highlighted in red; the weight of the grid border is lighted to avoid confusion with motion arrows; silhouette is shown in gray to bring more emphasis on other information; text is shown with a lighter font.
@@ -243,6 +237,17 @@ A series of actions can be expressed using numbers or spatial sequences, sometim
 % -------------------
 
 \subsection{Video Editing Techniques}
+
+\begin{table*}[!htbp]
+  \centering
+  \includegraphics[width=\textwidth]{\background/fig/video_techniques/video_techniques_annotation}
+  \begin{minipage}{\textwidth}
+  \caption[Example annotation techniques used in a video tutorial.]{
+    Example annotation techniques used in a video tutorial\footnote{``How to use Loola 3 stroller'' by Maxi-Cosi, \url{https://youtu.be/p6MzLXeWBJw}, licensed under CC BY 2.0}.
+  }
+  \label{background_video_annotation_techniques}
+  \end{minipage}
+\end{table*}
 
 In addition to enhancing a shot with visual annotations, several conventional video editing techniques are often seen. A \textbf{close-up} is useful to zoom in a shot to demonstration a detailed view. Figure~\ref{fig:background_video_techniques}a shows one example that the video switches from an overview (to provide context of the position), to a detailed view (to show how exactly the action should be performed), back to an overview (to walk to the other side), and again to a detailed view.
 %
@@ -353,7 +358,7 @@ Below I describe the characteristics of each stage in detail.
 \begin{figure*}[h!]
   \centering
   \includegraphics[width=\textwidth]{\background/fig/creation_process}
-  \caption{A common workflow of tutorial creation, which includes planning the task in detail, capturing the process, editing the captured material into a readable form, and sharing with the communities.}
+  \caption{A common workflow of tutorial creation, which includes planning the task in detail, recording the process, editing the captured content into a readable form, and sharing with the communities.}
   \label{fig:background_creation}
 \end{figure*}
 
@@ -382,7 +387,7 @@ Mutlimedia material has been found to be effective to document procedural knowle
 \end{itemize}
 
 \subsection{Editing}
-After collecting necessary material, the majority of efforts and time often devotes to editing--to turn the raw material in a concise form.
+After collecting necessary material, the majority of efforts and time often devotes to editing--to turn the raw material to a concise form.
 Photographs need to be cropped and resized~\cite{Tseng:2014:PVP:2598510.2598540}, sometimes annotated~\cite{Torrey:2007he}; videos require removing footage, applying visual effects and transitions; audio has to be processed to omit utterances and condense narration~\cite{Chi:2013:DGC:2501988.2502052}. Popular editing tools include Adobe Photoshop and Apple Final Cut Pro, and emerging mobile applications such as Snapguide have been adopted by novices.
 
 Different multimedia forms can be mixed to create tutorial formats mentioned in Section~\ref{background_terms}. Videos, in particular, have become a popular medium to document and demonstrate the functionality of the work:

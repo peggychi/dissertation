@@ -2,7 +2,7 @@
 \chapter{Conclusion}
 \label{chapter_conclusion}
 
-We have presented five authoring systems for creating and following instructions from author demonstration. This final chapter restates the contributions of this dissertation and discusses the synthesis of our tools and future directions.
+We have presented five authoring systems for creating and following instructions from author demonstration. This final chapter restates the contributions of this dissertation and discusses future directions.
 
 \section{Restatement of Contributions}
 This dissertation has demonstrated video-based computational approaches that support tutorial creation and consumption. A set of interactive systems that generate concise instructions from author demonstrations are introduced. Design and technical contributions of this work can be summarized as follows:
@@ -11,14 +11,14 @@ This dissertation has demonstrated video-based computational approaches that sup
   \item New instructional formats that consider learning factors.
     \begin{itemize}
       \item Mixed-media tutorials composed of step-by-step static instructions and in-place video clips to demonstrate individual operations.
-      \item Enhanced video playback that contains dynamic glyphs to provide viewers awareness to the upcoming input event.
+      \item Enhanced video playback that contains dynamic glyphs to provide viewers awareness of upcoming interaction events in the video..
     \end{itemize}
-  \item Authoring workflows in an easy-to-setup environment for amateur users to create effective instructions by demonstration.
+  \item Authoring workflows for amateur users to create effective instructions by demonstration.
     \begin{itemize}
       \item Methods and user interfaces for recording, reviewing, and editing an instructional task with the support of software and capturing devices.
       \item Multi-modal interfaces using motion and voice commands or touch interaction to author step-by-step instructions while performing physical demonstrations.
     \end{itemize}
-  \item Automatic or semi-automatic approaches using video and audio analysis that includes users in the loop to produce high-quality results.
+  \item Automatic or semi-automatic approaches to produce high-quality instructions using video and audio analysis that includes users in the loop.
     \begin{itemize}
       \item Algorithms of analyzing video, audio, and motion data using computer vision and signal processing approaches to segment a demonstration.
       \item Techniques for combining high-level user annotations with content analysis to generate concise instructions.
@@ -27,21 +27,21 @@ This dissertation has demonstrated video-based computational approaches that sup
 
 \section{Future Directions} %Remaining Challenges and
 
-Our tools provided evidence how computer technologies could assist amateur authors in creating instructional content, which in turns enhance the learning experiences. Based on these design experiences, we propose directions of future research in computational instruction design.
+Our tools provided evidence how computer technologies could assist amateur authors in creating instructional content, which in turn enhances the learning experience. Based on these design experiences, we propose directions of future research in computational instruction design.
 
 \subsection{Beyond a Single User and Linear Instructions}
-The authoring systems presented in this dissertation mainly focus on supports of a single user in a software domain (i.e., MixT and DemoWiz that capture one software application walk-through) or physical tasks (including DemoDraw that records an author's movements).
+The authoring systems presented in this dissertation mainly focus on supporting a single user in a software domain (i.e., MixT and DemoWiz that capture one software application walk-through) or physical tasks (including DemoDraw that records an author's movements).
 %
 The DemoCut system analyzes one single, static video shot. The example videos we tested included only one demonstrator. We argue that our techniques can possibly apply for content that contains multiple demonstrators' activities and narrations, but our authoring interfaces are designed for a single author.
 %
 Finally, the Kinectograph recording device supports two demonstrators in a scene, and the tablet interface can be possibly controlled by both users at the same time.
 
 \subsubTitleBold{Tool Support for a Team}
-We see the needs of expanding our designs to support a group of authors. In specific domains, a demonstration often includes several demonstrators~\tofix{citation here}. For examples, cooking and furniture assembly tasks are commonly performed collaboratively by two or more people. Demonstrators may have different roles, such as one as the main instructor, wile the other(s) serve as supporters or a learner. For another example, dancers may have different moves in a choreography.
+We see the need of expanding our designs to support a group of authors. In specific domains, a demonstration often includes several demonstrators. For examples, furniture assembly tasks are commonly performed collaboratively by two or more people. Demonstrators may have different roles, such as one as the main instructor, while the other(s) serve as supporters or a learner. For another example, dancers may have different moves in a choreography.
 %
 Researchers have proposed methods of detecting activities of multiple people in a video~\tofix{citation here} and video editing~\cite{PatelUIST16}, but authoring instructions collaboratively is still an open topic.
 %
-In addition, professional filmmaking is commonly by teamwork, where a group of people forms a production team and contributes in different stages, including planning, shooting, and editing~\tofix{citation here}. We see research opportunities in supporting large projects or complicated activities that involve long time (e.g., a few days to weeks) and multiple collaborators with the same or different roles (e.g., a director controls a recording device to document a demonstrator's making process).
+In addition, professional filmmaking is commonly done by teamwork, where a group of people forms a production team and contributes in different stages, including planning, shooting, and editing~\tofix{citation here}. We see research opportunities in supporting large projects or complicated activities that involve long time (e.g., a few days to weeks) and multiple collaborators with the same or different roles (e.g., a director controls a recording device to document a demonstrator's making process).
 % Questions here:
 What information should be captured to support live or offline authoring? How should we incorporate authors' roles and intentions into a tool support? What interaction modality would be suitable to a multi-user, multi-task scenario?
 
@@ -58,12 +58,21 @@ How should instructions be presented, at what timing and in what form, when a us
 %
 We see our DemoWiz design could be one visualization method to present a robot's upcoming motion path. In fact, a recent Augmented Reality application has demonstrated this idea of visualizing a robot's trail~\cite{HoloLensRobot}, which helps users avoid collision in a space.
 
+\begin{figure*}[h!]
+  \centering
+  \includegraphics[width=0.9\textwidth]{\conclusion/fig/non_linear/tutorial_link}
+  \caption{
+    Online instructions often include external links (a) to other material (b), which enhances or expands a step-by-step tutorial. Example by Jeff Suovanen~\cite{iPhoneRepairExample}, licensed under CC BY 2.0.
+  }
+  \label{fig:discussion_nonlinear}
+\end{figure*}
+
 \subsubTitleBold{Tool Support for Alternatives}
 The instructions presented in this dissertation are designed to be navigated linearly in a step-by-step order. An intriguing idea is to enable \emph{non-linear} instructions that can be interactively reviewed by a learner. Interactive narrative, or commonly known as ``Choose Your Own Adventure'', is an interactive form of dynamically following a storyline through reader's actions~\cite{RiedlInteractivenarrative}. By carefully designing a fictional world with multiple branches, readers might experience different stories, including characters, plots, and endings, based on their inputs.
 %
 It has been shown that such type of navigation could be useful for video editing~\cite{Shen:2009:WNE:1518701.1518825}, composing personal stories~\cite{Chi:2011:IAC:1943403.1943438}, and following educational videos~\cite{Kim:2014:DIT:2642918.2647389}.
 %
-As instructions involve domain knowledge and experiences, authors have created similar forms via external links to guide viewers to other instructions~\cite{Wakkary:2015:TAH:2702123.2702550} (see Figure~\ref{fig:discussion_nonlinear}). This serves several purposes, including to complete a tutorial (e.g., to pick up basic skills), to demonstrate different approaches, results, or effects, and to rise viewers' interests.
+As instructions involve domain knowledge and experiences, authors have created similar forms via external links to guide viewers to other instructions~\cite{Wakkary:2015:TAH:2702123.2702550} (see Figure~\ref{fig:discussion_nonlinear}). This serves several purposes, including to complete a tutorial (e.g., to pick up basic skills), to demonstrate different approaches, results, or effects, and to raise viewers' interests.
 %
 In addition, learners could also contribute to the instructional content via comments or edits, making a production process iterative.
 % Questions here:
@@ -71,43 +80,33 @@ To support interactive navigation experiences, how would an authoring tool enabl
 %
 One useful approach is to visualize different workflows for comparison~\cite{Kong:2012:DTR:2207676.2208549} or incorporate learners' comments~\cite{Bunt:2014:TPI:2556288.2557118}, but supporting both authoring and collaborative editing for alternatives is yet an open question.
 
-\begin{figure*}[h!]
-  \centering
-  \includegraphics[width=0.6\textwidth]{\conclusion/fig/non_linear/main}
-  \includegraphics[width=0.6\textwidth]{\conclusion/fig/non_linear/branch}
-  \caption{
-    Online instructions often include external links (top) to other material (bottom), which enhances or expands a step-by-step tutorial. Example by Jeff Suovanen~\cite{iPhoneRepairExample}, licensed under CC BY 2.0.
-  }
-  \label{fig:discussion_nonlinear}
-\end{figure*}
-
 \subsection{Supporting Different Levels of Expertise}
 Authoring instructions involves expertise from three perspectives: making, teaching, and editing.
 %
-The first element, \emph{making}, considers how authors master an instructional topic to perform a task. In this dissertation, we target at authors who are the domain experts that well know the tasks. It could be interesting to also supports amateurs or novices that are less familiar a task workflow but want to capture their creating process, such as mimicking experts' patterns~\cite{Kim:2015:MSN:2702123.2702507}.
-%
-The second element, \emph{teaching}, considers how authors illustrate a task to help learners follow. Our work attempts to suggest tutorial presentation formats to help authors focus on performing their demonstrations. As instructors have preferred styles of teaching, future authoring tools can include customization (e.g., video templates with specific opening and effects, or illustration styles with favorite visual parameter settings) and material reuse (e.g., including the successful parts of other instructions). Learners can also possibly define their preferences, such as automatically slowing down or replaying a video for unfamiliar parts~\tofix{citation here}.
-%
-The third element, \emph{editing}, considers how authors compose the instructional material into a final form, such as a video or a static tutorial. Our tools focus on automating this aspect for authors who are not professional in editing. We see the values that the results of our work can be used for advanced editing, such as exporting to conventional video or graphics editing tools.
+The first element, \emph{making}, considers how authors master an instructional topic to perform a task. In this dissertation, we support authors who are the domain experts. These professional instructors often have a clear overview of a task and are comfortable with demonstrations. It could be interesting to also supports amateurs or novices that are less familiar with a task workflow but want to document their creating process or find alternatives while working on a project. Researchers have proposed interactive methods to enable live authoring personal videos~\cite{Freeman:2014:LLA:2611105.2557304} or provide real-time photo taking suggestions~\cite{Bourke:2011:SCC:1943403.1943408} during filming. What information would amateur authors find useful when creating a project?
+
+The second element, \emph{teaching}, considers how authors illustrate a task to help learners follow instructions. Our work suggests and automates novel tutorial formats to help authors focus on performing their demonstrations. As instructors have preferred styles of teaching, future authoring tools can include customization with automatic editing effects (e.g., automatically zoom to a region when pointing at an area with verbal cues) and material reuse (e.g., include the successful parts of other instructions). Learners can also possibly define their preferences, such as automatically slowing down or replaying a video for unfamiliar parts that have been shown useful for navigating personal videos~\cite{Cheng:2009:SUV:1518701.1518823}.
+
+The third element, \emph{editing}, considers how authors compose the instructional material into a final form, such as a video or a static tutorial. Our tools focus on automating this aspect for authors who are not professional in editing. We suggest that the results of our work can be used for advanced editing, such as exporting to conventional video or graphics editing tools.
 %
 By carefully considering different levels of expertise, we believe that creation tools can be flexibly support a wider range of authoring and learning needs.
 % How to design tutorial systems appropriately for different situations
 % * level of expertise of instructor, learner
 % * what are you trying to make easier?
 
-\subsection{Learning from Instructions}
-The interactive systems presented in this dissertation focus on the authoring process for individuals, but one interesting question is what we can learn from the created tutorials. In Chapter \ref{chapter_background}, we discussed the popularity of online instructions. What are the common techniques or patterns that can be seen from millions of documents? In recent years, machine learning methods have become powerful to learn and analysis from big data. Techniques have been applied to various interactive systems, including suggesting lecture videos~\cite{Kim:2014:DIT:2642918.2647389}, web designs~\cite{Kumar:2013:WDM:2470654.2466420}, or activities~\cite{Fast:2016:AMH:2858036.2858528}, comparing instructions for image manipulation tasks~\cite{Pavel:EECS-2013-167}, and identifying dietary or cooking patterns~\cite{IBMChefWatson,West:2013:CCI:2488388.2488510}. However, support for authoring instructional content is not yet seen. How do we learn from existing tutorials and user comments to suggest authors adding explanations (e.g., for specific subtasks that people often feel confused), making clarifications (e.g., ``is this similar to (another method)?''), or finding references (e.g., to point to a relevant tutorial)? Can we identify instructional topics for authors to brainstorm and contribute to the communities?
+\subsection{Machine Learning from Instructions}
+The interactive systems presented in this dissertation focus on the authoring process for individuals, but one interesting question is what we can learn from the created tutorials. In Chapter \ref{chapter_background}, we discussed the popularity of online instructions. What are the common techniques or patterns that can be seen from millions of documents? In recent years, machine learning methods have become powerful to analyze and reason big data. Techniques have been applied to various interactive systems, including suggesting lecture videos~\cite{Kim:2014:DIT:2642918.2647389}, web designs~\cite{Kumar:2013:WDM:2470654.2466420}, or activities~\cite{Fast:2016:AMH:2858036.2858528}, comparing instructions for image manipulation tasks~\cite{Pavel:EECS-2013-167}, and identifying dietary or cooking patterns~\cite{IBMChefWatson,West:2013:CCI:2488388.2488510}. However, support for authoring instructional content is not yet seen. How do we learn from existing tutorials and user comments to suggest authors adding explanations (e.g., for specific subtasks that people often feel confused), making clarifications (e.g., ``is this similar to (another method)?''), or finding references (e.g., to point to a relevant tutorial)? Can we identify instructional topics for authors to brainstorm and contribute to the communities?
 
 \subsection{Emerging Instructional Space}
-Augmented and virtual reality systems are becoming available to end users via affordable forms. Commercial devices on the market have provided high-quality displays and inputs for VR (e.g., Oculus Rift\footnote{\url{https://www.oculus.com/}} and HTC Vive\footnote{\url{https://www.htcvive.com/}}) and AR (e.g., Microsoft HoloLens\footnote{\url{https://www.microsoft.com/microsoft-hololens/}}). 360-degree videos or spherical videos that record a complete view of a space can be captured using one omnidirectional camera or a circular array of cameras (e.g., Jump camera rig~\cite{GoogleJump}).
+Augmented and virtual reality systems are becoming available to end users in affordable forms. Commercial devices on the market have provided high-quality displays and motion-based user inputs for VR (e.g., Oculus Rift\footnote{\url{https://www.oculus.com/}} and HTC Vive\footnote{\url{https://www.htcvive.com/}}) and AR (e.g., Microsoft HoloLens\footnote{\url{https://www.microsoft.com/microsoft-hololens/}}). 360-degree videos or spherical videos that record a complete view of a space can be captured using one omnidirectional camera or a circular array of cameras (e.g., Jump camera rig~\cite{GoogleJump}).
 %
 In addition, sensing technologies have been greatly improved to live track human actions~\cite{dou-siggraph2016}, hands~\cite{taylor-siggraph2016}, and locations (e.g., Project Tango~\cite{GoogleTango}) in a 3D space.
 %
 These enables novel applications for providing real-time instructions between people~\cite{Gurevich:2012ko,MicrosoftHoloLensSkype} and live editing and testing beyond desktop~\cite{MotionBuilderAR} (see Figure~\ref{fig:discussion_ar}).
 %
-However, designing AR and VR experiences extremely requires expertise and efforts in computer graphics and 3D modeling. New authoring tools that focus on delivering immersive, in-person experiences are needed.
+However, designing AR and VR experiences requires expertise and efforts in computer graphics and 3D modeling. New authoring tools that focus on delivering immersive, in-person experiences are needed.
 % Questions here:
-How can a tool capture a real-world demonstration and effectively transform to another remote learner? What input modality would be suitable for authoring in a physical world? How can a creation tool enable more interactive and iterative design beyond a conventional production pipeline?
+How can a tool capture a real-world demonstration and effectively transfer to another remote learner? What input modality would be suitable for authoring in a physical world? How can a creation tool enable more interactive and iterative design beyond a conventional production pipeline?
 %
 These future directions in authoring AR and VR content are becoming more important with increasing numbers of amateur developers and authors in recent and the following years.
 
@@ -122,4 +121,4 @@ These future directions in authoring AR and VR content are becoming more importa
 \end{figure*}
 
 \section{Summary}
-In this dissertation, we present video-based approaches designed for amateur users to produce and consume effective instructions from demonstrations. Using video and audio analysis techniques, our tools support recording, editing, and playback in a tutorial production process. We demonstrate results of a set of five computer-generated tutorials we designed for several instructional domains, including software applications and physical activities. Our results increase the quality of instructions created by tutorial authors and support learners navigating and following the tutorials.
+In this dissertation, we present video-based approaches designed for amateur users to produce and consume effective instructions from demonstrations. Using video and audio analysis techniques, our tools support recording, editing, and playback in a tutorial production process. We demonstrate results generated from five interactive systems we designed for several instructional domains, including software applications and physical activities. Our results increase the quality of instructions created by tutorial authors and support learners navigating and following the tutorials.
