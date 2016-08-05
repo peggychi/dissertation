@@ -26,9 +26,13 @@ Paperwork:
 
 TODO:
 * fix comments: chap 3
-* five system chapters (DemoCut: add list of videos)
+* DemoCut: add list of videos
+* update DemoDraw from UIST
 * check citations and captions
 * acknowledgment
 
 Important changes:
-* Add references from psychology and education: why minimal instructions, why pictorial instructions
+* Heavily rewrite 3.1 in Related Work with a better flow and discuss the relations to our work (still working on 3.2 and 3.3).
+* Address all Bjoern's comments (except one or two and 3.2, 3.3; on my todo list).
+* Add references from psychology and education: why minimal instructions, why pictorial and multimedia instructions.
+* Update the system chapters.

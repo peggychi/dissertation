@@ -8,23 +8,30 @@ While existing practices require tutorial authors to create instructions manuall
 In this chapter, I survey state-of-the-art techniques for generating instructions for both software applications (Section \ref{related_software}) and physical tasks (Section \ref{related_physical}).
 %
 Furthermore, existing instructions are mainly offered in the forms of conventional media, such as static tutorials (print-outs or web) or videos. With software systems, \keyword{interactive tutorials} have been introduced for learners to interactively review instructional content. I will discuss various forms of such kind of instructions by prior research, which leads to a discussion on the remaining gaps in tool support for creating and navigating instructional content.
+%
+Finally, in Section \ref{related_videos}, I review the methods of video analysis and playback.
 
 % -------------------------------------------
 
 \section{Instructions for Software Applications}
 \label{related_software}
 
-\subsection{Workflow Capturing and Tutorials}
+\subsection{Input Event Visualization}
 
-Revealing operation history has shown to be effective in presenting software instructions. Operational events can range from low-level, application agnostic input device events (e.g., mouse actions, cursor movements, or keyboard strokes) to higher level, application-dependent information (e.g., menu selections or UI component changes).
+% real-time
+Studies have shown that visualizing input events in real-time during operations can provide better learnability of applications~\cite{Dixon:2010fb}. Events can range from low-level, application agnostic input device events (e.g., mouse actions, cursor movements, or keyboard strokes) to higher level, application-dependent information (e.g., menu selections or UI component changes).
 %
-Researchers have investigated automatic approaches that capture and visualize these types of events. Nakamura and Igarashi~\cite{Nakamura:2008:ASV:1449715.1449721} proposed a capturing and rendering system independent to GUI applications. Their system logs mouse events of a software demonstration process, including mouse moving, dragging, and clicking. Operations are rendered as markers and arrows on screenshot images to present the linear event history (see Figure~\ref{fig:related_events} top).
-%
-Grabler \ea{}'s approach~\cite{Grabler:2009jj} further analyzes the application context, including facial features and outdoor scenes, and annotates software screenshots with arrows, bounding boxes, and call-outs (see Figure~\ref{fig:related_events} bottom). In addition to annotated images, their system generates textual description from templates, such as \iquote{Select the \textbf{path tool} from the \textbf{toolbar} to \textbf{create and edit paths}.} The generated text and rendered images of operations are presented as a step-by-step tutorial, which is currently available as a Photoshop plug-in\footnote{Adobe labs. Tutorial Builder. \url{http://labs.adobe.com/technologies/tutorialbuilder/}}.
+Commercial tools such as Mouseposé\footnote{\url{http://www.boinx.com/mousepose}} and ScreenFlow\footnote{\url{http://www.telestream.net/screenflow}} visualize mouse events and keystrokes with special effects, e.g., drawing a circle around a mouse cursor (see Figure~\ref{fig:related_realtime} top). These tools capture input information (e.g., mouse position and event type) and render visualization on top of the screen activities. This approach is commonly shown in online video tutorials. However, it is not aware of application context, which can be difficult to follow instructions at a semantic level.
+% Some further enable video editing techniques, including zooming in/out  and panning.
 
-Demonstration-based approaches for generating instructions have been also applied to applications that involve more complicated manipulations or gestures, including 3D mesh construction~\cite{Denning:2011fy} and mobile apps~\cite{Wang:2014:EAC:2556288.2557407}.
-%
-Beyond logging events from recording a user demonstration, researchers have shown that workflows and software content can be captured automatically using application logs \cite{Grossman:2010jz,Grabler:2009jj,Pongnumkul:2011ju} or computer vision from analyzing desktop regions~\cite{Yeh:2009dh,Chang:2011vd} and existing screencast videos~\cite{Banovic:2012kd}.
+To visualization UI components (e.g., a checkbox, button, or editable text field), Dixon \ea{}'s Prefab~\cite{Dixon:2010fb,Dixon:2011:CHP:1978942.1979086} provides pixel-based enhancements in real-time by detecting target features, such as region corners. This semantic understanding of GUI enables component-based highlighting effects, such as afterglows~\cite{Baudisch:2006:PET:1166253.1166280} that visualize user operations (see Figure~\ref{fig:related_realtime} bottom left) and Bubble Cursor~\cite{Grossman:2005:BCE:1054972.1055012}, a target-aware pointing technique that suggests the nearest target (see Figure~\ref{fig:related_realtime} bottom right).
+
+\begin{figure*}[t!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{\background/fig/realtime/realtime}
+  \caption{Real-time visual enhancements on GUI applications: (top) Mouseposé highlights mouse cursors or text input; (bottom) Prefab creates target-aware or afterglow effects during user operating~\cite{Dixon:2010fb}.}
+  \label{fig:related_realtime}
+\end{figure*}
 
 \begin{figure*}[t!]
   \centering
@@ -34,7 +41,42 @@ Beyond logging events from recording a user demonstration, researchers have show
   \label{fig:related_events}
 \end{figure*}
 
-To compare operation effects and workflows, other effective visualization approaches include showing a list of ``before'' and ``after'' thumbnails, video clips, and event timeline \cite{Grossman:2010jz} and creating a union graph of operations \cite{Kong:2012:DTR:2207676.2208549} (see Figure~\ref{fig:related_comparison}).
+% in screenshots
+The above methods enable real-time visualization of input events when operating an application, which are useful for following a video tutorial. But for screenshot images in a static tutorial, visualizing input actions with motion arrows is a common technique that provides a sense of direction and start and end positions, such as dragging a slider to the right.
+%
+Researchers have investigated automatic approaches that capture and visualize these types of events in representative screenshots from author demonstrations. Nakamura and Igarashi~\cite{Nakamura:2008:ASV:1449715.1449721} proposed a capturing and rendering system independent to GUI applications. Their system logs mouse events of a software demo process, including mouse moving, dragging, and clicking. Operations are rendered as markers and arrows on screenshot images to present the linear event history (see Figure~\ref{fig:related_events} top).
+%
+Grabler \ea{}'s approach~\cite{Grabler:2009jj} further annotates screenshots with bounding boxes and call-outs, which help learners identify parameters and options of software functionalities (see Figure~\ref{fig:related_events} bottom).
+
+% summary
+Our systems adopt some of these successful techniques to enhance instructions. By capturing event information at both input and application levels, we visualize author operations based on different playback modes.
+%
+During video playback, MixT shows mouse trails and actions, and DemoWiz overlays glyphs and arrows to guide viewers from the current input action to the next.
+%
+To generate static, step-by-step tutorials, MixT renders screenshot images with mouse visualizations, such as highlighting a drop-down menu.
+
+% -------------------
+
+\subsection{Workflow Capturing and Tutorials}
+In addition to visualizing input events, it is important to present the entire workflow in a tutorial and provide concise instructions.
+%
+Grabler \ea{}'s system~\cite{Grabler:2009jj} generates step-by-step tutorials from an author demonstration (see Figure~\ref{fig:related_static}). Designed for instructing image manipulation software, it includes textual description from templates, such as \iquote{Select the \textbf{path tool} from the \textbf{toolbar} to \textbf{create and edit paths}.} The generated text and annotated images of operations are presented as a static tutorial to describe the workflow. Their work is available as a Photoshop plug-in\footnote{Adobe labs. Tutorial Builder. \url{http://labs.adobe.com/technologies/tutorialbuilder/}}.
+% analyzes the application context, including facial features and outdoor scenes in manipulated images.
+%
+Such demonstration-based approaches for generating instructions have been applied to applications that involve more complicated manipulations or gestures, including 3D mesh construction~\cite{Denning:2011fy} and mobile applications~\cite{Wang:2014:EAC:2556288.2557407}.
+%
+Beyond logging events from recording a user demonstration, researchers have shown that workflows and software content can be captured automatically using computer vision from analyzing desktop regions~\cite{Yeh:2009dh,Chang:2011vd} and existing screencast videos~\cite{Banovic:2012kd}.
+
+\begin{figure*}[t!]
+  \centering
+  \includegraphics[width=0.8\textwidth]{\background/fig/related_static/grabler}
+  \caption{Example static tutorial automatically generated by Grabler \ea{}'s system~\cite{Grabler:2009jj}.}
+  \label{fig:related_static}
+\end{figure*}
+
+To compare effects of individual operations in a workflow, showing a list of ``before'' and ``after'' thumbnails, video clips, and event timeline can be effective \cite{Grossman:2010jz}, especially for image manipulation tasks (see Figure~\ref{fig:related_comparison} left).
+%
+When there are multiple workflows that all create similar results, a union graph and presenting two instructional documents side-by-side are useful for comparing operations \cite{Kong:2012:DTR:2207676.2208549} (see Figure~\ref{fig:related_comparison} right).
 
 \begin{figure*}[t!]
   \centering
@@ -44,34 +86,28 @@ To compare operation effects and workflows, other effective visualization approa
   \label{fig:related_comparison}
 \end{figure*}
 
+% summary
+These systems provided insights on 1) automatic generation methods of step-by-step tutorials and 2) a variety of presentations of showing workflows for different purposes. Our MixT system is built based on the Photoshop plug-in (Tutorial Builder) to acquire a step-by-step document with text descriptions. We enhance the static tutorial format by embedding instructional video clips for each step that can be interactively reviewed.
+
+This paradigm opens a design space to create new tutorial formats that can be interactively reviewed. In recent years, researchers have shown that learners using responsive video tutorials~\cite{Nguyen:2015:MST:2702123.2702209} and learning-by-doing activities~\cite{Kwon:2016:CEO:2858036.2858101} performed better in learning than using static or video tutorials.
+
 % -------------------
 
 \subsection{In-Application Support}
 
-The above systems introduce innovative ways of providing informative screenshots or representations for learners to review workflows. However, reviewing these materials is often separated from operating a software application. Learners might have to switch between context of interacting an application and reading instructions, which could introduce a gap of evaluation (\iquote{Am I doing this right as the instructions explain?}) and a gap of execution (\iquote{How do I perform the action that the instructions describe?}).
+The above methods introduce innovative ways for learners to review workflows and instructions. However, reviewing these materials is often separated from operating a software application. Learners might have to switch between the main application they are using and a separate set of instructions, which could introduce a gap of evaluation (\iquote{Am I doing this right as the instructions explain?}) and a gap of execution (\iquote{How do I perform the action that the instructions describe?}).
 %
 Researchers have proposed another approach to provide ``in-application'' assistance, often in real-time, in a specific application context.
 
-Studies have shown that visualizing input events in real-time during operations can provide better learnability of applications \cite{Dixon:2010fb}.
+There has been a considerable amount of research devoted to offering interactive help to support learners comprehend the functionalities while operating an application.
 %
-Commercial tools such as Mouseposé\footnote{Mouseposé \url{http://www.boinx.com/mousepose}} and ScreenFlow\footnote{ScreenFlow \url{http://www.telestream.net/screenflow}} visualize mouse and keyboard events with special effects, such as drawing a circle around a mouse cursor (see Figure~\ref{fig:related_realtime} top).
+Crystal~\cite{Myers:2006:AWW:1124772.1124832} enables software users ask questions about ``why'' something did or did not occur in an application.
 %
-Dixon \ea{} proposed techniques to provide pixel-based enhancements in real-time, such as highlighting nearest regions of interest or applying afterglows based on the current user operations \cite{Dixon:2010fb,Dixon:2011:CHP:1978942.1979086} (see Figure~\ref{fig:related_realtime} bottom).
+Video snippets can be embedded in application tooltips to explain specific functionalities~\cite{Grossman:2010wr}, which were shown to be seven times more effective than conventional tooltips for completing unfamiliar tasks.
 
-\begin{figure*}[t!]
-  \centering
-  \includegraphics[width=0.7\textwidth]{\background/fig/realtime/realtime}
-  \caption{Real-time visual enhancements on GUI applications: (top) Mouseposé highlights mouse cursors or text input; (bottom) Prefab creates target-aware or afterglow effects during user operating~\cite{Dixon:2010fb}.}
-  \label{fig:related_realtime}
-\end{figure*}
-
-Real-time visual effects help users focus on the region of interest in a GUI application, but to support learners comprehend the application functionalities, there has been a considerable amount of research devoted to offering interactive helps.
-%
-Video snippets can be embedded in application tooltips~\cite{Grossman:2010wr}, which were shown to be seven times more effective than conventional tooltips for completing unfamiliar tasks.
-%
 Interactive, step-by-step instructions can be integrated in several forms:
 %
-To help user identify the correct UI components, tutorials can be shown via translucent colored ``stencils,'' which visually direct user's attention directly in an application~\cite{Kelleher:2005:STD:1054972.1055047}.
+To help software user identify the correct UI components, tutorials can be shown via translucent colored ``stencils,'' which visually direct user's attention directly in an application~\cite{Kelleher:2005:STD:1054972.1055047}.
 %
 By tracking user's current operations, tutorials can be embedded in an application to provide instant feedback such as a check-mark or a percentage match~\cite{Fernquist:2011:SRE:2047196.2047245}, automatically replayed to provide the corresponding video instructions~\cite{Pongnumkul:2011ju}, or be shown as ambient help~\cite{Matejka:2011:AH:1978942.1979349}.
 %
@@ -79,8 +115,7 @@ Instructions can be captured from demonstration as ``scripts'' for step-by-step 
 
 Last but not least, as tutorials are built for a broader community with a set of authors and learners, content can be dynamically updated within a community based on user contribution~\cite{Lafreniere:2013ff,Matejka:2009:CCR:1622176.1622214, Bunt:2014:TPI:2556288.2557118}.
 
-interactive-visualization~\cite{Kwon:2016:CEO:2858036.2858101}
-the paper that cited DemoWiz~\cite{Nguyen:2015:MST:2702123.2702209}
+Although our work focuses on authoring tools to create novel tutorial format designs, we see opportunities of combining our approaches with in-application guidance. For example, a video clip from a MixT tutorial can be automatically replayed when a system detects a slowdown of a learner's progress on a specific step. However, we do not claim contribution in this direction.
 
 % These projects show how effective instructional representations can assist learners in learning or executing tasks. Our goal is to further study new formats that incorporate advantages of several formats of multimedia, including images, text, and videos, and in turn enhancing the learning experience for a variety of tasks.
 
@@ -113,7 +148,7 @@ These methods usually require an expert defining heuristics of space regions or 
 %
 Thanks to the advance of technology, camera sensors such as Kinect have become widely available to track activities for block assembly~\cite{Gupta:2012ku} and dance~\cite{Anderson:2013:YEM:2501988.2502045}.
 
-Real-time guidance is often shown via an external display, placed next to the working area~\cite{Gupta:2012ku}. To better blend the information into activities, Knibbe~\ea{} design a display-embedded table as a physical workspace that monitors, records, and assists users~\cite{Knibbe:2015:SMI:2817721.2817741}.
+Real-time guidance is often shown via an external display, placed next to the working area~\cite{Gupta:2012ku}. To better blend the information into activities, Knibbe~\ea{} designed a display-embedded table as a physical workspace that monitors, records, and assists users~\cite{Knibbe:2015:SMI:2817721.2817741}.
 %
 Alternatively, information can be overlaid on top of the work area using augmented reality, usually through a head-mounted display. Such systems can provide visual highlights for machine maintenance~\cite{Henderson:2011ff}, or interactive remote tutoring for repair tasks~\cite{Gurevich:2012ko}.
 %
@@ -128,8 +163,7 @@ for Frisbee players~\cite{Solomon:2014:UTI:2540930.2540965}
 % -------------------------------------------
 
 \section{Working with Videos}
-
-\tofix{intro here}
+\label{related_videos}
 
 \subsection{Capture}
 Several research and commercial systems guide users at capture time to yield higher-quality videos. Such systems often employ templates to help users capture sequences of distinct shots (e.g., Snapguide\footnote{\url{http://snapguide.com/}}) or suggest framing of the subject or camera view as in NudgeCam~\cite{Carter:2010}. Computer vision algorithms, like face tracking, can be used to offer real-time feedback during such directed actions~\cite{Davis:2003cu,Heer:2004ba,Carter:2010}. Instead of relying on templates, shot suggestions can also be bootstrapped through user dialogs~\cite{Adams:2005}.
