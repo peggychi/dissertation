@@ -21,7 +21,7 @@ Finally, in Section \ref{related_videos}, I review the methods of video analysis
 % real-time
 Studies have shown that visualizing input events in real-time during operations can provide better learnability of applications~\cite{Dixon:2010fb}. Events can range from low-level, application agnostic input device events (e.g., mouse actions, cursor movements, or keyboard strokes) to higher level, application-dependent information (e.g., menu selections or UI component changes).
 %
-Commercial tools such as Mouseposé\footnote{\url{http://www.boinx.com/mousepose}} and ScreenFlow\footnote{\url{http://www.telestream.net/screenflow}} visualize mouse events and keystrokes with special effects, e.g., drawing a circle around a mouse cursor (see Figure~\ref{fig:related_realtime} top). These tools capture input information (e.g., mouse position and event type) and render visualization on top of the screen activities. This approach is commonly shown in online video tutorials. However, it is not aware of application context, which can be difficult to follow instructions at a semantic level.
+Commercial tools such as Mouseposé\footnote{\url{http://www.boinx.com/mousepose}} and ScreenFlow\footnote{\url{http://www.telestream.net/screenflow}} visualize mouse events and keystrokes with special effects, e.g., drawing a circle around a mouse cursor (see Figure~\ref{fig:related_realtime} top). These tools capture input information (e.g., mouse position and event type) and render visualization on top of the screen activities. This approach is commonly adopted by online video tutorial authors. However, it does not consider application context, which can be difficult for learners to follow specific instructions at a semantic level, such as observing a complete text field or drop-down menu option.
 % Some further enable video editing techniques, including zooming in/out  and panning.
 
 To visualization UI components (e.g., a checkbox, button, or editable text field), Dixon \ea{}'s Prefab~\cite{Dixon:2010fb,Dixon:2011:CHP:1978942.1979086} provides pixel-based enhancements in real-time by detecting target features, such as region corners. This semantic understanding of GUI enables component-based highlighting effects, such as afterglows~\cite{Baudisch:2006:PET:1166253.1166280} that visualize user operations (see Figure~\ref{fig:related_realtime} bottom left) and Bubble Cursor~\cite{Grossman:2005:BCE:1054972.1055012}, a target-aware pointing technique that suggests the nearest target (see Figure~\ref{fig:related_realtime} bottom right).
@@ -29,7 +29,7 @@ To visualization UI components (e.g., a checkbox, button, or editable text field
 \begin{figure*}[t!]
   \centering
   \includegraphics[width=0.7\textwidth]{\background/fig/realtime/realtime}
-  \caption{Real-time visual enhancements on GUI applications: (top) Mouseposé highlights mouse cursors or text input; (bottom) Prefab creates target-aware or afterglow effects during user operating~\cite{Dixon:2010fb}.}
+  \caption{Real-time visual enhancements on GUI applications: (top) Mouseposé highlights mouse cursors or keyboard input; (bottom) Prefab~\cite{Dixon:2010fb} performs reverse engineering to identify UI components and enable real-time visualizations during author operations, such as afterglow~\cite{Baudisch:2006:PET:1166253.1166280} and target-aware~\cite{Grossman:2005:BCE:1054972.1055012} effects.}
   \label{fig:related_realtime}
 \end{figure*}
 
@@ -129,7 +129,14 @@ Although our work focuses on authoring tools to create novel tutorial format des
 \section{Instructions for Physical Activities}
 \label{related_physical}
 
-The above approach of tracking user behavior to automate tutorial authoring opens the door to interactive tutorials that can respond to user progress. However, tracking user behavior in the physical world, rather than in software, remains a challenge.
+The above approaches of tracking user behavior to automate tutorial authoring opens the door to interactive tutorials that can respond to user progress. However, tracking user behavior in the physical world, rather than in software, remains a challenge.
+%
+To record activities and provide responsive feedback, a computer system needs to understand user operations and objects in real-time. %Ideally, activities should be automatically tracked without human labeling.
+%
+Computer vision techniques can track specific physical targets shown in a video, including objects (e.g., a fast-moving Ping-Pong ball~\cite{Okumura:2011tr} or regions in pre-defined spaces~\cite{Ranjan:2007}), humans (e.g., faces, hands~\cite{taylor-siggraph2016,Ranjan:2008}, and user movements~\cite{Wilson:2012fb}), and a combination (e.g., a player throwing a basketball~\cite{dou-siggraph2016}).
+%
+% These methods usually require an expert defining heuristics of space regions or movement classifications ahead of time for the tracking program.
+% Thanks to the advance of technology, camera sensors such as Kinect have become widely available to track activities for block assembly~\cite{Gupta:2012ku} and dance~\cite{Anderson:2013:YEM:2501988.2502045}.
 
 \subsection{Generating Instructions for Real-World Tasks}
 Researchers have investigated tools for automatically generating visual instructions for physical tasks~\cite{feiner:1985:AEA:1299975.1300548,Seligmann:1991:AGI:127719.122732}. Workflows can be captured and created for furniture \cite{agrawala2003designing} or block assembly tasks \cite{Gupta:2012ku}.
