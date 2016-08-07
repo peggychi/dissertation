@@ -143,12 +143,12 @@ To record activities and provide responsive feedback, a computer system needs to
 Computer vision techniques can automatically track specific physical targets shown in a video for interactive applications. These include three major categories:
 
 \begin{itemize}
-  \item Tracking objects. Common approaches include 1) tracking colors of pre-defined objects, such as a fast-moving Ping-Pong ball for automatic camera control~\cite{Okumura:2011tr} or blocks for assembly tasks~\cite{Gupta:2012ku}, and 2) tracking motion-capture markers, such as an animator to create continuous movements~\cite{Dontcheva:2003:LAC:1201775.882285}.
+  \item Tracking objects. Common approaches include tracking 1) colors of pre-defined objects, such as a fast-moving Ping-Pong ball for automatic camera control~\cite{Okumura:2011tr}, 2) colors and depths of objects, such as blocks or toys for assembly tasks~\cite{Gupta:2012ku,Wu:2016:ARI:2856400.2856416}, and 3) motion-capture markers, such as an animator to create continuous movements~\cite{Dontcheva:2003:LAC:1201775.882285}.
   \item Detecting and tracking humans, including faces (e.g., to show a close-up of a speaker during video conferencing~\cite{Ranjan:2010}, provide real-time camera control guidance when filming an interview video~\cite{Carter:2010}, and capture facial performances~\cite{Shi:2014:AAH:2661229.2661290,thies2016face}), hands (e.g., to enable gestural control~\cite{taylor-siggraph2016} and camera control of a repair task~\cite{Ranjan:2008}), and user movements (e.g., to provide augmented information~\cite{Wilson:2012fb,Anderson:2013:YEM:2501988.2502045}).
   \item A combination of the above, such as reconstructing a 3D scene of a player throwing a basketball~\cite{dou-siggraph2016}.
 \end{itemize}
 
-Some of these systems require a high-speed camera~\cite{Okumura:2011tr} or a depth camera~\cite{Gupta:2012ku,Wilson:2012fb,Anderson:2013:YEM:2501988.2502045,dou-siggraph2016}, while some require users to wear reflective markers that can be seen by a camera~\cite{Ranjan:2008}.
+Some of these systems require a high-speed camera~\cite{Okumura:2011tr} or a RGB-D camera~\cite{Gupta:2012ku,Wu:2016:ARI:2856400.2856416,Wilson:2012fb,Anderson:2013:YEM:2501988.2502045,dou-siggraph2016}, while some require users to wear reflective markers that can be seen by a camera~\cite{Ranjan:2008}.
 %
 Other non-vision tracking methods rely on sensors attached to an object or human, including GPS sensor~\cite{HexoDrone} and radio frequency wireless signals~\cite{Nguyen:2016:ICR:2935620.2935632}. These are often used for tracking a moving target in a larger space, such as a flying drone.
 %
