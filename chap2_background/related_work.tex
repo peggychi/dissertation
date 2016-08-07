@@ -193,21 +193,18 @@ Since we aim to support physical tasks across several domains that often involve
 % -------------------
 
 \subsection{Interactive Guidance}
-cooking
+To help learners follow instructions, we discuss assistive technologies from two perspectives: how to display information and how to trace the learner progress of a task for real-time guidance.
 
-Real-time guidance is often shown via an external display, placed next to the working area~\cite{Gupta:2012ku}. To better blend the information into activities, Knibbe~\ea{} designed a display-embedded table as a physical workspace that monitors, records, and assists users~\cite{Knibbe:2015:SMI:2817721.2817741}.
+\subsubTitleBold{Information Display}
+There are four main approaches to present interactive, real-time guidance. First, rich information can be shown via an external display placed next to the working area. Several applications adopt this method, including assisting cooking~\cite{Uriu:2012:PRM:2207676.2207695} and block assembly tasks~\cite{Gupta:2012ku,Wu:2016:ARI:2856400.2856416}. However, it can be difficult to position a display in learner's work area. A learner may often switch his or her attention between the task and the instructions. To better blend the information into activities, Knibbe~\ea{} designed a display-embedded table as a physical workspace that monitors, records, and assists users~\cite{Knibbe:2015:SMI:2817721.2817741}. In this way, workers can review the information on the desktop while making a project.
+
+Second, information can be overlaid on top of the work area through a projector. Applications of supporting remote repair tasks~\cite{Gurevich:2012ko} (see Figure~\ref{fig:related_teleadvisor}), assembly tasks~\cite{Kirk:2006:CRG:1124772.1124951}, cooking~\cite{Ju:2001:CIC:634067.634227}, and piano learning~\cite{Xiao:2016:IEI:2858036.2858577}.
 %
-Alternatively, information can be overlaid on top of the work area using augmented reality, usually through a head-mounted display. Such systems can provide visual highlights for machine maintenance~\cite{Henderson:2011ff}, or interactive remote tutoring for repair tasks~\cite{Gurevich:2012ko}.
-%
-Another method is to overlay guidance on an augmented mirror for tasks such as dance movements~\cite{Anderson:2013:YEM:2501988.2502045}.
+Guidance can also be shown on an augmented mirror for tasks such as dance movements~\cite{Anderson:2013:YEM:2501988.2502045}.
 
-for Frisbee players~\cite{Solomon:2014:UTI:2540930.2540965}
+Third, information can be augmented through a head-mounted display that can be accessed only by a learner. Such systems can provide visual highlights for machine maintenance~\cite{Henderson:2011ff}.
 
-Figure~\ref{fig:related_teleadvisor}
-
-% Lovell and Buechley use electrical sensing with conductive thread for a sewing tutorial~\cite{Lovell:2010tl}.
-
-% I aim to propose a new approach that gives users flexibility in a home environment, and provides interactive control. If activity recognition is not possible, my approach includes users in the loop to annotate high-level information in order to create high-quality results.
+Last, information can be conveyed via target objects. Haptic feedback has shown to be useful to help learners capture the tacit knowledge while focusing on the tasks, such as for sculpturing~\cite{Zoran:2013:FFD:2470654.2481361,Agrawal:2015:PPS:2807442.2807505}, building multi-material assemblies~\cite{Schoop:2016:DSS:2851581.2892429}, and learning Frisbee~\cite{Solomon:2014:UTI:2540930.2540965}. Visual cues such as LED patterns can further enhance an object~\cite{Solomon:2014:UTI:2540930.2540965}.
 
 \begin{figure*}[t!]
   \centering
@@ -216,6 +213,11 @@ Figure~\ref{fig:related_teleadvisor}
   \caption{TeleAdvisor~\cite{Gurevich:2012ko} provides an authoring interface (left) for an instructor to guide a remote worker through a repair task (right).}
   \label{fig:related_teleadvisor}
 \end{figure*}
+
+\subsubTitleBold{Responding to Learners' Progress}
+While researchers have proposed a variety of presentation forms for instructing physical tasks, deciding timing to respond to learners' activities and provide guidance, however, seems domain-specific.
+
+
 
 % -------------------------------------------
 
