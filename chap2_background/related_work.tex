@@ -131,7 +131,7 @@ Although our work focuses on authoring tools to create novel tutorial format des
 
 The above approaches of tracking a software demonstration open the door to enable interactive tutorials that can respond to user progress. However, understanding user behavior in the physical world, rather than in software, remains challenging.
 %
-How do technologies track humans and objects in a space and provide real-time feedback? What are the available authoring techniques to generate instructions for physical tasks?
+How do technologies track humans and objects in a space to support real-time feedback? What are the available authoring techniques to generate instructions for physical tasks?
 %
 This section discusses the challenges from three perspectives, including tracking activities, authoring instructions, and following guidance in a real world.
 
@@ -143,7 +143,7 @@ To record activities and provide responsive feedback, a computer system needs to
 Computer vision techniques can automatically track specific physical targets shown in a video for interactive applications. These include three major categories:
 
 \begin{itemize}
-  \item Tracking objects. One common approach is to track colors of pre-defined objects, such as a fast-moving Ping-Pong ball for automatic camera control~\cite{Okumura:2011tr} or blocks for assembly tasks~\cite{Gupta:2012ku}.
+  \item Tracking objects. Common approaches include 1) tracking colors of pre-defined objects, such as a fast-moving Ping-Pong ball for automatic camera control~\cite{Okumura:2011tr} or blocks for assembly tasks~\cite{Gupta:2012ku}, and 2) tracking motion-capture markers, such as an animator to create continuous movements~\cite{Dontcheva:2003:LAC:1201775.882285}.
   \item Detecting and tracking humans, including faces (e.g., to show a close-up of a speaker during video conferencing~\cite{Ranjan:2010}, provide real-time camera control guidance when filming an interview video~\cite{Carter:2010}, and capture facial performances~\cite{Shi:2014:AAH:2661229.2661290,thies2016face}), hands (e.g., to enable gestural control~\cite{taylor-siggraph2016} and camera control of a repair task~\cite{Ranjan:2008}), and user movements (e.g., to provide augmented information~\cite{Wilson:2012fb,Anderson:2013:YEM:2501988.2502045}).
   \item A combination of the above, such as reconstructing a 3D scene of a player throwing a basketball~\cite{dou-siggraph2016}.
 \end{itemize}
@@ -151,37 +151,44 @@ Computer vision techniques can automatically track specific physical targets sho
 Some of these systems require a high-speed camera~\cite{Okumura:2011tr} or a depth camera~\cite{Gupta:2012ku,Wilson:2012fb,Anderson:2013:YEM:2501988.2502045,dou-siggraph2016}, while some require users to wear reflective markers that can be seen by a camera~\cite{Ranjan:2008}.
 %
 Other non-vision tracking methods rely on sensors attached to an object or human, including GPS sensor~\cite{HexoDrone} and radio frequency wireless signals~\cite{Nguyen:2016:ICR:2935620.2935632}. These are often used for tracking a moving target in a larger space, such as a flying drone.
+%
+Finally, if video content is difficult to be extracted, crowdsourcing algorithms have been introduced to structure step-by-step videos by online workers~\cite{Kim:2014:CSI:2611222.2556986}.
 
 % summary
-The detection mechanisms from these systems inspired us to design interactive systems that can react to authors' activities without requiring users to wear additional devices. For examples, Kinectograph and DemoDraw track authors' body parts using a Kinect sensor that has been widely available to consumers. However, we are also aware of the limitation of tracking a variety of tasks in different environment settings. Therefore, when automatic activity recognition is yet challenging, we include authors in a loop to annotate a task. DemoCut provides an annotation interface for describing DIY videos; DemoDraw provides a multi-modal interface to label continuous body movements.
+The detection mechanisms from these systems inspired us to design interactive systems that can react to authors' activities without requiring users to carry  a sensor. For examples, Kinectograph and DemoDraw track authors' body parts using a Kinect sensor that has been widely available to consumers. However, we are also aware of the limitation of tracking a variety of tasks in different environment settings. Therefore, when automatic activity recognition is yet challenging, we include authors in a loop to annotate a task. DemoCut provides an annotation interface for describing DIY videos; DemoDraw provides a multi-modal interface to label continuous body movements.
 
 % These methods usually require an expert defining heuristics of space regions or movement classifications ahead of time for the tracking program.
 
 % -------------------
 
 \subsection{Authoring Instructions for Real-World Tasks}
-% for *some* types of physical tasks. What’s the insight behind workflow capture or bloack assembly tasks that makes the tracking possible?  Overall, this paragraph is too short. I don’t yet learn about the principles or challenges of this work. Also, the tracking in the next paragraph seems to also be relevant for this paragraph. So this section needs expansion and a bit more careful thinking about the arguments you want to present.
 
-Researchers have investigated tools for automatically generating visual instructions for specific physical tasks~\cite{feiner:1985:AEA:1299975.1300548,Seligmann:1991:AGI:127719.122732}. Workflows can be captured and created for furniture \cite{agrawala2003designing} or block assembly tasks \cite{Gupta:2012ku}.
+There are two major approaches to create instructions for physical tasks: model-based and demonstration-based generation.
 %
-If video content is difficult to be extracted, crowdsourcing algorithms have been introduced to structure step-by-step videos by online workers~\cite{Kim:2014:CSI:2611222.2556986}.
-
-Figure~\ref{fig:related_teleadvisor}
+A \emph{model-based} system analyzes the structure of an object or a task and generates instructions or explanation.
 %
-% New devices to support authors capturing multi-media materials, such as a turntable~\cite{Tseng:2015:SPT:2771839.2771869}
-% documentation \cite{Tseng:2016:makeology}
-
-lego in pre-defined spaces, camera control~\cite{Ranjan:2007}
-
-3D Gesture for drone control~\cite{Cauchard:2015:DME:2750858.2805823,Pfeil:2013:EGM:2449396.2449429}
+The approaches by Feiner and Seligmann~\cite{feiner:1985:AEA:1299975.1300548,Seligmann:1991:AGI:127719.122732} considered communicative intent and rules of object manipulation to create 3D illustrations. Their automatically-generated results showed that actions such as snapping latches can be effectively expressed by motion arrows and a cutaway view.
+%
+By analyzing object geometry and other attributes, Agrawala \ea{}'s~\cite{agrawala2003designing} system automatically renders step-by-step assembly instructions, e.g., to assemble furniture and toys (See Figure~\ref{fig:related_models} left).
+%
+Technical diagrams that explain mechanical assembly parts in an exploded view~\cite{li2008automated} and motion illustrations~\cite{mitra2010illustrating} have also been explored (See Figure~\ref{fig:related_models} right). Parts can be highlighted using colors and labeled with text; Casual chain sequence of mechanical interaction can be presented as a list of highlighted figures, annotated with motion arrows.
 
 \begin{figure*}[t!]
   \centering
-  \includegraphics[width=0.4\textwidth]{\background/fig/teleadvisor/authoring}
-  \includegraphics[width=0.41\textwidth]{\background/fig/teleadvisor/following}
-  \caption{TeleAdvisor~\cite{Gurevich:2012ko} provides an authoring interface (left) for an instructor to guide a remote worker through a repair task (right).}
-  \label{fig:related_teleadvisor}
+  \includegraphics[width=0.3\textwidth]{\background/fig/model_generation/furniture}
+  \includegraphics[width=0.5\textwidth]{\background/fig/model_generation/chain}
+  \caption{Examples of instructions automatically generated by Agrawala \ea~\cite{agrawala2003designing} (left) and Mitra \ea~\cite{mitra2010illustrating} (right) using model-based approaches.}
+  \label{fig:related_models}
 \end{figure*}
+
+A \emph{demonstration-based} system records an author's physical demonstration of a workflow. The recorded material can be either automatically analyzed by the system or manually edited by authors to generate instructions.
+%
+One approach is to employ templates to help users capture sequences of distinct shots (e.g., Snapguide\footnote{\url{http://snapguide.com/}}) or provide a limited set of operations to capture specific moments (e.g., block manipulation in an assembly task~\cite{Ranjan:2007,Gupta:2012ku}).
+%
+Another way is to support authors capturing multimedia material during or after a demonstration, such as using a head-mounted capturing device~\cite{carter2015authoring}. For specific tasks, new recording devices are needed to suitably fit into physical activities, such as an integrated device that includes an IR camera to capture a knitting process~\cite{Rosner:2008:SAK:1409635.1409682} and a turntable to record the building process of a DIY project~\cite{Tseng:2015:SPT:2771839.2771869}.
+
+% summary
+Since we aim to support physical tasks across several domains that often involve author creativity (such as cooking and craft projects that reflect personal styles), we adopt the demonstration-based approach in our work. DemoCut, Kinectograph, and DemoWiz allow authors to perform a physical demonstration in front of a camera, while our systems automatically or semi-automatically capture the activities.
 
 % -------------------
 
@@ -196,9 +203,19 @@ Another method is to overlay guidance on an augmented mirror for tasks such as d
 
 for Frisbee players~\cite{Solomon:2014:UTI:2540930.2540965}
 
+Figure~\ref{fig:related_teleadvisor}
+
 % Lovell and Buechley use electrical sensing with conductive thread for a sewing tutorial~\cite{Lovell:2010tl}.
 
 % I aim to propose a new approach that gives users flexibility in a home environment, and provides interactive control. If activity recognition is not possible, my approach includes users in the loop to annotate high-level information in order to create high-quality results.
+
+\begin{figure*}[t!]
+  \centering
+  \includegraphics[width=0.4\textwidth]{\background/fig/teleadvisor/authoring}
+  \includegraphics[width=0.41\textwidth]{\background/fig/teleadvisor/following}
+  \caption{TeleAdvisor~\cite{Gurevich:2012ko} provides an authoring interface (left) for an instructor to guide a remote worker through a repair task (right).}
+  \label{fig:related_teleadvisor}
+\end{figure*}
 
 % -------------------------------------------
 
@@ -209,6 +226,8 @@ for Frisbee players~\cite{Solomon:2014:UTI:2540930.2540965}
 
 \subsection{Capture}
 Several research and commercial systems guide users at capture time to yield higher-quality videos. Such systems often employ templates to help users capture sequences of distinct shots (e.g., Snapguide\footnote{\url{http://snapguide.com/}}) or suggest framing of the subject or camera view as in NudgeCam~\cite{Carter:2010}. Computer vision algorithms, like face tracking, can be used to offer real-time feedback during such directed actions~\cite{Davis:2003cu,Heer:2004ba,Carter:2010}. Instead of relying on templates, shot suggestions can also be bootstrapped through user dialogs~\cite{Adams:2005}.
+
+3D Gesture for drone control~\cite{Cauchard:2015:DME:2750858.2805823,Pfeil:2013:EGM:2449396.2449429}
 
 % -------------------
 
