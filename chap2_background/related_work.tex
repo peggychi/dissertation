@@ -199,7 +199,9 @@ One approach is to employ templates to help users capture sequences of distinct 
 Another way is to support authors capturing multimedia material during or after a demonstration, such as using a head-mounted capturing device~\cite{carter2015authoring}. For specific tasks, new recording devices are needed to suitably fit into physical activities, such as an integrated device that includes an IR camera to capture a knitting process~\cite{Rosner:2008:SAK:1409635.1409682} and a turntable to record the building process of a DIY project~\cite{Tseng:2015:SPT:2771839.2771869}.
 
 % summary
-Since we aim to support physical tasks across several domains that often involve author creativity (such as cooking and craft projects that reflect personal styles), we opt for the demonstration-based approach in our work. DemoCut, Kinectograph, and DemoWiz allow authors to perform a physical demonstration in front of a camera, while our systems automatically or semi-automatically capture the activities.
+In this dissertation, we support a wide variety of how-to tasks from craft to home repair and cooking where automatically tracking user activities is not yet completely possible. These domains often involve author creativity and personal styles), we opt for the demonstration-based approach in our work.
+%
+DemoCut, Kinectograph, and DemoWiz allow authors to perform a physical demonstration in front of a camera, while our systems semi-automatically capture the activities.
 
 % -------------------
 
@@ -257,6 +259,8 @@ Research in video analysis and understanding has introduced new ways of working 
 % -------------------
 
 \subsection{Capturing}
+Tool supports at the capturing phase include:
+
 \subsubTitleBold{Filming Suggestion}
 Several research systems guide users at capture time to yield higher-quality videos. Real-time suggestions include framing of the subject or camera view (e.g., NudgeCam for interview videos~\cite{Carter:2010}) and actor's performance~\cite{Heer:2004ba,Davis:2003cu}. Shot suggestions can also be bootstrapped through user dialogs~\cite{Adams:2005}.
 %
@@ -266,50 +270,68 @@ Patterns from expert storytellers and commonsense reasoning can recommend novice
 Camera angles can be automatically decided based on heuristics at the capturing time to trace an actor, an area, or an object~\cite{Ranjan:2008,Okumura:2011tr}.
 %
 In recent years, quadrotor cameras enable a wide range of camera trajectories to capture a subject from different angles. Roberts and Hanrahan~\cite{Roberts:2016:GDF:2897824.2925980} proposed an authoring tool for an author to plan and preview a trajectory. When being filmed, 3D gestures allow a person to control a quadrotor camera at the scene~\cite{Cauchard:2015:DME:2750858.2805823,Pfeil:2013:EGM:2449396.2449429}.
-%
-We proposed Kinectograph prior to these systems for quadrotor camera control. A recent commercial system has included a similar feature to track a moving user~\cite{HexoDrone} but is based on GPS location, not specific body parts.
+
+% summary
+We proposed Kinectograph prior to these systems of quadrotor camera control. A recent commercial system has included a similar feature to track a moving user~\cite{HexoDrone} but is based on GPS location instead of specific body parts.
 
 % -------------------
 
-\subsection{Editing and Composition}
+\subsection{Editing}
+Tool supports for video composition and editing include:
+
 \subsubTitleBold{Annotation}
-Researchers have investigated how to provide interactions that enable efficient, fluid annotation or labeling of video data. Early examples include the EVA system~\cite{Mackay:1989}. More recent interfaces leverage pen input (e.g., VideoTater~\cite{Diakopoulos:2006vt}). touch UI~\cite{Sarkar:2016:SCC:2858036.2858199}
+Researchers have investigated how to provide interactions that enable efficient, fluid annotation or labeling of video data. Examples include the EVA system~\cite{Mackay:1989} that encouraged authors annotate at capture time. More recent interfaces leverage pen input (e.g., VideoTater~\cite{Diakopoulos:2006vt}) and touch or gestural input~\cite{Sarkar:2016:SCC:2858036.2858199}.
+
+\subsubTitleBold{Story Composition}
+When working with a repository of video clips, it can be challenging to organize and reason a compelling story. Several new interaction techniques have been proposed:
+%
+A storyline can be created non-linearly based on relevant characters, emotions, and themes of the current edited clips~\cite{Shen:2009:WNE:1518701.1518825}.
+%
+Tangible controllers with a specialized table interface enable collaborative, nonlinear editing~\cite{Bartindale:2012:STS:2207676.2207700,Bartindale:2016:TSS:2818048.2819929}.
+%
+Live authoring at capture time with a Tablet device allows an author quickly compose clips and apply editing decisions~\cite{Freeman:2014:LLA:2611105.2557304}.
 
 \subsubTitleBold{Computer-Powered Editing}
 Frame-based editing of video is very time-intensive, as it forces users to operate at a very low level of detail. Editors can leverage \emph{metadata}, such as shot boundaries~\cite{Casares:2002dx} and transcripts~\cite{Berthouzoz:2012} that help users place cuts and transitions. This gives users higher-level editing operations at the shot level rather than the frame level.
 %
 Techniques of \emph{computer vision} and \emph{audio analysis} can automate certain visual effects, such as creating cinemagraphs~\cite{Bai:2012, Joshi:2012}, automatically-edited lecture videos~\cite{Heck:2007}, zoomable tapestries~\cite{Barnes:2010} and synopses~\cite{Pritch:2009vl}, or stabilizing shaky amateur videos~\cite{Liu:2011}.
 %
-Edits can take place during capturing, such as switching to a close-up view of a person who is speaking~\cite{Ranjan:2010}.
+Edits can take place during recording, such as switching to a close-up view of a person who is speaking~\cite{Ranjan:2010}.
 %
-When analyzing video is a matter of subjective taste, identifying salient frames can also be outsourced to crowd workers~\cite{Bernstein:2011uj}.
+When material can be reviewed in 3D such as character animation, camera angles can be optimized to render a new video by analyzing the actor data~\cite{assa2005action,assa2008motion}.
+%
+Finally, when analyzing video is a matter of subjective taste, identifying salient frames or highlights can be outsourced to crowd workers~\cite{Bernstein:2011uj,Tang:2012:ECS:2207676.2208622}.
 
-\subsubTitleBold{New Editing Interfaces}
-table interface with tangible controllers~\cite{Bartindale:2012:STS:2207676.2207700,Bartindale:2016:TSS:2818048.2819929}
+% summary
+MixT, DemoCut, Kinectograph, and DemoDraw also use vision techniques for automatic editing. They differ from previous approaches in its focus on two particular application domains -- software and physical demonstration videos.
+%
+By focusing on a specific domain, MixT and DemoCut can make assumptions about the structure of the input and output video, such as the fact that there is a linear set of steps, and offer an interface and algorithms that make it easier to create high quality how-to videos.
+%
+Kinectograph makes editing decisions (e.g., pan-and-tilt, zooming) based on actor's body location for instructional videos.
+%
+DemoDraw includes a multi-modal interface where authors can annotate a motion recording using speech while physically performing movements.
 
-live authoring through compositing and editing of streaming video~\cite{Freeman:2014:LLA:2611105.2557304}
-
-visual enhancement~\cite{Santosa:2013:DST:2470654.2466148}
-
-non-linear editing~\cite{Shen:2009:WNE:1518701.1518825}
+% visual enhancement~\cite{Santosa:2013:DST:2470654.2466148}
 
 % -------------------
 
 \subsection{Navigating}
-Videos can be navigated at the content level beyond a linear timeline, such as visualizing subject movements in a storyboard design~\cite{goldman2006schematic} and enabling direct manipulation of a target in 2D~\cite{Dragicevic:2008:VBD:1357054.1357096,Goldman:2008:VOA:1449715.1449719,Karrer:2008:DDM:1357054.1357097} or 3D~\cite{Nguyen:2013:DMV:2470654.2466150}. These techniques help viewers understand content flow and playback videos, and have been applied to screencast videos \cite{Denoue:2013:RDM:2451176.2451190,Nguyen:2015:MST:2702123.2702209}.
+% Tool supports for video navigation include:
+Automatic video control can be based on user actions or preference, such as segment playback when operating software applications~\cite{Pongnumkul:2011ju} or playback speed control~\cite{Cheng:2009:SUV:1518701.1518823}.
+%
+Videos can be navigated at the content level beyond a linear timeline, such as visualizing subject movements in a storyboard design~\cite{goldman2006schematic} or a continuous image mosaic~\cite{Teodosio:2005:SS:1047936.1047940} and enabling direct manipulation of a target in 2D~\cite{Dragicevic:2008:VBD:1357054.1357096,Goldman:2008:VOA:1449715.1449719,Karrer:2008:DDM:1357054.1357097} or 3D~\cite{Nguyen:2013:DMV:2470654.2466150}.
+%
+These techniques help viewers understand content flow and playback videos, and have been applied to screencast videos~\cite{Denoue:2013:RDM:2451176.2451190,Nguyen:2015:MST:2702123.2702209}.
 
-lecture videos~\cite{Tang:2006:DIU:1111449.1111523}, digest~\cite{Pavel:2014:VDB:2642918.2647400}
+To navigate a long video or a set of videos, a canvas showing video tiles and timeline was shown to be 36\% faster than a conventional list view~\cite{Al-Hajri:2014:VPH:2611105.2557106}. A video digest is effective in browsing and skimming video content~\cite{Pavel:2014:VDB:2642918.2647400}.
+% Lecture videos~\cite{Tang:2006:DIU:1111449.1111523},
 
-Visualization of personal history for video navigation~\cite{Al-Hajri:2014:VPH:2611105.2557106}
-
-It is also possible to automate video control based on user actions for scenarios such as operating software applications~\cite{Pongnumkul:2011ju}.
-
-mosaic
-
-Assa \ea{} ~\cite{assa2005action,assa2008motion}
-
-% -------------------
-
-These novel forms of video navigation inspired us to explore new visual designs for revealing the video content that support live presentations.
+These novel forms of video navigation inspired us to explore new visual designs and playback for revealing the video content.
+%
+MixT supports per-step video navigation embedded in a static tutorial.
+%
+DemoWiz augments a screencast video with novel visualization for following the content.
+%
+DemoDraw renders a series of human movements as concise motion illustrations.
 
 % In contrast to these systems, we do not require the author to manipulate the camera or system during capture. Many leisure activities, such as home repair or cooking, require use of both hands or involve getting one's hands dirty, so camera manipulation is not possible. We use vision techniques for automatic recording and editing. It differs from previous approaches in its focus on particular application domains -- software and physical demonstrations. By focusing on specific domains, we can make assumptions about the structure of the input and output video, such as the fact that there is a linear set of steps or movements, and offer user interfaces and algorithms that make it easier to create high quality instructions.
