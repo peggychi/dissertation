@@ -171,7 +171,9 @@ The approaches by Feiner and Seligmann~\cite{feiner:1985:AEA:1299975.1300548,Sel
 %
 By analyzing object geometry and other attributes, Agrawala \ea{}'s~\cite{agrawala2003designing} system automatically renders step-by-step assembly instructions, e.g., to assemble furniture and toys (See Figure~\ref{fig:related_models} left).
 %
-Technical diagrams that explain mechanical assembly parts in an exploded view~\cite{li2008automated} and motion illustrations~\cite{mitra2010illustrating} have also been explored (See Figure~\ref{fig:related_models} right). Parts can be highlighted using colors and labeled with text; Casual chain sequence of mechanical interaction can be presented as a list of highlighted figures, annotated with motion arrows.
+Technical diagrams can also be generated, such as an exploded view that explains mechanical assembly parts~\cite{li2008automated} and motion illustrations that describes how individual parts are operated~\cite{mitra2010illustrating} (See Figure~\ref{fig:related_models} right). Parts can be highlighted using colors and labeled with text; Casual chain sequence of mechanical interaction can be presented as a list of highlighted figures, annotated with motion arrows.
+%
+On the other hand, an existing technical document can be automatically analyzed and transfered into 3D animation by parsing the parts, orientation, and visual annotations~\cite{Mohr:2015:RTD:2702123.2702490}.
 
 \begin{figure*}[t!]
   \centering
@@ -193,29 +195,44 @@ Since we aim to support physical tasks across several domains that often involve
 % -------------------
 
 \subsection{Interactive Guidance}
-To help learners follow instructions, we discuss assistive technologies from two perspectives: how to display information and how to trace the learner progress of a task for real-time guidance.
+To help learners follow instructions, we discuss assistive technologies from two perspectives: how to display information, and how to trace the learner progress of a task for real-time guidance.
 
 \subsubTitleBold{Information Display}
 There are four main approaches to present interactive, real-time guidance. First, rich information can be shown via an external display placed next to the working area. Several applications adopt this method, including assisting cooking~\cite{Uriu:2012:PRM:2207676.2207695} and block assembly tasks~\cite{Gupta:2012ku,Wu:2016:ARI:2856400.2856416}. However, it can be difficult to position a display in learner's work area. A learner may often switch his or her attention between the task and the instructions. To better blend the information into activities, Knibbe~\ea{} designed a display-embedded table as a physical workspace that monitors, records, and assists users~\cite{Knibbe:2015:SMI:2817721.2817741}. In this way, workers can review the information on the desktop while making a project.
 
-Second, information can be overlaid on top of the work area through a projector. Applications of supporting remote repair tasks~\cite{Gurevich:2012ko} (see Figure~\ref{fig:related_teleadvisor}), assembly tasks~\cite{Kirk:2006:CRG:1124772.1124951}, cooking~\cite{Ju:2001:CIC:634067.634227}, and piano learning~\cite{Xiao:2016:IEI:2858036.2858577}.
+Second, information can be overlaid on top of the work area through a projector. Examples include supporting remote repair tasks~\cite{Gurevich:2012ko} (see Figure~\ref{fig:related_teleadvisor} right), assembly tasks~\cite{Kirk:2006:CRG:1124772.1124951}, cooking~\cite{Ju:2001:CIC:634067.634227}, and piano learning~\cite{Xiao:2016:IEI:2858036.2858577}.
 %
-Guidance can also be shown on an augmented mirror for tasks such as dance movements~\cite{Anderson:2013:YEM:2501988.2502045}.
+For tasks such as dance movements, guidance can be shown on an augmented mirror that learners constantly focus on~\cite{Anderson:2013:YEM:2501988.2502045}.
+%
+This method can effectively present instructions at a location that can be viewed directly by a learner during a task. However, this often requires a specific environment setup with a calibrated projector, often in a darker space.
 
-Third, information can be augmented through a head-mounted display that can be accessed only by a learner. Such systems can provide visual highlights for machine maintenance~\cite{Henderson:2011ff}.
+Third, information can be augmented through a head-mounted display or mobile phone that can be accessed and viewed by individuals. Researchers have shown AR applications that provide visual highlights for machine maintenance~\cite{Henderson:2011ff,Mohr:2015:RTD:2702123.2702490} (see Figure~\ref{fig:related_ar_annotation}), enable interactive touring in a city~\cite{Feiner1997}, explain a product functionalities~\cite{MagicLens}, and present dynamic UI or information based on head orientation~\cite{Zhang:2014:HHO:2659766.2659773}.
+%
+Compared to the previous approach that projects information onto a public space, this method allows learners to access information individually. Multiple users, for example, can interact with an augmented system at the same time. However, learners have to wear or hold a device, which might limit their mobility while performing a task.
 
-Last, information can be conveyed via target objects. Haptic feedback has shown to be useful to help learners capture the tacit knowledge while focusing on the tasks, such as for sculpturing~\cite{Zoran:2013:FFD:2470654.2481361,Agrawal:2015:PPS:2807442.2807505}, building multi-material assemblies~\cite{Schoop:2016:DSS:2851581.2892429}, and learning Frisbee~\cite{Solomon:2014:UTI:2540930.2540965}. Visual cues such as LED patterns can further enhance an object~\cite{Solomon:2014:UTI:2540930.2540965}.
+Last, for specific tasks, information can be conveyed directly via target objects. Haptic feedback has shown to be useful to help learners capture the tacit knowledge while focusing on the physical tasks, such as for sculpturing~\cite{Zoran:2013:FFD:2470654.2481361,Agrawal:2015:PPS:2807442.2807505}, building multi-material assemblies~\cite{Schoop:2016:DSS:2851581.2892429}, and learning Frisbee~\cite{Solomon:2014:UTI:2540930.2540965}. Visual cues such as LED patterns shown on a device can help direct user's attention~\cite{Solomon:2014:UTI:2540930.2540965,Vasey:2016:HHR:2897839.2927404}.
+%
+This approach is task-specific and can be more difficult to generalize to other task domains.
 
 \begin{figure*}[t!]
   \centering
-  \includegraphics[width=0.4\textwidth]{\background/fig/teleadvisor/authoring}
-  \includegraphics[width=0.41\textwidth]{\background/fig/teleadvisor/following}
+  \includegraphics[width=0.4\textwidth]{\background/fig/ar/authoring}
+  \includegraphics[width=0.41\textwidth]{\background/fig/ar/following}
   \caption{TeleAdvisor~\cite{Gurevich:2012ko} provides an authoring interface (left) for an instructor to guide a remote worker through a repair task (right).}
   \label{fig:related_teleadvisor}
 \end{figure*}
 
+\begin{figure*}[t!]
+  \centering
+  \includegraphics[width=0.55\textwidth]{\background/fig/ar/technical_document}
+  \caption{Work by Mohr \ea{}~\cite{Mohr:2015:RTD:2702123.2702490} automatically analyzes a technical document and augments a machine with AR animation in 3D.}
+  \label{fig:related_ar_annotation}
+\end{figure*}
+
 \subsubTitleBold{Responding to Learners' Progress}
-While researchers have proposed a variety of presentation forms for instructing physical tasks, deciding timing to respond to learners' activities and provide guidance, however, seems domain-specific.
+While researchers have proposed a variety of presentation forms for instructing physical tasks, providing the just-in-time information to respond to learners' activities and provide guidance, however, seems domain-specific.
+
+manual marking for remote repair tasks~\cite{Gurevich:2012ko} (see Figure~\ref{fig:related_teleadvisor} left)
 
 
 
