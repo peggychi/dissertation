@@ -133,7 +133,7 @@ The above approaches of tracking a software demonstration open the door to enabl
 %
 How do technologies track humans and objects in a space to support real-time feedback? What are the available authoring techniques to generate instructions for physical tasks?
 %
-This section discusses the challenges from three perspectives, including tracking activities, authoring instructions, and following guidance in a real world.
+This section discusses the challenges from four perspectives, including tracking activities, authoring instructions, presenting guidance, and enabling interactive instruction following in a real world.
 
 % -------------------
 
@@ -143,9 +143,18 @@ To record activities and provide responsive feedback, a computer system needs to
 Computer vision techniques can automatically track specific physical targets shown in a video for interactive applications. These include three major categories:
 
 \begin{itemize}
-  \item Tracking objects. Common approaches include tracking 1) colors of pre-defined objects, such as a fast-moving Ping-Pong ball for automatic camera control~\cite{Okumura:2011tr}, 2) colors and depths of objects, such as blocks or toys for assembly tasks~\cite{Gupta:2012ku,Wu:2016:ARI:2856400.2856416}, and 3) motion-capture markers, such as an animator to create continuous movements~\cite{Dontcheva:2003:LAC:1201775.882285}.
-  \item Detecting and tracking humans, including faces (e.g., to show a close-up of a speaker during video conferencing~\cite{Ranjan:2010}, provide real-time camera control guidance when filming an interview video~\cite{Carter:2010}, and capture facial performances~\cite{Shi:2014:AAH:2661229.2661290,thies2016face}), hands (e.g., to enable gestural control~\cite{taylor-siggraph2016} and camera control of a repair task~\cite{Ranjan:2008}), and user movements (e.g., to provide augmented information~\cite{Wilson:2012fb,Anderson:2013:YEM:2501988.2502045}).
-  \item A combination of the above, such as reconstructing a 3D scene of a player throwing a basketball~\cite{dou-siggraph2016}.
+  \item \textbf{Tracking objects}. Common techniques include:
+  1) Track specific \emph{colors} or visual features of pre-defined objects. It has been shown to be effective to track a fast-moving Ping-Pong ball for automatic camera control~\cite{Okumura:2011tr} or paper puppets for creating animation~\cite{Barnes:2008:VideoPuppetry}.
+  %
+  2) Track both \emph{colors and depths} of objects}. This acquires a better understanding of the objects' positions in a 3D world and can be useful for activities that involve object manipulations, such as block or toy assembly tasks~\cite{Gupta:2012ku,Wu:2016:ARI:2856400.2856416} and 3D puppet control~\cite{held20123d}.
+  %
+  3) Track \emph{motion-capture markers}. The most common method is to use reflective markers, which can be placed on an object's surface. This enables accurate capturing, such as to record an animator's continuous movements~\cite{Dontcheva:2003:LAC:1201775.882285}.
+  %
+  \item \textbf{Tracking humans}. Targets include faces (e.g., to show a close-up of a speaker during video conferencing~\cite{Ranjan:2010}, provide real-time camera control guidance when filming an interview video~\cite{Carter:2010}, and capture facial performances~\cite{Shi:2014:AAH:2661229.2661290,thies2016face}), hands (e.g., to enable gestural control~\cite{taylor-siggraph2016} and camera control of a repair task~\cite{Ranjan:2008}), and user movements (e.g., to provide augmented information~\cite{Wilson:2012fb,Anderson:2013:YEM:2501988.2502045}).
+  %
+  Motion-capture markers are often used to accurately track actors in professional filmmaking. However, since markers are visible in a camera view, visual effects (VFX) are necessary to post-process a video recording.
+  %
+  \item \textbf{A combination of the above}, such as reconstructing a 3D scene of a player throwing a basketball~\cite{dou-siggraph2016}.
 \end{itemize}
 
 Some of these systems require a high-speed camera~\cite{Okumura:2011tr} or a RGB-D camera~\cite{Gupta:2012ku,Wu:2016:ARI:2856400.2856416,Wilson:2012fb,Anderson:2013:YEM:2501988.2502045,dou-siggraph2016}, while some require users to wear reflective markers that can be seen by a camera~\cite{Ranjan:2008}.
@@ -194,11 +203,10 @@ Since we aim to support physical tasks across several domains that often involve
 
 % -------------------
 
-\subsection{Interactive Guidance}
-To help learners follow instructions, we discuss assistive technologies from two perspectives: how to display information, and how to trace the learner progress of a task for real-time guidance.
+\subsection{Presenting Guidance}
+To help learners perceive instructions for physical tasks, we discuss how guidance can be displayed in a 3D world. There are four main approaches to present real-time guidance.
 
-\subsubTitleBold{Information Display}
-There are four main approaches to present interactive, real-time guidance. First, rich information can be shown via an external display placed next to the working area. Several applications adopt this method, including assisting cooking~\cite{Uriu:2012:PRM:2207676.2207695} and block assembly tasks~\cite{Gupta:2012ku,Wu:2016:ARI:2856400.2856416}. However, it can be difficult to position a display in learner's work area. A learner may often switch his or her attention between the task and the instructions. To better blend the information into activities, Knibbe~\ea{} designed a display-embedded table as a physical workspace that monitors, records, and assists users~\cite{Knibbe:2015:SMI:2817721.2817741}. In this way, workers can review the information on the desktop while making a project.
+First, rich information can be shown via an external display placed next to the working area. Several applications adopt this method, including assisting cooking~\cite{Uriu:2012:PRM:2207676.2207695} and block assembly tasks~\cite{Gupta:2012ku,Wu:2016:ARI:2856400.2856416}. However, it can be difficult to position a display in learner's work area. A learner may often switch his or her attention between the task and the instructions. To better blend the information into activities, Knibbe~\ea{} designed a display-embedded table as a physical workspace that monitors, records, and assists users~\cite{Knibbe:2015:SMI:2817721.2817741}. In this way, workers can review the information on the desktop while making a project.
 
 Second, information can be overlaid on top of the work area through a projector. Examples include supporting remote repair tasks~\cite{Gurevich:2012ko} (see Figure~\ref{fig:related_teleadvisor} right), assembly tasks~\cite{Kirk:2006:CRG:1124772.1124951}, cooking~\cite{Ju:2001:CIC:634067.634227}, and piano learning~\cite{Xiao:2016:IEI:2858036.2858577}.
 %
@@ -229,8 +237,9 @@ This approach is task-specific and can be more difficult to generalize to other 
   \label{fig:related_ar_annotation}
 \end{figure*}
 
-\subsubTitleBold{Responding to Learners' Progress}
-While researchers have proposed a variety of presentation forms for instructing physical tasks, providing the just-in-time information to respond to learners' activities and provide guidance, however, seems domain-specific.
+\subsection{Providing Interactive Guidance}
+% \subsubTitleBold{Responding to Learners' Progress}
+Finally, we discuss how assistive technologies track a learning process and support interactive guidance. Providing just-in-time information to respond to learners' activities may require an understanding
 
 manual marking for remote repair tasks~\cite{Gurevich:2012ko} (see Figure~\ref{fig:related_teleadvisor} left)
 
