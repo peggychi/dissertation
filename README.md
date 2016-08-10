@@ -25,7 +25,7 @@ Paperwork:
 * Informal permissions for figures via emails
 
 TODO:
-* fix comments: chap 3
+* Add general pipeline figure (two layers)
 * DemoCut: add list of videos
 * update DemoDraw from UIST
 * check citations and captions
