@@ -14,13 +14,13 @@ From 1760, when the Industrial Revolution introduced mass production, instructio
   \includegraphics[width=\textwidth]{\intro/fig/arrows/arrows}
   \caption[Uses of motions arrows in visual instructions.]{Uses of motions arrows in visual instructions:
   %
-  a) Year 1737: The first use of a motion arrow in an illustration to explain the impact of water flow of a water wheel~\cite{de1737architecture},
+  a) Year 1737: The first use of a motion arrow in an illustration explains the impact of water flow of a water wheel~\cite{de1737architecture},
   % http://www.buw-output-archiv.uni-wuppertal.de/ausgabe1/steinle/index-en.html
   %
-  b) Year 2002: Similarly, arrows are used to explain the water flow and rotation of an undershot water wheel (Original artwork by Daniel M. Short, licensed under CC BY-SA 2.5),
+  b) Year 2002: Similarly, arrows are used to explain the water flow and rotation of an undershot water wheel\footnote[1]{Original artwork by Daniel M. Short, ``Schematic diagram of an undershot water wheel'', licensed under CC BY-SA 2.5},
   % https://en.wikipedia.org/wiki/File:Undershot_water_wheel_schematic.svg
   %
-  c) Year 2014: An animation shows motion arrows to visualize the blood flow (Video by Bioscience Credentials, ``Blood Flow in the Human Body'', \url{https://youtu.be/GwX41xm9esY}, licensed under CC BY 3.0).
+  c) Year 2014: An animation visualizes the blood flow using motion arrows\footnote[2]{Video by Bioscience Credentials, ``Blood Flow in the Human Body'', \url{https://youtu.be/GwX41xm9esY}, licensed under CC BY 3.0}.
   }
   \label{fig:intro_arrows}
   \end{minipage}
@@ -43,9 +43,7 @@ To contribute to computational methods of authoring user-generated instructions,
 
 \begin{itemize}
   \item How can authoring tools support domain experts in efficiently creating effective, high-quality instructions based on video-recorded demonstrations?
-
   \item How can new tutorial formats help authors better express their intent and help learners understand and follow the author's instructions?
-  %and multimedia enhance instructions to 1) bring authors novel and faster authoring experiences and 2) introduce learners a better learning format?
 \end{itemize}
 
 This dissertation presents video-based computational approaches that enhance tutorial creation and consumption from author demonstrations.
@@ -58,7 +56,7 @@ We will introduce five interactive systems that we develop to address these chal
 
 \section{Challenges of Creating and Consuming Instructions}
 
-Visual instructions are the dominant form of instructional design~\cite{mijksenaar1999open}. Cognitive load theory of multimedia learning suggests that learners process information using distinct channels, one for visual and the other for verbal format~\cite{sweller1998cognitive,sweller1988cognitive,paas2003cognitive}. It was found that learners performed better when received a pictorial summary of a scientific system than those who received the full text alone or the full text with the summary~\cite{mayer1996less}.
+Visual instructions are the dominant form of instructional design~\cite{mijksenaar1999open}. Cognitive load theory of multimedia learning suggests that learners process information using distinct channels, one for visual and the other for verbal formats~\cite{sweller1998cognitive,sweller1988cognitive,paas2003cognitive}. It was found that learners performed better when received a pictorial summary of a scientific system than those who received the full text alone or the full text with the summary~\cite{mayer1996less}.
 
 Among all the multimedia support, videos are a common form to present instructions. We suspect that the great popularity of videos is due to the following reasons:
 %
@@ -102,13 +100,11 @@ In our within-subject experiment, MixT successfully reduced numbers of errors an
 \end{figure*}
 
 % ----- DemoWiz ----- %
-
-% why do they care? I think DemoWiz is for presenters so you may have to set that context first. Or do you want to make a more general argument? In either case, you’ll have to argue why previewing “when” and “what” is helpful.
-MixT offers a novel way of navigating instructional content with a combination of static step-by-step and embedded video presentations. If an author wants to record narration over a video recording, it can be challenging to capture the suitable timing after a demonstration without expecting \emph{when} and \emph{what} action is taking while a video is playing.
+MixT offers a novel way of navigating instructional content with a combination of static step-by-step and embedded video presentations. If an author wants to narrate over a video recording to illustrate a demo, it can be challenging to pace oneself at the suitable timing without expecting \emph{when} and \emph{what} action is taking while a video is playing.
 %
-I design \emph{DemoWiz}, a system that augments a screencast video with visualizations (Figure~\ref{fig:demowiz_intro}). By logging the input events of a software demonstration, DemoWiz overlays glyphs to guide viewers to the next action along with the time remaining before the action occurs. This enables followers to anticipate the video content rather than react to it.
+We design \emph{DemoWiz}, a system that augments a screencast video with visualizations (Figure~\ref{fig:demowiz_intro}). By logging the input events of a software demonstration, DemoWiz overlays glyphs to visually guide viewers to the next action along with the time remaining before the action occurs. This enables viewers to anticipate the video content rather than react to it.
 %
-Our study showed that fewer anticipation errors and delays were made with DemoWiz.
+Our study showed that fewer anticipation errors and narration delays were made with DemoWiz.
 
 \begin{figure*}[t]
 \centering
@@ -121,21 +117,19 @@ Our study showed that fewer anticipation errors and delays were made with DemoWi
 
 While new tutorial formats are shown to be useful, manually creating instructions can be extremely time- and effort-consuming. In response, we design computational methods to automate the creation process from an author demonstration. MixT and DemoWiz capture screencast video and input device events from a demonstration of a task in a software application. MixT also records application commands for video analysis. Computer vision and visualization techniques are integrated to segment a video into steps, extract salient information, and add visual highlights.
 %
-In addition, DemoWiz supports an editing phase where authors can adjust the timing of events in a video. Playback speed of recorded actions can be adjusted or skipped via a lightweight editing UI. Our studies showed that our algorithms for step segmentation, event detection, and visualization were effective (\textless8\% error rate in MixT and 0\% in DemoWiz).
+In addition, DemoWiz supports an editing phase where authors can adjust the timing of events in a video. Playback speed of recorded actions can be modified or skipped via an editing UI. Our studies showed that our algorithms for step segmentation, event detection, and visualization were effective (\textless8\% error rate in MixT and 0\% in DemoWiz).
 
 \subsection{Interactive Tutorial Authoring from Physical Demonstration}
 
 % ----- DemoCut ----- %
 
-Moving beyond software applications, support for authoring instructions of tasks that take place in the physical world is lacking and challenging. Activity recognition remains an open research question, and making authoring decisions during a demonstration can be difficult.
-
-Our first attempt was to focus on Do it yourself (DIY) projects, which help people learn knowledge and skills to complete building or repairing work independently.
+Moving beyond software applications, support for authoring instructions of tasks that take place in the physical world is lacking. Activity recognition remains an open research question, and making authoring decisions during a demonstration can be difficult.
 %
-I developed \emph{DemoCut}, a semi-automatic video editing system that improves the quality of amateur instructional videos for physical tasks (Figure~\ref{fig:democut_intro}). DemoCut asks authors to describe key ``moments'' in a recorded demonstration video using a set of markers. Based on the annotations, our system analyzes the audio and visual activities to automatically organize the video into meaningful segments. Editing decisions are applied to support both \emph{temporal effects} that increase playback speed or skip segments, as well as \emph{visual effects}, such as zooming, subtitles, and visual highlights. A playback interface allows authors to quickly review and edit the automatically generated effects.
+To address this problem, we first look into Do it yourself (DIY) project tutorials, which help people learn knowledge and skills to complete a task independently.
 %
-Video tutorials created by DemoCut in five DIY domains were concise in terms of video length and descriptive instructions with low effect error rates. In most cases, DemoCut successfully identified segments where the editing effects condensed the tutorial.
-
-% \emph{DemoCut} segments a video recording of a physical demonstration (e.g., a long cooking process) based on user annotations and video and audio analysis (Figure~\ref{fig:democut_intro}). It automatically applies video editing effects (e.g., skip, speedup, and zoom) to create concise instructions. A playback interface enables lightweight editing for authors to review the results.
+We developed \emph{DemoCut}, a semi-automatic video editing system that improves the quality of amateur instructional videos for physical tasks (Figure~\ref{fig:democut_intro}). DemoCut asks authors to describe key ``moments'' in a recorded demonstration video using a set of markers. Based on the annotations, our system analyzes the audio and visual activities to automatically organize the video into meaningful segments. Editing decisions are applied to support both \emph{temporal effects} that increase playback speed or skip segments, as well as \emph{visual effects}, such as zooming, subtitles, and visual highlights. A playback interface allows authors to quickly review and edit the automatically generated effects.
+%
+Our studies showed that video tutorials created by DemoCut in five DIY domains were concise in terms of video length and descriptive instructions with low effect error rates.
 
 \begin{figure*}[t]
   \centering
@@ -145,9 +139,9 @@ Video tutorials created by DemoCut in five DIY domains were concise in terms of 
 \end{figure*}
 
 % ----- Kinectograph ----- %
-Through the process of designing DemoCut for automatic DIY video editing, we observed that for tasks that require larger space and more movements, instructors often have to adjust the position and viewing angle of a camcorder. More advanced authors would set up multiple cameras and later select the best shot from video streams.
+Through the process of designing DemoCut for automatic DIY video editing, we observed that for tasks that require larger space and more movements, instructors often have to adjust the position and viewing angle of a camcorder. Some authors choose to set up multiple cameras and later select the best shot from video streams, while some invite another person who controls the camcorder during a demonstration.
 %
-To enable authors to focus on their demonstration during the recording phase, we design \emph{Kinectograph}, a video recording device with a single camera that automatically tracks and follows specific body parts, e.g., hands, of an instructor in a video (see Figure~\ref{fig:kinectograph_intro}). It utilizes a Kinect depth sensor to track skeletal data and adjusts the camera angle via a 2D pan-tilt gimbal mount. Authors can freely move around in space to demonstrate a task and monitor real-time video preview through a tablet application.
+To enable authors to record their demonstration without acquiring additional cameras or cameraman, we design \emph{Kinectograph}, a video recording device with a single camera that automatically tracks and follows specific body parts, e.g., hands, of an instructor in a video (see Figure~\ref{fig:kinectograph_intro}). It utilizes a Kinect depth sensor to track skeletal data and adjusts the camera angle via a 2D pan-tilt gimbal mount. Authors can freely move around in space to demonstrate a task and monitor real-time video preview through a tablet application.
 
 \begin{figure}[!t]
   \centering
@@ -158,14 +152,16 @@ To enable authors to focus on their demonstration during the recording phase, we
 
 % ----- DemoDraw ----- %
 
-The successful experiences supporting motion-based recordings motivated me to apply our demonstration-based approach to a domain that is entirely driven by movements. In sports, dance performance, and body gesture interfaces, movement instructions are often conveyed with drawings of the body annotated with arrows or stroboscopic effects. However, current practices require authors to manually sketch or trace subjects from photographs, which is time-consuming and difficult to make changes once created.
+The successful experiences supporting motion-based recordings motivated me to apply our demonstration-based approach to a domain that is entirely driven by movements. In sports, dance performance, and body gesture interfaces, movement instructions are often conveyed with drawings of the human body annotated with arrows or stroboscopic effects~\cite{cutting_representing_2002}. However, current practices require authors to manually sketch or trace subjects from photographs, which is time-consuming and difficult to make changes once created.
 %
-I design \emph{DemoDraw}, a system that generates concise illustrations from author demonstration (see Figure~\ref{fig:demodraw_intro}). With DemoDraw, an author records one or more motions by physically demonstrating in front of a Kinect sensor. In a multi-modal Demonstration Interface, DemoDraw segments speech and 3D joint motion into a sequence of motion segments, each characterized by a key pose and salient joint trajectories. Based on this sequence, a series of illustrations is automatically generated using a stylistically rendered 3D avatar annotated with arrows to convey movements. Once a suitable sequence of steps has been created, a Refinement Interface enables fine control of visualization parameters.
+We design \emph{DemoDraw}, a system that generates concise illustrations from author demonstration (see Figure~\ref{fig:demodraw_intro}). With DemoDraw, an author records one or more motions by physically demonstrating in front of a Kinect sensor. In a multi-modal Demonstration Interface, DemoDraw segments speech and 3D joint motion into a sequence of motion segments, each characterized by a key pose and salient joint trajectories. Based on this sequence, a series of illustrations is automatically generated using a stylistically rendered 3D avatar annotated with arrows to convey movements. Once a suitable sequence of steps has been created, a Refinement Interface enables fine control of visualization parameters.
+%
+In a three-part evaluation, our results show 4 to 7-step illustrations can be efficiently created in 5 or 10 minutes on average.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{\intro/fig/DemoDraw}
-  \caption{DemoDraw's multi-modal ``Demonstration Interface'' enables authors  to capture motion, verify results, and re-perform portions if needed to generate motion illustrations.}
+  \caption{DemoDraw's multi-modal approach enables authors to capture motion, verify results, and re-perform portions if needed to generate step-by-step motion illustrations.}
   \label{fig:demodraw_intro}
 \end{figure}
 
@@ -175,22 +171,23 @@ I design \emph{DemoDraw}, a system that generates concise illustrations from aut
 
 Overall, our video-based approaches consider key events or moments that are important to a learner. This information can be derived from software event logs or human annotation of physical tasks when automatic recognition remains challenging. Based on the metadata and video streams, we propose automatic methods to generate concise instructions for two task domains, software applications and physical tasks (see Figure~\ref{fig:space}). Our approaches support authors from recording demonstrations to editing and reviewing system-generated instructions. Interactive controls are available in different stages via desktop or multi-modal interfaces.
 %
-I demonstrate a series of systems that consider production stages of tutorial creation and learning. We present the rationale and technical challenges of these interactive system designs. Each system is evaluated both quantitatively and qualitatively to study the usability in authoring and learning.
+We demonstrate a series of systems that consider production stages of tutorial creation and learning. We present the rationale and technical challenges of these interactive system designs. Each system is evaluated both quantitatively and qualitatively to study the usability in authoring and learning.
 
+\clearpage
 The contributions of this dissertation include:
 
-\begin{figure}[t]
+\begin{itemize}
+\item New instructional formats that consider the learning needs from several domains, including software applications and physical activities.
+\item Multi-modal interaction techniques for novice or amateur authors to create effective instructions by demonstration.
+\item Automatic or semi-automatic approaches using video and audio analysis that includes authors in the loop to produce high-quality instructions.
+\end{itemize}
+
+\begin{figure}[t!]
   \centering
   \includegraphics[width=0.9\columnwidth]{\intro/fig/space}
   \caption{A design space of the creation and consumption process for tutorials. It involves three phases of recording, editing, and playback in either software domain or a physical world. This dissertation proposes a series of systems that focus on various aspects in this design space.}
   \label{fig:space}
 \end{figure}
-
-\begin{itemize}
-\item New instructional formats that consider the learning needs from several domains, including software applications and physical activities.
-\item Multi-modal interaction techniques for amateur authors to create effective instructions by demonstration.
-\item Automatic or semi-automatic approaches using video and audio analysis that includes authors in the loop to produce high-quality instructions.
-\end{itemize}
 
 % ---------------------------------------------------------------
 
@@ -202,22 +199,19 @@ In Chapter \ref{chapter_background}, we define terminology used in instruction c
 %
 In Chapter \ref{chapter_related_work}, we review the literature on research and technologies used in supporting activities of authoring and consuming instructions.
 
-I presented two systems that support tutorials for software applications.
+We presented two systems that generate interactive tutorials for software applications.
 % MixT
-In Chapter \ref{chapter_mixt}, we present our study on how a new tutorial format supports learners in following step-by-step instructions with mixed media, including static text, images, and video clips. We introduce our creation tool called MixT, which automatically generates such new tutorial format from an author demonstration in a software application.
-
+In Chapter \ref{chapter_mixt}, we present our study on how a new tutorial format supports learners in following step-by-step instructions with mixed media, including static text, images, and video clips. We introduce our creation tool called MixT, which automatically generates such new tutorial format from a software demonstration.
 % DemoWiz
 Chapter \ref{chapter_demowiz} introduces DemoWiz, a system that assists viewers in capturing the timing of input events in a screencast demo video. DemoWiz supports recording, editing, and reviewing stages in a production process with an authoring and playback UI.
 
 Then, we introduced three systems designed for real-world tasks that involve physical demonstrations.
 % DemoCut
-In Chapter \ref{chapter_democut}, we demonstrate a semi-automatic tool for DIY video editing. Our system, called DemoCut, provides two authoring interfaces, annotation and editing, that enable authors to mark a demo video and review and modify the automatically edited results. The design is based on an fundamental understanding of DIY activities.
-
+In Chapter \ref{chapter_democut}, we present a semi-automatic tool for DIY video editing. Our system, called DemoCut, provides two authoring interfaces, annotation and editing, that enable authors to mark a demo video and review and modify the automatically edited results. The design is based on an fundamental understanding of DIY activities.
 % Kinectograph
-In Chapter \ref{chapter_kinectograph}, we focus on a recording device design that automatically follows a demonstrator for filming instructional videos. The Kinectograph system tracks an author's position and body parts and provides an authoring interface for real-time control.
-
+In Chapter \ref{chapter_kinectograph}, we focus on a recording device that automatically follows a demonstrator for filming instructional videos. The Kinectograph system tracks an author's position and body parts and provides an authoring interface for real-time camera control.
 % DemoDraw
-Finally, in Chapter \ref{chapter_demodraw}, we present a multi-modal approach for authors to generate motion illustrations by physically demonstrating the movements. DemoDraw is a system that segments speech and 3D joint motion into a sequence of motion segments and renders illustrations with motion arrows. Two authoring interfaces enable authors to navigate, re-perform, and edit detailed visualization parameters.
+Finally, in Chapter \ref{chapter_demodraw}, we introduce a multi-modal approach for authors to generate motion illustrations by physically demonstrating the movements. DemoDraw is a system that segments speech and 3D joint motion into a sequence of motion segments and renders effective illustrations. Two authoring interfaces enable authors to navigate, re-perform, and edit visualization parameters.
 
 % Conclusion
 Throughout this dissertation, we discuss how our video-based approaches increase the quality of amateur-produced video instructions. Chapter \ref{chapter_conclusion} concludes our work on tutorial creation and consumption in both software and physical instructions. New directions for future research on interactive tutorials are proposed.
@@ -228,6 +222,6 @@ Throughout this dissertation, we discuss how our video-based approaches increase
 
 This dissertation is based on papers published in previous ACM conference proceedings: the MixT system was published at UIST 2012~\cite{Chi:2012:MAG:2380116.2380130}, DemoWiz at CHI 2014~\cite{Chi:2014:DRS:2556288.2557254}, DemoCut at UIST 2013~\cite{Chi:2013:DGC:2501988.2502052}, and Kinectograph at CHI 2013~\cite{Cheng:2013:BCC:2468356.2468568}; DemoDraw will be published at UIST 2016~\cite{Chi:2016:DemoDraw}.
 
-While I am primary author on all publications and led the described projects, this research could not have been completed without my advisor Bj\"orn Hartmann and my collaborators that I have been fortunately to work with. Specifically, Dr. Mira Dontcheva and Dr. Wilmot Li provided valuable guidance on several projects (MixT, DemoCut, and DemoDraw); Dr. Steven M. Drucker and Dr. Bongshin Lee guided the DemoWiz project with their expertise on visualization; Professor Daniel Vogel greatly contributed to the interaction and study design of DemoDraw. A group of MS and undergrad students and designers provided implementation and user study contributions, including Sally Ahn and Amanda Ren in MixT, Joyce Liu and Jason Linder in DemoCut, and Derrick Cheng in Kinectograph.
+While I am primary author on all publications and led the described projects, this research could not have been completed without my advisor Bj\"orn Hartmann and my collaborators that I have been fortunately to work with. Specifically, Dr. Mira Dontcheva and Dr. Wilmot Li at Adobe Research provided valuable guidance on three projects (MixT, DemoCut, and DemoDraw); Dr. Steven M. Drucker and Dr. Bongshin Lee at Microsoft Research guided the DemoWiz project with their expertise on visualization; Professor Daniel Vogel at University of Waterloo greatly contributed to the DemoDraw project. A group of MS and undergrad students at UC Berkeley and Adobe contributed to implementation, design, and user study in the projects, including Sally Ahn and Amanda Ren in MixT, Joyce Liu and Jason Linder in DemoCut, and Derrick Cheng and Taeil Kwak in Kinectograph.
 
 % We are all natural performers. Humans are proficient at demonstrating how to perform a task in action. However, articulating knowledge into a written or structured form can be extremely difficult. From dancing, repairing a machine, to operating software applications, it remains a challenge how everyday activities can be efficiently captured for a remote learner to understand.
