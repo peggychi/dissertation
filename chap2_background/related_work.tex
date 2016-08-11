@@ -146,7 +146,7 @@ Computer vision techniques can automatically track specific physical targets sho
   \item \textbf{Tracking objects}. Common techniques include:
   1) Track specific \emph{colors} or visual features of pre-defined objects. Examples include tracking a fast-moving Ping-Pong ball for automatic camera control~\cite{Okumura:2011tr} or paper puppets for creating animation~\cite{Barnes:2008:VideoPuppetry}.
   %
-  2) Track both \emph{colors and depths} of objects, which could obtain a better understanding of the objects' positions in a 3D world. The information can be useful for activities involved object manipulations, such as block or toy assembly tasks~\cite{Gupta:2012ku,Wu:2016:ARI:2856400.2856416} and 3D puppet control~\cite{held20123d}.
+  2) Track both \emph{colors and depths} of objects, which could obtain a better understanding of the objects' positions in a 3D world. The information can be useful for activities involved object manipulations, such as block or toy assembly tasks~\cite{Gupta2012DuploTrack,Wu:2016:ARI:2856400.2856416} and 3D puppet control~\cite{held20123d}.
   %
   3) Track \emph{motion-capture markers}. The most common method is to attach reflective markers to an object's surface. This enables accurate, responsive capturing, such as to record an animator's continuous movements~\cite{Dontcheva:2003:LAC:1201775.882285}.
   %
@@ -157,7 +157,7 @@ Computer vision techniques can automatically track specific physical targets sho
   \item \textbf{A combination of the above}, such as reconstructing a 3D scene of a player throwing a basketball~\cite{dou-siggraph2016}.
 \end{itemize}
 
-Some of these vision-based systems require a high-speed camera~\cite{Okumura:2011tr} or a RGB-D camera~\cite{Gupta:2012ku,Wu:2016:ARI:2856400.2856416,held20123d,Wilson:2012fb,Anderson:2013:YEM:2501988.2502045,dou-siggraph2016}, while some require users to wear reflective markers~\cite{Ranjan:2008}.
+Some of these vision-based systems require a high-speed camera~\cite{Okumura:2011tr} or a RGB-D camera~\cite{Gupta2012DuploTrack,Wu:2016:ARI:2856400.2856416,held20123d,Wilson:2012fb,Anderson:2013:YEM:2501988.2502045,dou-siggraph2016}, while some require users to wear reflective markers~\cite{Ranjan:2008}.
 %
 Other non-vision tracking methods rely on sensors attached to an object or human, including GPS sensor~\cite{HexoDrone} and radio frequency wireless signals~\cite{Nguyen:2016:ICR:2935620.2935632}. These are often used for tracking a moving target in a larger space, such as a flying drone.
 %
@@ -196,7 +196,7 @@ Reversely, an existing technical document can be automatically analyzed and tran
 
 A \emph{demonstration-based} system records an author's physical demonstration of a workflow. The captured materials can be either automatically analyzed by the system or manually edited by an author to create instructions.
 %
-One approach is to employ templates to help users capture sequences of distinct shots (e.g., Snapguide\footnote{\url{http://snapguide.com/}}) or provide a limited set of operations to record specific moments (e.g., adding or removing a part in a block-assembly task~\cite{Ranjan:2007,Gupta:2012ku}).
+One approach is to employ templates to help users capture sequences of distinct shots (e.g., Snapguide\footnote{\url{http://snapguide.com/}}) or provide a limited set of operations to record specific moments (e.g., adding or removing a part in a block-assembly task~\cite{Ranjan:2007,Gupta2012DuploTrack}).
 %
 Another approach is to provide an interface to support authors capturing multimedia materials during or after a demonstration, such as using a head-mounted capturing device~\cite{carter2015authoring}. For certain tasks, new recording devices need to be specially designed, such as an integrated device that includes an IR camera to capture a knitting process~\cite{Rosner:2008:SAK:1409635.1409682} and a turntable to record the building process of a DIY project~\cite{Tseng:2015:SPT:2771839.2771869}.
 
@@ -225,7 +225,7 @@ DemoCut, Kinectograph, and DemoWiz each allows authors to perform a physical dem
 \subsection{Presenting Guidance}
 To help learners perceive instructions for physical tasks, we discuss how guidance can be displayed in a 3D world. There are four main approaches to present real-time guidance.
 
-First, rich information can be shown via an \emph{external display} placed next to the work area. Several applications adopt this method, including cooking~\cite{Uriu:2012:PRM:2207676.2207695} and block assembly tasks~\cite{Gupta:2012ku,Wu:2016:ARI:2856400.2856416}. However, a learner may often switch his or her attention between the task and the instructions. To better blend the information into activities, Knibbe~\ea{} designed a display-embedded table as a physical workspace that monitors, records, and assists users~\cite{Knibbe:2015:SMI:2817721.2817741}. In this way, workers can review the information on the desktop while making a project.
+First, rich information can be shown via an \emph{external display} placed next to the work area. Several applications adopt this method, including cooking~\cite{Uriu:2012:PRM:2207676.2207695} and block assembly tasks~\cite{Gupta2012DuploTrack,Wu:2016:ARI:2856400.2856416}. However, a learner may often switch his or her attention between the task and the instructions. To better blend the information into activities, Knibbe~\ea{} designed a display-embedded table as a physical workspace that monitors, records, and assists users~\cite{Knibbe:2015:SMI:2817721.2817741}. In this way, workers can review the information on the desktop while making a project.
 
 Second, information can be \emph{overlaid on top of the work area} through a projector. Examples include supporting remote repair tasks~\cite{Gurevich:2012ko} (see Figure~\ref{fig:related_teleadvisor} right), assembly tasks~\cite{Kirk:2006:CRG:1124772.1124951}, cooking~\cite{Ju:2001:CIC:634067.634227}, and piano learning~\cite{Xiao:2016:IEI:2858036.2858577}.
 %
@@ -243,7 +243,7 @@ This approach is task-specific and can be difficult to generalize to other task 
 
 \subsection{Providing Interactive Guidance}
 % \subsubTitleBold{Responding to Learners' Progress}
-Finally, we discuss how assistive technologies track a learning process and support interactive guidance. Providing responsive feedback requires an understanding of learners' activities. For specific tasks such as block assembly~\cite{Gupta:2012ku,Wu:2016:ARI:2856400.2856416} and dancing~\cite{Anderson:2013:YEM:2501988.2502045}, learners' progress can be accurately tracked in 3D. This enables a tutorial system to provide real-time information about the current learner state, e.g., where to place the next block to the current model or suggested adjustment on a dance pose.
+Finally, we discuss how assistive technologies track a learning process and support interactive guidance. Providing responsive feedback requires an understanding of learners' activities. For specific tasks such as block assembly~\cite{Gupta2012DuploTrack,Wu:2016:ARI:2856400.2856416} and dancing~\cite{Anderson:2013:YEM:2501988.2502045}, learners' progress can be accurately tracked in 3D. This enables a tutorial system to provide real-time information about the current learner state, e.g., where to place the next block to the current model or suggested adjustment on a dance pose.
 %
 However, as we discuss earlier, tracking activities at the instruction level for real-world tasks is still lacking. Therefore, the majority of the systems provided user interfaces for learners to navigate instructions.
 %
