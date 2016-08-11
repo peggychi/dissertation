@@ -1,16 +1,15 @@
-%!TEX root = ../thesis.tex
+%!TEX root = thesis.tex
 
 \section{Principles and Methods}
-% Motion Illustration
 % \bjoern{this section is too long for the work it does - more than page! Shorten.}
 % \dan{I did some trimming, now a few lines more than a column without comments (not counting figure).}
 % \dan{The main takeways after reading this section should be: 1) the style of illustration our system supports matches what people actually need; 2) current practices are slow and/or require specialized skills; 3) automating the first part of the process is most important: generating (and experimenting with) keyframe illustrations with motion annotations from real time demonstrations. } \bjoern{Yes!}
 
-To understand motion illustration design and production, we surveyed related literature, studied found examples, and interviewed individuals who create such illustrations.
+To understand motion illustration design and production, we surveyed related literature, studied collected examples, and interviewed individuals who create such illustrations.
 
 \subsection{Design Principles}
 %to evaluate five general methods
-Cutting~\cite{cutting_representing_2002} argues that superimposing vector-like lines on an image satisfies four important criteria: it evokes a feeling of motion, the object undergoing motion is clearly represented, the direction of motion is clear, and the magnitude of motion is conveyed with reasonable precision. To complement this metaphoric representation, Cutting also argues for the more literal method of multiple stroboscopic images, which satisfies all criteria except clear motion direction. McCloud~\cite{mccloud_understanding_1994} provides further arguments and examples for using these methods in the field of comic illustration, and notes communication benefits when they are combined.
+Cutting~\cite{cutting_representing_2002} argues that superimposing vector-like lines, often called ``actions lines'', on an image satisfies four important criteria: it evokes a feeling of motion, the object undergoing motion is clearly represented without deformation, the direction of motion is clear, and the magnitude of motion is conveyed with reasonable precision. To complement this metaphoric representation, Cutting also argues for the more literal method of multiple stroboscopic images, which satisfies all criteria except clear motion direction. McCloud~\cite{mccloud_understanding_1994} provides further arguments and examples for using these methods in the field of comic illustration, and notes communication benefits when they are combined.
 
 To examine how professional illustrators use motion lines and stroboscopic images, we gathered examples from sources like user manuals, gesture-based games, safety guides, % (e.g., for airplane safety or weight training),
 illustration compendia (e.g.,~\cite{mijksenaar1999open}) and how-to books (e.g.,~\cite{greenberg2012sketching}).
@@ -20,7 +19,7 @@ in a variety of styles (heads, weights, colors) with strokes typically two-dimen
 Stroboscopic images can be overlapping or spatially distributed, and change in transparency or shading to convey time.
 The most common style for depicting the object undergoing motion is a simplified black-and-white contour drawing, but filled silhouettes and flat-shaded colour can also be found -- using full color photographic detail is rare.
 %
-By carefully removing extraneous details, such techniques help readers focus on only the salient, abstract information.
+By carefully removing extraneous details, such techniques help readers focus on only the salient motion information.
 % \bjoern{Add WHY - omit extraneous details to focus on salient features.}
 
 % These methods can be used with the object undergoing motion rendered as a full color photo or as a stylized illustration with reduced detail. \dan{One or two sentence giving benefits of using illustrations over photos that adds more detail to the general argument in the introduction [references in Pat Hanrahan's lecture slides, maybe Buxton's sketching book ] } Early in the 90s, Dooley and Cohen designed a method to generate line illustrations from geometric model \cite{Dooley:1990:AIG:91394.91422, Dooley:1990:AIG:91385.91422}. This...
@@ -82,9 +81,9 @@ By carefully removing extraneous details, such techniques help readers focus on 
 % \bjoern{The challenge here is that HCI researchers with Illustrator chops are MUCH closer to experienced designers than the general population. So using HCI authors to make an argument about ``non-designers'' is problematic. I took it out.}
 % The examples we gathered above are produced by professional illustrators, but many other people create motion illustrations as part of their work --
 % A central goal of our system is to empower individuals to rapidly create professional-quality motion illustrations.
-To understand current creation methods, we conducted video interviews with six Human-Computer Interaction researchers with experience creating motion illustrations.
-%
 Conveying movement for interaction is common in HCI publications. We found 100 motion illustrations in 58 recent papers.
+%
+To understand current creation methods, we conducted video interviews with six Human-Computer Interaction researchers with experience creating motion illustrations.
 
 %We conducted interviews with 6 researchers with experience creating motion illustrations.
 % We surveyed papers published between years 2005 to 2014 that contained motion illustrations in venues such as CHI, UIST, and MobileHCI -- we found whole-body motions, such as play in an interactive room and large display interactions; and  hand motions, such as smartphone interactions. We conducted video interviews with six authors of such papers about their process.
@@ -110,22 +109,31 @@ Yet, identifying the best pose and viewpoint ahead of time is difficult and it o
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.7\columnwidth]{\demodraw/fig/designdimensions}
-  \caption{Canonical authoring workflow consisting of a Context Definition task then a Motion Depiction task. Design decisions associated with a task shown in bold with design parameters in italics.}
+  \includegraphics[width=0.5\columnwidth]{\demodraw/fig/designdimensions}
+  \caption{Canonical authoring workflow consisting of a Motion Definition task then a Motion Depiction task. Design decisions associated with a task are shown in bold with design parameters in italics.}
   \label{fig:designspace}
 \end{figure}
 
+\begin{figure*}[!t]
+  \centering
+  \includegraphics[width=\textwidth]{\demodraw/fig/ui/ui}
+  \caption{\systemname{} authoring UI: Using the \phaseI{}, an author sees an avatar following her real-time movement (a). During recording (initiated by voice command ``Start''), real-time feedback shows the speech labels (b). Once a recording is completed by voice command ``Stop'', the motion visualization and a timeline are immediately available (c) for the author to review, and a step-by-step overview will be generated.}
+  \dan{I changed figure start command to Start to match the video.}
+  \label{fig:DemoDrawUI}
+\end{figure*}
+
+
 \subsection{Design Space Goals and Workflow}
 
-Based on the above, we derive a canonical workflow to motivate the central design goal for our system.
+Based on the observations above, we derive a canonical workflow to motivate our system's central design goal.
 Authors face two primary illustration tasks (Figure~\ref{fig:designspace}):
-\textit{defining the context} for portraying motion like the view of the body and salient aspects of motion;
+\textit{defining the motion} for portraying movements like the view of the body and salient moving joints;
 and \textit{exploring a style of motion depiction} by choosing styles like lines-and-arrows or stroboscopic, then adjusting related style parameters.
 These tasks and the underlying design parameters are highly interdependent, so authoring motion illustrations is necessarily an iterative process.
 This means that changes to one task parameter often leads to re-evaluating and changing the other.
-The problem with current methods, is that context is mostly ``performed'' using a time-consuming process of taking photos and manually tracing them.
+The problem with current methods, is that movements are mostly ``performed'' using a time-consuming process of taking photos and manually tracing them.
 %
-Therefore, the central design goal of our system is to make context definition  low effort and iterative by using interactive demonstrations for automated context definition.
+Therefore, the central design goal of our system is to make motion definition low effort and iterative via interactive demonstrations.
 
 % enable low-effort iteration within, and between, the three identified tasks.
 
@@ -163,5 +171,3 @@ For these reasons, we use a multi-modal voice and gesture interaction style trac
 % \bjoern{Somewhere in the prior section or following section: Describe the design space of decisions one has to make to design an effective illustration. And argue that this is necessarily an iterative process where changes to one dimension may lead the designer to re-evaluate and change other dimensions. This is not possible with the current manual workflow starting with photos - authors are locked into a linear pipeline.}
 
 % provide parameters, flexibility, direct manipulation, iterative design process
-
-

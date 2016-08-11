@@ -1,42 +1,32 @@
 %!TEX root = ../thesis.tex
 \section {Conclusion}
-We introduced \systemname{}, a multimodal system for generating motion illustrations by physically demonstrating the movements.
-\systemname{} translates speech and 3D joint motion captured by a Kinect RGB-D sensor into a segmented sequence of key poses and salient joint movements.
-A step-by-step diagram showing a series of motion illustrations is automatically generated using a stylistically rendered 3D avatar annotated with arrows to convey movements.
+We introduced \systemname{}, a multi-modal system for generating human motion illustrations by physically demonstrating desired movements.
+It translates speech and 3D joint motion into a segmented sequence of key poses and salient joint movements, which are used to automatically generate a series of motion illustrations in effective and understood illustration styles.
 %
-\systemname{}'s multi-modal \phaseI{} enables authors to record, review, and retake physical movements, and later refine and explore different motion visualizations with a \phaseII{}. We believe the Demonstrate-Refine distinction generalizes to other demonstration-based interfaces beyond motion illustrations.
+A multi-modal \phaseI{} enables authors to record, review, and retake physical movements, and later refine and explore different motion visualizations with a \phaseII{}. We believe this ``demonstrate-refine'' pattern will generalize to other demonstration-based authoring systems.
 %
-The primary motivation of this work is to provide users with domain-appropriate authoring tools that free them from tedious low-level tasks and allow them to focus their effort on both communicative and aesthetic aspects. We look forward to applying the same approach to other instructional materials and illustration types in the future.
-
+The primary motivation of this work is to provide users with domain-appropriate authoring tools that free them from tedious low-level tasks -- allowing them to focus their effort on both communicative and aesthetic aspects. We look forward to applying the same approach to other instructional materials and illustration types in the future.
 
 % ---------------------------------------------------------------
 
-% \subsubsection{Limitations and Future Work}
+\subsection{Limitations and Future Work}
 % We also discuss the limitations of our approaches.
-Our current system has several limitations based on both architectural decisions and limits in available technology.
+Like any system, there are limitations imposed by architectural decisions and limits in available technology.
 
-\subsubTitleBold{Limited Interactions in Demonstration Mode} Presently, authors can review and retake steps using voice commands, but many fine-grained operations are only available in the Refinement Interface, which requires them to leave the performance area. Future work should investigate if voice commands combined with gestures can expose more functionality like timeline scrubbing to the author, to tighten the feedback look between performance, context setting, and depiction.
+\subsubTitleBold{Limited Interactions in Demonstration Mode} Presently, authors can review and retake steps using voice commands, but many fine-grained operations are only available in the Refinement Interface, which requires users to leave the performance area. Future work should investigate if voice commands combined with gestures can expose more functionality like timeline scrubbing to the author, to tighten the feedback look between performance, context setting, and depiction.
 
-\subsubTitleBold{Motion Capture and Segmentation} The quality of \systemname{} illustrations is limited by the accuracy of motion capture data.
+\subsubTitleBold{Motion Capture and Segmentation} First, the quality of \systemname{} illustrations is limited by the accuracy of motion capture data.
 %
-Consumer devices such as the Kinect depth sensor we employed are widely available, but they  suffer from problems with joint occlusions and fine-grained hand tracking. We found that illustrating such motions often required multiple recordings to obtain an artifact-free performance.
+Second, our segmentation algorithms currently assume that motions are separated by periods of inactivity, so we cannot yet capture and segment continuous motions that might be necessary, e.g., in different sports, where interruptions are not possible.
 %
-Our segmentation algorithms currently assume that motions are separated by periods of inactivity, so we cannot yet capture and segment continuous motions that might be necessary, e.g., in different sports, where interruptions are not possible.
-%
-Retargeting motion from a human performer to an avatar can also introduce artifacts when skeletal geometry does not match. Future work could apply retargeting approaches from the computer graphics literature~\cite{gleicher1998retargetting} or examine if it is feasible to automatically generate suitable avatars that match performers' anatomy more closely.
+Third, retargeting motion from a human performer to an avatar can introduce artifacts when skeletal geometry does not match. Future work could apply retargeting approaches from the computer graphics literature~\cite{gleicher1998retargetting} or examine if it is feasible to automatically generate suitable avatars that match performers' anatomy more closely.
 
-\subsubTitleBold{Movements Involving Objects and Multiple Users} Many illustrations focus on motions while holding props (e.g., a tennis racket or baseball bat in sports) or the manipulation of objects (e.g., furniture assembly). We do not yet support such motions. One reason is that our implementation only tracks skeletons, not hands or their interactions with objects. While the general case seems very hard, using techniques for recognizing objects in video based on a library of 3D models~\cite{kholgade20143d} appears promising.
+\subsubTitleBold{Movements Involving Objects and Multiple Users} Many illustrations focus on motions while holding props (e.g., a tennis racket or baseball bat in sports) or the manipulation of objects (e.g., furniture assembly).
+%
+We do not yet support such motions as the Kinect depth sensor we employed are limited to track skeletons. While the general case seems very hard, using techniques for recognizing objects in video based on a library of 3D models~\cite{kholgade20143d} appears promising. Furthermore, recent work has proposed fine-grained 3D tracking of humans and objects~\cite{dou-siggraph2016} and hands~\cite{taylor-siggraph2016}. %joint occlusions
+%
+These techniques may reduce the numbers of retakes to obtain an artifact-free performance observed in our studies.
 %
 Our current implementation is for single user, but we argue that it is possible to include multiple performers by loading and controlling additional avatar models, which would be especially useful in dancing.
 
 \subsubTitleBold{Interpretability of Motions} \systemname{} can visualize the trajectories of multiple joints in a single image, but does not yet take the different timing of sub-motions into account. This can make illustrations of complex motions hard to interpret. Future work could provide per-joint timelines and automatically number sub-motions by their start times. In addition, the dynamics of motion are not adequately represented in output images. To address this, we have begun to experiment with mixed-media output formats. Inspired by MixT~\cite{Chi:2012:MAG:2380116.2380130}, we can render static illustrations that can replay a motion segment as an animation when clicked.
-% \bjoern{is this mentioned anywhere before? if so, remove from this section?}
-
-
-% and visualization of rotational motion that cannot be shown through end-effector trajectories (e.g., spinning around one's axis).
-
-% ---
-
-% Note that we chose not to include a baseline condition to compare with conventional methods of manual creation because our goal is to enable average users, including those without illustrating skills, to create visual instructions. In addition, based on our pilot interviews with illustration authors, creating one figure can take 20 minutes at minimum. Therefore, we focus on evaluating the authoring aspect of our system.
-%
-% \dan{It would be even better if we timed at least one artist created each of the task illustrations completely by hand (even taking the photographs) ... it would give some kind of informal baseline for comparison. Some readers may not appreciate how time consuming it is if they haven't done it before.}

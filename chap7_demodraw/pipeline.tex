@@ -1,38 +1,38 @@
-%!TEX root = ../thesis.tex
+%!TEX root = thesis.tex
 % Pipeline of the DemoDraw system: technical details
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=1.0\columnwidth]{\demodraw/fig/pipeline/pipeline}
+  \includegraphics[width=0.8\columnwidth]{\demodraw/fig/pipeline/pipeline}
   \caption{\systemname{} System Components and Pipeline}
   % \dan{now that I understand the components better, we should emphasize motion capture component less since didn't make much contribution there.  I tweaked the figure to do this, and also highlighted the ``interaction pipeline'' (demo, review, retake) a bit better too.   }
   \label{fig:pipeline}
 \end{figure}
 
-\section{Automatic Generation Pipeline}
+\section{Generation Pipeline}
 
 % \dan{I think we should downplay ``pipeline'' and emphasize ``system components'' ... pipeline sound very linear and non-iterative.}
 
 %To support the described user scenario, we introduce our pipeline and system components shown in .
 \systemname{} has four main components (Figure~\ref{fig:pipeline}):
 %
-a \emph{motion capture} engine to record joint data from the author's demonstration and map it data to a 3D avatar;
+a \emph{motion capture} engine to record joint data from the author's demonstration and apply it to a 3D avatar;
 %
 a \emph{speech recognition} engine to process speech input for commands and motion labels;
 %
-a \emph{motion analysis} algorithm that segments recorded motion and identifies salient joint movements for each illustration panel;
+a \emph{motion analysis} algorithm to partition recorded motion and identify salient joint movements for each illustration segment;
 %
 and an \emph{illustration rendering} engine to visualize the avatar and motion segments with different effects.
 % , and a module to handle user interaction.
 %
 % Our novel techniques enables motion segmentation by combining speech and motion inputs. Our interaction model allows users to modify the rendered illustrations interactively by demonstrations.
-The combination of these components enables an interactive and iterative system pipeline to translate demonstrations into motion diagrams.
-A notable technical contribution is our motion segmentation algorithm leveraging parallel speech label and joint motion input streams.
+These components combine into an interactive and iterative system pipeline to translate demonstrations into motion diagrams.
+A notable technical contribution is our motion segmentation algorithm combining speech labels and joint motion streams.
 % \dan{I tweaked the two points above, old text is commented out in the tex}
 
 % \dan{say something like our technical contribution is in motion segmentation (and maybe illustration rendering) }
 %
-\systemname{} is implemented using C\# in Unity 5\footnote{\url{https://unity3d.com}}.
+\systemname{} is implemented using C\# in Unity 5. %\footnote{\url{https://unity3d.com}}.
 It runs interactively on a Macbook Pro with Windows Bootcamp (2.5 GHz Intel Core i7 processor and 16 GB memory).
 %
 Below we describe the design and implementation of each component.
@@ -50,7 +50,7 @@ In support of our design goal to enable low-effort iteration within tasks, the m
 % A central goal of our system is to enable average users to create illustration by physical demonstrations. As users might not necessarily have expertise to design illustration outcomes prior to a performance, it is important to provide real-time feedback for authors to observe the continuous motion captured effect and perform accordingly.
 %
 %\subsubTitleBold{Real-time Joint Data}
-We capture position and joint angles of a simplified 25-joint skeleton using a Kinect2 sensor and the Kinect SDK 2.0\footnote{\url{https://dev.windows.com/en-us/kinect}}.
+We capture position and joint angles of a simplified 25-joint skeleton using a Kinect2 sensor and the Kinect SDK 2.0. %\footnote{\url{https://dev.windows.com/en-us/kinect}}.
 %Skeletal data of human body's 25 joints is captured in 3D, including head, shoulders, hands, and foot.
 % At any given frame of motion capturing, our system gathers information about position, depth, and orientation values in meters for each of the 25 joints.
 %Therefore, \systemname{} presents a 3D human model mirroring an author's movements in real-time while she stands in front of a Kinect sensor in a static, indoor scene (Figure~\ref{fig:pipeline}a).
@@ -74,10 +74,12 @@ The real-time joint data is applied to a generic 3D human model (an ``avatar'') 
 % ---------------------------------------------------------------
 
 \subsection{Speech Recognition}
-Speech is used when recording a demonstration to label motions (e.g., ``one, two, ...'') and for recording and navigation commands (e.g. ``start, stop'' or ``three, back'' to skip to a motion segment) -- see Figure~\ref{fig:DemoDrawUI} for the speech commands that \systemname{} supports.
+Speech is used when recording a demonstration to label motions (e.g., ``one, two, ...'') and for recording and navigation commands (e.g. ``Start, Stop, Retake'' or ``Replay, Next, Play'') -- see Figure~\ref{fig:DemoDrawUI} for the speech commands that \systemname{} supports.
+\dan{I made these consistent with new Figure 4}
 %
 We recognize both types of speech using the Microsoft speech recognition library\footnote{\url{https://msdn.microsoft.com/en-us/library/hh361572}} to process audio captured by the Kinect microphone array.
-During recording, the time stamp, delay, and confidence of motion labels are logged for use in the the motion analysis algorithm.
+During recording, the start time, duration, and confidence of each motion label are logged for use in the motion analysis algorithm.
+% https://msdn.microsoft.com/en-us/library/system.speech.recognition.recognizedaudio.starttime(v=vs.110).aspx
 % \dan{how do you calculate delay? I thought this was a fixed constant determined by manual inspection.}
 % \peggy{The api provides, but I didn't get to use it...}
 
@@ -90,49 +92,50 @@ During recording, the time stamp, delay, and confidence of motion labels are log
 
 % ---------------------------------------------------------------
 
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=0.8\columnwidth]{\demodraw/fig/motion_analysis/analysis2}
+  \caption{Illustration of motion analysis algorithm (two joints shown due to space): significant moving periods of joint movements (pink) are mapped to speech labels to define motion segments (blue). Note the right hand period is mapped to \iquote{two} because it begins shortly after the left hand period.}
+   \label{fig:segmentation}
+\end{figure}
+
 \subsection {Motion Analysis}
 % \dan{Would be good to get a component name to include joint salience identification too.  ``Motion Segmentation and Joint Salience Identification'' component is too long, how about something more simple and general like ``Motion Analysis'' with subcomponents motion segmentation and joint salience.}
 
-Our motion analysis algorithm translates a multi-part demonstration recording into a sequence of labeled time segments, each with one or more salient joint motions and a keyframe of joint positions to use as a representative body pose (see Figure~\ref{fig:segmentation} for an illustration of the approach).
-Formally, the algorithm associates each speech label with a motion start and end time [$T_s$, $T_e$], set of salient joints ${J_0, ..., J_n}$, and keyframe time $T_k$.
-Each segment is sent to the Illustration Rendering engine to create each motion illustration in a multi-part sequence.
+Our motion analysis algorithm translates a multi-part demonstration recording into a sequence of labeled time segments, each with one or more salient joint motions and a keyframe of joint positions for a representative body pose (see Figure~\ref{fig:segmentation} for an illustration of the approach).
+Formally, given a set of $n$ speech labels $\{w_1, w_2, ..., w_n\}$ where each ends at latency-corrected time $\{T_1^w, T_2^w, ..., T_n^w\}$, our algorithm associates each speech label $w_i$ with a \emph{motion segment}, of which the start and end time are denoted as [$T_i^s$, $T_i^e$] where $T_i^s \leq T_i^w \leq T_i^e$. Each motion segment includes a set of $k$ salient joints $\{j_i^1, ..., j_i^k\}$ and keyframe time $T_i^{key}$ between [$T_i^s$, $T_i^e$].
+It is then sent to the Illustration Rendering engine to create a motion illustration in a multi-part sequence.
 
-Human motion segmentation and activity understanding has been well studied in computer vision and graphics \cite{Aggarwal:2011:HAA:1922649.1922653}. We adopted a time-space approach to identify salient motion sequences in 3D space.
+Human motion segmentation and activity understanding has been well studied in computer vision and graphics \cite{Aggarwal:2011:HAA:1922649.1922653}. We adopted a spacetime approach to identify salient motion sequences in 3D space.
 %
-In our scenario, each movement may not be necessarily seen or labeled with a semantic meaning (such as ``running'' or ``walking'' in previous research). Therefore, our approach combines speech labeling from a user, similar to the scene segmentation method used by \cite{chi2013democut}.
+However, in our scenario such as dancing, movements may not necessarily encode a semantic meaning for automatic recognition, such as ``walking'' or ``throwing (a ball)'' in previous research. Therefore, our approach combines the user's speech labels, similar to a scene segmentation method used in DemoCut~\cite{Chi:2013:DGC:2501988.2502052}.
 %
-We make three assumptions about the synchronized data streams of speech labels and joint movements:
-authors make short pauses between motions to be grouped;
-the speech label utterances overlap or closely occur with at least one joint motion;
-step-by-step movements are clearly segmented without an overlap.
+We make two assumptions about the synchronized data streams of speech labels and joint movements:
+1) authors make short pauses between motions to be grouped, i.e., $T_i^e < T_{i+1}^s$, and
+2) the speech label utterances overlap or closely occur with at least one joint motion;
+% step-by-step movements are clearly segmented without an overlap.
 %
-These assumptions are practical as authors often pause for a moment to prepare for demonstrating the next movement in a step-by-step sequence.
+These assumptions are practical since authors often pause for a moment to prepare for demonstrating the next movement in a step-by-step sequence.
 % , or reposition their body without those movements being assigned to any label.
 
 % where $T_s \leq T_w \leq T_e$,
 
-
 % For a motion label detected by the speech recognition engine at time \(T_w\) (e.g., step ``One'' or a gesture ``Swipe''), \systemname{} automatically identifies an appropriate motion segment for visualization as follows: It analyzes the motion data in order to identify the start and end time of this segment [\(T_s\), \(T_e\)] where \(T_s \leq T_w \leq T_e\), a set of salient joints \({J_0, ..., J_n}\), and a representative pose at \(T_k\) associated with this speech label. Figure~\ref{fig:segmentation} shows one example of a right-hand movement segmented by the following approach: \bjoern{What instant in time does \(T_w\) represent? The beginning of a word? The end? Some time after the end of the word once recognition has completed? Seems fairly important - otherwise I have no idea if \(T_s \leq T_w \leq T_e\) is a reasonable assumption.}
-
 
 % EUCLIDEAN DISTANCE
 \subsubTitleBold{Motion Segmentation}
-Let $T_w$ be the delay-corrected time when a speech label like \iquote{one} was detected.
-The first operation is to determine [$T_s$, $T_e$] for each speech label such that $T_s - \epsilon \leq T_w \leq T_e + \epsilon$, where $\epsilon$ is set to be 1 second to allow short pauses between speech and movement.
-%
-The operation begins by identifying periods of significant joint movement for 8 joints: the 5 end-effectors (head, hands, feet), 2 knees, and the body root.
+To determine a motion segment of [$T_i^s$, $T_i^e$] for each speech label $w_i$ that ends at $T_i^w$, we begin by identifying all \emph{moving periods} of significant joint movements (pink rectangles in Figure~\ref{fig:segmentation}) for 8 joints $J$: the 5 end-effectors (head, hands, feet), 2 knees, and the body root.
 %
 To filter jittery movements, joints are considered moving if smoothed inter-frame differences in absolute Euclidean distance are greater than a threshold.
 %
-Specifically, for each joint $J_i$ at time $t$, the average difference in position between two adjacent frames $\Delta P = |P_t-P_{t-1}|$ is computed over the subsequent half second (15 frames).
+Specifically, for each joint $j \in J$ of a frame $r$ at time $t$, the average difference in position between two adjacent frames $\Delta P = |P^r-P^{r-1}|$ is computed over the subsequent half second (15 frames).
 %
-If this moving average is greater than 0.05$meter/s$, then joint $J_i$ is labeled as ``moving'' at time $t$, marked as $m_i^t$.
-This is repeated on all frames and all joints to find all periods of significant joint movement (pink rectangles in Figure~\ref{fig:segmentation}).
+If this moving average is greater than 0.05$m/s$, then joint $j$ of a frame is labeled as ``moving'', marked as $m_j^r$.
+This is repeated on all frames and all joints.
+Next, of the entire motion recording for joint $j$, we combine all the consecutive $m_j^r, m_j^{r+1}, ...$ into a joint moving period $M_j$.
 % \dan{any extra hacks to join or filter out very small periods of movement like just a few frames? If so, explain here.}
 
-Next, after combining all the consecutive $m_i^{T_s}, m_i^{T_s+1}, ..., m_i^{T_e}$ between time [$T_s$, $T_e$] for joint $J_i$, we begin labeling each joint moving period $M_i$:
-%
-Given a list of speech labels, for each speech label at time $T_w$, label any unmapped period $M_i$ of joint \(J_i\) where $T_s - \epsilon \leq T_w \leq T_e + \epsilon$ (i.e., the speech utterance is detected during or closely occur with a joint movement, illustrated as dashed lines crossing pink rectangles in Figure~\ref{fig:segmentation}).
+Once a list of moving periods $\{M_j^1, M_j^2, ...\}$ for joint $j$ is determined, we begin labeling each $M_j^m$ at [$T_{m}^s$, $T_{m}^e$] to map to a speech label $w_i$ at time $T_i^w$ where $T_m^s \leq T_i^w \leq T_m^e$. In other words, the speech utterance occurs during or near to a joint movement (illustrated as dashed lines crossing pink rectangles in Figure~\ref{fig:segmentation}).
 %
 % Salient joint marking covered in the next paragraph ...
 %Mark \(J_i\) as salient.
@@ -146,12 +149,13 @@ Given a list of speech labels, for each speech label at time $T_w$, label any un
 %
 % \fixme{After all the moving sequences of a joint is identified, \systemname{} concatenates these elements and finds the earliest frames at \(T_s\) and latest frame at \(T_e\) as the start and end times of this motion segment. Mark this as a salient joint \(J_i\).} \bjoern{revisit - i find this unclear, but I'm also tired.}\dan{I can't figure it out either, but I think it needs to be explained here}
 %
-Once all periods of joint movement are mapped to labels for all major joints, the motion segment start time and end time [$T_s,T_e$] are set to the minimum start time and maximum end time across all mapped joint movement periods.
+After all moving periods are mapped to speech labels for all major joints, the start and end time [$T_i^s$, $T_i^e$] of the motion segment for label $w_i$ are set to the minimum start time and maximum end time across all mapped joint movement periods.
+%as [$\min_{\forall j \in J} T_jm^s$, $\max_{\forall j \in J} T_jm^e$].
 % \dan{the sentence above is my guess at what this means (same as what Bjoern guessed)
 % ``Our algorithm repeats this segmentation for all the major joints. If there are multiple salient joints, combine and adjust [\(T'_s\), \(T'_e\)] for this motion segment.'' \bjoern{How do you do the adjustment? do different joints have individual start and end times, or do you take the min of all start times and the max of all end times?}}
 
 \subsubTitleBold{Joint Salience Identification}
-The salient joints for a segment is the set of all joints \(J_i\) that were mapped based on significant motion segments.
+The salient joints $\{j_i^1, ..., j_i^k\}$ are defined by the set of all joints that were mapped based on significant moving periods.
 % \dan{any other rules or hacks to do this?}
 
 % \systemname{} analyzes a motion recording for significant motion changes using spatial thresholding of key joints. To concisely visualize body motion, we selected a subset from the 25 joints by their relative distance of a human body. For example, shoulder center can be represented by the head movement, and therefore trace only the latter joint. \bjoern{This is vague - which joints did you select? Why is this ``concise''? I don't understand the sentence about shoulders and heads at all. Maybe show a figure and highlight which joints you check.}
@@ -169,66 +173,68 @@ The salient joints for a segment is the set of all joints \(J_i\) that were mapp
 
 % KEY FRAME
 \subsubTitleBold{Key Pose Selection}
-We use a time near the end of each segment as the representative pose keyframe, specifically $T_k = T_e - 1$ second.
-We experimented with other options including the middle of the segment, but found designers most often chose a pose near the end as the key frame.
+A key pose is used to represent a motion segment in an illustration. Based on our informal experiment, it is often the end state of movements as motion arrows are pointed toward this end goal (see the Figure~\ref{fig:pipeline} for example). Therefore, we set a key pose at a time near the end of a motion segment, specifically $T_i^{key} = T_i^e - 0.5$ second.
 % \dan{should mention keyframe position in formative study section}
 % \peggy{confirmed, and in figure 2}
 % Therefore, we selects a frame \bjoern{x frames} from the out point \peggy{no intelligence here... how do we better describe?}.
 
-%\subsubTitleBold{Segment Retake}
-% \dan{I added the last part of that sentence, it works like that, right?}
-% \peggy{If pauses are long enough}
-When retaking a partial demonstration with one or more speech labels, the full motion analysis algorithm is run on the new recording, and new motion segments are inserted into the sequence of labeled time segments. %(see Figure~\ref{fig:segmentation}B).
+\subsubTitleBold{Motion Retake}
+When retaking a partial demonstration with one or more speech labels $\{w_i', w_{i+1}', ...\}$, the full motion analysis algorithm is run on the new recording. New motion segments then replace the original segments by mapping $w_i'$ with $w_i$.
 
 % ---------------------------------------------------------------
 
 \subsection{Illustration Rendering}
 
-The Illustration Rendering engine generates a motion illustration for each segment of joint motion (bounded by [$T_s$, $T_e$]). There are two related rendering tasks: the body pose and the motion depiction style.
+The Illustration Rendering engine generates a motion illustration for each motion segment of speech label $w_i$ (bounded by [$T_i^s$, $T_i^e$]). There are two related rendering tasks: the body pose and the motion depiction style.
 
 \subsubTitleBold{Body Pose}
-Following the principle of clarity through simplicity, Non-Photorealistic Rendering  \cite{gooch1998non} algorithms are used to render the 3D human model as an outline, silhouette, or flat-shaded colour (see Figure~\ref{fig:DemoDrawUI}c left for examples).
-The body pose is determined by all joint positions at keyframe time $T_k$.
+The body pose is determined by all joint positions at keyframe time $T_i^{key}$.
+We use standard Non-Photorealistic Rendering (NPR)~\cite{gooch1998non} techniques to render the 3D human model in a stylized manner that abstracts away distracting details. Specifically, we support contour-only, filled silhouette, and flat-shaded rendering styles
+% Following the principle of clarity through simplicity, Non-Photorealistic Rendering  \cite{gooch1998non} algorithms are used to render the 3D human model as a contour, silhouette, or flat-shaded colour
+(see Figure~\ref{fig:DemoDrawRefinementUI}a left for examples).
 % \dan{any more details? Unity asset used? tuning parameters? Is it fast?}
 
 \subsubTitleBold{Line and Arrow Depiction Style}
 Based on Cutting's criteria~\cite{cutting_representing_2002} and our survey of motion illustrations, we use lines with arrowheads as the default depiction style for visualizing joint movements.
 This style is rendered as follows:
 %
-For each salient joint \(J_i\) in \({J_0, ..., J_n}\) of a motion segment, the absolute joint positions in world space over the period [\(T_s\), \(T_e\)] are used to construct a 3D poly-line.
-The default is to render a smooth poly-line by interpolating positions using Catmull-Rom.
+For each salient joint of a motion segment, the absolute joint positions in world space over the period [$T_i^s$, $T_i^e$] are used to construct a 3D poly-line using Catmull-Rom interpolation.
 % \dan{can smoothing still be turned off?}
 % \peggy{current not}
 Two 3D cones are positioned collinear with the last two polyline positions to form arrowheads for both the beginning and the end of a line.
 %
-Although the poly-line is constructed in 3D, it is rendered with shading to appear 2D.
+Although the poly-line is 3D, it is shaded to appear 2D.
+%
+All arrows are colored red by default to contrast with the avatar, a common technique for layering information~\cite{tufte1990envisioning}.
 % \dan{and rendered to be always ``in front'' of the body.}
 % \peggy{currently does not consider camera viewpoint, so no}
 
-% \dan{relative positions instead}
 For some motions, visualizing absolute joint positions might not be suitable.
-For example, for a two-foot jump with a two-hand waving motion (see Figure~\ref{fig:DemoDrawUI}c bottom), our algorithm will mark all major joints as salient and generate multiple arrows showing the jump movement, but failing to convey the hand waving.
+For example, for a two-foot jump with a two-hand waving motion (see Figure~\ref{fig:DemoDrawRefinementUI}c), our algorithm will mark all major joints as salient and generate multiple arrows showing the jump movement, but fail to convey the hand waving.
 %
-Authors can choose to visualize joint motions \textit{relative} to the spine instead.
-The same motion analysis algorithm described above can then be re-run using relative motion.
-For the two-foot jump example, this would render a more concise illustration with a single up arrow (for the overall jump direction) and two curve arrows (for the hand movements).
+Authors can choose to visualize joint motions \textit{relative} to the spine instead,
+triggering the same motion analysis algorithm described above to be re-run using relative motion.
+In this way, the same movements would be shown more concisely with a single up arrow (for the overall jump direction) and two curve arrows (for the hand movements).
 %The joint data will be re-computed based on the offset distance to the spine position. The result illustration, in this case, can be more concise by showing only the spine motion.
 
-Authors can review the results using both the \phaseI{} and \phaseII{}. With the latter, line weight, arrowhead sizes, and color can also be adjusted and re-rendered in real-time using a graphical interface (see Figure~\ref{fig:DemoDrawUI}c left). Arrows can also be re-positioned by direct manipulation dragging.
+\subsubTitleBold{Other Adjustments}
+Authors can review the results using the \phaseI{} or \phaseII{}. With the latter, line weight, arrowhead sizes, and color can be adjusted and re-rendered in real-time using graphical widgets (see Figure~\ref{fig:DemoDrawRefinementUI}a). Arrows can also be re-positioned to increase the offset ($\delta$) by direct manipulation dragging.
+%
+Considering some movements cannot be easily seen from the default front camera viewpoint (such as those parallel to the XZ plane, see Figure~\ref{fig:teaser}c top-right), our UI enables the selection of four other camera angles ($\theta$), including three-quarter front views (45$^{\circ}$ and -45$^{\circ}$) and profile views (90$^{\circ}$ and -90$^{\circ}$), all at the eye level. These discrete choices simplify control, but of course it would be possible to select any viewing angle given the 3D avatar and joint information. By default, 8 main joints are analyzed and illustrated, but any of the 25 body joints can be explicitly selected for illustration using the interface.
 
 \subsubTitleBold{Stroboscopic Depiction Style}
 Cutting~\cite{cutting_representing_2002} noted stroboscopic effects are also effective, and we found examples of illustrations with a sequence of overlaid semi-transparent body poses in our survey.
 %
-Therefore, authors can select a stroboscopic depiction style in the \phaseII{}.
-The style is rendered by compositing multiple semi-transparent renderings of intermediate body poses between $T_s$ to $T_e$ behind a rendering of the representative pose at keyframe time $T_k$.
-Authors can adjust the number of intermediate poses (the default is 3 poses) and the horizontal offset between each intermediate pose rendering can be adjusted to stack them up (zero offset by default) or spread them out.
+Therefore, authors can select a stroboscopic depiction style in the \phaseII{} (see Figure~\ref{fig:DemoDrawRefinementUI}b).
+The style is rendered by compositing multiple semi-transparent renderings of intermediate body poses between $T_i^s$ to $T_i^e$ behind a rendering of the representative pose at keyframe time $T_i^{key}$.
+Authors can adjust the number of intermediate poses $n$ (the default is 3 poses) and the horizontal overlap ratio $\rho$ between intermediate pose renderings can be adjusted to stack them up ($\rho=100\%$) or spread them out ($\rho=0$ is the default).
 
 % Authors can then selectively combine these frames by specifying visual parameters, including numbers of frames to show, distance between frames, and whether to apply motion arrows. Our system will automatically adjust the distance and transparency values of selected frames and compose into a diagram.
 
 \subsection{Results}
-The \systemname{} pipeline is capable of generating expressive and clear motion illustrations. In Figure~\ref{fig:demodraw_teaser}c, motion arrows show the upper body motion (top left), hand waving back and forth (top middle), and hand circular motion (bottom right). Whole body motions can also be visualized (bottom left), and can be especially helpful when motions are best viewed from a different angle, such as the side view (top right).
+The \systemname{} pipeline is capable of generating expressive and clear motion illustrations. In Figure~\ref{fig:teaser}c, motion arrows show the upper body motion (top left), hand waving back and forth (top middle), and hand circular motion (bottom right). Whole body motions can also be visualized (bottom left), and can be especially helpful when motions are best viewed from a different angle, such as the side view (top right).
 %
-In Figure~\ref{fig:demodraw_teaser}d, stroboscopic effect depicts the transition from the start pose to the end pose, which can be rendered as a sequence (top left) or in one combined pose (bottom left). A combination of this effect with motion arrows enhances an illustration efficiently in an integrated figure (top and bottom right).
+In Figure~\ref{fig:teaser}d, stroboscopic effect depicts the transition from the start pose to the end pose, which can be rendered as a sequence (top left) or in one combined pose (bottom left). A combination of this effect with motion arrows creates a compact, integrated illustration (top and bottom right).
 
 % \dan{Talk about how expressive this pipeline is referring to diagrams shown in figure 1, the appendix, etc.}
 
@@ -236,20 +242,8 @@ In Figure~\ref{fig:demodraw_teaser}d, stroboscopic effect depicts the transition
 
 % ---------------------------------------------------------------
 
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=0.7\columnwidth]{\demodraw/fig/motion_analysis/analysis2}
-  \caption{Illustration of motion analysis algorithm (two joints shown due to space): significant periods of joint motion (pink) are mapped to speech labels to define motion segments (blue). Note the right hand period is mapped to \iquote{two} because it begins shortly after the left hand period.}
-   \label{fig:segmentation}
-\end{figure}
-
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=1.0\columnwidth]{fig/motion_analysis/analysis}
-%   \caption{Illustration of motion analysis algorithm (only one joint shown due to space): the significant joint motion period (gray) is mapped to the speech label \iquote{one}.}
-%   \dan{I don't think this diagram is conveying as much information about the algorithm as it could. Showing more than 1 joint and more than 1 label would be better. The avatar pictures aren't really necessary, people will get the x,y,z graphs since we're talking about abstract position data anyway. See diagram sketch above.}
-%   \label{fig:segmentation}
-% \end{figure}
-
-
-
+% -- Rebuttal --
+% * Camera positions can present motion parallel to the XZ plane (R1), see Fig 1c top-right.
+% * We do not embed color coding (R1,R2); we integrate "CMC l:c color differencing" to automatically avoid arrow colors visually similar to avatar colors.
+% * 8 major joints are selected to give users higher-level control, but the system tracks all 25 detailed joints that can be revealed via the Refinement UI (R2).
+% * Arrow path points are not sampled before Catmull–Rom interpolation (R1). It's simple, but it works because motions are often taken in 0.5s to 1s. We agree that sharp direction changes could be smoothed over: we can discuss alternate sampling methods like finding points with local min/max derivatives.
