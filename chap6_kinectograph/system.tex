@@ -1,5 +1,7 @@
 %!TEX root = ../thesis.tex
 \section{Automatic Tracking Techniques}
+\label{kinectograph_tracking}
+
 Kinectograph streams the video view captured from a Kinect camera to a PC. This PC also acts as a web server, publishing the control interface to tablet or phone clients. When a user enables automatic tracking, the PC analyzes user movements using the skeletal data from the Kinect SDK. Based on the user position, it sends appropriate commands to the motorized dock via USB to move the camera (Figure~\ref{fig:architecture}).
 
 \subsection{Hardware}
@@ -23,15 +25,18 @@ To track the user position and determine the camera angle, our system analyzes t
 \subsubsection{Physical Tracking of Joints}
 Kinectograph angles the camera to position the target, such as a user's hand, in the center of the camera view. When a user is found in the view, it receives the position of the tracked joint located at $\textless pos_{x}$, $pos_{y}$, $pos_{z} \textgreater$ in the 3D space that represents a {\em x-y} coordinate and {\em z} as the depth information of the target. The rotation angles are computed in order to align the target joint to the position of the center of view at $\textless center_{x}$, $center_{y}$, $pos_{z}\textgreater$  on the same X-Y plane as the joint position. The rotation angles $\theta_{tilt}$ and $\theta_{pan}$ (in degrees) to tilt or pan the camera are:
 
+\vspace{12pt}
 Tilt angle of y-axis:
 % Θ_tilt=∆y/∆z=arctan⁡((center_y-pos_y)/(pos_z ))
 $\theta_{tilt}=\frac{\Delta y}{\Delta z}=\arctan{(\frac{center_{y}-pos_{y}}{pos_{z}})}$
 
+\vspace{12pt}
 Pan angle of x-axis:
 % ∆Θ_pan=∆x/∆z=arctan⁡((center_x-pos_x)/(pos_z ))
 $\theta_{pan}=\frac{\Delta x}{\Delta z}=\arctan{(\frac{center_{x}-pos_{x}}{pos_{z}})}$
+\vspace{12pt}
 
-Figure \ref{fig:math} depicts the geometric relations from the Kinectograph view. Every 10 ms the top motor turns by $\theta_{tilt}$ and the bottom motor turns by $\theta_{pan}$. To avoid extraneous small camera movements, a variable bounding box around the center of the field of view is set such that the Kinectograph only moves once the tracked object leaves the bounding box.
+Figure \ref{fig:math} depicts the geometric relations from the Kinectograph view. Every 10 milliseconds, the top motor turns by $\theta_{tilt}$ and the bottom motor turns by $\theta_{pan}$. To avoid extraneous small camera movements, a variable bounding box around the center of the field of view is set such that the Kinectograph only moves once the tracked object leaves the bounding box.
 
 % Our current Kinectograph prototype limits users to selecting only joints in the upper portion of their body. Tracking joints such as the feet may cause the parts of the user to be out of the Kinect camera's view and thus be difficult to recognize. More sophisticated techniques may take into account the distance of the user and the availability of other joints in order to decide when it would be appropriate to track such joints. %For example, allow users to only track the feet, Kinectograph is confident that this would not cause the user to be unrecognizable.
 
@@ -62,8 +67,12 @@ Thus, Kinectograph allows users to digitally zoom into a specific area with one 
 %
 Kinectograph allows the the user to draw a box on the figure in the UI around the joint she wishes to digitally track. The initial dimensions and positions of that translated zoomed region on the live video stream is determined as follows (Figure~\ref{fig:math}D), where:
 
-$ZoomWidth= R + L = \frac{W}{2}*\frac{l}{\frac{w}{2}} + \frac{W}{2}*\frac{r}{\frac{w}{2}}$ \\
+\vspace{12pt}
+$ZoomWidth= R + L = \frac{W}{2}*\frac{l}{\frac{w}{2}} + \frac{W}{2}*\frac{r}{\frac{w}{2}}$
+
+\vspace{12pt}
 $ZoomHeight= U + D = \frac{H}{2}*\frac{u}{\frac{h}{2}}+ \frac{H}{2}*\frac{d}{\frac{h}{2}}$
+\vspace{12pt}
 
 After the zoomed region's initial dimension has been set, the center of this region is continuously shifted using the following equations: $\Delta X = pos_{x}^{'}-pos_{x}$ and $\Delta Y = pos_{y}^{'}-pos_{y}$
 
