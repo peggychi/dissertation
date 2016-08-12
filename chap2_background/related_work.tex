@@ -101,17 +101,16 @@ The paradigm that these projects explore opens a design space to create new tuto
 
 \subsection{In-Application Support}
 
-The above methods introduce innovative ways for learners to review workflows and instructions. However, learners usually review these materials in an interface completely separate from the application they are learning to use. Learners might have to switch between the main application they are using and a separate set of instructions, which could introduce a gap of evaluation (\iquote{Am I doing this right as the instructions explain?}) and a gap of execution (\iquote{How do I perform the action that the instructions describe?}).
-%
-Researchers have proposed another approaches to provide ``in-application'' assistance, often in real time, in a specific application context.
+The above methods introduce innovative ways for learners to review workflows and instructions. However, learners usually review these materials in an interface completely separate from the application they are learning to use. Learners might have to switch between the main application they are using and a separate set of instructions. This could widen the gulfs of execution and evaluation~\cite{Hutchins:1985:DMI:1453233.1453235} by making it more difficult for users to recall the actions to perform (\iquote{Am I doing this right as the instructions explain?}), or to remember how to evaluate whether they successfully followed instructions (\iquote{How do I perform the action that the instructions describe?}).
 
-There has been a considerable amount of research devoted to offering interactive help to support learners comprehend the functionalities from within the application.
+To reduce these gulfs, researchers have proposed another approaches to provide ``in-application'' assistance, often in real time, in a specific application context.
+First, there has been a considerable amount of research devoted to offering interactive help to support learners comprehend the functionalities from within the application.
 %
 Crystal~\cite{Myers:2006:AWW:1124772.1124832} enables software users to ask questions about why something did or did not occur in an application.
 %
 Video snippets can be embedded in application tooltips to explain specific functionality~\cite{Grossman:2010wr}, which were shown to be seven times more effective than conventional tooltips for for users trying to complete unfamiliar tasks.
 
-Interactive, step-by-step instructions can be integrated in several forms:
+Second, Interactive, step-by-step instructions can be integrated in several forms:
 %
 To help software users identify specific UI components, tutorials can be shown via a translucent ``stencil,'' which visually directs a user's attention to relevant UI elements~\cite{Kelleher:2005:STD:1054972.1055047}.
 %
@@ -119,7 +118,7 @@ By tracking user's current operations, tutorials can be integrated with an appli
 %
 Instructions can be captured from demonstrations as ``scripts'' to later guide step-by-step navigation within the interface~\cite{Bergman:2005:DocWizards}. In-application controls~\cite{Lieberman:2014:SML:2557500.2557543} and game elements~\cite{Li:2014:CGM:2556288.2556954, Dontcheva:2014:CCL:2556288.2557217} can further engage users in learning about the application.
 
-As tutorials are built for a broad community with many authors and learners, content can be dynamically updated by a community through user contributions~\cite{Lafreniere:2013ff,Matejka:2009:CCR:1622176.1622214, Bunt:2014:TPI:2556288.2557118}.
+Third, as tutorials are built for a broad community with many authors and learners, content can be dynamically updated by a community through user contributions~\cite{Lafreniere:2013ff,Matejka:2009:CCR:1622176.1622214, Bunt:2014:TPI:2556288.2557118}.
 
 Our work focuses on authoring tools to create novel tutorial format designs, though it doesn't specifically focus on learning support. We see opportunities to provide the tutorials we generate as a form of in-application guidance. For example, a video clip from a MixT tutorial can be automatically replayed when a system detects a slowdown of a learner's progress on a specific step. However, we do not claim to make a contribution in this direction.
 
@@ -135,44 +134,44 @@ Our work focuses on authoring tools to create novel tutorial format designs, tho
 \section{Generating Instructions for Physical Activities}
 \label{related_physical}
 
-The above approaches of tracking a software demonstration open the door to enable interactive tutorials that can respond to user progress. However, understanding user behavior in the physical world, rather than in software, remains challenging.
+The above approaches to capture software demonstrations open the door to enable interactive tutorials that can respond to user progress. However, capturing and tracking user behavior in the physical world, rather than in software, remains challenging.
 %
-How do technologies track humans and objects in a space to support real-time feedback? What are the available authoring techniques to generate instructions for physical tasks?
+How can technologies track humans and objects in a space to support real-time feedback? What are the available authoring techniques to generate instructions for physical tasks?
 %
-This section discusses the challenges from four perspectives, including tracking activities, authoring instructions, presenting guidance, and enabling interactive instruction following in a real world.
+This section discusses the challenges to approaches that researchers have taken from four perspectives, including tracking activities, authoring instructions, presenting guidance, and enabling interactive instruction following in the real world.
 
 % -------------------
 
 \subsection{Tracking Physical Activities}
-To record activities and provide responsive feedback, a computer system needs to detect user operations and objects in real-time.
+To record activities and provide interactive feedback, a computer system needs to detect user operations and objects in real-time.
 %
-Computer vision techniques can automatically track specific physical targets shown in a video for interactive applications. These include three major categories:
+Computer vision techniques can automatically track specific physical targets shown in a video that can enable novel interactions. This includes two types of targets:
 
 \begin{itemize}
   \item \textbf{Tracking objects}. Common techniques include:
-  1) Track specific \emph{colors} or visual features of pre-defined objects. Examples include tracking a fast-moving Ping-Pong ball for automatic camera control~\cite{Okumura:2011tr} or paper puppets for creating animation~\cite{Barnes:2008:VideoPuppetry}.
+  1) Tracking specific \emph{colors} or \emph{visual features} of pre-defined objects. Examples include tracking a fast-moving Ping-Pong ball for automatic camera control~\cite{Okumura:2011tr} or paper puppets for creating animations~\cite{Barnes:2008:VideoPuppetry}.
+  Color and feature information can be supplemented with depth information, which could obtain a better understanding of the objects’ positions in the 3D world. Tracking objects in this way is useful to capture activities that involved object manipulations, such as block or toy assembly tasks~\cite{Gupta2012DuploTrack,Wu:2016:ARI:2856400.2856416} and 3D puppet control~\cite{held20123d};
   %
-  2) Track both \emph{colors and depths} of objects, which could obtain a better understanding of the objects' positions in a 3D world. The information can be useful for activities involved object manipulations, such as block or toy assembly tasks~\cite{Gupta2012DuploTrack,Wu:2016:ARI:2856400.2856416} and 3D puppet control~\cite{held20123d}.
+  2) Tracking \emph{motion-capture markers}. The most common method is to attach reflective markers to an object's surface. This enables accurate capturing of motions like an animator's continuous movements~\cite{Dontcheva:2003:LAC:1201775.882285}.
   %
-  3) Track \emph{motion-capture markers}. The most common method is to attach reflective markers to an object's surface. This enables accurate, responsive capturing, such as to record an animator's continuous movements~\cite{Dontcheva:2003:LAC:1201775.882285}.
+  \item \textbf{Tracking humans}. Human activity can be tracked in many ways, often determined based on what activity is being monitored.
+  Targets include \emph{faces} (e.g., to show a close-up of a speaker during video conferencing~\cite{Ranjan:2010}, to provide real-time camera control guidance when filming an interview~\cite{Carter:2010}, and to capture facial performances~\cite{Shi:2014:AAH:2661229.2661290,thies2016face}); \emph{hands} (e.g., to enable gestural control~\cite{taylor-siggraph2016} and camera control of a repair task~\cite{Ranjan:2008}); \emph{user movements} (e.g., to provide augmented information~\cite{Wilson:2012fb,Anderson:2013:YEM:2501988.2502045}).
   %
-  \item \textbf{Tracking humans}. Targets include \emph{faces} (e.g., to show a close-up of a speaker during video conferencing~\cite{Ranjan:2010}, provide real-time camera control guidance when filming an interview video~\cite{Carter:2010}, and capture facial performances~\cite{Shi:2014:AAH:2661229.2661290,thies2016face}), \emph{hands} (e.g., to enable gestural control~\cite{taylor-siggraph2016} and camera control of a repair task~\cite{Ranjan:2008}), and \emph{user movements} (e.g., to provide augmented information~\cite{Wilson:2012fb,Anderson:2013:YEM:2501988.2502045}).
-  %
-  Motion-capture markers are often used to accurately track actors in professional filmmaking. However, since markers are visible in a camera view, visual effects (VFX) are necessary to post-process a video recording.
-  %
-  \item \textbf{A combination of the above}, such as reconstructing a 3D scene of a player throwing a basketball~\cite{dou-siggraph2016}.
+  Motion capture markers can be used to track actors in addition to objects in professional filmmaking. However, since markers are visible in video recordings, visual effects (VFX) post-processing is necessary to hide them from the final rendering.
 \end{itemize}
+
+For many physical tasks, it's important to track both objects and humans. One example is reconstructing 3D scenes of athletes throwing basketballs~\cite{dou-siggraph2016}.
 
 Some of these vision-based systems require a high-speed camera~\cite{Okumura:2011tr} or a RGB-D camera~\cite{Gupta2012DuploTrack,Wu:2016:ARI:2856400.2856416,held20123d,Wilson:2012fb,Anderson:2013:YEM:2501988.2502045,dou-siggraph2016}, while some require users to wear reflective markers~\cite{Ranjan:2008}.
 %
-Other non-vision tracking methods rely on sensors attached to an object or human, including GPS sensor~\cite{HexoDrone} and radio frequency wireless signals~\cite{Nguyen:2016:ICR:2935620.2935632}. These are often used for tracking a moving target in a larger space, such as a flying drone.
+Other non-vision tracking methods rely on sensors attached to an object or human, including GPS sensors~\cite{HexoDrone} and wireless radio frequency sensors~\cite{Nguyen:2016:ICR:2935620.2935632}. These are often used to track a moving target in a larger space, such as a flying drone.
 %
-Finally, if video content is difficult to be extracted, crowdsourcing algorithms have been introduced to structure step-by-step videos by online workers~\cite{Kim:2014:CSI:2611222.2556986}.
+Finally, if video content is difficult to be extracted into semantic information, crowdsourcing algorithms have been introduced to segment step-by-step videos with the help of online workers~\cite{Kim:2014:CSI:2611222.2556986}.
 
 % summary
-The detection mechanisms from these systems inspired us to design interactive systems that can react to authors' activities without requiring users to carry  a sensor. For examples, Kinectograph and DemoDraw track authors' body parts using a Kinect sensor that has been widely available to consumers.
+The detection mechanisms from these systems inspired us to design interactive systems that can react to an author's activities without requiring them to carry  a sensor. For example, Kinectograph and DemoDraw track authors' body parts using a Kinect sensor that is widely available to consumers.
 %
-However, tracking technique for high-level information, such as the \emph{intent} of a certain action, is yet lacking. Therefore, when automatic activity recognition is difficult, we include authors in a loop to annotate a task. DemoCut provides an annotation interface for describing DIY videos; DemoDraw provides a multi-modal interface to label continuous body movements.
+However, tracking techniques to detect high-level task information, such as the \emph{intent} of a certain action, is still difficult to achieve. When automatic activity recognition is difficult, we include authors in the loop to annotate a task. DemoCut provides an annotation interface for describing high-level actions in DIY videos; DemoDraw provides a multi-modal interface to label continuous body movements.
 
 % These methods usually require an expert defining heuristics of space regions or movement classifications ahead of time for the tracking program.
 
@@ -180,36 +179,36 @@ However, tracking technique for high-level information, such as the \emph{intent
 
 \subsection{Authoring Instructions for Real-World Tasks}
 
-We identified two major approaches to create instructions for physical tasks: model-based and demonstration-based generation.
+From current literature, we identified two major approaches to create instructions for physical tasks: model-based and demonstration-based.
 %
-A \emph{model-based} system analyzes the structure of an object or a task and renders instructions.
+A \emph{model-based} system analyzes the structure of an object or a task to generate instructions of how the object is constructed or the task is performed.
 %
-The approaches by Feiner and Seligmann~\cite{feiner:1985:AEA:1299975.1300548,Seligmann:1991:AGI:127719.122732} considered communicative intent and rules of object manipulation to create 3D illustrations. Their automatically-generated results showed that actions such as snapping latches can be effectively expressed by motion arrows and a cutaway view.
+The approaches by Feiner and Seligmann~\cite{feiner:1985:AEA:1299975.1300548,Seligmann:1991:AGI:127719.122732} considered communicative intent and rules of object manipulation to create 3D illustrations. Their automatically-generated diagrams showed that actions such as snapping latches can be effectively expressed by motion arrows and a cutaway view.
 %
-By analyzing object geometry and other attributes, Agrawala \ea{}'s~\cite{agrawala2003designing} system automatically renders step-by-step assembly instructions, e.g., for furniture and toys (See Figure~\ref{fig:related_models} left).
+By analyzing object geometry and other attributes, Agrawala \ea{}'s~\cite{agrawala2003designing} system automatically renders step-by-step assembly instructions for furniture and toys (see Figure~\ref{fig:related_models} left).
 %
-Technical diagrams can also be generated, such as an exploded view that explains mechanical assembly parts~\cite{li2008automated} and motion illustrations that describe how individual parts are operated~\cite{mitra2010illustrating}. Parts are highlighted using colors, often labeled with text; Casual chain sequence of mechanical interaction can be shown as a list of highlighted figures, annotated with motion arrows (See Figure~\ref{fig:related_models} right).
+Technical diagrams can also be generated, such as exploded views that explain mechanical assembly parts~\cite{li2008automated} and motion illustrations that describe how individual parts are operated~\cite{mitra2010illustrating}. Parts are highlighted using colors, often labeled with text; causal chain sequences of mechanical interaction can be shown as a list of highlighted figures, annotated with motion arrows (see Figure~\ref{fig:related_models} right).
 %
-Reversely, an existing technical document can be automatically analyzed and transfered into 3D animation by parsing the parts, orientation, and visual annotations~\cite{Mohr:2015:RTD:2702123.2702490}.
+Conversely, an existing technical document can be automatically analyzed and transformed into a 3D animation by parsing its parts, orientation, and visual annotations~\cite{Mohr:2015:RTD:2702123.2702490}.
 
 \begin{figure*}[t!]
   \centering
   \includegraphics[width=0.3\textwidth]{\background/fig/model_generation/furniture}
   \includegraphics[width=0.5\textwidth]{\background/fig/model_generation/chain}
-  \caption{Example instructions automatically generated by Agrawala \ea~\cite{agrawala2003designing} (left) and Mitra \ea~\cite{mitra2010illustrating} (right) using model-based approaches.}
+  \caption{Example diagrams automatically generated with a model-based approach: assembly instructions by Agrawala \ea~\cite{agrawala2003designing} (left) and Mitra \ea~\cite{mitra2010illustrating} (right).}
   \label{fig:related_models}
 \end{figure*}
 
-A \emph{demonstration-based} system records an author's physical demonstration of a workflow. The captured materials can be either automatically analyzed by the system or manually edited by an author to create instructions.
+A \emph{demonstration-based} system records an author's physical demonstration of a workflow. The captured materials can be either automatically analyzed by the system or manually edited by an author to produce instructions.
 %
 One approach is to employ templates to help users capture sequences of distinct shots (e.g., Snapguide\footnote{\url{http://snapguide.com/}}) or provide a limited set of operations to record specific moments (e.g., adding or removing a part in a block-assembly task~\cite{Ranjan:2007,Gupta2012DuploTrack}).
 %
-Another approach is to provide an interface to support authors capturing multimedia materials during or after a demonstration, such as using a head-mounted capturing device~\cite{carter2015authoring}. For certain tasks, new recording devices need to be specially designed, such as an integrated device that includes an IR camera to capture a knitting process~\cite{Rosner:2008:SAK:1409635.1409682} and a turntable to record the building process of a DIY project~\cite{Tseng:2015:SPT:2771839.2771869}.
+Another approach is to provide an interface to support authors produce multimedia materials during or after a demonstration, for example through an interface on a head-mounted video capture device~\cite{carter2015authoring}. For certain tasks, new recording devices need to be specially designed, such as an integrated device that includes an IR camera to capture a knitting process~\cite{Rosner:2008:SAK:1409635.1409682} and a turntable to record the building process of a DIY project~\cite{Tseng:2015:SPT:2771839.2771869}.
 
 % summary
-In this dissertation, we support a wide variety of how-to tasks from craft to home repair and cooking where automatically tracking user activities is not yet completely possible. Since these domains often involve author creativity and personal styles, we opt for the demonstration-based approach.
+In this dissertation, we support a wide variety of how-to tasks from craft to home repair and cooking where tracking user activities cannot be done completely automatically. Since the instructions produced in these domains are often highly creative and tailored to the author's style, we focus on the demonstration-based approach, which we feel is better capable of preserving the author's sensibilities.
 %
-DemoCut, Kinectograph, and DemoWiz each allows authors to perform a physical demonstration in front of a camera, while semi-automatically capturing the activities.
+Kinectograph and DemoDraw each allow authors to perform a physical demonstration in front of a camera, while automatically capturing the activities.
 
 % -------------------
 
@@ -229,93 +228,96 @@ DemoCut, Kinectograph, and DemoWiz each allows authors to perform a physical dem
 \end{figure*}
 
 \subsection{Presenting Guidance}
-To help learners perceive instructions for physical tasks, we discuss how guidance can be displayed in a 3D world. There are four main approaches to present real-time guidance.
+To help learners follow instructions for physical tasks, we discuss how guidance has been displayed in the 3D world. There are four main approaches to present real-time guidance.
 
-First, rich information can be shown via an \emph{external display} placed next to the work area. Several applications adopt this method, including cooking~\cite{Uriu:2012:PRM:2207676.2207695} and block assembly tasks~\cite{Gupta2012DuploTrack,Wu:2016:ARI:2856400.2856416}. However, a learner may often switch his or her attention between the task and the instructions. To better blend the information into activities, Knibbe~\ea{} designed a display-embedded table as a physical workspace that monitors, records, and assists users~\cite{Knibbe:2015:SMI:2817721.2817741}. In this way, workers can review the information on the desktop while making a project.
+First, rich information can be shown via an \emph{external display} placed next to the work area. Applications in several domains adopt this method, in the domains of cooking~\cite{Uriu:2012:PRM:2207676.2207695} and block assembly tasks~\cite{Gupta2012DuploTrack,Wu:2016:ARI:2856400.2856416}. One challenge of external displays is that a learner may need to switch their attention often between the task and the instructions. To make instructions more easily accessible, Knibbe~\ea{}~\cite{Knibbe:2015:SMI:2817721.2817741} designed a table with an embedded display as a physical workspace that monitors, records, and assists users. In this way, workers could review the information on the table's surface while making a project.
 
-Second, information can be \emph{overlaid on top of the work area} through a projector. Examples include supporting remote repair tasks~\cite{Gurevich:2012ko} (see Figure~\ref{fig:related_teleadvisor} right), assembly tasks~\cite{Kirk:2006:CRG:1124772.1124951}, cooking~\cite{Ju:2001:CIC:634067.634227}, and piano learning~\cite{Xiao:2016:IEI:2858036.2858577}.
+Second, information can be \emph{overlaid on top of the work area} with a projector. Examples include remote repair tasks~\cite{Gurevich:2012ko} (see Figure~\ref{fig:related_teleadvisor} right), assembly tasks~\cite{Kirk:2006:CRG:1124772.1124951}, cooking~\cite{Ju:2001:CIC:634067.634227}, and learning to play the piano~\cite{Xiao:2016:IEI:2858036.2858577}.
 %
-For tasks such as dance movements, guidance can be shown on an augmented mirror that learners constantly focus on~\cite{Anderson:2013:YEM:2501988.2502045}.
+For tasks such as dance movements, guidance can be shown on an augmented mirror that learners can reference~\cite{Anderson:2013:YEM:2501988.2502045}.
 %
-This method can effectively present instructions at a location that can be viewed by a learner during a task. However, this often requires a specific indoor environment setup and a calibrated projector, which is not scalable.
+This method can effectively present instructions at a location that can be viewed most of the time by a learner as they perform the task. However, this often requires a tailored indoor environment setup and a calibrated projector, which is difficult to integrate into most realistic settings where learners are doing these tasks.
 
-Third, information can be \emph{augmented through a head-mounted display or a mobile phone} accessed and viewed by individuals. Researchers have shown AR applications that provide visual highlights for machine maintenance~\cite{Henderson:2011ff,Mohr:2015:RTD:2702123.2702490} (see Figure~\ref{fig:related_ar_annotation}), enable interactive touring in a city~\cite{Feiner1997}, explain product functionalities~\cite{MagicLens}, and present dynamic UI or information based on head orientation~\cite{Zhang:2014:HHO:2659766.2659773}.
+Third, instructions can be \emph{displayed through a head-mounted device or mobile phone}. Researchers have built AR applications that provide visual highlights for machine maintenance~\cite{Henderson:2011ff,Mohr:2015:RTD:2702123.2702490} (see Figure~\ref{fig:related_ar_annotation}), enable interactive touring in a city~\cite{Feiner1997}, explain product functionalities~\cite{MagicLens}, and present dynamic user interfaces based on head orientation~\cite{Zhang:2014:HHO:2659766.2659773}.
 %
-Compared to the previous approach that projects information onto a public space, this method allows learners to access information individually. Multiple users can interact with an augmented system at the same time. However, learners have to wear or hold a device, which might limit their mobility while performing a task.
+Compared to other approaches that project information onto a publicly visible surface, this method allows learners to access information privately. Multiple users can interact with an augmented system at the same time. However, learners have to wear or carry a device, which might limit their mobility while performing a task.
 
-Last, for specific tasks, information can be conveyed \emph{directly via target objects}. Haptic feedback has shown to be useful to help learners capture guidance while focusing on the physical tasks, such as for sculpturing~\cite{Zoran:2013:FFD:2470654.2481361,Agrawal:2015:PPS:2807442.2807505}, building multi-material assemblies~\cite{Schoop:2016:DSS:2851581.2892429}, and learning Frisbee~\cite{Solomon:2014:UTI:2540930.2540965}. Visual cues such as LED patterns shown on a device can help direct user's attention~\cite{Solomon:2014:UTI:2540930.2540965,Vasey:2016:HHR:2897839.2927404}.
+Last, for specific tasks, information can be conveyed \emph{directly via target objects}. Haptic feedback has shown to be useful to help learners follow steps for physical tasks, including sculpting~\cite{Zoran:2013:FFD:2470654.2481361,Agrawal:2015:PPS:2807442.2807505}, building multi-material assemblies~\cite{Schoop:2016:DSS:2851581.2892429}, and learning Frisbee~\cite{Solomon:2014:UTI:2540930.2540965}. Visual cues such as LED patterns shown on a device can help direct user's attention to physical features they must interact with~\cite{Solomon:2014:UTI:2540930.2540965,Vasey:2016:HHR:2897839.2927404}.
 %
 This approach is task-specific and can be difficult to generalize to other task domains.
 
-\subsection{Providing Interactive Guidance}
+\subsection{Providing Activity-Based Guidance}
 % \subsubTitleBold{Responding to Learners' Progress}
-Finally, we discuss how assistive technologies track a learning process and support interactive guidance. Providing responsive feedback requires an understanding of learners' activities. For specific tasks such as block assembly~\cite{Gupta2012DuploTrack,Wu:2016:ARI:2856400.2856416} and dancing~\cite{Anderson:2013:YEM:2501988.2502045}, learners' progress can be accurately tracked in 3D. This enables a tutorial system to provide real-time information about the current learner state, e.g., where to place the next block to the current model or suggested adjustment on a dance pose.
+Finally, we discuss how assistive technologies track a learning process and support guidance based on learners' progress. For some specific tasks such as block assembly~\cite{Gupta2012DuploTrack,Wu:2016:ARI:2856400.2856416} and dancing~\cite{Anderson:2013:YEM:2501988.2502045}, learners' progress can be accurately tracked in 3D. This enables a tutorial system to provide real-time feedback about the learner's performance and what to do next, e.g., where to place the next block to the current model or suggested adjustment on a dance pose.
 %
-However, as we discuss earlier, tracking activities at the instruction level for real-world tasks is still lacking. Therefore, the majority of the systems provided user interfaces for learners to navigate instructions.
+However, as we discussed earlier, tracking activities at the instruction level for real-world tasks can still be inaccurate. Therefore, the majority of systems supporting interactive physical guidance enable learners to navigate instructions.
 %
 For a pair learning scenario, a remote instructor can manually provide instructional input based on the learner's progress that he or she sees, such as highlighting a component for remote repair tasks~\cite{Gurevich:2012ko,Kirk:2006:CRG:1124772.1124951} (see Figure~\ref{fig:related_teleadvisor} left).
 
-Our work focuses on designing tools for tutorial authors to create instructions from demonstrating a task. DemoCut is designed for authoring instructions after the capture time. Kinectograph provides an control interface on a Tablet device for authors to carry and place in a space. DemoDraw's demonstration interface is similar to Anderson \ea{}'s~\cite{Anderson:2013:YEM:2501988.2502045} augmented mirror. But instead of overlaying instructions, we present a real-time rendering view of an author's movements via an external display placed in front of the user. We have not investigated tools for learners to follow a task.
+Our work focuses on designing tools for tutorial authors to create instructions from task demonstrations. DemoCut is designed for authoring instructions after capture time. Kinectograph provides a control interface on a tablet device for authors to carry and place in a space. DemoDraw's demonstration interface is similar to Anderson \ea{}'s~\cite{Anderson:2013:YEM:2501988.2502045} augmented mirror. But instead of overlaying instructions, we present a real-time render view of an author's movements via an external display placed in front of the user.
 
 % -------------------------------------------
 
 \section{Working with Videos}
 \label{related_videos}
 
-Research in video understanding has introduced new ways to work with videos, including capturing, editing, and navigating. How do authoring tools help users record, organize, and edit necessary materials? What are the interaction techniques of reviewing one or multiple videos? In this section, we review these topics briefly.
+Research in video understanding has introduced new ways to work with videos. How should authoring tools help users record, organize, and edit necessary materials? What interaction techniques can help authors and viewers navigate one or more videos?
+In this section, we review these questions and their answers briefly by considering current research tools designed to help users capture, edit, and navigate video.
 
 % -------------------
 
-\subsection{Capturing}
-Tool supports at the capturing phase include:
+\subsection{Tools for Capturing Video}
+Tools that support video capture focus on these subtasks:
 
-\subsubTitleBold{Filming Suggestion}
-Several research systems guide users at capture time to yield higher-quality videos. Real-time suggestions include framing of the subject or camera view (e.g., NudgeCam for interview videos~\cite{Carter:2010}) and actor's performance~\cite{Heer:2004ba,Davis:2003cu}. Shot suggestions can also be bootstrapped through user dialogs~\cite{Adams:2005}.
+\subsubTitleBold{Shooting Suggestion}
+Several research systems guide users at capture time to record higher-quality videos.
+Real-time suggestions can help camera operators frame subjects, position views (e.g., NudgeCam for interview videos~\cite{Carter:2010}), and provide suggestions for actors' performance~\cite{Heer:2004ba,Davis:2003cu}, such as to speak louder or exaggerate a performance. Shot suggestions can also be bootstrapped through user dialogs~\cite{Adams:2005}.
 %
-Patterns from expert storytellers and commonsense reasoning can recommend novice authors to capture materials and develop a story structure~\cite{Barry:2003:MCC:957013.957152,Kim:2015:MSN:2702123.2702507}.
+Other researchers recommend patterns from expert storytellers and common sense to help novice authors capture materials and develop a story structure~\cite{Barry:2003:MCC:957013.957152,Kim:2015:MSN:2702123.2702507}.
 
-\subsubTitleBold{Camera Control}
-Viewpoints of stationary cameras can be automatically decided based on heuristics at record time to trace an actor, an area, or an object~\cite{Ranjan:2008,Okumura:2011tr}.
+\subsubTitleBold{Automatic Camera Control}
+Viewpoints of stationary cameras can be automatically determined based on heuristics at record time in order to track actor, area, or object~\cite{Ranjan:2008,Okumura:2011tr}.
 %
-In recent years, quadrotor cameras enable a wide range of trajectories to capture a subject from different viewing angles. Roberts and Hanrahan~\cite{Roberts:2016:GDF:2897824.2925980} proposed an authoring tool for authors to plan and preview a camera trajectory. When being filmed, 3D gestures allow a person to control a quadrotor camera at the scene~\cite{Cauchard:2015:DME:2750858.2805823,Pfeil:2013:EGM:2449396.2449429}.
+In recent years, quadrotor cameras enable a wide range of trajectories to capture subjects from different viewing angles. Roberts and Hanrahan~\cite{Roberts:2016:GDF:2897824.2925980} proposed an authoring tool for authors to plan and preview a camera trajectory.
+Some tools have enabled actors to control quadrotor cameras by using 3D gestures as they are being filmed~\cite{Cauchard:2015:DME:2750858.2805823,Pfeil:2013:EGM:2449396.2449429}.
 
 % summary
-We proposed Kinectograph prior to these systems of quadrotor camera control. A recent commercial system has included a similar feature to track a moving user~\cite{HexoDrone}, which is based on GPS location instead of specific body parts.
+We proposed Kinectograph prior to these systems of quadrotor camera control. A recent commercial system has included a similar feature to track a moving user~\cite{HexoDrone}, which is based on GPS information instead of specific body parts.
 
 % -------------------
 
-\subsection{Editing}
-Tool supports for video composition and editing include:
+\subsection{Tools for Editing Video}
+Tools that support video editing focus on these subtasks:
 
 \subsubTitleBold{Annotation}
-Researchers have investigated how to provide interactions that enable efficient, fluid annotation or labeling of video data. Examples include the EVA system~\cite{Mackay:1989} that encouraged authors to annotate materials at capture time. More recent interfaces leverage pen input (e.g., VideoTater~\cite{Diakopoulos:2006vt}) and touch or gestural input~\cite{Sarkar:2016:SCC:2858036.2858199}.
+Researchers have investigated interactions that enable efficient, fluid annotation or labeling of video data. One example is the EVA system~\cite{Mackay:1989} that encourage authors to annotate materials at capture time. More recent interfaces accept pen input (e.g., VideoTater~\cite{Diakopoulos:2006vt}) and touch or gestural input~\cite{Sarkar:2016:SCC:2858036.2858199}.
 
-\subsubTitleBold{Story Composition}
-When working with a repository of video clips, it can be challenging to compose a compelling story. Several new interaction techniques have been proposed:
+\subsubTitleBold{Storytelling}
+When working with a repository of video clips, it can be challenging to compose a compelling story. Several new interaction techniques have been proposed to make it easier to compose compelling stories:
 %
 A storyline can be created non-linearly based on relevant characters, emotions, and themes of the current edited clips~\cite{Shen:2009:WNE:1518701.1518825}.
 %
-Tangible controllers with a specialized table interface enable collaborative, non-linear editing~\cite{Bartindale:2012:STS:2207676.2207700,Bartindale:2016:TSS:2818048.2819929}.
+Tangible controllers with a specialized table interface can enable collaborative, non-linear editing~\cite{Bartindale:2012:STS:2207676.2207700,Bartindale:2016:TSS:2818048.2819929}.
 %
-Live authoring at capture time with a Tablet device allows an author to quickly organize clips and apply editing decisions~\cite{Freeman:2014:LLA:2611105.2557304}.
+Live authoring at capture time with a Tablet device can allow an author to quickly organize clips and apply editing decisions~\cite{Freeman:2014:LLA:2611105.2557304}.
 
-\subsubTitleBold{Computer-Powered Editing}
-Frame-based editing of video is very time-intensive, as it forces users to operate at a very low level of detail. Editors can leverage \emph{metadata}, such as shot boundaries~\cite{Casares:2002dx} and transcripts~\cite{Berthouzoz:2012} that help users place cuts and transitions. This gives users higher-level editing operations at the shot level rather than the frame level.
+\subsubTitleBold{Editing}
+Frame-based video editing is very time intensive, as it forces users to operate on very minute details. Editors can leverage \emph{metadata}, such as shot boundaries~\cite{Casares:2002dx} and transcripts~\cite{Berthouzoz:2012} that help users place cuts and transitions. This gives users higher-level editing operations at the shot level rather than the frame level.
 %
-Techniques of \emph{computer vision} and \emph{speech analysis} can automate certain visual effects, such as creating cinemagraphs~\cite{Bai:2012, Joshi:2012}, automatically-edited lecture videos~\cite{Heck:2007}, zoomable tapestries~\cite{Barnes:2010} and synopses~\cite{Pritch:2009vl}, or stabilizing shaky amateur videos~\cite{Liu:2011}.
+Techniques of \emph{computer vision} and \emph{speech analysis} can automate certain visual effects, such as creating cinemagraphs~\cite{Bai:2012, Joshi:2012}, automatically editing lecture videos~\cite{Heck:2007}, creating zoomable tapestries and synopses~\cite{Barnes:2010,Pritch:2009vl}, and stabilizing shaky amateur videos~\cite{Liu:2011}.
 %
 Edits can take place during recording, such as switching to a close-up view of a person who is speaking~\cite{Ranjan:2010}.
 %
-When material can be reviewed in 3D such as character animation, camera angles can be optimized to render a new video by analyzing the actor data~\cite{assa2005action,assa2008motion}.
+When material like character animations can be reviewed in 3D, camera angles can be optimized to render a new video by analyzing the actor data~\cite{assa2005action,assa2008motion}.
 %
 Finally, when video analysis is a matter of subjective taste, identifying salient frames or highlights can be outsourced to crowd workers~\cite{Bernstein:2011uj,Tang:2012:ECS:2207676.2208622}.
 
 % summary
-MixT, DemoCut, Kinectograph, and DemoDraw also use vision techniques for automatic editing. They differ from previous approaches in its focus on two particular application domains -- software and physical demonstration videos.
+MixT, DemoCut, Kinectograph, and DemoDraw also use computer vision techniques for automatic editing. They differ from previous approaches in their focus on two particular application domains -- software and physical demonstration videos.
 %
-By focusing on a specific domain, MixT and DemoCut can make assumptions about the structure of the input and output video, such as the fact that there is a linear set of steps, and offer an interface and algorithms that make it easier to create high quality how-to videos.
+By focusing on a specific domain, MixT and DemoCut can make assumptions about the structure of the input and output video, such as the fact that there is a linear set of steps. They offer an interface and algorithms that make it easier to create high quality how-to videos.
 %
-Kinectograph makes editing decisions (e.g., pan-and-tilt, zooming) based on actor's body location in instructional videos.
+Kinectograph makes editing decisions (e.g., pan-and-tilt, zooming) based on an actor's body location in instructional videos.
 %
 DemoDraw includes a multi-modal interface where authors can annotate a recorded body motion using speech while physically performing movements.
 
@@ -323,7 +325,7 @@ DemoDraw includes a multi-modal interface where authors can annotate a recorded 
 
 % -------------------
 
-\subsection{Navigating}
+\subsection{Tools for Navigating Video}
 Video playback can be controlled by inferring user intention from their actions.  For example, segments can be played back~\cite{Pongnumkul:2011ju} or speed can be modified~\cite{Cheng:2009:SUV:1518701.1518823} based on a user's actions in a software application.
 %
 Videos can be navigated at the content level beyond a linear timeline. For instance, subjects' movements can be visualized in a storyboard~\cite{goldman2006schematic} or continuous image mosaic~\cite{Teodosio:2005:SS:1047936.1047940}, and timelines can be navigated by manipulating a target in 2D~\cite{Dragicevic:2008:VBD:1357054.1357096,Goldman:2008:VOA:1449715.1449719,Karrer:2008:DDM:1357054.1357097} or 3D~\cite{Nguyen:2013:DMV:2470654.2466150}.
