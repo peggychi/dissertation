@@ -3,33 +3,37 @@
 \chapter{Related Work}
 \label{chapter_related_work}
 
-While existing practices require tutorial authors to create instructions manually, HCI and Computer Graphics communities have introduced novel technologies for authoring tutorials, including automatic generation methods and interactive editing tools.
+% Typically, authors produce instructions manually. However,
+The HCI and computer graphics communities have introduced novel technologies for authoring tutorials, including automatic generation methods and interactive editing tools.
 %
-In this chapter, I survey state-of-the-art techniques for generating instructions for both software applications (Section \ref{related_software}) and physical tasks (Section \ref{related_physical}).
+In this chapter, we survey state-of-the-art techniques for generating instructions for both software applications (Section \ref{related_software}) and physical tasks (Section \ref{related_physical}).
 %
-Furthermore, existing instructions are mainly offered in the forms of conventional media, such as static tutorials (print-outs or web) or videos. With software systems, \keyword{interactive tutorials} have been introduced for learners to interactively review instructional content. I will discuss various forms of such kind of instructions by prior research, which leads to a discussion on the remaining gaps in tool support for creating and navigating instructional content.
+Furthermore, today's tutorials are often offered within limited conventional media, such as static tutorials (print-outs or web) or videos. In recent years, interactive systems have shown versatile ways for users to review instructional content.
+We will discuss the forms that instructions have taken in prior research, which will lead us to discuss shortcomings of tool support for creating and navigating instructional content.
 %
-Finally, in Section \ref{related_videos}, I review the methods of video analysis and playback.
+Finally, in Section \ref{related_videos}, we review the methods of video analysis and playback to discuss how they support activity understanding and interactive navigation.
 
 % -------------------------------------------
 
-\section{Instructions for Software Applications}
+\section{Generating Instructions for Software Applications}
 \label{related_software}
 
 \subsection{Input Event Visualization}
 
 % real-time
-Studies have shown that visualizing input events during user operations can provide better learnability of software applications~\cite{Dixon:2010fb}. Events can range from low-level, application agnostic input device events (e.g., mouse actions, cursor movements, or keyboard strokes) to higher level, application-dependent information (e.g., menu selections or UI component changes).
+Studies have shown that visualizing input events during user operations can make software applications more learnable~\cite{Dixon:2010fb}. Visualizing input events can help learners viewing software instructions anticipate where the cursor is moving, tell what actions are being performed, and locate activated UI components that may be otherwise hard to notice.
 %
-Commercial tools such as Mouseposé\footnote{\url{http://www.boinx.com/mousepose}} and ScreenFlow\footnote{\url{http://www.telestream.net/screenflow}} visualize mouse events and keystrokes with special effects, e.g., drawing a circle around a mouse cursor (see Figure~\ref{fig:related_realtime} top). These tools capture input information (e.g., mouse position and event type) and render visualization on top of the screen activities. This approach has been widely used by online video tutorial authors. However, it does not consider application context, which can be difficult for learners who want to follow specific instructions at a semantic level, such as observing a complete text field or drop-down menu option.
+Events that can be visualized range from low-level, application-agnostic input device events (e.g., mouse actions, cursor movements, or keyboard strokes) to higher-level, application-dependent information (e.g., menu selections or UI component changes).
+%
+Commercial tools such as Mouseposé\footnote{\url{http://www.boinx.com/mousepose}} and ScreenFlow\footnote{\url{http://www.telestream.net/screenflow}} visualize mouse events and keystrokes with special effects, e.g., drawing a circle around a mouse cursor (see Figure~\ref{fig:related_realtime} top). These tools capture input information (e.g., mouse position and event type) and render visualizations on top of the screen activities. This approach has been widely used by online video tutorial authors. However, it does not consider application context, which can be difficult for learners who want to follow specific instructions at a semantic level, such as observing text field completion or menu option selection.
 % Some further enable video editing techniques, including zooming in/out  and panning.
 
-To visualization UI components (e.g., a checkbox, button, or editable text field), Dixon \ea{}'s Prefab~\cite{Dixon:2010fb,Dixon:2011:CHP:1978942.1979086} provides pixel-based enhancements in real-time by detecting target features, such as region corners. This semantic understanding of GUI elements enables component-based highlighting effects, such as afterglows~\cite{Baudisch:2006:PET:1166253.1166280} that visualize user operations (see Figure~\ref{fig:related_realtime} bottom left) and Bubble Cursor~\cite{Grossman:2005:BCE:1054972.1055012}, a target-aware pointing technique that suggests the nearest target (see Figure~\ref{fig:related_realtime} bottom right).
+To enhance UI components (e.g., a checkbox, button, or editable text field), Dixon \ea{}'s Prefab~\cite{Dixon:2010fb,Dixon:2011:CHP:1978942.1979086} modifies screen pixels in real-time by detecting target features, such as region corners. This semantic understanding of GUI elements enables component-based highlighting effects, such as afterglow~\cite{Baudisch:2006:PET:1166253.1166280} that visualizes user operations (see Figure~\ref{fig:related_realtime} bottom left). It also improves interactions by incorporating techniques like the Bubble Cursor~\cite{Grossman:2005:BCE:1054972.1055012}, a target-aware pointing technique that suggests the nearest target (see Figure~\ref{fig:related_realtime} bottom right).
 
 \begin{figure*}[t!]
   \centering
   \includegraphics[width=0.7\textwidth]{\background/fig/realtime/realtime}
-  \caption{Real-time visual enhancements on GUI applications: The top row shows how Mouseposé highlights a mouse cursor (left) and keyboard input (right); The bottom row presents Prefab~\cite{Dixon:2010fb}'s results of reverse engineering that identifies UI components and enables visualizations during author operations, such as afterglow~\cite{Baudisch:2006:PET:1166253.1166280} (left) and target-aware~\cite{Grossman:2005:BCE:1054972.1055012} (right) effects.}
+  \caption{Real-time visual enhancements to GUI applications. The top row shows how Mouseposé highlights a mouse cursor (left) and displays keyboard input (right); The bottom row shows how Prefab~\cite{Dixon:2010fb} can enable visualizations and UI enhancements such as target-agnostic afterglow effects~\cite{Baudisch:2006:PET:1166253.1166280} (left) and target-aware cursor effects~\cite{Grossman:2005:BCE:1054972.1055012} (right) by identifying and reverse engineering UI components.}
   \label{fig:related_realtime}
 \end{figure*}
 
@@ -37,85 +41,87 @@ To visualization UI components (e.g., a checkbox, button, or editable text field
   \centering
   \includegraphics[width=0.6\textwidth]{\background/fig/software_viz/Nakamura_and_Igarashi}
   \includegraphics[width=\textwidth]{\background/fig/software_viz/Grabler}
-  \caption{Example screenshots where mouse operations are automatically rendered, including (top) mouse move, drag, click, and wheel (a-d) by Nakamura and Igarashi~\cite{Nakamura:2008:ASV:1449715.1449721} and (bottom) application-specific operations (a-b), parameters (c-f), and manipulations (g-h) by Grabler \ea{}~\cite{Grabler:2009jj}.}
+  \caption{Examples where software operations are automatically rendered on top of application screenshots, including (top) moving the mouse, dragging, clicking, and scrolling by Nakamura and Igarashi~\cite{Nakamura:2008:ASV:1449715.1449721} and (bottom) application-specific operations (a-b), parameter setting (c-f), and image manipulations (g-f) by Grabler \ea{}~\cite{Grabler:2009jj}.}
   \label{fig:related_events}
 \end{figure*}
 
 % in screenshots
-The above methods enable real-time visualization of input events when operating an application, which are useful for following a video tutorial. However, they may not effectively present continuous actions, such as navigating a menu from the root to a sub-panel. For screenshot images in a static tutorial, visualizing input actions with motion arrows is a common technique to provide a sense of direction and start and end positions.
+The methods above enable real-time visualization of input events when a user is interacting with an application or viewing playback of an application in use, which can be useful for following a video tutorial. However, they may not effectively present continuous actions, such as navigating a menu from the root to a sub-panel. For screenshot images in a static tutorial, visualizing input actions with motion arrows is a common technique to provide a sense of direction and start and end positions.
 %
-Researchers have investigated automatic approaches that capture and visualize these types of events in representative screenshots from author demonstrations. Nakamura and Igarashi~\cite{Nakamura:2008:ASV:1449715.1449721} proposed a capturing and rendering system independent to GUI applications. Their system logs mouse events of a software demo process, including mouse moving, dragging, and clicking. Operations are rendered as markers and arrows on screenshot images to present the linear event history (see Figure~\ref{fig:related_events} top).
+Researchers have investigated automatic approaches that capture and visualize these types of events in representative screenshots from author demonstrations. Nakamura and Igarashi~\cite{Nakamura:2008:ASV:1449715.1449721} proposed a capturing and rendering system independent of specific GUI applications. Their system logs mouse events during a software demo, including mouse movement, dragging, and clicking. Operations are rendered as markers and arrows on screenshot images to present the linear event history (see Figure~\ref{fig:related_events} top).
 %
-Grabler \ea{}'s approach~\cite{Grabler:2009jj} further annotates a screenshot with bounding boxes and call-outs, which help learners identify parameters and options of software functionalities (see Figure~\ref{fig:related_events} bottom).
+Grabler \ea{}'s approach~\cite{Grabler:2009jj} further annotates a screenshot with bounding boxes and call-outs, which help learners identify parameters and specific functionality available in the interface (see Figure~\ref{fig:related_events} bottom).
 
 % summary
-Our systems adopt some of these successful techniques to enhance visual instructions. By capturing event information at both input device and application levels, we visualize author operations based on different playback modes.
+The systems we present adopt some of these successful techniques to enhance software instructions. By capturing event information at both input device and application levels, we visualize author operations differently based on how the user is viewing instructions.
 %
-During \emph{video playback}, MixT shows mouse trails and actions, and DemoWiz overlays glyphs and arrows to guide viewers from the current input action to the next.
+During \emph{video playback}, MixT shows mouse events and trails, and DemoWiz overlays glyphs and arrows to guide viewers from the current input event to the next.
 %
-In a \emph{static}, step-by-step tutorial, MixT renders screenshot images with mouse visualizations, such as highlighting a drop-down menu.
+MixT renders \emph{static}, step-by-step tutorials that include screenshot images annotated with mouse visualizations, such as highlighting a drop-down menu item that will be selected.
 
 % -------------------
 
-\subsection{Workflow Capturing and Tutorials}
+\subsection{Workflow Capture and Tutorial Generation}
 In addition to visualizing input events, it is important to present the entire workflow in a tutorial and provide concise instructions.
 %
-Grabler \ea{}'s system~\cite{Grabler:2009jj} generates a step-by-step tutorial from author demonstration (see Figure~\ref{fig:related_static}). Designed for instructing image manipulation tasks, it includes textual description from templates, such as \iquote{Select the \textbf{path tool} from the \textbf{toolbar} to \textbf{create and edit paths}.} The generated text and annotated images of operations are presented in a document to describe a workflow. Their work is available as a Photoshop plug-in\footnote{Adobe labs. Tutorial Builder. \url{http://labs.adobe.com/technologies/tutorialbuilder/}}.
+Grabler \ea{}'s system~\cite{Grabler:2009jj} generates a step-by-step tutorial from an author's demonstration (see Figure~\ref{fig:related_static}). Designed to guide image manipulation tasks, generated tutorials include textual description from templates, such as \iquote{Select the \textbf{path tool} from the \textbf{toolbar} to \textbf{create and edit paths}.} The generated text and annotated images of user operations are presented in a document to describe the workflow.
 % analyzes the application context, including facial features and outdoor scenes in manipulated images.
 %
 Such demonstration-based approaches have been applied to generate instructions for software that involves complicated manipulations or gestures, including 3D mesh construction~\cite{Denning:2011fy} and touch-based mobile applications~\cite{Wang:2014:EAC:2556288.2557407}.
 %
-Beyond logging input events during an author demonstration, researchers have shown that workflows and software content can be acquired using computer vision from analyzing desktop regions~\cite{Yeh:2009dh,Chang:2011vd} and existing screencast videos~\cite{Banovic:2012kd}.
+Beyond logging input events during an author's demonstration, researchers have shown that workflows and software content can be captured using computer vision by analyzing the pixels of desktop regions~\cite{Yeh:2009dh,Chang:2011vd} and existing screencast videos~\cite{Banovic:2012kd}.
 
 \begin{figure*}[t!]
   \centering
   \includegraphics[width=0.8\textwidth]{\background/fig/related_static/grabler}
-  \caption{Example static tutorial automatically generated by Grabler \ea{}'s system~\cite{Grabler:2009jj}.}
+  \caption{A static tutorial automatically generated by Grabler \ea{}'s system~\cite{Grabler:2009jj}.}
   \label{fig:related_static}
 \end{figure*}
 
-To compare effects of individual operations in a workflow, showing a list of ``before'' and ``after'' thumbnails, video clips, and event timeline can be effective \cite{Grossman:2010jz}, especially for image manipulation tasks (see Figure~\ref{fig:related_comparison} left).
+With many tutorials to choose from, it can be useful for learners to have sophisticated ways to compare alternatives. To compare effects of individual operations in a workflow, showing a list of ``before'' and ``after'' thumbnails, video clips, and event timelines can be effective \cite{Grossman:2010jz}, as Chronicle demonstrated for image manipulation tasks (see Figure~\ref{fig:related_comparison} left).
 %
-When there are multiple workflows that create similar results, a union graph and side-by-side documents are useful for comparing operations~\cite{Kong:2012:DTR:2207676.2208549} (see Figure~\ref{fig:related_comparison} right).
+When there are multiple workflows that produce similar results, a union graph and side-by-side documents can help learners choose the right workflow based on the operations each one uses~\cite{Kong:2012:DTR:2207676.2208549} (see Figure~\ref{fig:related_comparison} right).
 
 \begin{figure*}[t!]
   \centering
   \includegraphics[width=0.4\textwidth]{\background/fig/software_viz/Grossman}
   \includegraphics[width=0.55\textwidth]{\background/fig/software_viz/Kong}
-  \caption{Instructional systems that help learners compare effects and similar tutorials using (left) before and after images (a) and event timeline (b) by Grossman \ea{}~\cite{Grossman:2010jz} and (right) operation union graph by Kong \ea{}~\cite{Kong:2012:DTR:2207676.2208549}.}
+  \caption{Instructional systems that help learners compare effects and similar tutorials using (left) before and after images (a) and event timelines (b) by Grossman \ea{}~\cite{Grossman:2010jz} and (right) an operation union graph by Kong \ea{}~\cite{Kong:2012:DTR:2207676.2208549}.}
   \label{fig:related_comparison}
 \end{figure*}
 
 % summary
-These systems provided insights on 1) automatic generation methods of step-by-step tutorials and 2) workflow presentations serving for different purposes. Our MixT system is built based on the Photoshop plug-in (Tutorial Builder) to acquire a step-by-step document with text descriptions. We enhance the static tutorial format by embedding instructional video clips for each operation that can be interactively reviewed.
+These systems provided insights on 1) methods to automatically generate step-by-step tutorials and 2) workflow presentations serving different purposes.
+%
+Our MixT system draws on these past insights. It is build on top of a Photoshop plugin\footnote{Adobe labs. Tutorial Builder. \url{http://labs.adobe.com/technologies/tutorialbuilder/}} derived from Grabler \ea{}'s approach~\cite{Grabler:2009jj} to produce a step-by-step document with text descriptions of each workflow operation. We enhance the static tutorial format by embedding instructional video clips for each operation that can be interactively viewed.
 
-This paradigm opens a design space to create new tutorial formats that can be interactively reviewed. In recent years, researchers have shown that learners using responsive video tutorials~\cite{Nguyen:2015:MST:2702123.2702209} and learning-by-doing activities~\cite{Kwon:2016:CEO:2858036.2858101} performed better in following instructions than using static or video tutorials.
+The paradigm that these projects explore opens a design space to create new tutorial formats for software applications. Our approaches show promise for helping learners effectively use tutorials. In recent years, researchers have shown that learners perform better when using responsive video tutorials~\cite{Nguyen:2015:MST:2702123.2702209} and learning-by-doing-activities~\cite{Kwon:2016:CEO:2858036.2858101}, than when using static image or standard video tutorials.
 
 % -------------------
 
 \subsection{In-Application Support}
 
-The above methods introduce innovative ways for learners to review workflows and instructions. However, reviewing these materials is often separated from operating a software application. Learners might have to switch between the main application they are using and a separate set of instructions, which could introduce a gap of evaluation (\iquote{Am I doing this right as the instructions explain?}) and a gap of execution (\iquote{How do I perform the action that the instructions describe?}).
+The above methods introduce innovative ways for learners to review workflows and instructions. However, learners usually review these materials in an interface completely separate from the application they are learning to use. Learners might have to switch between the main application they are using and a separate set of instructions, which could introduce a gap of evaluation (\iquote{Am I doing this right as the instructions explain?}) and a gap of execution (\iquote{How do I perform the action that the instructions describe?}).
 %
-Researchers have proposed another approach to provide ``in-application'' assistance, often in real-time, in a specific application context.
+Researchers have proposed another approaches to provide ``in-application'' assistance, often in real time, in a specific application context.
 
-There has been a considerable amount of research devoted to offering interactive help to support learners comprehend the functionalities while operating an application.
+There has been a considerable amount of research devoted to offering interactive help to support learners comprehend the functionalities from within the application.
 %
-Crystal~\cite{Myers:2006:AWW:1124772.1124832} enables software users ask questions about ``why'' something did or did not occur in an application.
+Crystal~\cite{Myers:2006:AWW:1124772.1124832} enables software users to ask questions about why something did or did not occur in an application.
 %
-Video snippets can be embedded in application tooltips to explain specific functionalities~\cite{Grossman:2010wr}, which were shown to be seven times more effective than conventional tooltips for completing unfamiliar tasks.
+Video snippets can be embedded in application tooltips to explain specific functionality~\cite{Grossman:2010wr}, which were shown to be seven times more effective than conventional tooltips for for users trying to complete unfamiliar tasks.
 
 Interactive, step-by-step instructions can be integrated in several forms:
 %
-To help software users identify specific UI components, tutorials can be shown via a translucent colored ``stencil,'' which visually directs user's attention in an application~\cite{Kelleher:2005:STD:1054972.1055047}.
+To help software users identify specific UI components, tutorials can be shown via a translucent ``stencil,'' which visually directs a user's attention to relevant UI elements~\cite{Kelleher:2005:STD:1054972.1055047}.
 %
-By tracking user's current operations, tutorials can be embedded in an application to provide instant feedback such as a check-mark or a percentage match~\cite{Fernquist:2011:SRE:2047196.2047245}, automatically replayed to present the corresponding video instructions~\cite{Pongnumkul:2011ju}, or be shown as ambient help~\cite{Matejka:2011:AH:1978942.1979349}.
+By tracking user's current operations, tutorials can be integrated with an application to provide indications of progress with check marks~\cite{Fernquist:2011:SRE:2047196.2047245}, automatically replayed to present the corresponding video instructions~\cite{Pongnumkul:2011ju}, or be shown as ambient help~\cite{Matejka:2011:AH:1978942.1979349}.
 %
-Instructions can be captured from demonstration as ``scripts'' for step-by-step navigation~\cite{Bergman:2005:DocWizards}. In-application controls~\cite{Lieberman:2014:SML:2557500.2557543} and game elements~\cite{Li:2014:CGM:2556288.2556954, Dontcheva:2014:CCL:2556288.2557217} can further engage users in learning.
+Instructions can be captured from demonstrations as ``scripts'' to later guide step-by-step navigation within the interface~\cite{Bergman:2005:DocWizards}. In-application controls~\cite{Lieberman:2014:SML:2557500.2557543} and game elements~\cite{Li:2014:CGM:2556288.2556954, Dontcheva:2014:CCL:2556288.2557217} can further engage users in learning about the application.
 
-As tutorials are built for a broader community with a set of authors and learners, content can be dynamically updated within a community based on user contribution~\cite{Lafreniere:2013ff,Matejka:2009:CCR:1622176.1622214, Bunt:2014:TPI:2556288.2557118}.
+As tutorials are built for a broad community with many authors and learners, content can be dynamically updated by a community through user contributions~\cite{Lafreniere:2013ff,Matejka:2009:CCR:1622176.1622214, Bunt:2014:TPI:2556288.2557118}.
 
-Our work focuses on authoring tools to create novel tutorial format designs, not the learning support. We see opportunities of combining our approaches with in-application guidance. For example, a video clip from a MixT tutorial can be automatically replayed when a system detects a slowdown of a learner's progress on a specific step. However, we do not claim contribution in this direction.
+Our work focuses on authoring tools to create novel tutorial format designs, though it doesn't specifically focus on learning support. We see opportunities to provide the tutorials we generate as a form of in-application guidance. For example, a video clip from a MixT tutorial can be automatically replayed when a system detects a slowdown of a learner's progress on a specific step. However, we do not claim to make a contribution in this direction.
 
 % These projects show how effective instructional representations can assist learners in learning or executing tasks. Our goal is to further study new formats that incorporate advantages of several formats of multimedia, including images, text, and videos, and in turn enhancing the learning experience for a variety of tasks.
 
@@ -126,7 +132,7 @@ Our work focuses on authoring tools to create novel tutorial format designs, not
 
 % -------------------------------------------
 
-\section{Instructions for Physical Activities}
+\section{Generating Instructions for Physical Activities}
 \label{related_physical}
 
 The above approaches of tracking a software demonstration open the door to enable interactive tutorials that can respond to user progress. However, understanding user behavior in the physical world, rather than in software, remains challenging.
@@ -218,7 +224,7 @@ DemoCut, Kinectograph, and DemoWiz each allows authors to perform a physical dem
 \begin{figure*}[t!]
   \centering
   \includegraphics[width=0.55\textwidth]{\background/fig/ar/technical_document}
-  \caption{Work by Mohr \ea{}~\cite{Mohr:2015:RTD:2702123.2702490} automatically analyzes a technical document and augments a machine with AR animation in 3D.}
+  \caption{Work by Mohr \ea{}~\cite{Mohr:2015:RTD:2702123.2702490} automatically analyzes a technical document and augments a machine with AR animations in 3D to help novices operate an unfamiliar machine.}
   \label{fig:related_ar_annotation}
 \end{figure*}
 
@@ -309,30 +315,29 @@ MixT, DemoCut, Kinectograph, and DemoDraw also use vision techniques for automat
 %
 By focusing on a specific domain, MixT and DemoCut can make assumptions about the structure of the input and output video, such as the fact that there is a linear set of steps, and offer an interface and algorithms that make it easier to create high quality how-to videos.
 %
-Kinectograph makes editing decisions (e.g., pan-and-tilt, zooming) based on actor's body location for instructional videos.
+Kinectograph makes editing decisions (e.g., pan-and-tilt, zooming) based on actor's body location in instructional videos.
 %
-DemoDraw includes a multi-modal interface where authors can annotate a motion recording using speech while physically performing movements.
+DemoDraw includes a multi-modal interface where authors can annotate a recorded body motion using speech while physically performing movements.
 
 % visual enhancement~\cite{Santosa:2013:DST:2470654.2466148}
 
 % -------------------
 
 \subsection{Navigating}
-% Tool supports for video navigation include:
-Automatic video control can follow user actions or preferences, such as segment playback when operating software applications~\cite{Pongnumkul:2011ju} or playback speed control~\cite{Cheng:2009:SUV:1518701.1518823}.
+Video playback can be controlled by inferring user intention from their actions.  For example, segments can be played back~\cite{Pongnumkul:2011ju} or speed can be modified~\cite{Cheng:2009:SUV:1518701.1518823} based on a user's actions in a software application.
 %
-Videos can be navigated at the content level beyond a linear timeline, such as visualizing subject movements in a storyboard design~\cite{goldman2006schematic} or a continuous image mosaic~\cite{Teodosio:2005:SS:1047936.1047940} and enabling direct manipulation of a target in 2D~\cite{Dragicevic:2008:VBD:1357054.1357096,Goldman:2008:VOA:1449715.1449719,Karrer:2008:DDM:1357054.1357097} or 3D~\cite{Nguyen:2013:DMV:2470654.2466150}.
+Videos can be navigated at the content level beyond a linear timeline. For instance, subjects' movements can be visualized in a storyboard~\cite{goldman2006schematic} or continuous image mosaic~\cite{Teodosio:2005:SS:1047936.1047940}, and timelines can be navigated by manipulating a target in 2D~\cite{Dragicevic:2008:VBD:1357054.1357096,Goldman:2008:VOA:1449715.1449719,Karrer:2008:DDM:1357054.1357097} or 3D~\cite{Nguyen:2013:DMV:2470654.2466150}.
 %
-These techniques help viewers understand content flow and playback videos, and have been applied to screencast videos~\cite{Denoue:2013:RDM:2451176.2451190,Nguyen:2015:MST:2702123.2702209}.
+These techniques help viewers understand content flow and navigate videos, and have been applied to screencast videos~\cite{Denoue:2013:RDM:2451176.2451190,Nguyen:2015:MST:2702123.2702209}.
 %
-To further navigate a long video or a set of videos, a canvas showing video tiles and timeline was shown to be 36\% faster than a conventional list view~\cite{Al-Hajri:2014:VPH:2611105.2557106}. A video digest is effective in browsing and skimming video content~\cite{Pavel:2014:VDB:2642918.2647400}.
+Canvases of video tiles and timelines can make navigating long videos or sets of videos faster~\cite{Al-Hajri:2014:VPH:2611105.2557106}. Video digests can be an effective way for viewers to browse and skim video content~\cite{Pavel:2014:VDB:2642918.2647400}.
 % Lecture videos~\cite{Tang:2006:DIU:1111449.1111523},
 
-These novel forms of video navigation inspired us to explore new visual and playback designs for revealing the video content.
+In summary, these novel forms of video navigation inspired us to help viewers navigate video content more effectively with our tools.
 %
 MixT supports per-step video navigation embedded in a static tutorial.
 %
-DemoWiz augments a screencast video with novel visualization for following the content.
+DemoWiz augments a screencast video with novel visualization to help users view the content.
 %
 DemoDraw renders a series of human movements as concise motion illustrations.
 
