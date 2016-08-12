@@ -1,51 +1,27 @@
-%!TEX root = thesis.tex
+%!TEX root = main.tex
 
 \section{Related Work}
 Our work is related to research in demonstration-based authoring and motion visualization techniques.
 
 \subsection{Demonstration-Based Authoring}
 
-%\dan{``a-priori'' demonstrations: re-purposing essentially found content to generate optimized content. User doesn't refine or adjust their original demonstration as part of authoring }
 User demonstrations have been harnessed to generate explanatory, educational or entertainment media in domains including software tutorials~\cite{Bergman:2005:DocWizards,Grabler:2009jj}, animation~\cite{Barnes:2008:VideoPuppetry,held20123d}, 3D modeling~\cite{Zhang:2013:BodyAvatar}, or physical therapy~\cite{Yeager:EECS-2013-91}.
 %
 For many of these systems, captured demonstrations are treated as fixed inputs that are then processed using fully or semi-automated techniques to produce a visualization.
-% Systems can support different levels of integration between demonstration and authoring. Some focus on post-processing previously captured demonstrations, leaving no option to re-perform or refine demonstrations while authoring.
 %
 Work that falls into this category includes: generating step-by-step software tutorials from video or screen recordings with DocWizards~\cite{Bergman:2005:DocWizards}, Grabler \ea's system~\cite{Grabler:2009jj}, and MixT~\cite{Chi:2012:MAG:2380116.2380130}, and automatically editing and annotating existing video tutorials with DemoCut~\cite{Chi:2013:DGC:2501988.2502052}.
 %
-This workflow is similar to graphics research transforming existing artifacts into illustrations or animations.
+This workflow is similar to graphics research that transforms existing artifacts into illustrations or animations.
 Examples include: using technical diagrams to generate exploded views~\cite{li2008automated}, mechanical motion illustrations~\cite{mitra2010illustrating}, or Augmented Reality 3D animations~\cite{Mohr:2015:RTD:2702123.2702490}; using short videos to generate storyboards~\cite{goldman2006schematic}; creating assembly instructions by tracking 3D movements of blocks in DuploTrack~\cite{Gupta2012DuploTrack}; and closely related to our work, using existing datasets of pre-recorded motion capture sequences to generate human motion visualizations with systems by Assa \ea~\cite{assa2005action,assa2008motion}, Choi \ea~\cite{choi2012retrieval}, and Bouvier-Zappa \ea~\cite{bouvier2007motion}.
-%\wil{Scott Carter's system?}\dan{I don't know what paper this is referring to.}\peggy{authoring tool using Glass~\cite{carter2015authoring} - I can see where to insert when I give a pass on this section}
-%
-%\dan{might be missing this ref: goldman2007interactive}
-%\wil{Maybe cite Sodhi here as well? I don't know that work.}
-%\dan{Note DocWizards~\cite{Bergman:2005:DocWizards} supports re-recording the entire screen recording to update the final illustration, but it seems to be all or nothing and conceptually is not part of authoring, but about keeping the tutorials up to date when the documented software changes.}
 
-Other systems include demonstration in an authoring process, which was used by GENESYS~\cite{Baecker:1969:GENESYS}, one of the earliest interactive computer animation systems. Authoring animation by demonstration remains a common approach, often using physical props as in a layered acting system~\cite{Dontcheva:2003:LAC:1201775.882285}, Video Puppetry~\cite{Barnes:2008:VideoPuppetry}, 3D Puppetry~\cite{held20123d}, and MotionMontage~\cite{Gupta:2014:MotionMontage}.
-% Gupta \ea's MotionMontage~\cite{Gupta:2014:MotionMontage} enables people to author 3D animations by compositing multple demonstrations of desired movements performed with tangible props.
-\bjoern{my main question about these systems is - how do I switch between demonstration and ``meta'' commands about whether to record or not, what to replace, etc? Could someone add some text? The prior conclusion about directness of mapping didn't help me  much so I commented it out.}
-\dan{I'm not sure it's just about switching between demo and commands, what I was trying to get across with  ``directness'' is  interactive demonstration for animation is much easier because the demonstrated movements and corresponding authored movements of the virtual character are almost the same. With motion illustrations the demo to author link is less direct (continuous movements are mapped to a single 2D abstraction) so it's harder to get the demo right. For us, iteration is even more necessary.  }
-%Since the mapping from prop movements to virtual character movements is often direct, these systems have a high level of interactivity where the boundary between demonstration and authoring disappears. \bjoern{this is a really vague sentence and I'm not sure what it's trying to accomplish. I commented it out}
-%\dan{not sure that's 100\% true with those 3 systems}
+Animation is one domain where demonstration is often incorporated into the authoring worfklow in a more interactive manner. For example, GENESYS~\cite{Baecker:1969:GENESYS}, one of the earliest computer animation systems, allows users to perform motion trajectories and the timing of specific events with sketching and tapping interactions. Performance-based animation authoring remains a common approach, and recent work shows how physical props can be incorporated to support layered multi-take performances ~\cite{Dontcheva:2003:LAC:1201775.882285,Gupta:2014:MotionMontage} and puppetry~\cite{Barnes:2008:VideoPuppetry,held20123d}.
 
 While the primary goal of performance-based animation systems is to accurately track and re-target prop motions to virtual characters, \systemname{} focuses on the mapping from recorded body movement demonstrations to static illustrations conveying those motions.
 Some previous systems have also mapped body movement to static media:
 BodyAvatar~\cite{Zhang:2013:BodyAvatar} treats the body as a proxy and reference frame for ``first-person'' body gestures to shape a 3D avatar model and
 a Manga comic maker~\cite{lumb_manga_2013} maps the body pose directly into a comic panel.
 %and Tweetris~\cite{Freeman:2013:Tweetris} where body shape is used to directly select puzzle shapes by shape similarity.
-Systems using interactive guidance for teaching body motions are essentially the inverse of \systemname{}. Examples include YouMove~\cite{Anderson:2013} that teaches moves like dance and yoga, and Physio@Home~\cite{Tang:2014:Physio@Home} that guides therapeutic exercises.
-%
-%\dan{As an aside, physiotherapy is a great use case for DemoDraw: a therapist could quickly demonstrate a set of tailored exercises for a patient and automatically create illustrations for the patient to take home.}
-%
-%\dan{I didn't use some good sentences from earlier drafts that in source comments below.}
-
-% Demonstrations often involve mistakes and multiple repeated takes of the motion,
-
-% \systemname{} supports familiar video editing interactions to help authors select the best portions of the demonstrations for creating an illustration.
-
-% \systemname{} allows the author to demonstrate the target motion as part of the authoring workflow.
-
-% \systemname{} has a similar high-level goal, but unlike these systems, the source data is performed with the sole purpose of generating illustrations.
+Systems using interactive guidance for teaching body motions are essentially the inverse of \systemname{}. Examples include YouMove~\cite{anderson2013youmove} that teaches moves like dance and yoga, and Physio@Home~\cite{Tang:2014:Physio@Home} that guides therapeutic exercises.
 
 \subsection{Motion Visualization}
 
