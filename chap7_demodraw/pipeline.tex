@@ -103,7 +103,7 @@ During recording, the start time, duration, and confidence of each motion label 
 % \dan{Would be good to get a component name to include joint salience identification too.  ``Motion Segmentation and Joint Salience Identification'' component is too long, how about something more simple and general like ``Motion Analysis'' with subcomponents motion segmentation and joint salience.}
 
 Our motion analysis algorithm translates a multi-part demonstration recording into a sequence of labeled time segments, each with one or more salient joint motions and a keyframe of joint positions for a representative body pose (see Figure~\ref{fig:segmentation} for an illustration of the approach).
-Formally, given a set of $n$ speech labels $\{w_1, w_2, ..., w_n\}$ where each ends at latency-corrected time $\{T_1^w, T_2^w, ..., T_n^w\}$, our algorithm associates each speech label $w_i$ with a \emph{motion segment}, of which the start and end time are denoted as [$T_i^s$, $T_i^e$] where $T_i^s \leq T_i^w \leq T_i^e$. Each motion segment includes a set of $k$ salient joints $\{j_i^1, ..., j_i^k\}$ and keyframe time $T_i^{key}$ between [$T_i^s$, $T_i^e$].
+Formally, given a set of $n$ speech labels $\{w_1, w_2, ..., w_n\}$ that end at latency-corrected times $\{T_1^w, T_2^w, ..., T_n^w\}$, our algorithm associates each speech label $w_i$ with a \emph{motion segment}, of which the start and end time are denoted as [$T_i^s$, $T_i^e$] where $T_i^s \leq T_i^w \leq T_i^e$. Each motion segment includes a set of $k$ salient joints $\{j_i^1, ..., j_i^k\}$ and keyframe time $T_i^{key}$ between [$T_i^s$, $T_i^e$].
 It is then sent to the Illustration Rendering engine to create a motion illustration in a multi-part sequence.
 
 Human motion segmentation and activity understanding has been well studied in computer vision and graphics \cite{Aggarwal:2011:HAA:1922649.1922653}. We adopted a spacetime approach to identify salient motion sequences in 3D space.
@@ -132,7 +132,7 @@ Specifically, for each joint $j \in J$ of a frame $r$ at time $t$, the average d
 %
 If this moving average is greater than 0.05$m/s$, then joint $j$ of a frame is labeled as ``moving'', marked as $m_j^r$.
 This is repeated on all frames and all joints.
-Next, of the entire motion recording for joint $j$, we combine all the consecutive $m_j^r, m_j^{r+1}, ...$ into a joint moving period $M_j$.
+Next, of the entire motion recording for joint $j$, we combine all the consecutive $\{m_j^r, m_j^{r+1}, ...\}$ into a joint moving period $M_j$.
 % \dan{any extra hacks to join or filter out very small periods of movement like just a few frames? If so, explain here.}
 
 Once a list of moving periods $\{M_j^1, M_j^2, ...\}$ for joint $j$ is determined, we begin labeling each $M_j^m$ at [$T_{m}^s$, $T_{m}^e$] to map to a speech label $w_i$ at time $T_i^w$ where $T_m^s \leq T_i^w \leq T_m^e$. In other words, the speech utterance occurs during or near to a joint movement (illustrated as dashed lines crossing pink rectangles in Figure~\ref{fig:segmentation}).
