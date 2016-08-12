@@ -15,6 +15,13 @@ For each condition, we observed and coded the \textit{timing} of narration that 
 \subsubsection{Participants}
 We recruited 12 participants (10 males and 2 females) from a software company. However, we excluded the data from two participants (1 male and 1 female); one was due to a software bug during one condition and another was because the participant requested to restart a presentation in one condition. The average age of the effective 10 participants was 37.3 ranging from 24 to 64 years of age. We recruited participants who had experience at showing a software demonstration to an audience such as giving a presentation at a conference. Four participants were native English speakers and the rest were fluent in English. The expertise of participants included audio processing, computer graphics, human-computer interactions, machine learning, networking, and software engineering. Each participant was compensated with lunch coupons worth \$20.
 
+\begin{figure}[t!]
+  \centering
+  \includegraphics[width=\columnwidth]{\demowiz/fig/study_result}
+  \caption{Participants saw the presenter view, shown on the left, while giving a presentation in the study. The audience view on the right was shown in the other display at the same time.}
+  \label{fig:demowiz_results_two_views}
+\end{figure}
+
 \subsubsection{Procedure and Tasks} Each session consisted of one training task and two experimental tasks. For the training task, to introduce the common features for recording and editing the video, we designed a simple workflow of five steps to demonstrate editing of a slide using PowerPoint. The experimenter briefly demonstrated an example and then introduced the recording program that captured the screen. Participants were then asked to practice and record using the recording program.
 
 The two tasks consisted of a similar sequence and interactions: 1) searching with Bing Maps to show the 2D map view and the Bird's Eye view, looking for a restaurant, and navigating to the interior view of a specific restaurant; and 2) searching with Google Shopping to show the search results with the Grid view, filtering and voting for reviews, and navigating the 3D product view of an espresso machine. For each task, we provided a specific scenario along with a list of subtasks. The experimenter walked through this list with participants to ensure that they could easily find the features that needed to be demonstrated. Participants were then asked to practice (3-5 minutes), record (about 2 minutes), and rehearse and edit (5-10 minutes).
@@ -24,14 +31,7 @@ To help simulate a conference setting where participants would not be able to pr
 After each task, participants filled out a questionnaire of 8-10 questions asking about their experience (8 for the Baseline condition, and 10 for the DemoWiz condition). At the end of the session, an online questionnaire was provided for them to present overall preferences and leave comments. Each session lasted about 1.5 hours.
 
 \subsubsection{Experiment Setup}
-Each participant used a desktop computer running Windows 7, Expression Encoder 4 for screen recording, and a web browser for the DemoWiz user interface. A regular mouse and keyboard were provided, along with two 27-inch displays, one for editing (during rehearsal) and showing the audience view (during presentation, see Figure~\ref{fig:demowiz_results_two_views} right), and the other for the presenter view (see Figure~\ref{fig:demowiz_results_two_views} left) on a stand-up table. The resolution of both displays was 1920×1200 pixels. The average captured screen area was 1311×857 pixels. In the presenter view, the video resolution was within 1000×600 pixels; in the audience view, the screencast videos were resized to fill the entire display with at least 100-pixel wide border in black. During the study, the experimenter stayed in the room, providing instructions and sitting behind the participants during the recording and editing phases.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=\columnwidth]{\demowiz/fig/study_result}
-  \caption{Participants saw the presenter view, shown on the left, while giving a presentation in the study. The audience view on the right was shown in the other display at the same time.}
-  \label{fig:demowiz_results_two_views}
-\end{figure}
+Each participant used a desktop computer running Windows 7, Expression Encoder 4 for screen recording, and a web browser for the DemoWiz user interface. A regular mouse and keyboard were provided, along with two 27-inch displays, one for editing (during rehearsal) and showing the audience view (during presentation, see Figure~\ref{fig:demowiz_results_two_views} right), and the other for the presenter view (see Figure~\ref{fig:demowiz_results_two_views} left) on a stand-up table. The resolution of both displays was 1920×1200 pixels. The average captured screen area was 1311×857 pixels. In the presenter view, the video resolution was within 1000×600 pixels; in the audience view, the screencast videos were resized to fill the entire display with wide border in black. During the study, the experimenter stayed in the room, providing instructions and sitting behind the participants during the recording and editing phases.
 
 % ---------------------------------------------------------------
 
@@ -53,6 +53,13 @@ In addition, 9 out of the 10 participants preferred DemoWiz to the system withou
 \subsubsection{Visualization as a Supportive Cue}
 Participants answered that they were able to understand DemoWiz visualization of input events (µ = 6.0) and found it supportive for their presentations (µ = 6.3). They also commented that the DemoWiz visualization supported the presentation in various aspects: \iquote{the visualization reminds of the order of the content} (P1), \iquote{Really liked the ability to know what was coming up} (P2), \iquote{It provides better insight of the progress of the video} (P6), and \iquote{viz gave me an idea about timing or something I was going to forget to say} (P9).
 
+\begin{figure*}[b!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{\demowiz/fig/results_timing}
+  \caption{The number of times events were anticipated by the narration, co-occurred, or occurred after the fact.}
+  \label{fig:demowiz_results_timing}
+\end{figure*}
+
 \subsubsection{Narration Timing}
 We coded the 20 recordings of participants' final presentations to observe the timing of narration of each action in correspondence with the video content (11 key events for both tasks). With DemoWiz, participants tended to \textit{anticipate} the upcoming events rather than talk afterwards, where the average timing was -0.1 seconds with DemoWiz (i.e., narrated the action before it happened) and 0.4 seconds with the Baseline condition (i.e., explained the action after it was shown). We found a significant difference in the number of times that events were anticipated by the narration, co-occurred, or occurred after the fact ($\chi $\textsuperscript{2}\textit{(2,220) = 8.6, p = .01}, see Figure~\ref{fig:demowiz_results_timing}).
 
@@ -61,13 +68,6 @@ In general, this supports our suspicion that DemoWiz would help in anticipating 
 Five participants had an obvious \textit{error} (forgot the next action or incorrectly narrated another action), had a long \textit{break} (waiting for more than 2 seconds until the action was made), or \textit{missed} an action (did not explain an important feature) when presenting with the Baseline condition. On the other hand, in the DemoWiz condition no errors were made, and there were only one long break and one miss from two different participants, respectively.
 
 Participants' comments also support the fact that DemoWiz helped presenters anticipate the upcoming events. P7 explained, \iquote{(I) felt better able to time my speech to coincide with visual events, rather than trailing after them. Without the event visualizations, I felt like I was talking about what the audience had just seen, rather than having my words and visuals combine to a single message.}
-
-\begin{figure*}[t]
-  \centering
-  \includegraphics[width=0.5\textwidth]{\demowiz/fig/results_timing}
-  \caption{The number of times events were anticipated by the narration, co-occurred, or occurred after the fact.}
-  \label{fig:demowiz_results_timing}
-\end{figure*}
 
 \subsubsection{Editing Experience}
 We collected comments on the workflow. Participants found it easy to record (µ = 6.4) their demonstrations with DemoWiz. For editing features, they found it easy to edit in general (6.6), including controlling the playback speed (6.5) and adding pauses and stops (6.5), but it was less easy to add text notes (4.8); only two participants used this as reminders.
