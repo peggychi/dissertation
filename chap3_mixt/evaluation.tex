@@ -1,5 +1,6 @@
 %!TEX root = ../thesis.tex
 \section{Evaluation}
+\label{mixt_evaluation}
 
 To evaluate MixT, we measure the performance of our automatic tutorial generation pipeline and gather user feedback on the effectiveness of the resulting MixT tutorials.
 
@@ -18,13 +19,13 @@ Table~\ref{tab:mixt_errors} shows the results of our inspection. On average, Mix
 % ---------------------------------------------------------------
 
 \subsection{User Experiences: Working with MixT Tutorials}
-We conducted a small user evaluation with four participants (2 males and 2 females, aged 25-29, with 5-12 years of Photoshop experience) to gather feedback on the usability of our MixT tutorials. We selected four of our nine evaluation tutorials with features such as the \emph{brush} tool, \emph{pen} tool, \emph{puppet warp} tool, and \emph{gradient warp} tool –- commands that led to many video views in our formative study (Table 1). These test tutorials were generated with an earlier version of MixT that did not use the mouse event log to refine the step segmentation and active UI region finding as described earlier. This previous implementation relied solely on the command log and computer vision, which resulted in lower segmentation accuracy (84\%) and region-finding accuracy (90\%).
+We conducted a small user evaluation with four participants (2 males and 2 females, aged 25-29, with 5-12 years of Photoshop experience) to gather feedback on the usability of our MixT tutorials. We selected four of our nine evaluation tutorials with features such as the \emph{brush} tool, \emph{pen} tool, \emph{puppet warp} tool, and \emph{gradient warp} tool –- commands that led to many video views in our formative study (Table~\ref{tab:formative_video_views}). These test tutorials were generated with an earlier version of MixT that did not use the mouse event log to refine the step segmentation and active UI region finding as described earlier. This previous implementation relied solely on the command log and computer vision, which resulted in lower segmentation accuracy (84\%) and region-finding accuracy (90\%).
 
 Participants were introduced to the MixT system and then asked to work through the set of tutorials, analogously to our formative study. We asked participants to comment on their process using the think-aloud method, and afterwards asked open-ended questions to elicit additional detail.
 
 \subsubsection{Successes}
 The participants found the same benefits in automatically-generated MixT tutorials as earlier participants found in manually-created tutorials. Participants commented that videos helped them understand steps that were complicated or text that was ambiguous or did not contain explanations why certain steps were taken: \iquote{Videos were convenient when trying to get a sense of a complex operation.} / \iquote{I tended to watch the videos when the text wasn't clear.} Examples included making a selection from a path (1.75 views per user) and the \emph{puppet warp} tool (2.75 views). Note that a clip might be viewed more than once by a single user. Participants also watched videos to confirm their results because \iquote{The photo/screenshot (...) wasn't as actively helpful in guiding what I needed to do or confirming that I was doing the right thing.}
-
+%
 Multiple participants commented positively on the utility of automatically segmented videos that focus on short step clips about the task at hand: \iquote{I didn't have to sit through 5 mins of intro to get a video description of the task I was interested in} / \iquote{What I liked the most about the mixed tutorial was the ability to only watch short segments of video that was relevant. Often with video tutorials I find myself sitting and waiting for the content that I need. Because of this, I tend to avoid video tutorials in favor of text. The mixed tutorial was a nice way to achieving the best of both worlds.}
 
 \subsubsection{Shortcomings}
