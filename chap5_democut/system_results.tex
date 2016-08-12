@@ -1,19 +1,11 @@
 %!TEX root = ../thesis.tex
 \section{Evaluation}
 
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{\democut/fig/results-small}
-  \caption{Illustrative frames from the seven videos used to assess DemoCut. Labels correspond to task labels in Table~\ref{tab:system_results}.}
-  \label{fig:results}
-  \vspace{-0.2in}
-\end{figure}
-
 \subsection{Evaluating Automatic Effect Decision}
 
 To evaluate DemoCut's analysis engine, we recorded seven how-to tasks
 from the five categories we selected in the formative user study
-(Table~\ref{tab:system_results}).
+(see Table~\ref{tab:system_results} for detailed information and Figure~\ref{fig:democut_results} for illustrative frames of these videos).
 %
 The tasks were recorded by 4 people (all authors of this
 work) in 7 locations using a Sony camcorder or an iPad with
@@ -21,6 +13,43 @@ a video resolution of at least 640x480 pixels.
 %
 We used DemoCut to annotate the recordings and then examined the
 automatically generated tutorials.
+
+\begin{table*}[t!]
+  \centering
+  \tiny
+  % \fontfamily{phv}
+  \begin{tabular}{|l*{11}{|c}|}
+    \hline
+    \multicolumn{1}{|p{0.2\columnwidth}|}{\centering\tiny{Task}} &
+    \multicolumn{1}{|p{0.06\columnwidth}|}{\centering\tiny{Category}} &
+    \multicolumn{1}{|p{0.05\columnwidth}|}{\centering\tiny{Raw footage length}} &
+    \multicolumn{1}{|p{0.05\columnwidth}|}{\centering\tiny{DemoCut video length}} &
+    \multicolumn{1}{|p{0.04\columnwidth}|}{\centering\tiny{\# of markers}} &
+    \multicolumn{1}{|p{0.04\columnwidth}|}{\centering\tiny{\# of segments}} &
+    \multicolumn{1}{|p{0.05\columnwidth}|}{\centering\tiny{Incorrect Effects}} &
+    \multicolumn{1}{|p{0.05\columnwidth}|}{\centering\tiny{\# of non-silent sections}} &
+    \multicolumn{1}{|p{0.045\columnwidth}|}{\centering\tiny{Audio misses}} &
+    \multicolumn{1}{|p{0.045\columnwidth}|}{\centering\tiny{Audio cut-off}} &
+    \multicolumn{1}{|p{0.05\columnwidth}|}{\centering\tiny{Audio false-positives}} \\ \hline
+    A: Xbee tutorial & electronics & 7'01" & 3'27" & 16 & 30 & 0\% & 79 & 5\% & 0\% & 0\% \\
+    B: Paper pipe robot & craft & 10'55" & 4'40" & 18 & 30 & 20\% & 77 & 21\% & 12\% & 0\% \\
+    C: Ribbons for straps & craft & 10'03" & 4'23" & 39 & 46 & 7\% & 72 & 15\% & 7\% & 0\% \\
+    D: Fixing front light & repair & 6'32" & 2'12" & 21 & 33 & 9\% & 40 & 10\% & 3\% & 0\% \\
+    E: How to make grassy head & art & 9'28" & 5'29" & 29 & 44 & 5\% & 86 & 8\% & 2\% & 0\% \\
+    F: How to make potato stamps & art & 16'38" & 4'05" & 30 & 45 & 7\% & 119 & 7\% & 3\% & 0\% \\
+    G: How to make salad dressing & food & 14'46" & 5'38" & 33 & 39 & 13\% & 121 & 6\% & 2\% & 0\% \\ \hline
+    AVERAGE & - & 10'46" & 4'10" & 26.4 & 38.1 & 9\% & 83.5 & 10.3\% & 4.1\% & 0\% \\ \hline
+  \end{tabular}
+  \caption{A list of how-to videos we recorded to assess the robustness of the DemoCut system.}
+  \label{tab:system_results}
+\end{table*}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.9\columnwidth]{\democut/fig/results-small}
+  \caption{Illustrative frames from the seven videos used to assess DemoCut. Labels correspond to task labels in Table~\ref{tab:system_results}.}
+  \label{fig:democut_results}
+\end{figure}
 
 Overall, the resulting tutorials\footnote{The seven videos used to assess DemoCut are listed in this YouTube playlist:\\\url{https://www.youtube.com/playlist?list=PLAq2QZEiIgn_zyMFFdw88yKjQLhZvyIDi}
 } exhibit many of the desired
@@ -50,22 +79,19 @@ To get a more quantitative measure of DemoCut's performance, we
 counted several types of errors in the automatically generated
 videos:
 
-{\em Incorrect editing effects.} In a few cases, the ``Fast Motion''
+\begin{itemize}
+  \item {\em Incorrect editing effects.} In a few cases, the ``Fast Motion''
 effect is applied to segments where the audio track should actually be
 in sync with the visuals. Also, when markers are very close to one
-another in time, DemoCut sometimes generates very short segments where the editing effects are hard to see.
-%
-We identify these cases as incorrect editing effects.
-
-{\em Audio miss.} We refer to any piece of narration that is not
+another in time, DemoCut sometimes generates very short segments where the editing effects are hard to see. We identify these cases as incorrect editing effects.
+  \item {\em Audio miss.} We refer to any piece of narration that is not
 detected as a non-silent section as a miss.
-
-{\em Audio cut-off.} We refer to any detected non-silent section that
+  \item {\em Audio cut-off.} We refer to any detected non-silent section that
 cuts off narration by ending too early or starting too late as a
 cut-off error.
-
-{\em Audio false-positive.} We refer to any non-silent section that is
+  \item {\em Audio false-positive.} We refer to any non-silent section that is
 neither narration nor significant activity or background sound as a false-positive.
+\end{itemize}
 
 We report the incorrect edits as a percentage of the total number of
 segments and the three audio errors as a percentage of the total

@@ -4,7 +4,7 @@ DemoCut performs several automated steps to convert the user-annotated
 input recording into an edited video tutorial. First, the system segments the recording into regions around user-specified markers. This segmentation considers both the
 similarity of video frames around each marker and the presence of
 narration in the audio track in order to determine the appropriate
-segment boundaries (Figure~\ref{fig:pipeline}). DemoCut then automatically applies an temporal and a visual effect to
+segment boundaries (Figure~\ref{fig:democut_pipeline}). DemoCut then automatically applies an temporal and a visual effect to
 each segment based on the type of the corresponding user marker and
 the properties of the audio/video content in the segment. The rest of
 this section describes these steps in detail.
@@ -13,7 +13,7 @@ this section describes these steps in detail.
   \centering
 \includegraphics[width=0.8\columnwidth]{\democut/fig/pipeline}
   \caption{Given user markers, DemoCut analyzes both video and audio to segment the demonstration video and apply editing effects.}
-  \label{fig:pipeline}
+  \label{fig:democut_pipeline}
 \end{figure}
 
 \subsection{Video Segmentation}
@@ -135,41 +135,11 @@ of our results.
   \label{fig:audio}
 \end{figure}
 
-\begin{table*}
-  \centering
-  \tiny
-  % \fontfamily{phv}
-  \begin{tabular}{|l*{11}{|c}|}
-    \hline
-    \multicolumn{1}{|p{0.2\columnwidth}|}{\centering\tiny{Task}} &
-    \multicolumn{1}{|p{0.06\columnwidth}|}{\centering\tiny{Category}} &
-    \multicolumn{1}{|p{0.05\columnwidth}|}{\centering\tiny{Raw footage length}} &
-    \multicolumn{1}{|p{0.05\columnwidth}|}{\centering\tiny{DemoCut video length}} &
-    \multicolumn{1}{|p{0.04\columnwidth}|}{\centering\tiny{\# of markers}} &
-    \multicolumn{1}{|p{0.04\columnwidth}|}{\centering\tiny{\# of segments}} &
-    \multicolumn{1}{|p{0.05\columnwidth}|}{\centering\tiny{Incorrect Effects}} &
-    \multicolumn{1}{|p{0.05\columnwidth}|}{\centering\tiny{\# of non-silent sections}} &
-    \multicolumn{1}{|p{0.045\columnwidth}|}{\centering\tiny{Audio misses}} &
-    \multicolumn{1}{|p{0.045\columnwidth}|}{\centering\tiny{Audio cut-off}} &
-    \multicolumn{1}{|p{0.05\columnwidth}|}{\centering\tiny{Audio false-positives}} \\ \hline
-    A: Xbee tutorial & electronics & 7'01" & 3'27" & 16 & 30 & 0\% & 79 & 5\% & 0\% & 0\% \\
-    B: Paper pipe robot & craft & 10'55" & 4'40" & 18 & 30 & 20\% & 77 & 21\% & 12\% & 0\% \\
-    C: Ribbons for straps & craft & 10'03" & 4'23" & 39 & 46 & 7\% & 72 & 15\% & 7\% & 0\% \\
-    D: Fixing front light & repair & 6'32" & 2'12" & 21 & 33 & 9\% & 40 & 10\% & 3\% & 0\% \\
-    E: How to make grassy head & art & 9'28" & 5'29" & 29 & 44 & 5\% & 86 & 8\% & 2\% & 0\% \\
-    F: How to make potato stamps & art & 16'38" & 4'05" & 30 & 45 & 7\% & 119 & 7\% & 3\% & 0\% \\
-    G: How to make salad dressing & food & 14'46" & 5'38" & 33 & 39 & 13\% & 121 & 6\% & 2\% & 0\% \\ \hline
-    AVERAGE & - & 10'46" & 4'10" & 26.4 & 38.1 & 9\% & 83.5 & 10.3\% & 4.1\% & 0\% \\ \hline
-  \end{tabular}
-  \caption{A list of how-to videos we recorded to assess the robustness of the DemoCut system.}
-  \label{tab:system_results}
-\end{table*}
-
 \subsubsection{Adjusting segment boundaries}
 
 In order to avoid cutting off an author's narration, DemoCut
 adjusts the video segment boundaries using the non-silent sections
-of the audio track (Figure~\ref{fig:pipeline}). First, for any segment
+of the audio track (Figure~\ref{fig:democut_pipeline}). First, for any segment
 %[$T_i^s$, $T_i^e$]
 we find
 all of the overlapping non-silent audio sections and then grow the

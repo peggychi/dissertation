@@ -1,5 +1,13 @@
 %!TEX root = ../thesis.tex
 \section{Authoring}
+
+\begin{figure}[t!]
+  \centering
+  \includegraphics[width=0.7\columnwidth]{\democut/fig/block-diagram}
+  \caption{DemoCut users first mark their recorded video in the Annotation Interface. DemoCut then segments their recording and suggests video edits, which users can review and change in the Editing Interface.}
+  \label{fig:block-diagram}
+\end{figure}
+
 To enable amateur users to produce effective video tutorials, the DemoCut video authoring system semi-automatically edits a long, single take recording into meaningful steps.
 Early testing revealed that users find it easier to locate specific {\em moments} in the video than to mark or edit {\em segments}. Therefore, our Annotation Interface asks users to mark important moments.
 %
@@ -11,13 +19,12 @@ Titles, visual annotations and closeup views are applied to enhance the content.
 Users can review and revise these decisions in the DemoCut Editing Interface.
 This section reviews DemoCut from the user's perspective (Figure~\ref{fig:block-diagram}). The following section will describe our video analysis pipeline.
 
-\begin{figure}[t]
+\begin{figure*}[t!]
   \centering
-  \includegraphics[width=0.7\columnwidth]{\democut/fig/block-diagram}
-  \caption{DemoCut users first mark their recorded video in the Annotation Interface. DemoCut then segments their recording and suggests video edits, which users can change in the Editing Interface.}
-  \label{fig:block-diagram}
-  \vspace{-0.15in}
-\end{figure}
+  \includegraphics[width=\columnwidth]{\democut/fig/two-column-ui-small}
+  \caption{Users first add markers to their recorded video in the Annotation Interface (A). Each marker can be labeled with a descriptive string (B). The Editing Interface shows automatically generated segments with effect suggestions (C). Users can change the effect (D) applied to each segment (E).}
+  \label{fig:ui}
+\end{figure*}
 
 \subsection{Annotating the Video}
 The purpose of the DemoCut Annotation UI is to collect high-level information that is difficult to extract automatically but useful in determining how to edit the video.
@@ -38,7 +45,7 @@ Users can add descriptions to markers (Figure~\ref{fig:ui}B). These descriptions
 %The collected meta-data is then used for later analysis.
 
 \subsection{Automatic Video Editing}
-Based on the user's markers, DemoCut automatically segments the raw footage and applies editing effects.
+Based on the user's markers, DemoCut automatically segments the raw footage and applies editing effects using the following techniques.
 %To automatically segment the video, DemoCut uses two types of analysis. First, it looks for changes in the video around markers using frame differencing. Second, it detects narration through audio analysis. It combines the video and audio analysis to select appropriate editing effects from two classes: temporal effects and visual effects. The user can change effects selected by the system in the Editing Interface.
 
 \subsubsection{Temporal Effects}
@@ -61,6 +68,13 @@ it applies the Fast Motion effect by default but offers users control to change 
 
 If these temporal effects are not appropriate, DemoCut plays the audio and video at the captured rate. We call this the {\em Normal} effect.
 
+\begin{figure}[b]
+  \centering
+\includegraphics[width=0.7\columnwidth]{\democut/fig/fastmotion}
+  \caption{DemoCut accelerates playback of video with intermittent audio narration through Fast Motion (A) and Leap Frogging (B).}
+  \label{fig:fastmotion}
+\end{figure}
+
 \subsubsection{Visual Effects}
 In addition to manipulating time, DemoCut offers three visual effects to structure the video and to provide emphasis. These visuals appear for the duration of the segment DemoCut derived from the user's marker:
 
@@ -70,25 +84,6 @@ In addition to manipulating time, DemoCut offers three visual effects to structu
 
 {\em Visual annotation}: DemoCut overlays visual box or arrow annotation specified by the user in the marking stage.
 
-%\begin{itemize}
-%  \setlength{\itemsep}{0pt}
-%  \item \emph{Fast motion with merged audio}: when a shot includes several audio segments % (EXAMPLE: Salad dressing 1:32-)
-%  \item \emph{Autocut with synchronized audio}: Alternative option
-%  \item \emph{Fast motion}: when a non-closeup shot contains neither movement nor long narration % (EXAMPLE: Salad dressing 11:49-)
-%  \item \emph{Skip}: cut-out shots marked by user % (EXAMPLE: Salad dressing 6:30-, Front light 2:56-, 3:22-)
-%  \item \emph{Normal}: when there is movement % (EXAMPLE: Front light 3:17-)
-  % \item \pc{\emph{Freeze}: if a closeup is too short} - ? % (EXAMPLE: Salad dressing 10:38-)
-%\end{itemize}
-
-\begin{figure}[t]
-  \centering
-\includegraphics[width=0.7\columnwidth]{\democut/fig/fastmotion}
-  \caption{DemoCut accelerates playback of video with intermittent audio narration through Fast Motion (A) and Leap Frogging (B).}
-  \label{fig:fastmotion}
-  \vspace{-0.1in}
-\end{figure}
-
-\vfill
 \subsection{Reviewing and Editing}
 Since our automatic video and audio segmentation has a limited understanding of the video, it is likely that some editing decisions will be incorrect. For example, DemoCut's algorithms have no way of inferring whether audio-video synchronization will or will not be required in a given segment. In addition, automatic analysis may also lead to errors: if the narration is not correctly segmented, speech can be cut off mid-sentence. DemoCut's editor gives authors the opportunity to review and revise all editing decisions.
 

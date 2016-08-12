@@ -1,10 +1,10 @@
 %!TEX root = ../thesis.tex
 \subsection{Discussion}
 
-\subsubTitleBold{New Tool to Present Video in Real-Time}
+\subsubsection{New Tool to Present Video in Real-Time}
 DemoWiz is an attempt to make demo videos more engaging by helping presenters anticipate the upcoming events rather than reacting to them, leveraging a refined workflow with augmented visualizations. Overall, participants liked the DemoWiz visualization, finding it supportive rather than distracting. For examples, P4 said, \iquote{Event visualization was very powerful – definitely the way to go}. and P2 (who first experienced Baseline) was originally skeptical when he first saw the visualization but immediately found it helpful and not distracting. This corresponds with our goal of designing the visualization with a minimal cognitive load.
 
-\subsubTitleBold{Editing Capabilities}
+\subsubsection{Editing Capabilities}
 Lightweight editing during rehearsal not only makes it easy to edit the recorded video but also lowers the burden of the initial recording. Presenters do not have to prepare a complete script for exact timing. They also do not have to repeat recording many times to grab the best recording.
 
 Some participants appreciated our design choice of providing only minimum but essential editing capabilities to make the process as light as possible. P2 mentioned that \iquote{Ironically, I think it's better to have limited editing feature set -{}- this system was very easy to learn/use}. A few participants expressed the need for more editing features: P1 explained, \iquote{(I wish the system could be) cutting events in parts so that I can slow down/speed up/remove portions of, e.g., a mouse trajectory}; P3 wanted to \iquote{flip segments around} and P8 thought \iquote{break up or merge blocks} would be helpful. We found these interesting as the system enabled more possibilities, but there is a tradeoff between providing a powerful tool and lowering the burden in editing. We believe that this is a design choice that needs to be balanced.
@@ -13,11 +13,11 @@ Our system does not support combining two or more video clips for a presentation
 
 Editing can still be limited to support fine timing control of narration. P10 explained, \iquote{The length of narration changes each time I present, and it is difficult to perfectly align the} \textit{timing.} Automatically navigating a video based on presenters’ performances could be an interesting avenue of exploration, similar to scenarios of following a tutorial \cite{Pongnumkul:2011ju} or performing music \cite{Lee:2005:IOC:1054972.1055073}. However, we decided not to pursue this approach because it would present its own form of risk relying on unreliable speech recognition during a live presentation. Also, considering the time constraints presenters usually have, we chose to provide full control for presenters rather than trying to intelligently update a video.
 
-\subsubTitleBold{Study Audience Engagement}
+\subsubsection{Study Audience Engagement}
 In our user study, we gathered presenters’ opinions as to how engaging their presentation was, and we explored the relative timing of the narration to events in the video. Ultimately, however, our goal is to help increase audience engagement. Measuring audience engagement is an ongoing topic of research, and we would like to explore ways of quantifying the relative impact of the DemoWiz system, but that work was out of scope for this project.
 
-\subsubTitleBold{Enhance the Audience View}
+\subsubsection{Enhance the Audience View}
 Some participants commented that it would be helpful to highlight certain input events for the viewers to observe subtle changes. For example, P10 wanted to enable, \iquote{visualize mouse events such as clicks and scrolls for the audience so they know what is going on.} The current DemoWiz framework makes it easy to achieve this goal by highlighting the audience view \textit{only} when the event happens. In other words, presenters and audience will see different visual effects, where the former observe events in advance and the latter see a visualization synchronized with the demo video content.
 
-\subsubTitleBold{Beyond Software Demonstrations}
+\subsubsection{Beyond Software Demonstrations}
 Although our current implementation is focused on software demonstrations, we argue that it is possible to expand our system design to more advanced inputs. By defining event types that a system recognizes (e.g., a pinch gesture on a multitouch device or a specific pose detected by a 3D sensor), it is possible to log the events and align them with the captured video for later use. In addition, the enhanced presentation mode can be potentially applied to other domains where knowing the timing and the sequence of events is crucial, such as narrating over animated presentation slides with dynamic graphical objects. DemoWiz is an important first step towards validating this general approach and we believe our work could inspire future research in these directions.
