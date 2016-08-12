@@ -26,10 +26,7 @@ Paperwork:
 
 TODO:
 * Add general pipeline figure (two layers)
-* DemoCut: add list of videos
-* update DemoDraw from UIST
 * check citations and captions
-* acknowledgment
 
 Important changes:
 * Heavily rewrite 3.1 in Related Work with a better flow and discuss the relations to our work (still working on 3.2 and 3.3).
