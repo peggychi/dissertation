@@ -1,14 +1,6 @@
 %!TEX root = thesis.tex
 % Pipeline of the DemoDraw system: technical details
 
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=0.8\columnwidth]{\demodraw/fig/pipeline/pipeline}
-  \caption{\systemname{} System Components and Pipeline}
-  % \dan{now that I understand the components better, we should emphasize motion capture component less since didn't make much contribution there.  I tweaked the figure to do this, and also highlighted the ``interaction pipeline'' (demo, review, retake) a bit better too.   }
-  \label{fig:pipeline}
-\end{figure}
-
 \section{Generation Pipeline}
 
 % \dan{I think we should downplay ``pipeline'' and emphasize ``system components'' ... pipeline sound very linear and non-iterative.}
@@ -36,6 +28,14 @@ A notable technical contribution is our motion segmentation algorithm combining 
 It runs interactively on a Macbook Pro with Windows Bootcamp (2.5 GHz Intel Core i7 processor and 16 GB memory).
 %
 Below we describe the design and implementation of each component.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.8\columnwidth]{\demodraw/fig/pipeline/pipeline}
+  \caption{\systemname{} System Components and Pipeline}
+  % \dan{now that I understand the components better, we should emphasize motion capture component less since didn't make much contribution there.  I tweaked the figure to do this, and also highlighted the ``interaction pipeline'' (demo, review, retake) a bit better too.   }
+  \label{fig:pipeline}
+\end{figure}
 
 % ---------------------------------------------------------------
 
@@ -220,7 +220,7 @@ In this way, the same movements would be shown more concisely with a single up a
 \subsubTitleBold{Other Adjustments}
 Authors can review the results using the \phaseI{} or \phaseII{}. With the latter, line weight, arrowhead sizes, and color can be adjusted and re-rendered in real-time using graphical widgets (see Figure~\ref{fig:DemoDrawRefinementUI}a). Arrows can also be re-positioned to increase the offset ($\delta$) by direct manipulation dragging.
 %
-Considering some movements cannot be easily seen from the default front camera viewpoint (such as those parallel to the XZ plane, see Figure~\ref{fig:teaser}c top-right), our UI enables the selection of four other camera angles ($\theta$), including three-quarter front views (45$^{\circ}$ and -45$^{\circ}$) and profile views (90$^{\circ}$ and -90$^{\circ}$), all at the eye level. These discrete choices simplify control, but of course it would be possible to select any viewing angle given the 3D avatar and joint information. By default, 8 main joints are analyzed and illustrated, but any of the 25 body joints can be explicitly selected for illustration using the interface.
+Considering some movements cannot be easily seen from the default front camera viewpoint (such as those parallel to the XZ plane, see Figure~\ref{fig:demodraw_teaser}c top-right), our UI enables the selection of four other camera angles ($\theta$), including three-quarter front views (45$^{\circ}$ and -45$^{\circ}$) and profile views (90$^{\circ}$ and -90$^{\circ}$), all at the eye level. These discrete choices simplify control, but of course it would be possible to select any viewing angle given the 3D avatar and joint information. By default, 8 main joints are analyzed and illustrated, but any of the 25 body joints can be explicitly selected for illustration using the interface.
 
 \subsubTitleBold{Stroboscopic Depiction Style}
 Cutting~\cite{cutting_representing_2002} noted stroboscopic effects are also effective, and we found examples of illustrations with a sequence of overlaid semi-transparent body poses in our survey.
@@ -232,9 +232,9 @@ Authors can adjust the number of intermediate poses $n$ (the default is 3 poses)
 % Authors can then selectively combine these frames by specifying visual parameters, including numbers of frames to show, distance between frames, and whether to apply motion arrows. Our system will automatically adjust the distance and transparency values of selected frames and compose into a diagram.
 
 \subsection{Results}
-The \systemname{} pipeline is capable of generating expressive and clear motion illustrations. In Figure~\ref{fig:teaser}c, motion arrows show the upper body motion (top left), hand waving back and forth (top middle), and hand circular motion (bottom right). Whole body motions can also be visualized (bottom left), and can be especially helpful when motions are best viewed from a different angle, such as the side view (top right).
+The \systemname{} pipeline is capable of generating expressive and clear motion illustrations. In Figure~\ref{fig:demodraw_teaser}c, motion arrows show the upper body motion (top left), hand waving back and forth (top middle), and hand circular motion (bottom right). Whole body motions can also be visualized (bottom left), and can be especially helpful when motions are best viewed from a different angle, such as the side view (top right).
 %
-In Figure~\ref{fig:teaser}d, stroboscopic effect depicts the transition from the start pose to the end pose, which can be rendered as a sequence (top left) or in one combined pose (bottom left). A combination of this effect with motion arrows creates a compact, integrated illustration (top and bottom right).
+In Figure~\ref{fig:demodraw_teaser}d, stroboscopic effect depicts the transition from the start pose to the end pose, which can be rendered as a sequence (top left) or in one combined pose (bottom left). A combination of this effect with motion arrows creates a compact, integrated illustration (top and bottom right).
 
 % \dan{Talk about how expressive this pipeline is referring to diagrams shown in figure 1, the appendix, etc.}
 
