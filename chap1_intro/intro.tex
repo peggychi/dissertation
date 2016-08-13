@@ -49,7 +49,7 @@ To contribute to computational methods of authoring user-generated instructions,
 This dissertation presents video-based computational approaches that enhance tutorial creation and consumption from author demonstrations.
 We encode the current practices from professional authors into automatic algorithms and interactive techniques.
 %
-We develop authoring tools that follow a general workflow (see Figure~\ref{fig:general_pipeline}): An author performs a demonstration of a task. Our systems capture videos and high-level information of the demonstration and gather annotations from authors if necessary. Automatic analysis is then performed and editing decisions are made to produce effective instructions. Authors can review the generated results, edit, or iteratively re-perform a task.
+We develop authoring tools that follow a general workflow (see Figure~\ref{fig:general_pipeline}): An author first performs a demonstration of a task. Our systems capture videos and high-level information of the demonstration. Automatic analysis on the captured materials is performed during or after the performance. Based on the analysis, the systems integrate videos, author annotations, and automatic editing decisions to produce effective instructions. Authors can review the generated results, edit, or iteratively re-perform a task.
 %
 Using this workflow, our work dramatically increases the quality of amateur-produced video instructions, which in turn improves learning for viewers who interactively navigate the content.
 
@@ -58,7 +58,7 @@ We will introduce five interactive systems that we develop to address these chal
 \begin{figure}[t!]
   \centering
   \includegraphics[width=0.8\columnwidth]{\intro/fig/pipeline}
-  \caption{Our video-based approaches capture an author's demonstration, analyze, and automatically edit the captured materials to produce effective instructions. Authors can review their recordings, modify the generated results, or re-perform a demonstration.}
+  \caption{Our video-based approaches capture an author's demonstration, analyze the captured materials, and automatically make editing decisions to produce effective instructions. Authors can review their recordings, modify the generated results, or re-perform a demonstration.}
   \label{fig:general_pipeline}
 \end{figure}
 
