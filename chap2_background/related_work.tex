@@ -315,7 +315,7 @@ Finally, when video analysis is a matter of subjective taste, identifying salien
 % summary
 MixT, DemoCut, Kinectograph, and DemoDraw also use computer vision techniques for automatic editing. They differ from previous approaches in their focus on two particular application domains -- software and physical demonstration videos.
 %
-By focusing on a specific domain, MixT and DemoCut can make assumptions about the structure of the input and output video, such as the fact that there is a linear set of steps. DemoCut offers an authoring interface and algorithms that make it easier to create high quality instructional videos.
+By focusing on a specific domain, MixT and DemoCut can make assumptions about the structure of the input and output video, such as the fact that there is a linear set of steps. DemoCut offers an authoring interface that makes it easier to create high quality instructional videos.
 %
 Kinectograph makes editing decisions (e.g., pan-and-tilt, zooming) based on an actor's body location in video frames.
 %
@@ -335,7 +335,7 @@ These techniques help viewers understand content flow and navigate videos, and h
 Canvases of video tiles and timelines~\cite{Al-Hajri:2014:VPH:2611105.2557106} or thumbnails~\cite{Matejka:2013:SIO:2470654.2466149} can make navigating long videos or sets of videos faster. Video digests can be an effective way for viewers to browse and skim video content~\cite{Pavel:2014:VDB:2642918.2647400}.
 % Lecture videos~\cite{Tang:2006:DIU:1111449.1111523},
 
-In summary, these novel forms of video navigation inspired us to help viewers navigate video content more effectively with our tools.
+These novel forms of video navigation inspired us to help viewers navigate video content more effectively with our tools.
 %
 MixT supports per-step video navigation embedded in a static tutorial.
 %
@@ -343,4 +343,5 @@ DemoWiz augments a screencast video with novel visualization to help users view 
 %
 DemoDraw renders a series of human movements as concise motion illustrations.
 
-% In contrast to these systems, we do not require the author to manipulate the camera or system during capture. Many leisure activities, such as home repair or cooking, require use of both hands or involve getting one's hands dirty, so camera manipulation is not possible. We use vision techniques for automatic recording and editing. It differs from previous approaches in its focus on particular application domains -- software and physical demonstrations. By focusing on specific domains, we can make assumptions about the structure of the input and output video, such as the fact that there is a linear set of steps or movements, and offer user interfaces and algorithms that make it easier to create high quality instructions.
+\subsection{Summary}
+Our approaches take video as both system \emph{input} (i.e., to track changes of salient UI components of screencast videos in MixT, DIY activities in DemoCut, and body movements in Kinectograph and DemoDraw) and \emph{output} (i.e., to offer interactive instructions with MixT's per-step video segments, DemoWiz's augmented screencast recording, DemoCut's concise video, and Kinectograph's instructor-focused video). We design user interfaces and algorithms for authors and learners to interact with video-based instructional content.
