@@ -9,11 +9,20 @@ each segment based on the type of the corresponding user marker and
 the properties of the audio/video content in the segment. The rest of
 this section describes these steps in detail.
 
-\begin{figure}[t]
+\begin{figure}[b]
   \centering
 \includegraphics[width=0.8\columnwidth]{\democut/fig/pipeline}
   \caption{Given user markers, DemoCut analyzes both video and audio to segment the demonstration video and apply editing effects.}
   \label{fig:democut_pipeline}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+\includegraphics[width=0.6\columnwidth]{\democut/fig/video-similarity}
+  \caption{DemoCut looks for similar video frames before and
+after a marked frame $T^m$ to find candidate start ($T^s$) and end ($T^e$) frames
+for the corresponding segment.}
+ \label{fig:video-similarity}
 \end{figure}
 
 \subsection{Video Segmentation}
@@ -49,6 +58,13 @@ Adjacent segments can have different effects that change how video and audio are
 % segments. Segment boundaries should therefore be carefully adjusted based on the audio
 % track to avoid interrupting the author's narration.
 
+\begin{figure}[t]
+  \centering
+\includegraphics[width=0.8\columnwidth]{\democut/fig/audio}
+  \caption{We use RMS energy of the audio to find silent and non-silent regions. We determine the threshold for silence by analyzing the histogram of the RMS energy.}
+  \label{fig:audio}
+\end{figure}
+
 \subsubsection{Detecting non-silent sections}
 %
 Since many DIY videos include prominent non-speech sounds such as
@@ -75,18 +91,6 @@ the root mean square (RMS) energy~\cite{Panagiotakis:2005eb} across
 the entire waveform. The RMS energy
 for a window of size $n$ is $\sqrt{(\sum_{n}{x_i^2})/n}$ where $x_i$ is the value of
 the $i$th audio sample in the window. We set window sizes as 0.1 second with $n = 4410$. Prior to computing RMS energy, the audio is normalized and noise-reduced with Adobe Audition.
-
-\begin{figure}[t]
-  \centering
-\includegraphics[width=0.6\columnwidth]{\democut/fig/video-similarity}
-  \caption{DemoCut looks for similar video frames before and
-after a marked frame $T^m$ to find candidate start ($T^s$) and end ($T^e$) frames
-for the corresponding segment.}
- \label{fig:video-similarity}
-   \vspace{-0.05in} %bjoern: at -0.25, fig 8 below cuts off caption text of this fig
-\end{figure}
-
-
 
 \emph{Computing loudness threshold.} After analyzing the RMS energy
 profiles of several different types of DIY videos, we found that the
@@ -125,15 +129,6 @@ seconds to account for any clicks and pops in the recorded audio.
 The 0.4 and 0.8 second thresholds for silent and non-silent sections
 were tuned experimentally, and we used these parameter values for all
 of our results.
-%
-%To filter out short silent pauses between spoken words, we smooth the labeled array using a sliding window of 0.5 second: if there exists a silent label $L_0$ between two non-silent labels $L_1$ in a sliding window, flip $L_0$ to $L_1$. Finally, we segment the smoothed labeled array by finding consecutive non-silent labels $L_1$ and save as a list of non-silent sections {[$S_1^s$, $S_1^e$], [$S_2^s$, $S_2^e$], \ldots, [$S_m^s$, $S_m^e$]} (Figure \ref{fig:audio}C).
-
-\begin{figure}[t]
-  \centering
-\includegraphics[width=0.8\columnwidth]{\democut/fig/audio}
-  \caption{We use RMS energy of the audio to find silent and non-silent regions. We determine the threshold for silence by analyzing the histogram of the RMS energy.}
-  \label{fig:audio}
-\end{figure}
 
 \subsubsection{Adjusting segment boundaries}
 

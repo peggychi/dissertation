@@ -49,7 +49,7 @@ To contribute to computational methods of authoring user-generated instructions,
 This dissertation presents video-based computational approaches that enhance tutorial creation and consumption from author demonstrations.
 We encode the current practices from professional authors into automatic algorithms and interactive techniques.
 %
-We develop authoring tools that follow a general workflow (see Figure~\ref{fig:general_pipeline}): An author first performs a demonstration of a task. Our systems capture videos and high-level information of the demonstration. Automatic analysis on the captured materials is performed during or after the performance. Based on the analysis, the systems integrate videos, author annotations, and automatic editing decisions to produce effective instructions. Authors can review the generated results, edit, or iteratively re-perform a task.
+We develop authoring tools that follow a general workflow (see Figure~\ref{fig:general_pipeline}): An author first performs a demonstration of an instructional task. Our systems capture videos and high-level information that is important to a learner for understanding a task. Automatic analysis on the captured materials is performed during or after the performance. Based on the analysis, the systems integrate videos, author annotations, and automatic editing decisions to produce effective instructions. Authors can review the generated results, edit, or iteratively re-perform a task.
 %
 Using this workflow, our work dramatically increases the quality of amateur-produced video instructions, which in turn improves learning for viewers who interactively navigate the content.
 
@@ -125,7 +125,7 @@ Our study showed that fewer anticipation errors and narration delays were made w
 
 \subsection{Tutorial Generation from Software Demonstration}
 
-While new tutorial formats are shown to be useful, manually creating instructions can be extremely time- and effort-consuming. In response, we design computational methods to automate the creation process from an author demonstration. MixT and DemoWiz capture screencast video and input device events from a demonstration of a task in a software application. MixT also records application commands for video analysis. Computer vision and visualization techniques are integrated to segment a video into steps, extract salient information, and add visual highlights.
+While new tutorial formats are shown to be useful, manually creating instructions can be extremely time- and effort-consuming. In response, we design computational methods to automate the creation process from an author demonstration. MixT and DemoWiz capture screencast video and input device events from demonstration of a task in a software application. MixT also records application commands for video analysis. Computer vision and visualization techniques are integrated to segment a video into steps, extract salient information, and add visual highlights.
 %
 In addition, DemoWiz supports an editing phase where authors can adjust the timing of events in a video. Playback speed of recorded actions can be modified or skipped via an editing UI. Our studies showed that our algorithms for step segmentation, event detection, and visualization were effective (\textless8\% error rate in MixT and 0\% in DemoWiz).
 
