@@ -93,21 +93,11 @@ In addition to manipulating time, DemoCut offers three visual effects to structu
 \subsection{Reviewing and Editing}
 Since our automatic video and audio segmentation has a limited understanding of the video, it is likely that some editing decisions will be incorrect. For example, DemoCut's algorithms have no way of inferring whether audio-video synchronization will or will not be required in a given segment. In addition, automatic analysis may also lead to errors: if the narration is not correctly segmented, speech can be cut off mid-sentence. DemoCut's editor gives authors the opportunity to review and revise all editing decisions.
 
-In the Editing Interface, the video is visualized as a set of segments (Figure \ref{fig:ui_editing}C) flowing from top to bottom on the right side of the main video view (Figure \ref{fig:ui_editing}A). There is no traditional timeline for two reasons: first, editing operations only apply to detected segments (we consciously prevent users from applying frame-level edits to keep with the goal of a semantic editor); second, because segments may come with labels entered by the user, a vertical layout makes it easier to read labels. Users can navigate to any segment by clicking on its thumbnail. Once selected, they can change which effect should be applied to a given segment (Figure \ref{fig:ui_editing}B). Users can also modify any visual effects, to edit subtitles, resize the cropped region, or add/delete highlights. When satisfied with their choices, users can export a continuous video suitable for online video sharing platforms.
+In the Editing Interface, the video is visualized as a set of segments (see Figure \ref{fig:ui_editing}C) flowing from top to bottom on the right side of the main video view (see Figure \ref{fig:ui_editing}A). There is no traditional timeline for two reasons: first, editing operations only apply to detected segments (we consciously prevent users from applying frame-level edits to keep with the goal of a semantic editor); second, because segments may come with labels entered by the user, a vertical layout makes it easier to read labels. Users can navigate to any segment by clicking on its thumbnail. Once selected, they can change which effect should be applied to a given segment (see Figure \ref{fig:ui_editing}B). Users can also modify any visual effects, to edit subtitles, resize the cropped region, or add/delete highlights (see Figure \ref{fig:editing_arrow}). When satisfied with their choices, users can export a continuous video suitable for online video sharing platforms.
 
-%\subsection{Tutorial Outputs Formats}
-%\bh{Cut, shorten or merge with previous?}
-%Finally, DemoCut produces the edited video in three formats:
-%\begin{itemize}
-%  \setlength{\itemsep}{0pt}
-%  \item \emph{Video only}: a complete video clip with subtitles and effects for video %sharing platforms.
-%  \item \emph{Indexed video}: a video player with markers below the timeline, similar to %the DemoCut Annotation UI. Viewers can navigate to a specific instruction via the marker %buttons.
-%  \item \emph{Step-by-step instructions}: a series of mixed-media instructions on a web %page. Researchers identified how ... \cite{Chi:2012:MAG:2380116.2380130}.
-%\end{itemize}
-
-% \bh{say something about exporting in different formats?} \pc{move this subsection back from future work}
-
-%Answer: why not provide visual sense of time
-
-%visualize timeline: modified from timeline.js \cite{Cazenave:2011dg}
-%\bh{I don't think you want to describe this as a UI for the author - this is a debugging tool for us and a %tool to explain the analysis through figure in the next section}.
+\begin{figure}[b!]
+  \centering
+  \includegraphics[width=0.9\columnwidth]{\democut/fig/editing/editing_arrow}
+  \caption{Users can annotate a video with visual highlights using the Editing Interface, such as adding an arrow to point out an important area (a). Annotations will be rendered on the fly (b).}
+  \label{fig:editing_arrow}
+\end{figure}
