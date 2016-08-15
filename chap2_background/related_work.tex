@@ -25,15 +25,15 @@ Studies have shown that visualizing input events during user operations can make
 
 Input events that can be visualized range from low-level, application-agnostic input device events (e.g., mouse actions, cursor movements, or keyboard strokes) to higher-level, application-dependent information (e.g., menu selections or UI component changes).
 %
-Commercial tools such as Mouseposé\footnote{\url{http://www.boinx.com/mousepose}} and ScreenFlow\footnote{\url{http://www.telestream.net/screenflow}} visualize mouse events and keystrokes with special effects, e.g., drawing a circle around a mouse cursor (see Figure~\ref{fig:related_realtime} top). These tools capture input information (e.g., mouse position and event type) and render visualizations on top of the screen activities. This approach has been widely used by online video tutorial authors. However, it does not consider application context, which can be difficult for learners who want to follow specific instructions at a semantic level, such as observing text field completion or menu option selection.
+Commercial tools such as Mouseposé\footnote{\url{http://www.boinx.com/mousepose}} and ScreenFlow\footnote{\url{http://www.telestream.net/screenflow}} visualize mouse events and keystrokes with special effects, e.g., drawing a circle around a mouse cursor (see Figure~\ref{fig:related_realtime}a). These tools capture input information (e.g., mouse position and event type) and render visualizations on top of the screen activities. This approach has been widely used by online video tutorial authors. However, it does not consider application context, which can be difficult for learners who want to follow specific instructions at a semantic level, such as observing text field completion or menu option selection.
 % Some further enable video editing techniques, including zooming in/out  and panning.
 
-To enhance UI components (e.g., a checkbox, button, or editable text field), Dixon \ea{}'s Prefab~\cite{Dixon:2010fb,Dixon:2011:CHP:1978942.1979086} modifies screen pixels in real-time by detecting target features, such as region corners. This semantic understanding of GUI elements enables component-based highlighting effects, such as afterglow~\cite{Baudisch:2006:PET:1166253.1166280} that visualizes user operations (see Figure~\ref{fig:related_realtime} bottom left). It also improves interactions by incorporating techniques like the Bubble Cursor~\cite{Grossman:2005:BCE:1054972.1055012}, a target-aware pointing method that suggests the nearest target (see Figure~\ref{fig:related_realtime} bottom right).
+To enhance UI components (e.g., a checkbox, button, or editable text field), Dixon \ea{}'s Prefab~\cite{Dixon:2010fb,Dixon:2011:CHP:1978942.1979086} modifies screen pixels in real-time by detecting target features, such as region corners. This semantic understanding of GUI elements enables component-based highlighting effects, such as afterglow~\cite{Baudisch:2006:PET:1166253.1166280} that visualizes user operations (see Figure~\ref{fig:related_realtime}b left). It also improves interactions by incorporating techniques like the Bubble Cursor~\cite{Grossman:2005:BCE:1054972.1055012}, a target-aware pointing method that suggests the nearest target (see Figure~\ref{fig:related_realtime}b right).
 
 \begin{figure*}[t!]
   \centering
   \includegraphics[width=0.7\textwidth]{\background/fig/realtime/realtime}
-  \caption{Real-time visual enhancements to GUI applications. The top row shows how Mouseposé highlights a mouse cursor (left) and displays keyboard input (right); The bottom row shows how Prefab~\cite{Dixon:2010fb} can enable visualizations and UI enhancements such as target-agnostic afterglow effects~\cite{Baudisch:2006:PET:1166253.1166280} (left) and target-aware cursor effects~\cite{Grossman:2005:BCE:1054972.1055012} (right) by identifying and reverse engineering UI components.}
+  \caption{Real-time visual enhancements to GUI applications are commonly used in instructional videos. a) Mouseposé highlights a mouse cursor (left) and displays keyboard input (right). b) Prefab~\cite{Dixon:2010fb} creates effects such as target-agnostic afterglow~\cite{Baudisch:2006:PET:1166253.1166280} (left) and target-aware cursor~\cite{Grossman:2005:BCE:1054972.1055012} (right) by identifying and reverse engineering UI components.}
   \label{fig:related_realtime}
 \end{figure*}
 
@@ -42,15 +42,14 @@ The methods above enable real-time visualization of input events when a user is 
 %
 But to present events in a static tutorial, screenshot images are commonly annotated using different techniques in order to visualize continuous actions, such as navigating a menu from the root to a sub-panel. Applying motion arrows is a popular way to provide a sense of direction and start and end positions of mouse events.
 %
-Researchers have investigated automatic approaches that capture and visualize these types of events in representative screenshots from author demonstrations. Nakamura and Igarashi~\cite{Nakamura:2008:ASV:1449715.1449721} proposed a capturing and rendering system independent of specific GUI applications. Their system logs mouse events during a software demo, including mouse movement, dragging, and clicking. Operations are rendered as markers and arrows on screenshot images to present the linear event history (see Figure~\ref{fig:related_events} top).
+Researchers have investigated automatic approaches that capture and visualize these types of events in representative screenshots from author demonstrations. Nakamura and Igarashi~\cite{Nakamura:2008:ASV:1449715.1449721} proposed a capturing and rendering system independent of specific GUI applications. Their system logs mouse events during a software demo, including mouse movement, dragging, and clicking. Operations are rendered as markers and arrows on screenshot images to present the linear event history (see Figure~\ref{fig:related_events}A).
 %
-Grabler \ea{}'s approach~\cite{Grabler:2009jj} further annotates a screenshot with bounding boxes and call-outs, which help learners identify parameters and specific functionality available in the interface (see Figure~\ref{fig:related_events} bottom).
+Grabler \ea{}'s approach~\cite{Grabler:2009jj} further annotates a screenshot with bounding boxes and call-outs, which help learners identify parameters and specific functionality available in the interface (see Figure~\ref{fig:related_events}B).
 
 \begin{figure*}[t!]
   \centering
-  \includegraphics[width=0.6\textwidth]{\background/fig/software_viz/Nakamura_and_Igarashi}
-  \includegraphics[width=\textwidth]{\background/fig/software_viz/Grabler}
-  \caption{Examples where software operations are automatically rendered on top of application screenshots, including (top) moving the mouse, dragging, clicking, and scrolling by Nakamura and Igarashi~\cite{Nakamura:2008:ASV:1449715.1449721} and (bottom) application-specific operations (a-b), parameter setting (c-f), and image manipulations (g-f) by Grabler \ea{}~\cite{Grabler:2009jj}.}
+  \includegraphics[width=\textwidth]{\background/fig/software_viz/software_viz}
+  \caption{Examples where software operations are automatically rendered on top of application screenshots, including (A) moving the mouse, dragging, clicking, and scrolling by Nakamura and Igarashi~\cite{Nakamura:2008:ASV:1449715.1449721} and (B) application-specific operations (a-b), parameter setting (c-f), and image manipulations (g-f) by Grabler \ea{}~\cite{Grabler:2009jj}.}
   \label{fig:related_events}
 \end{figure*}
 
@@ -74,20 +73,19 @@ Beyond logging input events during an author's demonstration, researchers have s
 
 \begin{figure*}[t!]
   \centering
-  \includegraphics[width=0.8\textwidth]{\background/fig/related_static/grabler}
+  \includegraphics[width=0.75\textwidth]{\background/fig/related_static/grabler}
   \caption{A static tutorial automatically generated by Grabler \ea{}'s system~\cite{Grabler:2009jj}.}
   \label{fig:related_static}
 \end{figure*}
 
-With many tutorials to choose from, it can be useful for learners to have sophisticated ways to compare alternatives. To compare effects of individual operations in a workflow, showing a list of ``before'' and ``after'' thumbnails, video clips, and event timelines can be effective \cite{Grossman:2010jz}, as Chronicle demonstrated for image manipulation tasks (see Figure~\ref{fig:related_comparison} left).
+With many tutorials to choose from, it can be useful for learners to have sophisticated ways to compare alternatives. To compare effects of individual operations in a workflow, showing a list of ``before'' and ``after'' thumbnails, video clips, and event timelines can be effective \cite{Grossman:2010jz}, as Chronicle demonstrated for image manipulation tasks (see Figure~\ref{fig:related_comparison}a).
 %
-When there are multiple workflows that produce similar results, side-by-side documents and a union graph, which shows the edit distance as a cluster view, can help learners choose the right workflow based on the operations each one uses~\cite{Kong:2012:DTR:2207676.2208549} (see Figure~\ref{fig:related_comparison} right).
+When there are multiple workflows that produce similar results, side-by-side documents and a union graph, which shows the edit distance as a cluster view, can help learners choose the right workflow based on the operations each one uses~\cite{Kong:2012:DTR:2207676.2208549} (see Figure~\ref{fig:related_comparison}b).
 
 \begin{figure*}[t!]
   \centering
-  \includegraphics[width=0.35\textwidth]{\background/fig/software_viz/Grossman}
-  \includegraphics[width=0.55\textwidth]{\background/fig/software_viz/Kong}
-  \caption{Instructional systems that help learners compare effects and similar tutorials using (left) before and after images (a) and event timelines (b) by Grossman \ea{}~\cite{Grossman:2010jz} and (right) side-by-side documents by Kong \ea{}~\cite{Kong:2012:DTR:2207676.2208549}.}
+  \includegraphics[width=\textwidth]{\background/fig/software_viz/related_comparison}
+  \caption{Instructional systems that help learners compare image manipulations and similar tutorials using before and after images and event timelines by Grossman \ea{}~\cite{Grossman:2010jz} (a) and side-by-side documents by Kong \ea{}~\cite{Kong:2012:DTR:2207676.2208549} (b).}
   \label{fig:related_comparison}
 \end{figure*}
 
@@ -185,17 +183,16 @@ A \emph{model-based} system analyzes the structure of an object or a task to gen
 %
 Early approaches by Feiner and Seligmann~\cite{feiner:1985:AEA:1299975.1300548,Seligmann:1991:AGI:127719.122732} considered communicative intent and rules of object manipulation to create effective illustrations from 3D models. Their automatically-generated diagrams showed that actions such as snapping latches can be effectively expressed by motion arrows and a cutaway view.
 %
-By analyzing object geometry and other attributes, Agrawala \ea{}'s~\cite{agrawala2003designing} system automatically renders step-by-step assembly instructions for furniture and toys (see Figure~\ref{fig:related_models} left).
+By analyzing object geometry and other attributes, Agrawala \ea{}'s~\cite{agrawala2003designing} system automatically renders step-by-step assembly instructions for furniture and toys (see Figure~\ref{fig:related_models}a).
 %
-Technical diagrams can also be generated, such as exploded views that explain mechanical assembly parts~\cite{li2008automated} and motion illustrations that describe how individual parts are operated~\cite{mitra2010illustrating}. Parts are often highlighted using colors, labeled with text; causal chain sequences of mechanical interaction can be shown as a list of highlighted figures, annotated with motion arrows (see Figure~\ref{fig:related_models} right).
+Technical diagrams can also be generated, such as exploded views that explain mechanical assembly parts~\cite{li2008automated} and motion illustrations that describe how individual parts are operated~\cite{mitra2010illustrating}. Parts are often highlighted using colors, labeled with text; causal chain sequences of mechanical interaction can be shown as a list of highlighted figures, annotated with motion arrows (see Figure~\ref{fig:related_models}b).
 %
 Conversely, an existing technical document can be automatically analyzed and transformed into a 3D animation by parsing its parts, orientation, and visual annotations~\cite{Mohr:2015:RTD:2702123.2702490}.
 
 \begin{figure*}[b!]
   \centering
-  \includegraphics[width=0.3\textwidth]{\background/fig/model_generation/furniture}
-  \includegraphics[width=0.5\textwidth]{\background/fig/model_generation/chain}
-  \caption{Example diagrams automatically generated with a model-based approach: assembly instructions by Agrawala \ea~\cite{agrawala2003designing} (left) and Mitra \ea~\cite{mitra2010illustrating} (right).}
+  \includegraphics[width=0.8\textwidth]{\background/fig/model_generation/model_generation}
+  \caption{Instructional diagrams can be automatically generated with a model-based approach, such as assembly instructions by Agrawala \ea~\cite{agrawala2003designing} (a) and causal chain sequences of mechanical interaction by Mitra \ea~\cite{mitra2010illustrating} (b).}
   \label{fig:related_models}
 \end{figure*}
 
