@@ -1,8 +1,8 @@
-# PhD Dissertation: Designing Video-Based Interactive Instructions
-Pei-Yu (Peggy) Chi's PhD dissertation, summer 2016<br />
+# Designing Video-Based Interactive Instructions
+PhD dissertation by Pei-Yu (Peggy) Chi, summer 2016<br />
 UC Berkeley Computer Science
 
-The dissertation is available on my website [[pdf, 17.4MB](https://people.eecs.berkeley.edu/~peggychi/peggychi_dissertation.pdf)], or see [the Berkeley EECS Technical Reports site](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2016/EECS-2016-150.html).
+This dissertation is available on my website [[pdf, 17.4MB](https://people.eecs.berkeley.edu/~peggychi/peggychi_dissertation.pdf)], or see [the Berkeley EECS Technical Reports site](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2016/EECS-2016-150.html).
 
 ### Abstract
 When attempting to accomplish unfamiliar tasks, people often look for tutorials to follow instructions. While it is easy to access online instructions shared by domain experts, navigating step-by-step guidance using existing tools remains inefficient. In addition, producing high-quality instructions that are easy to follow requires authoring expertise and a significant time investment in editing. This dissertation introduces video-based recording, editing, and playback tools optimized for creating and consuming tutorials from author demonstrations. Our interactive systems capture videos and high-level events that are important to a learner. Using video and audio analysis techniques, we develop algorithms that automatically produce high-quality instructions, which dramatically reduce the effort required for amateur creators. By introducing novel tutorial formats combined with video content, these designs in turn improve viewers’ learning experience.
