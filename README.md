@@ -2,34 +2,28 @@
 Peggy's PhD dissertation, summer 2016<br />
 UC Berkeley Computer Science
 
-* Introduction: 6/3 done text; 7/16 updated figures add broader view
-* Background: 6/20 done text and figures; 7/12 completed techniques
-* Related Work: 7/12 done text and figures
+The dissertation is available on my website [[pdf, 17.4MB](https://people.eecs.berkeley.edu/~peggychi/peggychi_dissertation.pdf)].
+
+* Introduction
+* Background
+* Related Work
 * MixT
 * DemoWiz
 * DemoCut
 * Kinectograph
 * DemoDraw
-* Discussion+Conclusion
+* Conclusion
+* Appendices
 
-Timeline:
-- Meeting with Eric: 6/21 Tue
-- Dissertation talk: 7/21 Thu 1pm
-- Absolute deadline: 8/12 Fri
+Useful links (Berkeley):
+* [Dissertation Writing and Filing | Berkeley Graduate Division](http://grad.berkeley.edu/academic-progress/dissertation/)
+* [Ph.D. Student Guide | EECS at UC Berkeley](https://eecs.berkeley.edu/resources/grads/phd)
+* [EECS Graduation Checklist](https://eecs.berkeley.edu/sites/default/files/graduationchecklist_phd2015.pdf)
+* [Graduate Handbook | EECS at UC Berkeley](http://anarres.cs.berkeley.edu/Gradnotes/section5.shtml#5.3)
 
-Paperwork:
+Paperwork (Berkeley):
 * Signature page
-* Permissions
+* Permission (to include previously published or co-authored material)
 * Evaluation form
 * Dissertation talk form
-* Informal permissions for figures via emails
-
-TODO:
-* Add general pipeline figure (two layers)
-* check citations and captions
-
-Important changes:
-* Heavily rewrite 3.1 in Related Work with a better flow and discuss the relations to our work (still working on 3.2 and 3.3).
-* Address all Bjoern's comments (except one or two and 3.2, 3.3; on my todo list).
-* Add references from psychology and education: why minimal instructions, why pictorial and multimedia instructions.
-* Update the system chapters.
+* Email permissions for figure reuse
