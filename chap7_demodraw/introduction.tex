@@ -1,4 +1,4 @@
-%!TEX root = main.tex
+%!TEX root = ../thesis.tex
 
 \section{Introduction}
 
@@ -20,7 +20,7 @@ For example, one may choose to exaggerate or change the orientation of a hand ge
 %
 Unfortunately, making such adjustments often requires starting over again with new source photos.
 
-To address these challenges, we propose \systemname{}, a system that enables people to rapidly create step-by-step motion illustrations through physical demonstration (see Figure~\ref{fig:demodraw_teaser}). DemoDraw offers two key advantages over existing workflows. First, our system automatically renders characters and motion arrows based on demonstrations, which significantly reduces the amount of time and effort required to create an illustration. Second, DemoDraw helps users iteratively refine demonstrations to produce effective depictions. In our system, users can quickly add, replace, preview and modify demonstration takes.
+To address these challenges, we propose \systemname{}, a system that enables authors to rapidly create step-by-step motion illustrations through physical demonstration (see Figure~\ref{fig:demodraw_teaser}). DemoDraw offers two key advantages over existing workflows. First, our system automatically renders characters and motion arrows based on demonstrations, which significantly reduces the amount of time and effort required to create an illustration. Second, DemoDraw helps users iteratively refine demonstrations to produce effective depictions. In our system, users can quickly add, replace, preview and modify demonstration takes.
 
 Authoring proceeds in two modes: {\em Demonstration}, performed using body motions and voice commands; and {\em Refinement}, which uses a desktop interface.
 %
@@ -32,9 +32,16 @@ An algorithm analyzes speech and motion streams to segment motions into illustra
 With this {\em \phaseI{}}, segmented motions can be reviewed and re-recorded using speech commands.
 In addition, the annotation style and placement can be adjusted, camera angles moved, and alternate visualization styles explored in a mouse-driven GUI \emph{\phaseII{}} (see Figure~\ref{fig:DemoDrawRefinementUI}a).
 %
-A three-part evaluation with 14 participants shows that \systemname{}'s illustrations are effective and amateur authors can use the \phaseI{} and \phaseII{} to proficiently create illustrations of movements with various levels of complexity.
+A three-part evaluation with 14 participants shows that \systemname{}'s illustrations are effective and amateur authors can use the \phaseI{} and \phaseII{} to proficiently create motion illustrations with various levels of complexity.
 
-% DemoDraw integrates physical demonstration and authoring into one interactive workflow. Our work is the first to generate human movement illustrations by demonstration, refinement, and editing as an iterative process. Specifically, we make the following contributions:
+\begin{figure*}[t!]
+  \centering
+  \includegraphics[width=0.8\textwidth]{\demodraw/fig/teaser/teaser}
+  \caption{\systemname{}'s authoring interfaces and results: (a) multi-modal \textit{\phaseI{}} to capture motion, verify results, and re-perform portions if needed; (b) conventional \textit{\phaseII{}} for refinement and exploring other visualization styles; (c-d) examples of illustration styles (annotated with camera viewing angle $\theta$, motion arrow offsets $\delta$, stroboscopic overlap ratio $\rho$, and numbers of intermediate frames $n$).}
+  \label{fig:demodraw_teaser}
+\end{figure*}
+
+DemoDraw integrates physical demonstration and authoring into one interactive workflow. Our work is the first to generate human movement illustrations by demonstration, refinement, and editing as an iterative process. %Specifically, we make the following contributions:
 Our work includes the following specific contributions:
 
 \begin{itemize}
@@ -42,3 +49,5 @@ Our work includes the following specific contributions:
   \item Multi-modal interaction techniques to record, review, retake, and refine demonstration sequences.
   \item Methods to automatically analyze 3D motion data with speech to generate step-by-step annotated illustrations.
 \end{itemize}
+
+% \clearpage

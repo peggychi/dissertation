@@ -1,17 +1,7 @@
 %!TEX root = ../thesis.tex
 % User scenario using the DemoDraw system
 
-\begin{figure*}[!th]
-  \centering
-  \includegraphics[width=0.8\textwidth]{\demodraw/fig/ui/ui}
-  \caption{\systemname{} authoring UI: Using the \phaseI{}, an author sees an avatar following her real-time movement (a). During recording (initiated by voice command ``Start''), real-time feedback shows the speech labels (b). Once a recording is completed by voice command ``Stop'', the motion visualization and a timeline are immediately available (c) for the author to review, and a step-by-step overview will be generated.}
-  \dan{I changed figure start command to Start to match the video.}
-  \label{fig:DemoDrawUI}
-\end{figure*}
-
-\clearpage
-
-\section{Multi-Modal Authoring}
+\section{Creating Illustrations with DemoDraw}
 % \dan{Somewhere in this section need to justify need for motion re-taking and/or motion editing based on \textbf{three kinds of possible errors}: 1) user not happy with their own motion performance; 2) user not happy with quality of Kinect capture; 3) user not happy with system's motion segmentation or identified salience.}\bjoern{I'd add 4) based on illustration review, users decides to change performance to increase legibility.}
 
 \systemname{} is designed for non-experts who cannot effectively or efficiently create concise motion illustrations motions using existing tools.
@@ -26,6 +16,13 @@ In her living room, Marie begins using \systemname{} with the \phaseI{} shown on
 This avatar is shown as an ``outline'' figure, but she could always change to different rendering effects like ``silhouette'' or ``cartoon,'' or select a different 3D human model later using our \phaseII{} (Figure~\ref{fig:DemoDrawRefinementUI}a).
 % \dan{how does she select these while standing in front of the kinect? If she needs to use the \phaseII{} then let's talk about them there or have her pick them using the \phaseII{} before starting the demonstration.} \bjoern{yeah, i was wondering about this too}
 
+\begin{figure*}[!t]
+  \centering
+  \includegraphics[width=0.75\textwidth]{\demodraw/fig/ui/ui}
+  \caption{\systemname{} authoring UI: Using the \phaseI{}, an author sees an avatar following her real-time movement (a). During recording (initiated by voice command ``Start''), real-time feedback shows the speech labels (b). Once a recording is completed by voice command ``Stop'', the motion visualization and a timeline are immediately available (c) for the author to review, and a step-by-step overview will be generated.}
+  \dan{I changed figure start command to Start to match the video.}
+  \label{fig:DemoDrawUI}
+\end{figure*}
 
 \subsubTitleBold{Recording}
 Marie starts recording her physical demonstration with the voice command \iquote{Start.} After a 3-second countdown, \systemname{} captures the position, orientation, and depth distance of her body (using Kinect's simplified 25 body joint model).
@@ -35,7 +32,9 @@ Marie finishes recording by saying \iquote{Stop}.
 
 \subsubTitleBold{Reviewing and Re-Recording}
 After recording, \systemname{} automatically segments the motion around the speech labels and identifies salient joints. An illustration of the first step of Marie's demonstration is rendered with motion arrows, showing the path of the most salient joints. Figure~\ref{fig:DemoDrawUI}c presents an example illustration that shows how her right hand waves from bottom to the top, and the left on the opposite direction. She also notices three panels emerged: A timeline below shows the start, end, and key frame points used to generate the current illustration, a side panel shows the visualized joints; an step-by-step overview of step snapshots is created and added to a motion sequence list.
-%
+
+\clearpage
+
 Marie can navigate to other illustrated steps by either saying \iquote{Next} or \iquote{Back}, or repeating one of the words she said during recording (like \iquote{three}) to skip to that corresponding step. To play an animation showing her continuous motion, she can say \iquote{Play} to play the current step only, or \iquote{Replay} to play the entire motion recording with each step visualization highlighted.
 
 Once Marie reviews the steps, she realizes she should have exaggerated the hand motion in step 4. By saying \iquote{Retake Four,} Marie can re-record a partial sequence of movements including that step (e.g., redoing and saying ``Four'' and ``Five'').

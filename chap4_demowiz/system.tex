@@ -9,7 +9,7 @@ DemoWiz first captures a screencast video and input events during a software dem
 \begin{figure*}[t]
   \centering
   \includegraphics[width=0.7\textwidth]{\demowiz/fig/demowiz_workflow}
-  \caption{DemoWiz workflow: Presenters captures a software demonstration, edit the video recording while rehearsing with our playback UI, and present the edited video to the audience using a presenter view.}
+  \caption{DemoWiz workflow: Presenters capture a software demonstration, edit the video recording while rehearsing with our playback UI, and present the edited video to the audience using a presenter view.}
   \label{fig:demowiz_workflow}
 \end{figure*}
 
@@ -54,7 +54,7 @@ Since the distance between two consecutive event segments vary, we created three
 \begin{figure*}[t]
   \centering
   \includegraphics[width=0.6\textwidth]{\demowiz/fig/arrows/arrows}
-  \caption{Three types of motion arrows in DemoWiz that guide presenters to the next event of different distances at a (A) far, (B) nearly the same, and (C) near location.}
+  \caption{Three types of motion arrows in DemoWiz that guide presenters to the next event of different distances at a far (A), nearly the same (B), and near location (C).}
   \label{fig:demowiz_arrows}
 \end{figure*}
 
@@ -86,19 +86,24 @@ Figure~\ref{fig:demowiz_examples} presents examples of DemoWiz visualizations wi
 % ---------------------------------------------------------------
 
 \subsection{Lightweight Editing During Rehearsal}
-During rehearsal for their demonstration, presenters can modify the video timing and add reminder notes for their narration. DemoWiz shows the type and length of each event in a sequence in a timeline (Figure~\ref{fig:demowiz_teaser}A). Each segment is shown as a block whose width indicates its length in time. To simplify the timeline and avoid fine-grained adjustment,lengths of event blocks are rounded to the second. Presenters can modify the playback speed of a segment by dragging the boundaries of a segment on the timeline. For example, presenters can speed up to shorten long text inputs, and slowdown for fast mouse drag inputs that select multiple objects.
+During rehearsal for their demonstration, presenters can modify the video timing and add reminder notes for their narration. DemoWiz shows the type and length of each event in a sequence in a timeline (Figure~\ref{fig:demowiz_teaser}A). Each segment is shown as a block whose width indicates its length in time. To simplify the timeline and avoid fine-grained adjustment, lengths of event blocks are rounded to the second. Presenters can modify the playback speed of a segment by dragging the boundaries of a segment on the timeline. For example, presenters can speed up to shorten long text inputs, and slowdown for fast mouse drag inputs that select multiple objects.
 
-Sometimes a change in the playback speed may result in an awkward effect that is noticeable to the audience, especially when showing a UI transition. Therefore, DemoWiz supports two special time control markers to enable breaks in the narration. Presenters can add an adjustable \textit{pause} segment, at which the system will pause at the last frame of the previous segment for the specified length of time. If presenters prefer full control on pause length, a \textit{stop} marker ensures the video stays paused at the last frame of the previous segment and will not proceed until presenters manually resume the playback of the video.DemoWiz enables presenters to add a short text note (such as the reminder \iquote{Move and zoom...} in Figure~\ref{fig:demowiz_teaser}) so that they could remind themselves of upcoming actions at a higher level. The note can be positioned manually at any location on a video so that it does not block important video content, and will be shown for 3 seconds before the associated event.For every edit that is associated with time changes (including playback speed and pauses), DemoWiz computes and updates the total presentation time as well as updating the progress bar and countdown to provide accurate timing.
+Sometimes a change in the playback speed may result in an awkward effect that is noticeable to the audience, especially when showing a UI transition. Therefore, DemoWiz supports two special time control markers to enable breaks in the narration. Presenters can add an adjustable \textit{pause} segment, at which the system will pause at the last frame of the previous segment for the specified length of time. If presenters prefer full control on pause length, a \textit{stop} marker ensures the video stays paused at the last frame of the previous segment and will not proceed until presenters manually resume the playback of the video.
+
+DemoWiz enables presenters to add a short text note (such as the reminder \iquote{Move and zoom...} in Figure~\ref{fig:demowiz_teaser}) so that they could remind themselves of upcoming actions at a higher level. The note can be positioned manually at any location on a video so that it does not block important video content, and will be shown for 3 seconds before the associated event.For every edit that is associated with time changes (including playback speed and pauses), DemoWiz computes and updates the total presentation time as well as updating the progress bar and countdown to provide accurate timing.
 
 % ---------------------------------------------------------------
 
 \subsection{Presenter View}
-During presentation, DemoWiz shows two views in separate windows. Presenters can observe visualizations using the presenter view, while the audience will see the audience view with a full-screen video that has no enhanced information. DemoWiz synchronizes the videos in both views based on presenters' editing decisions to ensure the same playback speed and time. As with a conventional video player, presenters can control the video, to pause and play at any time. In addition, when a video is paused (or stopped), presenters can hover the mouse over the demo video in the presenter view to point out an important area, as many presenters currently do in a live demo. DemoWiz then simulates and synchronizes a mouse cursor in the audience view to help the audience follow the demonstration.
+During presentation, DemoWiz shows two views in separate windows. Presenters can observe visualizations using the presenter view, while the audience will see the audience view with a full-screen video that has no enhanced information. DemoWiz synchronizes the videos in both views based on presenters' editing decisions to ensure the same playback speed and time.
+
+As with a conventional video player, presenters can control the video, to pause and play at any time. In addition, when a video is paused (or stopped), presenters can hover the mouse over the demo video in the presenter view to point out an important area, as many presenters currently do in a live demo. DemoWiz then simulates and synchronizes a mouse cursor in the audience view to help the audience follow the demonstration.
 
 % ---------------------------------------------------------------
 
 \subsection{Implementation Details}
 During recording, DemoWiz captures the screen within a specified region and logs low-level system input data with\textit{timestamps} (with an accuracy of 0.1 seconds) from the operating system, including:
+\clearpage
 
 \begin{itemize}
   \item \textit{Mouse events} (mouse downs, mouse ups, and mouse wheel movements) and their \textit{positions} (in x-y coordinates relative to the screen-captured region).

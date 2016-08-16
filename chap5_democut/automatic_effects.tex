@@ -58,13 +58,6 @@ Adjacent segments can have different effects that change how video and audio are
 % segments. Segment boundaries should therefore be carefully adjusted based on the audio
 % track to avoid interrupting the author's narration.
 
-\begin{figure}[t]
-  \centering
-\includegraphics[width=0.8\columnwidth]{\democut/fig/audio}
-  \caption{We use RMS energy of the audio to find silent and non-silent regions. We determine the threshold for silence by analyzing the histogram of the RMS energy.}
-  \label{fig:audio}
-\end{figure}
-
 \subsubsection{Detecting non-silent sections}
 %
 Since many DIY videos include prominent non-speech sounds such as
@@ -84,6 +77,13 @@ non-silent windows. We then apply this threshold to categorize all
 audio windows as silent or non-silent. Finally, we filter this
 categorization to eliminate very short sequences of silent or non-silent samples. Here, we describe these steps in more detail:
 % \bh{I think we mean "window" instead of "sample" for the preceding section, since RMS operates on windows.}
+
+\begin{figure}[t]
+  \centering
+\includegraphics[width=0.7\columnwidth]{\democut/fig/audio}
+  \caption{We use RMS energy of the audio to find silent and non-silent regions. We determine the threshold for silence by analyzing the histogram of the RMS energy.}
+  \label{fig:audio}
+\end{figure}
 
 \emph{Computing loudness.} Given an input audio waveform sampled at
 44.1 kHz (Figure~\ref{fig:audio}A), we estimate loudness by computing

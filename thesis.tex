@@ -1,44 +1,38 @@
 \documentclass{ucbthesis}
 
+\usepackage{appendix}
 \usepackage[backend=biber,
 style=numeric,
 sorting=nyt,
 maxcitenames=4, mincitenames=4,
 maxbibnames=99, minbibnames=99,
 firstinits=false]{biblatex}
-\usepackage{balance}  % to better equalize the last page
-\usepackage{graphics} % for EPS, load graphicx instead
-\usepackage{mathptmx}
-\usepackage[pdftex]{hyperref}
-\usepackage{color}
-\usepackage{booktabs}
-\usepackage{textcomp}
-\usepackage{microtype} % Improved Tracking and Kerning
-\usepackage{ccicons}  % Cite your images correctly!
-\usepackage{todonotes}
-\usepackage{lmodern}
-\usepackage{etoolbox} %for toggle
-\usepackage{soul} %for \hl{highlighting}
-\usepackage{times}
-\usepackage{graphicx}
-\usepackage{subcaption}
-\usepackage[utf8]{inputenc}
 \usepackage[english]{babel} %for bibliography
+\usepackage{balance} % to better equalize the last page
+\usepackage{booktabs}
+\usepackage{ccicons}  % Cite your images correctly!
+\usepackage{color}
 \usepackage{etaremune}
-\usepackage{xspace} % to fix spacing around macros
-\usepackage{appendix}
+\usepackage{etoolbox} %for toggle
 \usepackage[hang]{footmisc} %for footnote
+\usepackage{graphics} % for EPS, load graphicx instead
+\usepackage[pdftex]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{mathptmx}
+\usepackage{microtype} % Improved Tracking and Kerning
+\usepackage{soul} %for \hl{highlighting}
+\usepackage{subcaption}
+\usepackage{textcomp}
+\usepackage{times}
+\usepackage{todonotes}
+\usepackage{xspace} % to fix spacing around macros
 
 \inputencoding{utf8}
 \setlength\footnotemargin{10pt}
 
 \newtoggle{comments}
-% \toggletrue{comments}
 \togglefalse{comments}
-
-\newtoggle{colorchanges}
-\toggletrue{colorchanges}
-%\togglefalse{colorchanges}
 
 \hyphenation{mar-gin-al-ia}
 \hyphenation{bra-va-do}
@@ -47,10 +41,11 @@ firstinits=false]{biblatex}
 
 % ---------------------------------------------------------------
 
+% Styles
 \newcommand\tabhead[1]{\small\textbf{#1}}
 \newcommand\pagetitle[1]{{\centering\large\textbf{#1}\\\vspace{20mm}}}
 \newcommand{\parTitleBold}[1]{{\textbf{#1.}}}
-\newcommand{\subsubTitleBold}[1]{{\textbf{#1.}}} % To replace
+\newcommand{\subsubTitleBold}[1]{{\textbf{#1.}}}
 
 \newcommand{\ea}{{\xspace}et~al.\xspace}
 \newcommand{\keyword}[1]{\emph{#1}}
@@ -58,7 +53,7 @@ firstinits=false]{biblatex}
 \newcommand{\tofix}[1]{{\color{Red}{(Todo: #1)}}}
 \renewcommand{\thempfootnote}{\arabic{mpfootnote}}
 
-% paths
+% Chapter paths
 \newcommand{\intro}{chap1_intro}
 \newcommand{\background}{chap2_background}
 \newcommand{\mixt}{chap3_mixt}
@@ -68,7 +63,7 @@ firstinits=false]{biblatex}
 \newcommand{\demodraw}{chap7_demodraw}
 \newcommand{\conclusion}{chap8_conclusion}
 
-% comment macros
+% Comment macros
 \definecolor{Orange}{rgb}{1,0.5,0}
 \definecolor{Red}{rgb}{1,0,0}
 \definecolor{Green}{rgb}{0,.35,0}
@@ -83,12 +78,7 @@ firstinits=false]{biblatex}
   \newcommand{\peggyc}[1]{}
 }
 
-\iftoggle{colorchanges} {
-  \newcommand{\changes}[1]{{\color{Blue}#1\normalfont}}
-}{
-  \newcommand{\changes}[1]{{#1}}
-}
-
+% avoid conflicts with papers
 \newcommand{\bjoern}[1]{}
 \newcommand{\peggy}[1]{}
 \newcommand{\dan}[1]{}
@@ -119,7 +109,7 @@ firstinits=false]{biblatex}
 \degree{Doctor of Philosophy}
 \chair{Professor Bj\"orn Hartmann}
 \othermembers{Professor Eric Paulos \\
-  Associate Professor Kyle Steinfeld}
+  Professor Kyle Steinfeld}
 \numberofmembers{3}
 
 \field{Computer Science}
@@ -158,10 +148,10 @@ firstinits=false]{biblatex}
 \include{\conclusion/conclusion}
 
 \clearpage
-\printbibliography
+\input{appendix/appendix}
 
 \clearpage
-\input{appendix/appendix}
+\printbibliography
 
 \clearpage
 \input{vita}

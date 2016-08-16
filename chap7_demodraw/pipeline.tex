@@ -1,4 +1,4 @@
-%!TEX root = thesis.tex
+%!TEX root = ../thesis.tex
 % Pipeline of the DemoDraw system: technical details
 
 \section{Generation Pipeline}
@@ -32,8 +32,7 @@ Below we describe the design and implementation of each component.
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.8\columnwidth]{\demodraw/fig/pipeline/pipeline}
-  \caption{\systemname{} System Components and Pipeline}
-  % \dan{now that I understand the components better, we should emphasize motion capture component less since didn't make much contribution there.  I tweaked the figure to do this, and also highlighted the ``interaction pipeline'' (demo, review, retake) a bit better too.   }
+  \caption{\systemname{} system components and pipeline.}
   \label{fig:pipeline}
 \end{figure}
 
@@ -112,7 +111,7 @@ However, in our scenario such as dancing, movements may not necessarily encode a
 %
 We make two assumptions about the synchronized data streams of speech labels and joint movements:
 1) authors make short pauses between motions to be grouped, i.e., $T_i^e < T_{i+1}^s$, and
-2) the speech label utterances overlap or closely occur with at least one joint motion;
+2) the speech label utterances overlap or closely occur with at least one joint motion.
 % step-by-step movements are clearly segmented without an overlap.
 %
 These assumptions are practical since authors often pause for a moment to prepare for demonstrating the next movement in a step-by-step sequence.
@@ -149,7 +148,7 @@ Once a list of moving periods $\{M_j^1, M_j^2, ...\}$ for joint $j$ is determine
 %
 % \fixme{After all the moving sequences of a joint is identified, \systemname{} concatenates these elements and finds the earliest frames at \(T_s\) and latest frame at \(T_e\) as the start and end times of this motion segment. Mark this as a salient joint \(J_i\).} \bjoern{revisit - i find this unclear, but I'm also tired.}\dan{I can't figure it out either, but I think it needs to be explained here}
 %
-After all moving periods are mapped to speech labels for all major joints, the start and end time [$T_i^s$, $T_i^e$] of the motion segment for label $w_i$ are set to the minimum start time and maximum end time across all mapped joint movement periods.
+After all moving periods are mapped to speech labels for all major joints in $J$, the start and end time [$T_i^s$, $T_i^e$] of the motion segment for label $w_i$ are set to the minimum start time and maximum end time across all mapped joint movement periods.
 %as [$\min_{\forall j \in J} T_jm^s$, $\max_{\forall j \in J} T_jm^e$].
 % \dan{the sentence above is my guess at what this means (same as what Bjoern guessed)
 % ``Our algorithm repeats this segmentation for all the major joints. If there are multiple salient joints, combine and adjust [\(T'_s\), \(T'_e\)] for this motion segment.'' \bjoern{How do you do the adjustment? do different joints have individual start and end times, or do you take the min of all start times and the max of all end times?}}
@@ -173,7 +172,7 @@ The salient joints $\{j_i^1, ..., j_i^k\}$ are defined by the set of all joints 
 
 % KEY FRAME
 \subsubTitleBold{Key Pose Selection}
-A key pose is used to represent a motion segment in an illustration. Based on our informal experiment, it is often the end state of movements as motion arrows are pointed toward this end goal (see the Figure~\ref{fig:pipeline} for example). Therefore, we set a key pose at a time near the end of a motion segment, specifically $T_i^{key} = T_i^e - 0.5$ second.
+A key pose is used to represent a motion segment in an illustration. Based on our informal experiment, it is often the end state of movements as motion arrows are pointed toward this end goal (see the Figure~\ref{fig:pipeline} for example). Therefore, we set a key pose at the end of a motion segment, i.e., $T_i^{key} = T_i^e$.
 % \dan{should mention keyframe position in formative study section}
 % \peggy{confirmed, and in figure 2}
 % Therefore, we selects a frame \bjoern{x frames} from the out point \peggy{no intelligence here... how do we better describe?}.
@@ -198,9 +197,7 @@ We use standard Non-Photorealistic Rendering (NPR)~\cite{gooch1998non} technique
 Based on Cutting's criteria~\cite{cutting_representing_2002} and our survey of motion illustrations, we use lines with arrowheads as the default depiction style for visualizing joint movements.
 This style is rendered as follows:
 %
-For each salient joint of a motion segment, the absolute joint positions in world space over the period [$T_i^s$, $T_i^e$] are used to construct a 3D poly-line using Catmull-Rom interpolation.
-% \dan{can smoothing still be turned off?}
-% \peggy{current not}
+For each salient joint of a motion segment, the absolute joint positions in world space over the period [$T_i^s$, $T_i^e - \epsilon$] are used to construct a 3D poly-line using Catmull-Rom interpolation. Rather than visualizing the entire path, we set $\epsilon$ to be 0.5 seconds to visually point the arrow toward the key pose at $T_i^e$.
 Two 3D cones are positioned collinear with the last two polyline positions to form arrowheads for both the beginning and the end of a line.
 %
 Although the poly-line is 3D, it is shaded to appear 2D.

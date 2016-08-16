@@ -33,7 +33,7 @@ To enhance UI components (e.g., a checkbox, button, or editable text field), Dix
 \begin{figure*}[t!]
   \centering
   \includegraphics[width=0.7\textwidth]{\background/fig/realtime/realtime}
-  \caption{Real-time visual enhancements to GUI applications are commonly used in instructional videos. a) Mouseposé highlights a mouse cursor (left) and displays keyboard input (right). b) Prefab~\cite{Dixon:2010fb} creates effects such as target-agnostic afterglow~\cite{Baudisch:2006:PET:1166253.1166280} (left) and target-aware cursor~\cite{Grossman:2005:BCE:1054972.1055012} (right) by identifying and reverse engineering UI components.}
+  \caption{Real-time visual enhancements to GUI applications are commonly used in instructional videos. Mouseposé highlights a mouse cursor (a, left) and displays keyboard input (a, right). Prefab~\cite{Dixon:2010fb} creates effects such as target-agnostic afterglow~\cite{Baudisch:2006:PET:1166253.1166280} (b, left) and target-aware cursor~\cite{Grossman:2005:BCE:1054972.1055012} (b, right) by identifying and reverse engineering UI components.}
   \label{fig:related_realtime}
 \end{figure*}
 
@@ -49,7 +49,7 @@ Grabler \ea{}'s approach~\cite{Grabler:2009jj} further annotates a screenshot wi
 \begin{figure*}[t!]
   \centering
   \includegraphics[width=\textwidth]{\background/fig/software_viz/software_viz}
-  \caption{Examples where software operations are automatically rendered on top of application screenshots, including (A) moving the mouse, dragging, clicking, and scrolling by Nakamura and Igarashi~\cite{Nakamura:2008:ASV:1449715.1449721} and (B) application-specific operations (a-b), parameter setting (c-f), and image manipulations (g-f) by Grabler \ea{}~\cite{Grabler:2009jj}.}
+  \caption{Examples where software operations are automatically rendered on top of application screenshots, including moving the mouse, dragging, clicking, and scrolling by Nakamura and Igarashi~\cite{Nakamura:2008:ASV:1449715.1449721} (A) and application-specific operations (a-b), parameter setting (c-f), and image manipulations (g-f) by Grabler \ea{}~\cite{Grabler:2009jj} (B).}
   \label{fig:related_events}
 \end{figure*}
 
@@ -244,7 +244,6 @@ Last, for specific tasks, information can be conveyed \emph{directly via target 
 This approach is task-specific and can be difficult to generalize to other task domains.
 
 \subsection{Providing Activity-Based Guidance}
-% \subsubTitleBold{Responding to Learners' Progress}
 Finally, we discuss how assistive technologies track a learning process and support guidance based on learners' progress. For some specific tasks such as block assembly~\cite{Gupta2012DuploTrack,Wu:2016:ARI:2856400.2856416} and dancing~\cite{Anderson:2013:YEM:2501988.2502045}, learners' progress can be accurately tracked in 3D. This enables a tutorial system to provide real-time feedback about the learner's performance and what to do next, e.g., where to place the next block to the current model or suggested adjustment on a dance pose.
 %
 However, as we discussed earlier, tracking activities at the instruction level for real-world tasks can still be inaccurate. Therefore, the majority of systems supporting interactive physical guidance enable learners to navigate instructions.
@@ -310,7 +309,7 @@ When material like character animations can be reviewed in 3D, camera angles can
 Finally, when video analysis is a matter of subjective taste, identifying salient frames or highlights can be outsourced to crowd workers~\cite{Bernstein:2011uj,Tang:2012:ECS:2207676.2208622}.
 
 % summary
-MixT, DemoCut, Kinectograph, and DemoDraw also use computer vision techniques for automatic editing. They differ from previous approaches in their focus on two particular application domains -- software and physical demonstration videos.
+MixT, DemoCut, Kinectograph, and DemoDraw also use computer vision techniques for making automatic editing decisions. They differ from previous approaches in their focus on two particular application domains -- software and physical demonstration videos.
 %
 By focusing on a specific domain, MixT and DemoCut can make assumptions about the structure of the input and output video, such as the fact that there is a linear set of steps. DemoCut offers an authoring interface that makes it easier to create high quality instructional videos.
 %
@@ -341,4 +340,4 @@ DemoWiz augments a screencast video with novel visualization to help users view 
 DemoDraw renders a series of human movements as concise motion illustrations.
 
 \subsection{Summary}
-Our approaches take video as both system \emph{input} (i.e., to track changes of salient UI components of screencast videos in MixT, DIY activities in DemoCut, and body movements in Kinectograph and DemoDraw) and \emph{output} (i.e., to offer interactive instructions with MixT's per-step video segments, DemoWiz's augmented screencast recording, DemoCut's concise video, and Kinectograph's instructor-focused video). We design user interfaces and algorithms for authors and learners to interact with video-based instructional content.
+Our approaches take video as system \emph{input} (i.e., to track changes of salient UI components of screencast videos in MixT, DIY activities in DemoCut, and body movements in Kinectograph and DemoDraw), as well as \emph{output} (i.e., to offer interactive instructions with MixT's per-step video segments, DemoWiz's augmented screencast recording, DemoCut's concise video, and Kinectograph's instructor-focused video). We design user interfaces and algorithms for authors and learners to interact with video-based instructional content.
