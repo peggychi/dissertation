@@ -25,8 +25,6 @@ Demonstrations may require users to move around, such as in furniture assembling
 Early testing showed that because the video feed to the tablet has some latency and a lower framerate, selecting joints on the video feed itself can be difficult if those joints are moving. We therefore chose to display a static, iconic body outline.
 %display an iconic body outline next to the video feed on the UI to give users a static target for activating and deactivating joint tracking.
 
-%An indicator marker is overlaid on the realtime view to show where where the camera will center (e.g., if multiple joints are tracked, the center of those joints will be displayed). \bjoern{don't need this i think}
-
 \subsection{Zoom Control}
 Close-ups of important steps are a common editing technique in demonstration videos. To capture close-ups, users can define a zoom region related to their body by dragging a rectangular area across the iconic body outline - e.g., they can draw a region that captures their hands to focus on their hand motions. Because the camera used has a fixed focal length, our current prototype uses digital zoom (Figure~\ref{fig:ZoomView}). By default any joints in the zoomed region are automatically added to the track list.
 

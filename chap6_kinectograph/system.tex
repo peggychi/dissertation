@@ -6,9 +6,6 @@ Kinectograph streams the video view captured from a Kinect camera to a PC. This 
 
 \subsection{Hardware}
 To control the camera view, Kinectograph utilizes the motor system and base provided by the Kubi\footnote{http://www.revolverobotics.com/}, a dynamic telepresence solution for video calls. This connects to the Kinect with a 3D printed holder (Figure~\ref{fig:figure1}). The Kubi uses two Dynamixel AX-12 motors\footnote{http://www.crustcrawler.com/motors/AX12/index.php}, to pan and tilt. Instead of using Kubi's motor control API and microcontroller, we connect Kubi's motors to an external Arduino Mega (ATmega1280)\footnote{http://arduino.cc/en/Main/arduinoBoardMega} so we can better customize the control of the Dynamixel motors.
-% To control the camera view, we designed a specialized dock that holds the Kinect sensor and that can be rotated using a pan-and-tilt servo kit in two axes (Figure~\ref{fig:device}). A bottom servo moves the Kinect left and right (180 degrees), while the top servo moves it up and down (90 degrees from horizon in order to capture the user working area). The mount allows full 180-degree rotation for both horizontal and vertical axis. To control the servo motors of the pan-tilt mechanism, an embedded microcontroller (8-bit ATmega32U4) generates PWM (Pulse-Width Modulation) signals. A base, fabricated on a Projet HD 3000 printer, stabilizes the system and houses the electronics.
-
-%The bottom servo of the pan-tilt system fastens to the middle of the base, while the Kinect holder attaches the Kinect to the pan-tilt system .
 
 \subsection{Auto-Tracking Algorithm}
 
@@ -36,7 +33,6 @@ Figure \ref{fig:math} depicts the geometric relations from the Kinectograph view
 % \subsubsection{Tracking Multiple Joints and Multiple Actors}
 To support multiple target selection, we use the same $\theta_{tilt}$ and $\theta_{pan}$ formulas as above, except $\textless pos_{x}$, $pos_{y}$, $pos_{z} \textgreater$ represents the average of all tracked joint positions rather than the position of one tracked joint.
 %
-% Given...we can move the camera to position multiple targets (i.e. multiple body joints)
 If there is more than one actor in the view, users can select joints from the second user. All selected joints are treated equally to be tracked, and thus the camera angle adjustment works as it does in the previous multiple-joint scenario.
 
 %This method was used for Kinectograph's first prototype for simplicity reasons, with knowledge that their would be limitations. We discuss these limitations farther in our Second User Study section.
@@ -53,7 +49,6 @@ If there is more than one actor in the view, users can select joints from the se
 \subsubsection{Digital Tracking and Zooming}
 % \bh{The Kinect has fixed field of view so we perform digital zoom. This is valuable in demonstration videos to direct the viewer's attention. For higher resolution zooming, future hardware embodiments could either employ a camera with programmable region-of-interest on the sensor, or a camera with a programmatically controllable zoom lens.}
 
-% \bh{Describe how you zoom in initially; when you decide to zoom out, and why you made these decisions.}
 Users may find it important not only to center a joint in the view but also magnify it, such as zooming into the hand during a demonstration showing how to stir the ingredients.
 %
 Thus, Kinectograph allows users to digitally zoom into a specific area with one or more joints. Our algorithm attempts to keep the joint(s) in the same relative position as it was in its initial zoomed in view. This feature works independently of the physical tracking and thus does not require physically controlling the motors or camera.
