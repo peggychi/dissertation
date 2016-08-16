@@ -76,7 +76,6 @@ analyze the histogram to determine a minimum loudness threshold for
 non-silent windows. We then apply this threshold to categorize all
 audio windows as silent or non-silent. Finally, we filter this
 categorization to eliminate very short sequences of silent or non-silent samples. Here, we describe these steps in more detail:
-% \bh{I think we mean "window" instead of "sample" for the preceding section, since RMS operates on windows.}
 
 \begin{figure}[t]
   \centering
@@ -136,8 +135,7 @@ In order to avoid cutting off an author's narration, DemoCut
 adjusts the video segment boundaries using the non-silent sections
 of the audio track (Figure~\ref{fig:democut_pipeline}). First, for any segment
 %[$T_i^s$, $T_i^e$]
-we find
-all of the overlapping non-silent audio sections and then grow the
+we find all of the overlapping non-silent audio sections and then grow the
 segment so that it completely contains all of these non-silent sections.
 %
 Next, DemoCut resolves overlapping segments: If any two segments
@@ -157,16 +155,6 @@ than 2 seconds, it is merged to the shorter adjacent segment.
 Otherwise, DemoCut creates a new segment for the gap. Note
 that such {\em unmarked segments} do not have a corresponding marker, but
 they may still show useful details of the demonstration.
-
-
-%Using the non-silent sections of the audio track, DemoCut adjusts the video segment boundaries for each user-specified marker (Figure \ref{fig:audio}C). For a marker at $T_i^m$ with a shot boundary [$T_i^s$, $T_i^e$] where  $T_{i}^{s} > T_{i-1}^{e}$ and $ T_{i}^{e} < T_{i+1}^{s}$, we find all the overlapped non-silent sections during this time interval: {[$S_j^s$, $S_j^e$], [$S_{j+1}^s$, $S_{j+1}^e$], \ldots, [$S_{j+k}^s$, $S_{j+k}^e$]}.
-%
-%In order to have each video segment contains complete narration without a sound cutoff, we examine the first and last non-silent section and adjust the segment boundary to [$ min(T_{i}^{s}, S_{j}^{s}), max(T_{i}^{e}, S_{j+k}^{e}) $].
-% Note: avoid sound cutoff if a segment is "skipped"
-
-%After all the annotated segments are adjusted, for any two consecutive segments where their boundaries are overlapped that $T_{i}^{e} > T_{i+1}^{s}$ by $x$ seconds, if they share one speech section [$S_j^s$, $S_j^e$], assign this speech section to the video segment that overlaps more and adjust the start and end frames, i.e. either $T_{i}^{e'} = S_{j}^{e}$ or $T_{i+1}^{s'} = S_{j}^{s}$ so that $T_{i}^{e'} < T_{i+1}^{s'}$. If there is no speech section in the overlapped time frame, split into half, i.e. $T_{i}^{e'} = T_{i}^{e} + x/2$ and $T_{i+1}^{s'} = T_{i+1}^{s} - x/2$ (Figure \ref{fig:audio}D).
-
-%In order to completely segment the entire recording, for any gap between annotated segments, if it falls below 2 seconds, merge to the shorter adjacent segment; otherwise, create an empty segment (Figure \ref{fig:audio}E).
 
 \subsection{Applying Effects}
 
